@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.devcycle.com/management-api/
+docs: https://docs.devcycle.com/management-api/
+summary:
+  types:
+  - oauth2
+  - apiKey
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+notes: >-
+  DevCycle exposes two API surfaces with distinct auth models. The Management API
+  (api.devcycle.com) uses OAuth2 client_credentials against the Auth0 tenant
+  (auth.devcycle.com) with an audience of https://api.devcycle.com/; an enterprise
+  refresh_token grant is offered for organizations with strict RBAC. The Bucketing
+  API (bucketing-api.devcycle.com) authenticates with a DevCycle server SDK key
+  passed as a bearer token in the Authorization header. No OAuth scopes are
+  documented - access is audience-based, not scope-based.
+schemes:
+- name: managementOAuth2
+  type: oauth2
+  api: DevCycle Management API
+  source: https://docs.devcycle.com/management-api/
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://auth.devcycle.com/oauth/token
+    audience: https://api.devcycle.com/
+    grant_type: client_credentials
+    scopes: {}
+  enterprise_grant:
+    grant_type: refresh_token
+    note: for organizations with strict role-based access control enabled
+  credentials: Client ID + Secret from the DevCycle dashboard (Settings > API Authentication)
+- name: bearerAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: DevCycle server SDK key, sent as a bearer token
+  api: DevCycle Bucketing API
+  sources:
+  - openapi/devcycle-bucketing-openapi.yaml
