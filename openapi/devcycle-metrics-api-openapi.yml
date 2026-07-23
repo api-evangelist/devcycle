@@ -1,0 +1,732 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences Metrics API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Metrics
+paths:
+  /v1/projects/{project}/metrics:
+    post:
+      operationId: MetricsController_create
+      summary: Create Metric
+      description: Create a new Metric
+      parameters:
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMetricDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metric'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+      tags:
+      - Metrics
+    get:
+      operationId: MetricsController_findAll
+      summary: Get All Metrics
+      parameters:
+      - name: page
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          default: 1
+          type: number
+      - name: perPage
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          maximum: 1000
+          default: 100
+          type: number
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          default: createdAt
+          enum:
+          - createdAt
+          - updatedAt
+          - name
+          - key
+          - propertyKey
+          type: string
+      - name: sortOrder
+        required: false
+        in: query
+        schema:
+          default: desc
+          enum:
+          - asc
+          - desc
+          type: string
+      - name: search
+        required: false
+        in: query
+        schema:
+          minLength: 3
+          type: string
+      - name: dimension
+        required: false
+        in: query
+        schema:
+          enum:
+          - COUNT_PER_UNIQUE_USER
+          - COUNT_PER_VARIABLE_EVALUATION
+          - SUM_PER_UNIQUE_USER
+          - AVERAGE_PER_UNIQUE_USER
+          - TOTAL_AVERAGE
+          - TOTAL_SUM
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Metric'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Metrics
+  /v1/projects/{project}/metrics/{key}:
+    get:
+      operationId: MetricsController_findOne
+      summary: Get a Metric
+      parameters:
+      - name: key
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metric'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Metrics
+    patch:
+      operationId: MetricsController_update
+      summary: Update a Metric
+      parameters:
+      - name: key
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMetricDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metric'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Metrics
+    delete:
+      operationId: MetricsController_remove
+      summary: Delete a Metric
+      parameters:
+      - name: key
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Metrics
+  /v1/projects/{project}/metrics/{key}/results:
+    get:
+      operationId: MetricsController_fetchResults
+      summary: Fetch results for a Metric
+      parameters:
+      - name: feature
+        required: true
+        in: query
+        schema:
+          type: string
+      - name: environment
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: startDate
+        required: true
+        in: query
+        schema:
+          format: date-time
+          type: string
+      - name: endDate
+        required: true
+        in: query
+        schema:
+          format: date-time
+          type: string
+      - name: key
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResult'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Metrics
+  /v1/projects/{project}/test-metric-results:
+    get:
+      operationId: TestMetricResultsController_fetch
+      summary: Test Metric Results
+      description: Fetch metric results with the given parameters
+      parameters:
+      - name: feature
+        required: true
+        in: query
+        schema:
+          type: string
+      - name: control
+        required: true
+        in: query
+        schema:
+          type: string
+      - name: optimize
+        required: true
+        in: query
+        schema:
+          enum:
+          - increase
+          - decrease
+          type: string
+      - name: environment
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: event
+        required: true
+        in: query
+        schema:
+          type: string
+      - name: dimension
+        required: true
+        in: query
+        schema:
+          enum:
+          - COUNT_PER_UNIQUE_USER
+          - COUNT_PER_VARIABLE_EVALUATION
+          - SUM_PER_UNIQUE_USER
+          - AVERAGE_PER_UNIQUE_USER
+          - TOTAL_AVERAGE
+          - TOTAL_SUM
+          type: string
+      - name: startDate
+        required: true
+        in: query
+        schema:
+          format: date-time
+          type: string
+      - name: endDate
+        required: true
+        in: query
+        schema:
+          format: date-time
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricResult'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Metrics
+components:
+  schemas:
+    Result:
+      type: object
+      properties:
+        dataSeries:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPoint'
+        variations:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariationResult'
+      required:
+      - dataSeries
+      - variations
+    DataPoint:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+          description: Date of this data point
+        values:
+          description: Mapping of variation (variation1, variation2 etc.) to result value in that variation
+          allOf:
+          - $ref: '#/components/schemas/VariationValues'
+      required:
+      - date
+      - values
+    UpdateMetricDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the Metric
+          example: New Signups
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-signups
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Metric description.
+          example: New signups on the dashboard
+          maxLength: 1000
+        event:
+          type: string
+          description: Event associated with metric
+          example: Sign Ups
+        dimension:
+          type: string
+          description: Metric dimension
+          example: COUNT_PER_UNIQUE_USER
+          enum:
+          - COUNT_PER_UNIQUE_USER
+          - COUNT_PER_VARIABLE_EVALUATION
+          - SUM_PER_UNIQUE_USER
+          - AVERAGE_PER_UNIQUE_USER
+          - TOTAL_AVERAGE
+          - TOTAL_SUM
+        optimize:
+          type: string
+          description: Indicates whether the metric is optimized for increase or decreasae
+          example: increase
+          enum:
+          - increase
+          - decrease
+    CreateMetricDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the Metric
+          example: New Signups
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-signups
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Metric description.
+          example: New signups on the dashboard
+          maxLength: 1000
+        event:
+          type: string
+          description: Event associated with metric
+          example: Sign Ups
+        dimension:
+          type: string
+          description: Metric dimension
+          example: COUNT_PER_UNIQUE_USER
+          enum:
+          - COUNT_PER_UNIQUE_USER
+          - COUNT_PER_VARIABLE_EVALUATION
+          - SUM_PER_UNIQUE_USER
+          - AVERAGE_PER_UNIQUE_USER
+          - TOTAL_AVERAGE
+          - TOTAL_SUM
+        optimize:
+          type: string
+          description: Indicates whether the metric is optimized for increase or decreasae
+          example: increase
+          enum:
+          - increase
+          - decrease
+      required:
+      - name
+      - key
+      - event
+      - dimension
+      - optimize
+    VariationResult:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        numerator:
+          type: number
+        denominator:
+          type: number
+        rate:
+          type: number
+        avgValue:
+          type: number
+        totalValue:
+          type: number
+        stdev:
+          type: number
+        percentDifference:
+          type: number
+          nullable: true
+        chanceToBeatControl:
+          type: number
+          nullable: true
+      required:
+      - key
+      - name
+      - numerator
+      - denominator
+      - rate
+      - percentDifference
+      - chanceToBeatControl
+    Metric:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the Metric
+          example: New Signups
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-signups
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Metric description.
+          example: New signups on the dashboard
+          maxLength: 1000
+        _id:
+          type: string
+          description: A unique Metric ID
+          example: 61450f3daec96f5cf4a49946
+        _project:
+          type: string
+          description: The Project owning the Metric
+        source:
+          description: Source that created the Metric
+          enum:
+          - api
+          - dashboard
+          - importer
+          - github.code_usages
+          - github.pr_insights
+          - gitlab.code_usages
+          - gitlab.pr_insights
+          - bitbucket.code_usages
+          - bitbucket.pr_insights
+          - terraform
+          - cli
+          - slack
+          - mcp
+          type: string
+        event:
+          type: string
+          description: Event associated with metric
+          example: Sign Ups
+        dimension:
+          description: Metric dimension
+          example: COUNT_PER_UNIQUE_USER
+          enum:
+          - COUNT_PER_UNIQUE_USER
+          - COUNT_PER_VARIABLE_EVALUATION
+          - SUM_PER_UNIQUE_USER
+          - AVERAGE_PER_UNIQUE_USER
+          - TOTAL_AVERAGE
+          - TOTAL_SUM
+          type: string
+        optimize:
+          description: Indicates whether the metric is optimized for increase or decreasae
+          example: increase
+          enum:
+          - increase
+          - decrease
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Metric was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Metric was last updated
+      required:
+      - name
+      - key
+      - _id
+      - _project
+      - event
+      - dimension
+      - optimize
+      - createdAt
+      - updatedAt
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType
+    VariationValues:
+      type: object
+      properties: {}
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    MetricResult:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/Result'
+        cached:
+          type: boolean
+          description: Whether this result came from a cache or a live result
+        updatedAt:
+          format: date-time
+          type: string
+          description: Date which these results are up-to-date with
+      required:
+      - result
+      - cached
+      - updatedAt
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

@@ -1,0 +1,227 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences Project Change Requests API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Project Change Requests
+paths:
+  /v2/projects/{project}/change-requests:
+    get:
+      operationId: ProjectChangeRequestsController_getFeatureChangeRequests
+      summary: Get a list of Feature Change Requests for a Project
+      description: Get a list of Feature Change Requests for a Project
+      parameters:
+      - name: page
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          default: 1
+          type: number
+      - name: perPage
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          maximum: 1000
+          default: 100
+          type: number
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          default: createdAt
+          enum:
+          - createdAt
+          - updatedAt
+          - name
+          - key
+          - propertyKey
+          type: string
+      - name: sortOrder
+        required: false
+        in: query
+        schema:
+          default: desc
+          enum:
+          - asc
+          - desc
+          type: string
+      - name: search
+        required: false
+        in: query
+        schema:
+          minLength: 3
+          type: string
+      - name: createdBy
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: status
+        required: false
+        in: query
+        schema:
+          enum:
+          - draft
+          - pending
+          - approved
+          - applied
+          - rejected
+          - cancelled
+          type: string
+      - name: reviewer
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeatureChangeRequestSummary'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: ''
+      tags:
+      - Project Change Requests
+components:
+  schemas:
+    Reviewers:
+      type: object
+      properties: {}
+    ReviewReason:
+      type: object
+      properties: {}
+    FeatureDetails:
+      type: object
+      properties:
+        key:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          maxLength: 100
+          minLength: 1
+        id:
+          type: string
+      required:
+      - key
+      - name
+      - id
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    FeatureChangeRequestSummary:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Feature ID
+          example: 61450f3daec96f5cf4a49946
+        _project:
+          type: string
+          description: The Project owning the Feature Change Request
+        _feature:
+          type: string
+          description: The Feature with requested changes
+        status:
+          type: string
+          description: Status of the Feature
+          enum:
+          - draft
+          - pending
+          - approved
+          - applied
+          - rejected
+          - cancelled
+        operation:
+          type: string
+          description: 'Describes the type of requested change to a feature.
+
+            example: ''featureUpdate'''
+          enum:
+          - featureUpdate
+          - featureStatusUpdate
+          - featureStaticConfigurationUpdate
+        description:
+          type: string
+          description: Change Request Description
+          example: Enabling production for all users.
+        reviewers:
+          description: a0 users who are requested to review the change
+          allOf:
+          - $ref: '#/components/schemas/Reviewers'
+        reviews:
+          description: Current Reviewes for the change request
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewReason'
+        _createdBy:
+          type: string
+          description: ID of the User who created the Feature
+        _updatedBy:
+          type: string
+          description: ID of the User who last updated the Feature
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Feature was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Feature was last updated
+        feature:
+          $ref: '#/components/schemas/FeatureDetails'
+      required:
+      - _id
+      - _project
+      - _feature
+      - status
+      - operation
+      - reviewers
+      - reviews
+      - _createdBy
+      - feature
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

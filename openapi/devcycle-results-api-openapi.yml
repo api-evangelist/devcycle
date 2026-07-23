@@ -1,0 +1,299 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences Results API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Results
+paths:
+  /v1/projects/{project}/features/{feature}/results/total-evaluations:
+    get:
+      operationId: ResultsController_getTotalEvaluationsPerHourByFeature
+      summary: Feature Variable Evaluations (total)
+      description: Fetch total variable evaluations per hour for a feature
+      parameters:
+      - name: startDate
+        required: false
+        in: query
+        schema:
+          type: number
+      - name: endDate
+        required: false
+        in: query
+        schema:
+          type: number
+      - name: platform
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: variable
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: environment
+        required: false
+        in: query
+        description: A Environment key or ID
+        schema:
+          type: string
+      - name: period
+        required: false
+        in: query
+        schema:
+          enum:
+          - day
+          - hour
+          - month
+          type: string
+      - name: sdkType
+        required: false
+        in: query
+        description: SDK type to filter evaluation results by
+        schema:
+          enum:
+          - client
+          - server
+          - mobile
+          - api
+          type: string
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultEvaluationsByHourDto'
+        '400':
+          description: ''
+        '401':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Results
+  /v1/projects/{project}/results/evaluations:
+    get:
+      operationId: ResultsController_getEvaluationsPerHourByProject
+      summary: Project Variable Evaluations (unique user)
+      description: Fetch unique user variable evaluations per hour for a project
+      parameters:
+      - name: startDate
+        required: false
+        in: query
+        schema:
+          type: number
+      - name: endDate
+        required: false
+        in: query
+        schema:
+          type: number
+      - name: environment
+        required: false
+        in: query
+        description: A Environment key or ID
+        schema:
+          type: string
+      - name: period
+        required: false
+        in: query
+        schema:
+          enum:
+          - day
+          - hour
+          - month
+          type: string
+      - name: sdkType
+        required: false
+        in: query
+        description: SDK type to filter evaluation results by
+        schema:
+          enum:
+          - client
+          - server
+          - mobile
+          - api
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultProjectEvaluationsByHourDto'
+        '400':
+          description: ''
+        '401':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Results
+  /v1/projects/{project}/results/total-evaluations:
+    get:
+      operationId: ResultsController_getTotalEvaluationsPerHourByProject
+      summary: Project Variable Evaluations (total)
+      description: Fetch total variable evaluations per hour for a project
+      parameters:
+      - name: startDate
+        required: false
+        in: query
+        schema:
+          type: number
+      - name: endDate
+        required: false
+        in: query
+        schema:
+          type: number
+      - name: environment
+        required: false
+        in: query
+        description: A Environment key or ID
+        schema:
+          type: string
+      - name: period
+        required: false
+        in: query
+        schema:
+          enum:
+          - day
+          - hour
+          - month
+          type: string
+      - name: sdkType
+        required: false
+        in: query
+        description: SDK type to filter evaluation results by
+        schema:
+          enum:
+          - client
+          - server
+          - mobile
+          - api
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultProjectEvaluationsByHourDto'
+        '400':
+          description: ''
+        '401':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Results
+components:
+  schemas:
+    ResultWithFeatureData:
+      type: object
+      properties:
+        evaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureDataPoint'
+      required:
+      - evaluations
+    FeatureDataPoint:
+      type: object
+      properties:
+        values:
+          type: object
+          description: Mapping of evaluation variation (variation1, variation2 etc.) to number of evaluations in that variation
+        date:
+          format: date-time
+          type: string
+          description: Date of this data point
+      required:
+      - values
+      - date
+    ProjectDataPoint:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+          description: Date of this datapoint
+        value:
+          type: number
+          description: Number of variable evaluations across the whole project for this data point, grouped by user
+      required:
+      - date
+      - value
+    ResultProjectEvaluationsByHourDto:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/ResultsWithProjectData'
+        cached:
+          type: boolean
+          description: Whether this result came from a cache or a live result
+        updatedAt:
+          format: date-time
+          type: string
+          description: Date which these results are up-to-date with
+      required:
+      - result
+      - cached
+      - updatedAt
+    ResultEvaluationsByHourDto:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/ResultWithFeatureData'
+        cached:
+          type: boolean
+          description: Whether this result came from a cache or a live result
+        updatedAt:
+          format: date-time
+          type: string
+          description: Date which these results are up-to-date with
+      required:
+      - result
+      - cached
+      - updatedAt
+    ResultsWithProjectData:
+      type: object
+      properties:
+        evaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectDataPoint'
+      required:
+      - evaluations
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

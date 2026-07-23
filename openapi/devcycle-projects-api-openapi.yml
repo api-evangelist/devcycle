@@ -1,0 +1,1092 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences Projects API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Projects
+paths:
+  /v1/projects:
+    post:
+      operationId: ProjectsController_create
+      summary: Create project in the current organization
+      description: 'Creates a new project within the authed organization.
+
+        The project key must be unique within the organization.
+
+        If this is called in an Organization that has permissions controlled via an external IdP (https://docs.devcycle.com/platform/security-and-guardrails/permissions#full-role-based-access-control-project-level-roles--enterprise-only) - then no users will have permission to access this project.'
+      tags:
+      - Projects
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectDto'
+      responses:
+        '201':
+          description: The project has been successfully created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: Invalid request - missing or invalid properties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '403':
+          description: ''
+        '409':
+          description: Project key already exists
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+    get:
+      operationId: ProjectsController_findAll
+      summary: List Projects that the current API Token has permission to view
+      description: Lists all projects that the current API Token has permission to view.
+      tags:
+      - Projects
+      parameters:
+      - name: page
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          default: 1
+          type: number
+      - name: perPage
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          maximum: 1000
+          default: 100
+          type: number
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          default: createdAt
+          enum:
+          - createdAt
+          - updatedAt
+          - name
+          - key
+          - propertyKey
+          type: string
+      - name: sortOrder
+        required: false
+        in: query
+        schema:
+          default: desc
+          enum:
+          - asc
+          - desc
+          type: string
+      - name: search
+        required: false
+        in: query
+        schema:
+          minLength: 3
+          type: string
+      - name: createdBy
+        required: false
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+        '400':
+          description: Invalid request - missing or invalid properties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '403':
+          description: ''
+  /v1/projects/{key}:
+    get:
+      operationId: ProjectsController_findOne
+      summary: Get a Project
+      description: Get a Project by ID or key.
+      tags:
+      - Projects
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '403':
+          description: ''
+        '404':
+          description: Project does not exist by key or ID. Keys are able to be changed so try switching to ID to have a consistent value that cannot be changed.This can also be returned if the current token does not have permission to view the project.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+    patch:
+      operationId: ProjectsController_update
+      summary: Update a Project
+      description: Update a Project by ID or key. Certain facets of the project settings require additional permissions to update.
+      tags:
+      - Projects
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProjectDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+    delete:
+      operationId: ProjectsController_remove
+      summary: Delete a Project
+      description: Delete a Project by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Project deleted successfully
+        '403':
+          description: ''
+        '404':
+          description: Project not found.This can also be returned if the current token does not have permission to view the project.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: Cannot delete the last project in an organization. Please contact support to delete the organization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CannotDeleteLastItemErrorResponse'
+      tags:
+      - Projects
+  /v1/projects/{key}/settings:
+    patch:
+      operationId: ProjectsController_updateSettings
+      summary: Update Publisher Restricted Settings for a Project
+      description: Update a subset of settings for a Project that only requires publisher permissions
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProjectSettingsDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+      tags:
+      - Projects
+  /v1/projects/{key}/settings/protected:
+    patch:
+      operationId: ProjectsController_updateProtectedSettings
+      summary: Update Protected Settings for a Project
+      description: Update the Protect Settings for a Project by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProtectedProjectSettingsDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+      tags:
+      - Projects
+  /v1/projects/{key}/staleness:
+    get:
+      operationId: ProjectsController_getStaleness
+      summary: Get all stale Features for a Project
+      description: Get all stale Features for a Project
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          default: 1
+          type: number
+      - name: perPage
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          maximum: 1000
+          default: 100
+          type: number
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          default: createdAt
+          enum:
+          - createdAt
+          - updatedAt
+          - name
+          - key
+          - propertyKey
+          type: string
+      - name: sortOrder
+        required: false
+        in: query
+        schema:
+          default: desc
+          enum:
+          - asc
+          - desc
+          type: string
+      - name: search
+        required: false
+        in: query
+        schema:
+          minLength: 3
+          type: string
+      - name: createdBy
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: includeSilenced
+        required: false
+        in: query
+        schema:
+          default: false
+          type: boolean
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeatureStalenessEntity'
+        '403':
+          description: ''
+        '404':
+          description: Project not found. This can also be returned if the current token does not have permission to view the project.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Projects
+components:
+  schemas:
+    UnmodifiedLongStalenessDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    SDKTypeVisibilitySettingsDTO:
+      type: object
+      properties:
+        enabledInFeatureSettings:
+          type: boolean
+      required:
+      - enabledInFeatureSettings
+    UpdateProtectedProjectSettingsDto:
+      type: object
+      properties:
+        settings:
+          $ref: '#/components/schemas/ProtectedProjectSettingsDto'
+      required:
+      - settings
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    ReleasedStalenessDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    LifeCycleSettingsDTO:
+      type: object
+      properties:
+        disableCodeRefChecks:
+          type: boolean
+      required:
+      - disableCodeRefChecks
+    DynatraceProjectSettingsDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        environmentMap:
+          type: object
+    ProjectSettings:
+      type: object
+      properties:
+        edgeDB:
+          $ref: '#/components/schemas/EdgeDBSettings'
+        optIn:
+          $ref: '#/components/schemas/OptInSettings'
+        sdkTypeVisibility:
+          $ref: '#/components/schemas/SDKTypeVisibilitySettings'
+        lifeCycle:
+          $ref: '#/components/schemas/LifeCycleSettings'
+        obfuscation:
+          $ref: '#/components/schemas/ObfuscationSettings'
+        featureApprovalWorkflow:
+          $ref: '#/components/schemas/FeatureApprovalWorkflowSettings'
+        disablePassthroughRollouts:
+          type: boolean
+        staleness:
+          $ref: '#/components/schemas/StalenessSettings'
+        dynatrace:
+          $ref: '#/components/schemas/DynatraceProjectSettings'
+      required:
+      - edgeDB
+      - optIn
+      - sdkTypeVisibility
+      - lifeCycle
+      - obfuscation
+      - featureApprovalWorkflow
+      - disablePassthroughRollouts
+      - staleness
+      - dynatrace
+    StalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        released:
+          $ref: '#/components/schemas/ReleasedStalenessSettings'
+        unmodifiedLong:
+          $ref: '#/components/schemas/UnmodifiedLongStalenessSettings'
+        unmodifiedShort:
+          $ref: '#/components/schemas/UnmodifiedShortStalenessSettings'
+        unused:
+          $ref: '#/components/schemas/UnusedStalenessSettings'
+        email:
+          $ref: '#/components/schemas/StalenessEmailSettings'
+      required:
+      - enabled
+      - released
+      - unmodifiedLong
+      - unmodifiedShort
+      - unused
+      - email
+    CannotDeleteLastItemErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 405
+        message:
+          type: object
+          description: Error details
+          example: Cannot DELETE last item
+        error:
+          type: string
+          description: Error type
+          example: Method Not Allowed
+      required:
+      - statusCode
+      - message
+      - error
+    LifeCycleSettings:
+      type: object
+      properties:
+        disableCodeRefChecks:
+          type: boolean
+      required:
+      - disableCodeRefChecks
+    ObfuscationSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        required:
+          type: boolean
+      required:
+      - enabled
+      - required
+    EdgeDBSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    StalenessSettingsDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        released:
+          $ref: '#/components/schemas/ReleasedStalenessDTO'
+        unmodifiedLong:
+          $ref: '#/components/schemas/UnmodifiedLongStalenessDTO'
+        unmodifiedShort:
+          $ref: '#/components/schemas/UnmodifiedShortStalenessDTO'
+        unused:
+          $ref: '#/components/schemas/UnusedStalenessDTO'
+        email:
+          $ref: '#/components/schemas/EmailSettingsDTO'
+      required:
+      - enabled
+      - released
+      - unmodifiedLong
+      - unmodifiedShort
+      - unused
+      - email
+    ProjectSettingsDTO:
+      type: object
+      properties:
+        edgeDB:
+          $ref: '#/components/schemas/EdgeDBSettingsDTO'
+        optIn:
+          $ref: '#/components/schemas/OptInSettingsDTO'
+        sdkTypeVisibility:
+          $ref: '#/components/schemas/SDKTypeVisibilitySettingsDTO'
+        lifeCycle:
+          $ref: '#/components/schemas/LifeCycleSettingsDTO'
+        obfuscation:
+          $ref: '#/components/schemas/ObfuscationSettingsDTO'
+        disablePassthroughRollouts:
+          type: boolean
+        dynatrace:
+          $ref: '#/components/schemas/DynatraceProjectSettingsDTO'
+      required:
+      - edgeDB
+      - optIn
+      - sdkTypeVisibility
+      - lifeCycle
+      - obfuscation
+      - disablePassthroughRollouts
+      - dynatrace
+    FeatureStalenessEntity:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Feature key
+        name:
+          type: string
+          description: Feature name
+        _feature:
+          type: string
+          description: Feature ID
+        stale:
+          type: boolean
+          description: Staleness status
+        updatedAt:
+          format: date-time
+          type: string
+          description: Last updated at
+        disabled:
+          type: boolean
+          description: If the Feature's staleness is disabled
+        snoozedUntil:
+          format: date-time
+          type: string
+          description: Snooze staleness until date specified
+        reason:
+          description: Reason for staleness
+          enum:
+          - released
+          - unused
+          - unmodifiedShort
+          - unmodifiedLong
+          type: string
+        metaData:
+          type: object
+          description: Miscellaneous metadata
+      required:
+      - key
+      - name
+      - _feature
+      - stale
+      - disabled
+    CreateProjectDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Project name
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: A unique key to identify the Project
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: A description of the Project
+          example: A web app to manage outbound deliveries
+          maxLength: 1000
+        color:
+          type: string
+          description: 'Project display color, used to highlight different projects on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+        settings:
+          $ref: '#/components/schemas/ProjectSettingsDTO'
+      required:
+      - name
+      - key
+    ReleasedStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    SDKTypeVisibilitySettings:
+      type: object
+      properties:
+        enabledInFeatureSettings:
+          type: boolean
+      required:
+      - enabledInFeatureSettings
+    EmailSettingsDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        users:
+          type: array
+          items:
+            type: string
+        frequency:
+          type: string
+          enum:
+          - weekly
+          - biweekly
+          - monthly
+      required:
+      - enabled
+      - users
+      - frequency
+    UnusedStalenessDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    UpdateProjectSettingsDto:
+      type: object
+      properties:
+        settings:
+          $ref: '#/components/schemas/ProjectSettings'
+      required:
+      - settings
+    UnmodifiedShortStalenessDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    UnusedStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    EdgeDBSettingsDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    OptInSettingsDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          maxLength: 1000
+        enabled:
+          type: boolean
+        imageURL:
+          type: string
+        colors:
+          $ref: '#/components/schemas/ColorSettingsDTO'
+        poweredByAlignment:
+          type: string
+          enum:
+          - center
+          - left
+          - right
+          - hidden
+      required:
+      - title
+      - description
+      - enabled
+      - imageURL
+      - colors
+      - poweredByAlignment
+    UpdateProjectDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Project name
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: A unique key to identify the Project
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: A description of the Project
+          example: A web app to manage outbound deliveries
+          maxLength: 1000
+        color:
+          type: string
+          description: 'Project display color, used to highlight different projects on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+        settings:
+          $ref: '#/components/schemas/ProjectSettingsDTO'
+    Project:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Project ID
+          example: 61450f3daec96f5cf4a49946
+        _organization:
+          type: string
+          description: ID of the Organization owning the Project
+        _createdBy:
+          type: string
+          description: ID of the User who created the project
+        name:
+          type: string
+          description: Project name
+          example: Delivery App
+        key:
+          type: string
+          description: A unique key to identify the Project
+          example: delivery-app
+        description:
+          type: string
+          description: A description of the Project
+          example: A web app to manage outbound deliveries
+        color:
+          type: string
+          description: 'Project display color, used to highlight different projects on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+        settings:
+          $ref: '#/components/schemas/ProjectSettings'
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Project was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Project was last updated
+        hasJiraIntegration:
+          type: boolean
+          description: Boolean tracking whether this project has a jira integration set up
+        hasReceivedCodeUsages:
+          type: boolean
+          description: Describe if a project has ever received code usages for any variable
+        hasUserConfigFetch:
+          type: boolean
+          description: Boolean indicating whether a user config has been fetched for this project
+        jiraBaseUrl:
+          type: string
+          description: Jira project base url, if the integration is defined
+        readonly:
+          type: boolean
+          description: Controls whether the feature is editable for a given user
+        vercelEdgeConfigConnections:
+          description: Edge Config Connections for the project
+          type: array
+          items:
+            $ref: '#/components/schemas/VercelEdgeConfigConnection'
+      required:
+      - _id
+      - _organization
+      - _createdBy
+      - name
+      - key
+      - settings
+      - createdAt
+      - updatedAt
+      - hasJiraIntegration
+      - hasReceivedCodeUsages
+      - hasUserConfigFetch
+      - jiraBaseUrl
+      - readonly
+    DynatraceProjectSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        environmentMap:
+          type: object
+      required:
+      - enabled
+      - environmentMap
+    FeatureApprovalWorkflowDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        allowPublisherBypass:
+          type: boolean
+        defaultReviewers:
+          type: array
+          items:
+            type: string
+      required:
+      - enabled
+      - allowPublisherBypass
+      - defaultReviewers
+    OptInSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        title:
+          type: string
+        description:
+          type: string
+        imageURL:
+          type: string
+        colors:
+          $ref: '#/components/schemas/ColorSettings'
+        poweredByAlignment:
+          type: object
+      required:
+      - enabled
+      - title
+      - description
+      - imageURL
+      - colors
+      - poweredByAlignment
+    StalenessEmailSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        frequency:
+          type: string
+          enum:
+          - weekly
+          - biweekly
+          - monthly
+        users:
+          type: array
+          items:
+            type: string
+        lastNotification:
+          format: date-time
+          type: string
+      required:
+      - enabled
+      - frequency
+      - users
+      - lastNotification
+    ColorSettingsDTO:
+      type: object
+      properties:
+        primary:
+          type: string
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+        secondary:
+          type: string
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+      required:
+      - primary
+      - secondary
+    ColorSettings:
+      type: object
+      properties:
+        primary:
+          type: string
+        secondary:
+          type: string
+      required:
+      - primary
+      - secondary
+    ObfuscationSettingsDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        required:
+          type: boolean
+      required:
+      - enabled
+      - required
+    UnmodifiedLongStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    UnmodifiedShortStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    ProtectedProjectSettingsDto:
+      type: object
+      properties:
+        featureApprovalWorkflow:
+          $ref: '#/components/schemas/FeatureApprovalWorkflowDTO'
+        staleness:
+          $ref: '#/components/schemas/StalenessSettingsDTO'
+      required:
+      - featureApprovalWorkflow
+      - staleness
+    VercelEdgeConfigConnection:
+      type: object
+      properties:
+        edgeConfigName:
+          type: string
+        configurationId:
+          type: string
+      required:
+      - edgeConfigName
+      - configurationId
+    FeatureApprovalWorkflowSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        allowPublisherBypass:
+          type: boolean
+        defaultReviewers:
+          type: array
+          items:
+            type: string
+      required:
+      - enabled
+      - allowPublisherBypass
+      - defaultReviewers
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

@@ -1,0 +1,810 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Audiences
+paths:
+  /v1/projects/{project}/audiences:
+    post:
+      operationId: AudiencesController_create
+      summary: Create Audience
+      description: Create a new Audience
+      parameters:
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAudienceDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Audience'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+      tags:
+      - Audiences
+    get:
+      operationId: AudiencesController_findAll
+      summary: List Audiences
+      description: List Audiences
+      parameters:
+      - name: page
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          default: 1
+          type: number
+      - name: perPage
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          maximum: 1000
+          default: 100
+          type: number
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          default: createdAt
+          enum:
+          - createdAt
+          - updatedAt
+          - name
+          - key
+          - propertyKey
+          type: string
+      - name: sortOrder
+        required: false
+        in: query
+        schema:
+          default: desc
+          enum:
+          - asc
+          - desc
+          type: string
+      - name: search
+        required: false
+        in: query
+        schema:
+          minLength: 3
+          type: string
+      - name: createdBy
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: includeUsage
+        required: false
+        in: query
+        schema:
+          type: boolean
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Audience'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Audiences
+  /v1/projects/{project}/audiences/{key}:
+    get:
+      operationId: AudiencesController_findOne
+      summary: Get an Audience
+      description: Get an Audience by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Audience key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Audience'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Audiences
+    patch:
+      operationId: AudiencesController_update
+      summary: Update an Audience
+      description: Update an Audience by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Audience key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAudienceDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Audience'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+      tags:
+      - Audiences
+    delete:
+      operationId: AudiencesController_remove
+      summary: Delete an Audience
+      description: Delete an Audience by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Audience key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+        '401':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '412':
+          description: ''
+      tags:
+      - Audiences
+  /v1/projects/{project}/audiences/{key}/usage:
+    get:
+      operationId: AudiencesController_findUsages
+      summary: Get all direct usages of an Audience
+      description: Get the direct usages of an Audiences Usage by Features OR other Audiences by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Audience key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AudienceUsage'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Audiences
+components:
+  schemas:
+    UserAppVersionFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>'
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 1.0.2
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: appVersion
+          default: appVersion
+          enum:
+          - appVersion
+      required:
+      - comparator
+      - type
+      - subType
+    UpdateAudienceDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Audience display name, must be set for project-level audiences.
+          example: Android Users
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Audience unique project-level key, must be set for project-level audiences.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: android-users
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Audience description.
+          example: Users with android devices
+          maxLength: 1000
+        filters:
+          description: Audience filters, describing logic for segmenting users
+          allOf:
+          - $ref: '#/components/schemas/AudienceOperator'
+        tags:
+          description: Tags to organize project-level audiences on the dashboard
+          type: array
+          items:
+            type: string
+    UserCountryFilter:
+      type: object
+      properties:
+        subType:
+          description: Sub type of this filter
+          example: country
+          enum:
+          - country
+          type: string
+          default: country
+        comparator:
+          description: Comparator to use
+          example: '!='
+          enum:
+          - '='
+          - '!='
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - CA
+          - US
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+      required:
+      - subType
+      - comparator
+      - type
+    UserFilter:
+      type: object
+      properties:
+        subType:
+          description: Sub type of this filter
+          example: email
+          enum:
+          - user_id
+          - email
+          - platform
+          - deviceModel
+          type: string
+        comparator:
+          description: Comparator to use
+          example: '!='
+          enum:
+          - '='
+          - '!='
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - baduser@email.com
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+      required:
+      - subType
+      - comparator
+      - type
+    AudienceUsage:
+      type: object
+      properties:
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/AudienceFeature'
+      required:
+      - features
+    Audience:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Audience display name, must be set for project-level audiences.
+          example: Android Users
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Audience unique project-level key, must be set for project-level audiences.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: android-users
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Audience description.
+          example: Users with android devices
+          maxLength: 1000
+        _id:
+          type: string
+          description: A unique Audience ID
+          example: 61450f3daec96f5cf4a49946
+        _project:
+          type: string
+          description: The Project owning the Audience
+          example: 61450f3daec96f5cf4a49955
+        filters:
+          description: Audience filters, describing logic for segmenting users
+          allOf:
+          - $ref: '#/components/schemas/AudienceOperator'
+        source:
+          description: Source that created the Audience
+          enum:
+          - api
+          - dashboard
+          - importer
+          - github.code_usages
+          - github.pr_insights
+          - gitlab.code_usages
+          - gitlab.pr_insights
+          - bitbucket.code_usages
+          - bitbucket.pr_insights
+          - terraform
+          - cli
+          - slack
+          - mcp
+          type: string
+        _createdBy:
+          type: string
+          description: User who created the Audience
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the feature was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the feature was last updated
+        tags:
+          description: Tags to organize project-level audiences on the dashboard
+          type: array
+          items:
+            type: string
+        readonly:
+          type: boolean
+          description: Readonly state based on the Users Permission to modify the Audience
+          example: true
+        hasUsage:
+          type: boolean
+          description: Whether the audience is in use by a feature
+          example: true
+      required:
+      - _id
+      - _project
+      - filters
+      - createdAt
+      - updatedAt
+      - readonly
+    AudienceOperator:
+      type: object
+      properties:
+        filters:
+          type: array
+          description: Filters to apply using the "operator" operation
+          items:
+            anyOf:
+            - $ref: '#/components/schemas/AllFilter'
+            - $ref: '#/components/schemas/UserFilter'
+            - $ref: '#/components/schemas/UserCountryFilter'
+            - $ref: '#/components/schemas/UserAppVersionFilter'
+            - $ref: '#/components/schemas/UserPlatformVersionFilter'
+            - $ref: '#/components/schemas/UserCustomFilter'
+        operator:
+          type: string
+          description: Operator type if this object represents an operator, and not a filter
+          enum:
+          - and
+          - or
+      required:
+      - filters
+      - operator
+    UserCustomFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>='
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        dataKey:
+          type: string
+          description: Data Key used for custom data
+          example: my_custom_prop
+          minLength: 1
+        dataKeyType:
+          description: Data Key Type used for custom data
+          example: Number
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+        values:
+          type: object
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 0
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: customData
+          default: customData
+          enum:
+          - customData
+      required:
+      - comparator
+      - dataKey
+      - dataKeyType
+      - type
+      - subType
+    UserPlatformVersionFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>'
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 1.0.2
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: appVersion
+          default: appVersion
+          enum:
+          - appVersion
+      required:
+      - comparator
+      - type
+      - subType
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    AudienceFeature:
+      type: object
+      properties:
+        key:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          maxLength: 100
+          minLength: 1
+        id:
+          type: string
+        environments:
+          $ref: '#/components/schemas/AudienceEnvironments'
+      required:
+      - key
+      - name
+      - id
+      - environments
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    AllFilter:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Filter type of this audience
+          default: all
+          enum:
+          - all
+      required:
+      - type
+    CreateAudienceDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Audience display name, must be set for project-level audiences.
+          example: Android Users
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Audience unique project-level key, must be set for project-level audiences.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: android-users
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Audience description.
+          example: Users with android devices
+          maxLength: 1000
+        filters:
+          description: Audience filters, describing logic for segmenting users
+          allOf:
+          - $ref: '#/components/schemas/AudienceOperator'
+        tags:
+          description: Tags to organize project-level audiences on the dashboard
+          type: array
+          items:
+            type: string
+      required:
+      - filters
+    AudienceEnvironments:
+      type: object
+      properties: {}
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

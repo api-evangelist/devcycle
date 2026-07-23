@@ -1,0 +1,69 @@
+openapi: 3.1.0
+info:
+  title: 'DevCycle Bucketing Audiences Integrations: Jira API'
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: 'Integrations: Jira'
+paths:
+  /v1/integrations/jira/{token}:
+    delete:
+      operationId: JiraIntegrationController_remove
+      summary: '[Deprecated] Remove Jira Integration Configuration'
+      description: DEPRECATED - Not recommended to be used. Use /integrations/jira/organization/:token or /integrations/jira/project/:token instead.
+      parameters:
+      - name: token
+        required: true
+        in: path
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+      - 'Integrations: Jira'
+  /v1/integrations/jira/organization/{token}:
+    delete:
+      operationId: JiraIntegrationController_removeOrganizationConnection
+      summary: Remove Jira Organization Integration Configuration
+      description: Remove the Jira integration configuration for an organization. This will remove the integration for an organization wide connection, but not project connections.
+      parameters:
+      - name: token
+        required: true
+        in: path
+        schema:
+          type: string
+      tags:
+      - 'Integrations: Jira'
+      responses:
+        '200':
+          description: ''
+        '403':
+          description: ''
+  /v1/integrations/jira/project/{token}:
+    delete:
+      operationId: JiraIntegrationController_removeProjectConnection
+      summary: Remove Jira Project Integration Configuration
+      description: Remove a specific project
+      parameters:
+      - name: token
+        required: true
+        in: path
+        schema:
+          type: string
+      tags:
+      - 'Integrations: Jira'
+      responses:
+        '200':
+          description: Connection removed successfully
+        '403':
+          description: ''
+components:
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

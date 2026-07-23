@@ -1,0 +1,2067 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences Features v2 API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Features v2
+paths:
+  /v2/projects/{project}/features/{feature}:
+    patch:
+      operationId: FeaturesController_update
+      summary: Update a Feature
+      description: Update a Feature by ID or key
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFeatureDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+        '412':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreconditionFailedErrorResponse'
+      tags:
+      - Features v2
+    get:
+      operationId: FeaturesController_findOne
+      summary: Get a Feature
+      description: Get a Feature by ID or key
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Features v2
+  /v2/projects/{project}/features:
+    post:
+      operationId: FeaturesController_create
+      summary: Create Feature
+      description: Create a new Feature
+      parameters:
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFeatureDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '404':
+          description: ''
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+        '412':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreconditionFailedErrorResponse'
+      tags:
+      - Features v2
+    get:
+      operationId: FeaturesController_findAll
+      summary: List Features
+      description: List Features
+      parameters:
+      - name: page
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          default: 1
+          type: number
+      - name: perPage
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          maximum: 1000
+          default: 100
+          type: number
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          default: createdAt
+          enum:
+          - createdAt
+          - updatedAt
+          - name
+          - key
+          - propertyKey
+          type: string
+      - name: sortOrder
+        required: false
+        in: query
+        schema:
+          default: desc
+          enum:
+          - asc
+          - desc
+          type: string
+      - name: search
+        required: false
+        in: query
+        schema:
+          minLength: 3
+          type: string
+      - name: createdBy
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: type
+        required: false
+        in: query
+        schema:
+          enum:
+          - release
+          - experiment
+          - permission
+          - ops
+          type: string
+      - name: status
+        required: false
+        in: query
+        schema:
+          enum:
+          - active
+          - complete
+          - archived
+          type: string
+      - name: customStatus
+        required: false
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: keys
+        required: false
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: includeLatestUpdate
+        required: false
+        in: query
+        schema:
+          type: boolean
+      - name: staleness
+        required: false
+        in: query
+        schema:
+          enum:
+          - all
+          - unused
+          - released
+          - unmodified
+          - notStale
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Feature'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Features v2
+  /v2/projects/{project}/features/{feature}/static-configuration:
+    get:
+      operationId: FeaturesController_findStaticConfiguration
+      summary: Get a Feature's Static Configuration
+      description: Get a completed Feature's static configuration
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StaticConfiguration'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+        '412':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreconditionFailedErrorResponse'
+      tags:
+      - Features v2
+    patch:
+      operationId: FeaturesController_updateStaticConfiguration
+      summary: Update a Feature's Static Configuration
+      description: Update a completed Feature's static configuration
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateStaticConfigurationDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StaticConfiguration'
+        '401':
+          description: ''
+        '404':
+          description: ''
+        '412':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreconditionFailedErrorResponse'
+      tags:
+      - Features v2
+  /v2/projects/{project}/features/{feature}/status:
+    patch:
+      operationId: FeaturesController_updateStatus
+      summary: Update a Feature's status
+      description: Update a Feature's status
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFeatureStatusDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Feature'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+        '412':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreconditionFailedErrorResponse'
+      tags:
+      - Features v2
+  /v2/projects/{project}/features/{feature}/staleness:
+    get:
+      operationId: FeaturesController_getStaleness
+      summary: Get a Feature's Staleness
+      description: Get a Feature's Staleness
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureStalenessEntity'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+      tags:
+      - Features v2
+    patch:
+      operationId: FeaturesController_updateStaleness
+      summary: Update a Feature's Staleness
+      description: Update a Feature's Staleness
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateStalenessDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureStalenessEntity'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '412':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreconditionFailedErrorResponse'
+      tags:
+      - Features v2
+  /v2/projects/{project}/features/{feature}/summary:
+    patch:
+      operationId: FeaturesController_updateSummary
+      summary: Update a Feature's summary
+      description: Update a Feature's summary
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFeatureSummaryDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureSummary'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '412':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PreconditionFailedErrorResponse'
+      tags:
+      - Features v2
+components:
+  schemas:
+    AudienceOperatorWithAudienceMatchFilter:
+      type: object
+      properties:
+        filters:
+          type: array
+          description: Filters to apply using the "operator" operation
+          items:
+            anyOf:
+            - $ref: '#/components/schemas/AllFilter'
+            - $ref: '#/components/schemas/UserFilter'
+            - $ref: '#/components/schemas/UserCountryFilter'
+            - $ref: '#/components/schemas/UserAppVersionFilter'
+            - $ref: '#/components/schemas/UserPlatformVersionFilter'
+            - $ref: '#/components/schemas/UserCustomFilter'
+            - $ref: '#/components/schemas/AudienceMatchFilter'
+        operator:
+          description: Operator type if this object represents an operator, and not a filter
+          enum:
+          - and
+          - or
+          type: string
+      required:
+      - filters
+      - operator
+    VariableValidationEntity:
+      type: object
+      properties:
+        schemaType:
+          type: object
+        enumValues:
+          type: object
+        regexPattern:
+          type: string
+        jsonSchema:
+          type: string
+        description:
+          type: string
+        exampleValue:
+          type: object
+      required:
+      - schemaType
+      - description
+      - exampleValue
+    UpdateFeatureSummaryDto:
+      type: object
+      properties:
+        maintainers:
+          description: Auth0 maintainers of the feature
+          type: array
+          items:
+            type: string
+        links:
+          description: Array of links associated with the feature
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        markdown:
+          type: string
+    FeatureSummary:
+      type: object
+      properties:
+        maintainers:
+          description: Auth0 maintainers of this feature
+          type: array
+          items:
+            type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        markdown:
+          type: string
+      required:
+      - maintainers
+      - links
+      - markdown
+    UpdateStaticConfigurationDto:
+      type: object
+      properties:
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-dash
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          description: Name of the Feature
+          example: New Dashboard
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          description: Feature description.
+          example: New Dashboard
+          maxLength: 1000
+        type:
+          type: string
+          description: Feature type.
+          example: release
+          enum:
+          - release
+          - experiment
+          - permission
+          - ops
+        tags:
+          description: Feature tags.
+          example:
+          - new
+          - dashboard
+          type: array
+          items:
+            type: string
+        controlVariation:
+          type: string
+          description: The key of the variation that is used as the control variation for Metrics
+        settings:
+          description: Feature-level settings.
+          allOf:
+          - $ref: '#/components/schemas/FeatureSettingsDto'
+        sdkVisibility:
+          description: SDK Type Visibilty Settings
+          allOf:
+          - $ref: '#/components/schemas/FeatureSDKVisibilityDto'
+        staleness:
+          type: object
+        summary:
+          $ref: '#/components/schemas/UpdateFeatureSummaryDto'
+        variables:
+          type: object
+          description: The static value of each variable in the feature
+        environments:
+          type: object
+          description: The status of the configuration in each environment
+    CreateFeatureDto:
+      type: object
+      properties:
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-dash
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          description: Name of the Feature
+          example: New Dashboard
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          description: Feature description.
+          example: New Dashboard
+          maxLength: 1000
+        configurations:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/UpdateFeatureConfigDto'
+          example:
+            development:
+              status: active
+              targets: []
+            production:
+              status: inactive
+              targets: []
+        type:
+          type: string
+          description: Feature type.
+          example: release
+          enum:
+          - release
+          - experiment
+          - permission
+          - ops
+        tags:
+          description: Feature tags.
+          example:
+          - new
+          - dashboard
+          type: array
+          items:
+            type: string
+        variations:
+          description: Variation configurations to be used by feature configurations.
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateVariationDto'
+        controlVariation:
+          type: string
+          description: The key of the variation that is used as the control variation for Metrics
+        variables:
+          description: Variable definitions to be referenced in variations
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateVariableDto'
+        settings:
+          description: Feature-level settings.
+          allOf:
+          - $ref: '#/components/schemas/FeatureSettingsDto'
+        sdkVisibility:
+          description: SDK Type Visibilty Settings
+          allOf:
+          - $ref: '#/components/schemas/FeatureSDKVisibilityDto'
+      required:
+      - key
+      - name
+      - configurations
+    FeatureSettings:
+      type: object
+      properties:
+        publicName:
+          type: string
+          maxLength: 100
+          minLength: 1
+        publicDescription:
+          type: string
+          maxLength: 1000
+        optInEnabled:
+          type: boolean
+      required:
+      - publicName
+      - publicDescription
+      - optInEnabled
+    UpdateFeatureConfigDto:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the Feature Configuration
+          enum:
+          - active
+          - inactive
+        targets:
+          description: The targets to evaluate what variation a user should be delivered
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateTargetDto'
+    Variable:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Variable name
+          example: Show New Dashboard
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          description: A description of the Variable
+          example: A boolean variable that will toggle the new dashboard feature
+          maxLength: 1000
+        key:
+          type: string
+          description: 'Unique Variable identifier, can be used in the SDK / API to reference by key rather then ID.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: show-new-dashboard
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        _id:
+          type: string
+          description: A unique Variable ID
+          example: 61450f3daec96f5cf4a49946
+        _project:
+          type: string
+          description: The ID of the Project this Variable belongs to
+        _feature:
+          type: string
+          description: The ID of the Feature this Variable belongs to
+          example: 61450f3daec96f5cf4a49947
+        type:
+          description: The type of Variable. Must be one of [String | Boolean | Number | JSON]
+          example: Boolean
+          enum:
+          - String
+          - Boolean
+          - Number
+          - JSON
+          type: string
+        status:
+          description: The status of a Variable. Must be one of [active | archived]
+          example: active
+          enum:
+          - active
+          - archived
+          type: string
+        source:
+          description: The system that was used for the creation of the Variable.
+          example: api
+          enum:
+          - api
+          - dashboard
+          - importer
+          - github.code_usages
+          - github.pr_insights
+          - gitlab.code_usages
+          - gitlab.pr_insights
+          - bitbucket.code_usages
+          - bitbucket.pr_insights
+          - terraform
+          - cli
+          - slack
+          - mcp
+          type: string
+        _createdBy:
+          type: string
+          description: ID of the User who created the Variable.
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Variable was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Variable was last updated
+        validationSchema:
+          description: Validation schema for variable values
+          allOf:
+          - $ref: '#/components/schemas/VariableValidationEntity'
+        persistent:
+          type: boolean
+          description: Boolean indicating if the variable is intended to be long-lived within a feature
+        tags:
+          description: Tags to organize Variables on the dashboard
+          example:
+          - Dashboard
+          - QA
+          type: array
+          items:
+            type: string
+      required:
+      - key
+      - _id
+      - _project
+      - type
+      - status
+      - source
+      - createdAt
+      - updatedAt
+    UserCustomFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>='
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        dataKey:
+          type: string
+          description: Data Key used for custom data
+          example: my_custom_prop
+          minLength: 1
+        dataKeyType:
+          description: Data Key Type used for custom data
+          example: Number
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+        values:
+          type: object
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 0
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: customData
+          default: customData
+          enum:
+          - customData
+      required:
+      - comparator
+      - dataKey
+      - dataKeyType
+      - type
+      - subType
+    StaticConfiguration:
+      type: object
+      properties:
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-dash
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          description: Name of the Feature
+          example: New Dashboard
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          description: Feature description.
+          example: New Dashboard
+          maxLength: 1000
+        variables:
+          type: object
+          description: The static value of each variable in the feature
+        environments:
+          type: object
+          description: The status of the configuration in each environment
+        readonly:
+          type: boolean
+          description: Controls whether the static configuration is editable for a given user
+        type:
+          description: Feature type.
+          example: release
+          enum:
+          - release
+          - experiment
+          - permission
+          - ops
+          type: string
+        tags:
+          description: Feature tags.
+          example:
+          - new
+          - dashboard
+          type: array
+          items:
+            type: string
+        controlVariation:
+          type: string
+          description: The key of the variation that is used as the control variation for Metrics
+        settings:
+          description: Feature-level settings.
+          allOf:
+          - $ref: '#/components/schemas/FeatureSettingsDto'
+        sdkVisibility:
+          description: SDK Type Visibilty Settings
+          allOf:
+          - $ref: '#/components/schemas/FeatureSDKVisibilityDto'
+        staleness:
+          type: object
+        summary:
+          $ref: '#/components/schemas/UpdateFeatureSummaryDto'
+      required:
+      - variables
+      - environments
+      - readonly
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    UpdateVariationDto:
+      type: object
+      properties:
+        key:
+          type: string
+          description: 'Unique key by Feature, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: variation-1
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          description: Variation display name.
+          example: User's with dashboard access
+          maxLength: 100
+          minLength: 1
+        variables:
+          type: object
+          description: A key-value map of variables to their value for this variation
+          additionalProperties:
+            anyOf:
+            - type: string
+            - type: number
+            - type: boolean
+            - type: array
+            - type: object
+          example:
+            show-new-dashboard: true
+            string-var: hello world
+            bool-var: true
+            num-var: 99
+            json-var:
+              foo: bar
+        _id:
+          type: string
+      required:
+      - key
+      - name
+    Link:
+      type: object
+      properties:
+        url:
+          type: string
+        title:
+          type: string
+      required:
+      - url
+      - title
+    FeatureSDKVisibility:
+      type: object
+      properties:
+        mobile:
+          type: boolean
+        client:
+          type: boolean
+        server:
+          type: boolean
+      required:
+      - mobile
+      - client
+      - server
+    TargetAudience:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Audience display name, must be set for project-level audiences.
+          example: Android Users
+          maxLength: 100
+          minLength: 1
+        filters:
+          description: Audience filters, describing logic for segmenting users
+          allOf:
+          - $ref: '#/components/schemas/AudienceOperatorWithAudienceMatchFilter'
+      required:
+      - filters
+    UpdateFeatureDto:
+      type: object
+      properties:
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-dash
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          description: Name of the Feature
+          example: New Dashboard
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          description: Feature description.
+          example: New Dashboard
+          maxLength: 1000
+        configurations:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/UpdateFeatureConfigDto'
+          example:
+            development:
+              status: active
+              targets: []
+            production:
+              status: inactive
+              targets: []
+        variations:
+          description: Variation configurations to be used by feature configurations.
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateVariationDto'
+        staleness:
+          type: object
+        summary:
+          $ref: '#/components/schemas/UpdateFeatureSummaryDto'
+        variables:
+          description: Variable definitions to be referenced in variations
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateVariableDto'
+        type:
+          type: string
+          description: Feature type.
+          example: release
+          enum:
+          - release
+          - experiment
+          - permission
+          - ops
+        tags:
+          description: Feature tags.
+          example:
+          - new
+          - dashboard
+          type: array
+          items:
+            type: string
+        controlVariation:
+          type: string
+          description: The key of the variation that is used as the control variation for Metrics
+        settings:
+          description: Feature-level settings.
+          allOf:
+          - $ref: '#/components/schemas/FeatureSettingsDto'
+        sdkVisibility:
+          description: SDK Type Visibilty Settings
+          allOf:
+          - $ref: '#/components/schemas/FeatureSDKVisibilityDto'
+    FeatureStalenessEntity:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Feature key
+        name:
+          type: string
+          description: Feature name
+        _feature:
+          type: string
+          description: Feature ID
+        stale:
+          type: boolean
+          description: Staleness status
+        updatedAt:
+          format: date-time
+          type: string
+          description: Last updated at
+        disabled:
+          type: boolean
+          description: If the Feature's staleness is disabled
+        snoozedUntil:
+          format: date-time
+          type: string
+          description: Snooze staleness until date specified
+        reason:
+          description: Reason for staleness
+          enum:
+          - released
+          - unused
+          - unmodifiedShort
+          - unmodifiedLong
+          type: string
+        metaData:
+          type: object
+          description: Miscellaneous metadata
+      required:
+      - key
+      - name
+      - _feature
+      - stale
+      - disabled
+    UserPlatformVersionFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>'
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 1.0.2
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: appVersion
+          default: appVersion
+          enum:
+          - appVersion
+      required:
+      - comparator
+      - type
+      - subType
+    FeatureCustomStatus:
+      type: object
+      properties:
+        _status:
+          type: string
+          description: Custom status ID reference
+        updatedAt:
+          format: date-time
+          type: string
+          description: Timestamp when the custom status was last updated
+    UpdateStalenessDto:
+      type: object
+      properties:
+        snoozedUntil:
+          type: string
+        disabled:
+          type: boolean
+        metaData:
+          type: object
+    FeatureSDKVisibilityDto:
+      type: object
+      properties:
+        mobile:
+          type: boolean
+        client:
+          type: boolean
+        server:
+          type: boolean
+      required:
+      - mobile
+      - client
+      - server
+    UpdateFeatureStatusDto:
+      type: object
+      properties:
+        status:
+          description: The status to set the Feature's status to
+          enum:
+          - active
+          - complete
+          - archived
+          type: string
+        _customStatus:
+          type: string
+          description: The ID of the custom status to set the Feature's status to
+        staticVariation:
+          type: string
+          description: The variation key or ID to serve if the status is set to complete
+    CreateVariationDto:
+      type: object
+      properties:
+        key:
+          type: string
+          description: 'Unique key by Feature, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: variation-1
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          description: Variation display name.
+          example: User's with dashboard access
+          maxLength: 100
+          minLength: 1
+        variables:
+          type: object
+          description: A key-value map of variables to their value for this variation
+          additionalProperties:
+            anyOf:
+            - type: string
+            - type: number
+            - type: boolean
+            - type: array
+            - type: object
+          example:
+            show-new-dashboard: true
+            string-var: hello world
+            bool-var: true
+            num-var: 99
+            json-var:
+              foo: bar
+      required:
+      - key
+      - name
+    FeatureStaleness:
+      type: object
+      properties: {}
+    UserCountryFilter:
+      type: object
+      properties:
+        subType:
+          description: Sub type of this filter
+          example: country
+          enum:
+          - country
+          type: string
+          default: country
+        comparator:
+          description: Comparator to use
+          example: '!='
+          enum:
+          - '='
+          - '!='
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - CA
+          - US
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+      required:
+      - subType
+      - comparator
+      - type
+    UserFilter:
+      type: object
+      properties:
+        subType:
+          description: Sub type of this filter
+          example: email
+          enum:
+          - user_id
+          - email
+          - platform
+          - deviceModel
+          type: string
+        comparator:
+          description: Comparator to use
+          example: '!='
+          enum:
+          - '='
+          - '!='
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - baduser@email.com
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+      required:
+      - subType
+      - comparator
+      - type
+    Rollout:
+      type: object
+      properties:
+        startPercentage:
+          type: number
+          description: Rollout start percentage
+          minimum: 0
+          maximum: 1
+        type:
+          type: string
+          description: Type of rollout
+          enum:
+          - schedule
+          - gradual
+          - stepped
+        startDate:
+          format: date-time
+          type: string
+          description: Date to start rollout
+        stages:
+          description: Stages of rollout
+          type: array
+          items:
+            $ref: '#/components/schemas/RolloutStage'
+      required:
+      - type
+      - startDate
+    Target:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Target ID
+          example: 61450f3daec96f5cf4a49946
+        name:
+          type: string
+          description: Target name
+          example: Feature Enabled
+        audience:
+          description: Audience model describing target segmentation.
+          allOf:
+          - $ref: '#/components/schemas/TargetAudience'
+        rollout:
+          description: Rollout sub-document describing how a Target's audience is rolled out
+          allOf:
+          - $ref: '#/components/schemas/Rollout'
+        distribution:
+          description: Specifies variation distribution percentages for features
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetDistribution'
+        bucketingKey:
+          type: string
+          description: String to bucket users into a specific variation
+          example: '''organization_id'
+      required:
+      - _id
+      - audience
+      - distribution
+    CreateVariableDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Variable name
+          example: Show New Dashboard
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          description: A description of the Variable
+          example: A boolean variable that will toggle the new dashboard feature
+          maxLength: 1000
+        key:
+          type: string
+          description: 'Unique Variable identifier, can be used in the SDK / API to reference by key rather then ID.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: show-new-dashboard
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        _feature:
+          type: string
+          description: The ID of the Feature this Variable belongs to
+          example: 61450f3daec96f5cf4a49947
+        type:
+          type: string
+          description: The type of Variable. Must be one of [String | Boolean | Number | JSON]
+          example: Boolean
+          enum:
+          - String
+          - Boolean
+          - Number
+          - JSON
+        validationSchema:
+          description: Validation schema for variable values
+          allOf:
+          - $ref: '#/components/schemas/VariableValidationEntity'
+        tags:
+          description: Feature tags.
+          example:
+          - new
+          - dashboard
+          type: array
+          items:
+            type: string
+      required:
+      - key
+      - type
+    FeatureConfig:
+      type: object
+      properties:
+        _feature:
+          type: string
+          description: ID of the Feature owning the Configuration
+          example: 61450f3daec96f5cf4a49946
+        _environment:
+          type: string
+          description: ID of the Environment owning the Configuration
+          example: 61450f3daec96f5cf4a49946
+        _createdBy:
+          type: string
+          description: User who created the Feature Configuration
+        status:
+          description: Status of the Feature Configuration
+          enum:
+          - active
+          - inactive
+          type: string
+        startedAt:
+          format: date-time
+          type: string
+          description: Date the Feature Configuration was started
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Feature Configuration was last updated
+        targets:
+          description: The targets to evaluate what variation a user should be delivered
+          type: array
+          items:
+            $ref: '#/components/schemas/Target'
+        readonly:
+          type: boolean
+          description: Controls whether the feature configuration is editable for a given user
+        hasStaticConfig:
+          type: boolean
+          description: 'Flag to indicate if the Feature owning the configuration has been marked as complete.
+
+            If true, the user targeting rules are ignored and the static variation is always used.'
+      required:
+      - _feature
+      - _environment
+      - status
+      - updatedAt
+      - targets
+      - readonly
+      - hasStaticConfig
+    TargetDistribution:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Distribution percentage for the variation
+          example: 0.0005
+          minimum: 0
+          maximum: 1
+        _variation:
+          type: string
+          description: Variation ID or key from `feature.variations`
+          example: variation-1
+      required:
+      - percentage
+      - _variation
+    AuditLogEntity:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        a0_user:
+          type: string
+        changes:
+          type: array
+          items:
+            type: object
+      required:
+      - date
+      - a0_user
+      - changes
+    AllFilter:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Filter type of this audience
+          default: all
+          enum:
+          - all
+      required:
+      - type
+    UserAppVersionFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>'
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 1.0.2
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: appVersion
+          default: appVersion
+          enum:
+          - appVersion
+      required:
+      - comparator
+      - type
+      - subType
+    PreconditionFailedErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 412
+        message:
+          type: object
+          description: Error details
+          example: Variable does not belong to Feature
+        error:
+          type: string
+          description: Error type
+          example: Precondition Failed
+      required:
+      - statusCode
+      - message
+      - error
+    Feature:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Feature ID
+          example: 61450f3daec96f5cf4a49946
+        _project:
+          type: string
+          description: The Project owning the Feature
+        source:
+          description: Source that created the Feature
+          enum:
+          - api
+          - dashboard
+          - importer
+          - github.code_usages
+          - github.pr_insights
+          - gitlab.code_usages
+          - gitlab.pr_insights
+          - bitbucket.code_usages
+          - bitbucket.pr_insights
+          - terraform
+          - cli
+          - slack
+          - mcp
+          type: string
+        status:
+          description: Status of the Feature
+          enum:
+          - active
+          - complete
+          - archived
+          type: string
+        type:
+          description: The Feature type
+          enum:
+          - release
+          - experiment
+          - permission
+          - ops
+          type: string
+        name:
+          type: string
+          description: Name of the Feature
+          example: New Dashboard
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-dash
+        description:
+          type: string
+          description: Feature description.
+          example: New client-facing dashboard.
+        _createdBy:
+          type: string
+          description: ID of the User who created the Feature
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Feature was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Feature was last updated
+        prodTargetingUpdatedAt:
+          format: date-time
+          type: string
+          description: The date the Feature had an update that impacted production targeting
+        variations:
+          description: Variation configurations to be used by feature configurations.
+          type: array
+          items:
+            $ref: '#/components/schemas/Variation'
+        controlVariation:
+          type: string
+          description: The key of the variation that is used as the control variation for Metrics
+        staticVariation:
+          type: string
+          description: The key of the variation that is set when the Feature's status is set to complete
+        variables:
+          description: Variable definitions to be referenced in variations
+          type: array
+          items:
+            $ref: '#/components/schemas/Variable'
+        tags:
+          description: Tags to organize Features on the dashboard
+          example:
+          - Dashboard
+          - QA
+          type: array
+          items:
+            type: string
+        ldLink:
+          type: string
+          description: A link to the feature on LaunchDarkly if it has importedByLD type
+        readonly:
+          type: boolean
+          description: Controls whether the feature is editable for a given user
+        settings:
+          description: Defines feature-level settings
+          allOf:
+          - $ref: '#/components/schemas/FeatureSettings'
+        sdkVisibility:
+          description: SDK Type visibility settings to filter features by platform
+          allOf:
+          - $ref: '#/components/schemas/FeatureSDKVisibility'
+        configurations:
+          description: An array of targeting configurations for the associated environments
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureConfig'
+        latestUpdate:
+          description: 'Most recent audit log entry for this feature
+
+            Only included in response if includeLatestUpdate query param is true'
+          allOf:
+          - $ref: '#/components/schemas/AuditLogEntity'
+        changeRequests:
+          description: Pending change requests for this Feature
+          type: array
+          items:
+            type: object
+        staleness:
+          description: The staleness of the feature
+          allOf:
+          - $ref: '#/components/schemas/FeatureStaleness'
+        customStatus:
+          description: Custom status reference for this feature
+          allOf:
+          - $ref: '#/components/schemas/FeatureCustomStatus'
+        summary:
+          description: Summary details for dashboard
+          allOf:
+          - $ref: '#/components/schemas/FeatureSummary'
+      required:
+      - _id
+      - _project
+      - source
+      - status
+      - name
+      - key
+      - createdAt
+      - updatedAt
+      - controlVariation
+      - readonly
+      - configurations
+      - summary
+    Variation:
+      type: object
+      properties:
+        key:
+          type: string
+          description: 'Unique key by Feature, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: variation-1
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          description: Variation display name.
+          example: User's with dashboard access
+          maxLength: 100
+          minLength: 1
+        variables:
+          type: object
+          description: A key-value map of variables to their value for this variation
+          additionalProperties:
+            anyOf:
+            - type: string
+            - type: number
+            - type: boolean
+            - type: array
+            - type: object
+          example:
+            show-new-dashboard: true
+            string-var: hello world
+            bool-var: true
+            num-var: 99
+            json-var:
+              foo: bar
+        _id:
+          type: string
+          description: A unique Variation ID
+          example: 61450f3daec96f5cf4a49946
+      required:
+      - key
+      - name
+      - _id
+    FeatureSettingsDto:
+      type: object
+      properties:
+        publicName:
+          type: string
+          maxLength: 100
+          minLength: 1
+        publicDescription:
+          type: string
+          maxLength: 1000
+        optInEnabled:
+          type: boolean
+      required:
+      - publicName
+      - publicDescription
+      - optInEnabled
+    AudienceMatchFilter:
+      type: object
+      properties:
+        type:
+          type: string
+          default: audienceMatch
+          enum:
+          - audienceMatch
+        comparator:
+          enum:
+          - '='
+          - '!='
+          type: string
+        _audiences:
+          type: array
+          items:
+            type: string
+      required:
+      - type
+    RolloutStage:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Target percentage to reach by the step date
+          minimum: 0
+          maximum: 1
+        type:
+          type: string
+          description: Defines the transition into this percentage level
+          enum:
+          - linear
+          - discrete
+        date:
+          format: date-time
+          type: string
+          description: Date the target percentage should be fully applied
+      required:
+      - percentage
+      - type
+      - date
+    UpdateTargetDto:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Target ID
+          example: 61450f3daec96f5cf4a49946
+        name:
+          type: string
+          description: Target name
+          example: Feature Enabled
+        rollout:
+          description: Rollout sub-document describing how a Target's audience is rolled out
+          allOf:
+          - $ref: '#/components/schemas/Rollout'
+        distribution:
+          description: Specifies variation distribution percentages for features
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetDistribution'
+        audience:
+          description: Audience model describing target segmentation.
+          allOf:
+          - $ref: '#/components/schemas/TargetAudience'
+      required:
+      - distribution
+      - audience
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

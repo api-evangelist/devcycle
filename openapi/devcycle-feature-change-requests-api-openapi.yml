@@ -1,0 +1,505 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences Feature Change Requests API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Feature Change Requests
+paths:
+  /v2/projects/{project}/features/{feature}/change-requests:
+    post:
+      operationId: FeatureChangeRequestsController_createChangeRequest
+      summary: Create Feature Change Request
+      description: Create a new Feature Change Request
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFeatureChangeRequestDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureChangeRequest'
+        '400':
+          description: ''
+        '409':
+          description: ''
+        '412':
+          description: ''
+      tags:
+      - Feature Change Requests
+    get:
+      operationId: FeatureChangeRequestsController_getPendingFeatureChangeRequests
+      summary: Get a list of Pending Feature Change Requests for a Feature
+      description: Get all pending Feature Change Requests for a Feature
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeatureChangeRequest'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: ''
+      tags:
+      - Feature Change Requests
+  /v2/projects/{project}/features/{feature}/change-requests/latest:
+    get:
+      operationId: FeatureChangeRequestsController_getLatestFeatureChangeRequest
+      summary: Get the latest non-draft Feature Change Request for a Feature
+      description: Get the latest Feature Change Request for a Feature that is NOT in the 'draft' state
+      parameters:
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureChangeRequest'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: ''
+      tags:
+      - Feature Change Requests
+  /v2/projects/{project}/features/{feature}/change-requests/{id}:
+    get:
+      operationId: FeatureChangeRequestsController_getFeatureChangeRequest
+      summary: Get a Feature Change Request
+      description: Get a Feature Change Request by ID
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureChangeRequest'
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: ''
+      tags:
+      - Feature Change Requests
+  /v2/projects/{project}/features/{feature}/change-requests/{id}/submit:
+    patch:
+      operationId: FeatureChangeRequestsController_submitChangeRequestForReview
+      summary: Submit Feature Change Request for Review
+      description: Submit a Feature Change Request for Review
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitFeatureChangeRequestDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureChangeRequest'
+        '400':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: ''
+      tags:
+      - Feature Change Requests
+  /v2/projects/{project}/features/{feature}/change-requests/{id}/review:
+    patch:
+      operationId: FeatureChangeRequestsController_reviewFeatureChangeRequest
+      summary: Review a Pending Feature Change Request
+      description: Update a Feature Change Request by ID
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: apply
+        required: false
+        in: query
+        description: Controls whether the review should also apply the change request to the feature
+        schema:
+          type: boolean
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewFeatureChangeRequestDto'
+      responses:
+        '200':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: ''
+      tags:
+      - Feature Change Requests
+  /v2/projects/{project}/features/{feature}/change-requests/{id}/apply:
+    patch:
+      operationId: FeatureChangeRequestsController_applyFeatureChangeRequest
+      summary: Review a Pending Feature Change Request
+      description: Update a Feature Change Request by ID
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplyFeatureChangeRequestDto'
+      responses:
+        '200':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: ''
+      tags:
+      - Feature Change Requests
+  /v2/projects/{project}/features/{feature}/change-requests/{id}/cancel:
+    patch:
+      operationId: FeatureChangeRequestsController_cancelFeatureChangeRequest
+      summary: Cancel a Pending Feature Change Request
+      description: Cancel a Feature Change Request by ID
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      - name: feature
+        required: true
+        in: path
+        description: A Feature key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundErrorResponse'
+        '405':
+          description: ''
+      tags:
+      - Feature Change Requests
+components:
+  schemas:
+    CreateFeatureChangeRequestDto:
+      type: object
+      properties:
+        path:
+          type: string
+        method:
+          type: string
+          enum:
+          - PATCH
+        body:
+          type: object
+      required:
+      - path
+      - method
+      - body
+    Reviewers:
+      type: object
+      properties: {}
+    SubmitFeatureChangeRequestDto:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 1000
+        reviewers:
+          type: array
+          items:
+            type: string
+      required:
+      - description
+      - reviewers
+    ReviewReason:
+      type: object
+      properties: {}
+    ReviewFeatureChangeRequestDto:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - approved
+          - rejected
+        comment:
+          type: string
+      required:
+      - action
+      - comment
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    FeatureChangeRequest:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Feature ID
+          example: 61450f3daec96f5cf4a49946
+        _project:
+          type: string
+          description: The Project owning the Feature Change Request
+        _baseFeatureSnapshot:
+          type: string
+          description: Change Transaction model mongo _id.
+        _feature:
+          type: string
+          description: The Feature with requested changes
+        status:
+          description: Status of the Feature
+          enum:
+          - draft
+          - pending
+          - approved
+          - applied
+          - rejected
+          - cancelled
+          type: string
+        changes:
+          type: array
+          items:
+            type: object
+        operation:
+          description: 'Describes the type of requested change to a feature.
+
+            example: ''featureUpdate'''
+          enum:
+          - featureUpdate
+          - featureStatusUpdate
+          - featureStaticConfigurationUpdate
+          type: string
+        description:
+          type: string
+          description: Change Request Description
+          example: Enabling production for all users.
+        reviewers:
+          description: a0 users who are requested to review the change
+          allOf:
+          - $ref: '#/components/schemas/Reviewers'
+        reviews:
+          description: Current Reviewes for the change request
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewReason'
+        _createdBy:
+          type: string
+          description: ID of the User who created the Feature
+        _updatedBy:
+          type: string
+          description: ID of the User who last updated the Feature
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Feature was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Feature was last updated
+      required:
+      - _id
+      - _project
+      - _baseFeatureSnapshot
+      - _feature
+      - status
+      - operation
+      - reviewers
+      - reviews
+      - _createdBy
+    ApplyFeatureChangeRequestDto:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 1000
+        action:
+          type: string
+          enum:
+          - applied
+      required:
+      - description
+      - action
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

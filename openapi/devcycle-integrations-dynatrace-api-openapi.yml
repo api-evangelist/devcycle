@@ -1,0 +1,395 @@
+openapi: 3.1.0
+info:
+  title: 'DevCycle Bucketing Audiences Integrations: Dynatrace API'
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: 'Integrations: Dynatrace'
+paths:
+  /v1/integrations/dynatrace:
+    post:
+      operationId: DynatraceIntegrationController_createIntegration
+      summary: Create or Update Organization Dynatrace Integration
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDynatraceIntegrationDto'
+      responses:
+        '200':
+          description: Integration created/updated successfully
+        '201':
+          description: ''
+        '400':
+          description: ''
+        '403':
+          description: ''
+      tags:
+      - 'Integrations: Dynatrace'
+    get:
+      operationId: DynatraceIntegrationController_getIntegrations
+      summary: Get Dynatrace Integrations
+      parameters: []
+      responses:
+        '200':
+          description: Integrations fetched successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DynatraceIntegration'
+        '400':
+          description: ''
+        '403':
+          description: ''
+      tags:
+      - 'Integrations: Dynatrace'
+  /v1/integrations/dynatrace/{dynatraceEnvironmentId}:
+    delete:
+      operationId: DynatraceIntegrationController_deleteEnvironment
+      summary: Delete Dynatrace Environment
+      parameters:
+      - name: dynatraceEnvironmentId
+        required: true
+        in: path
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Environment deleted successfully
+        '400':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - 'Integrations: Dynatrace'
+components:
+  schemas:
+    ProjectSettings:
+      type: object
+      properties:
+        edgeDB:
+          $ref: '#/components/schemas/EdgeDBSettings'
+        optIn:
+          $ref: '#/components/schemas/OptInSettings'
+        sdkTypeVisibility:
+          $ref: '#/components/schemas/SDKTypeVisibilitySettings'
+        lifeCycle:
+          $ref: '#/components/schemas/LifeCycleSettings'
+        obfuscation:
+          $ref: '#/components/schemas/ObfuscationSettings'
+        featureApprovalWorkflow:
+          $ref: '#/components/schemas/FeatureApprovalWorkflowSettings'
+        disablePassthroughRollouts:
+          type: boolean
+        staleness:
+          $ref: '#/components/schemas/StalenessSettings'
+        dynatrace:
+          $ref: '#/components/schemas/DynatraceProjectSettings'
+      required:
+      - edgeDB
+      - optIn
+      - sdkTypeVisibility
+      - lifeCycle
+      - obfuscation
+      - featureApprovalWorkflow
+      - disablePassthroughRollouts
+      - staleness
+      - dynatrace
+    StalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        released:
+          $ref: '#/components/schemas/ReleasedStalenessSettings'
+        unmodifiedLong:
+          $ref: '#/components/schemas/UnmodifiedLongStalenessSettings'
+        unmodifiedShort:
+          $ref: '#/components/schemas/UnmodifiedShortStalenessSettings'
+        unused:
+          $ref: '#/components/schemas/UnusedStalenessSettings'
+        email:
+          $ref: '#/components/schemas/StalenessEmailSettings'
+      required:
+      - enabled
+      - released
+      - unmodifiedLong
+      - unmodifiedShort
+      - unused
+      - email
+    LifeCycleSettings:
+      type: object
+      properties:
+        disableCodeRefChecks:
+          type: boolean
+      required:
+      - disableCodeRefChecks
+    ObfuscationSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        required:
+          type: boolean
+      required:
+      - enabled
+      - required
+    EdgeDBSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    ReleasedStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    CreateDynatraceIntegrationDto:
+      type: object
+      properties:
+        dynatraceEnvironmentId:
+          type: string
+        accessToken:
+          type: string
+        environmentUrl:
+          type: string
+      required:
+      - dynatraceEnvironmentId
+      - accessToken
+      - environmentUrl
+    DynatraceEnvironment:
+      type: object
+      properties:
+        dynatraceEnvironmentId:
+          type: string
+        accessToken:
+          type: string
+        environmentUrl:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+      required:
+      - dynatraceEnvironmentId
+      - accessToken
+      - environmentUrl
+      - projects
+    SDKTypeVisibilitySettings:
+      type: object
+      properties:
+        enabledInFeatureSettings:
+          type: boolean
+      required:
+      - enabledInFeatureSettings
+    UnusedStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    Project:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Project ID
+          example: 61450f3daec96f5cf4a49946
+        _organization:
+          type: string
+          description: ID of the Organization owning the Project
+        _createdBy:
+          type: string
+          description: ID of the User who created the project
+        name:
+          type: string
+          description: Project name
+          example: Delivery App
+        key:
+          type: string
+          description: A unique key to identify the Project
+          example: delivery-app
+        description:
+          type: string
+          description: A description of the Project
+          example: A web app to manage outbound deliveries
+        color:
+          type: string
+          description: 'Project display color, used to highlight different projects on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+        settings:
+          $ref: '#/components/schemas/ProjectSettings'
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Project was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Project was last updated
+        hasJiraIntegration:
+          type: boolean
+          description: Boolean tracking whether this project has a jira integration set up
+        hasReceivedCodeUsages:
+          type: boolean
+          description: Describe if a project has ever received code usages for any variable
+        hasUserConfigFetch:
+          type: boolean
+          description: Boolean indicating whether a user config has been fetched for this project
+        jiraBaseUrl:
+          type: string
+          description: Jira project base url, if the integration is defined
+        readonly:
+          type: boolean
+          description: Controls whether the feature is editable for a given user
+        vercelEdgeConfigConnections:
+          description: Edge Config Connections for the project
+          type: array
+          items:
+            $ref: '#/components/schemas/VercelEdgeConfigConnection'
+      required:
+      - _id
+      - _organization
+      - _createdBy
+      - name
+      - key
+      - settings
+      - createdAt
+      - updatedAt
+      - hasJiraIntegration
+      - hasReceivedCodeUsages
+      - hasUserConfigFetch
+      - jiraBaseUrl
+      - readonly
+    DynatraceProjectSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        environmentMap:
+          type: object
+      required:
+      - enabled
+      - environmentMap
+    DynatraceIntegration:
+      type: object
+      properties:
+        environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/DynatraceEnvironment'
+      required:
+      - environments
+    OptInSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        title:
+          type: string
+        description:
+          type: string
+        imageURL:
+          type: string
+        colors:
+          $ref: '#/components/schemas/ColorSettings'
+        poweredByAlignment:
+          type: object
+      required:
+      - enabled
+      - title
+      - description
+      - imageURL
+      - colors
+      - poweredByAlignment
+    StalenessEmailSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        frequency:
+          type: string
+          enum:
+          - weekly
+          - biweekly
+          - monthly
+        users:
+          type: array
+          items:
+            type: string
+        lastNotification:
+          format: date-time
+          type: string
+      required:
+      - enabled
+      - frequency
+      - users
+      - lastNotification
+    ColorSettings:
+      type: object
+      properties:
+        primary:
+          type: string
+        secondary:
+          type: string
+      required:
+      - primary
+      - secondary
+    UnmodifiedLongStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    UnmodifiedShortStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    VercelEdgeConfigConnection:
+      type: object
+      properties:
+        edgeConfigName:
+          type: string
+        configurationId:
+          type: string
+      required:
+      - edgeConfigName
+      - configurationId
+    FeatureApprovalWorkflowSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        allowPublisherBypass:
+          type: boolean
+        defaultReviewers:
+          type: array
+          items:
+            type: string
+      required:
+      - enabled
+      - allowPublisherBypass
+      - defaultReviewers
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

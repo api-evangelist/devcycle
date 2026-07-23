@@ -1,0 +1,474 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences Custom Properties API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Custom Properties
+paths:
+  /v1/projects/{project}/customProperties:
+    post:
+      operationId: CustomPropertiesController_create
+      summary: Create Custom Property
+      description: Create a new Custom Property
+      parameters:
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCustomPropertyDto'
+      responses:
+        '201':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomProperty'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+      tags:
+      - Custom Properties
+    get:
+      operationId: CustomPropertiesController_findAll
+      summary: List Custom Properties
+      description: List Custom Properties
+      parameters:
+      - name: page
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          default: 1
+          type: number
+      - name: perPage
+        required: false
+        in: query
+        schema:
+          minimum: 1
+          maximum: 1000
+          default: 100
+          type: number
+      - name: sortBy
+        required: false
+        in: query
+        schema:
+          default: createdAt
+          enum:
+          - createdAt
+          - updatedAt
+          - name
+          - key
+          - propertyKey
+          type: string
+      - name: sortOrder
+        required: false
+        in: query
+        schema:
+          default: desc
+          enum:
+          - asc
+          - desc
+          type: string
+      - name: search
+        required: false
+        in: query
+        schema:
+          minLength: 3
+          type: string
+      - name: type
+        required: false
+        in: query
+        schema:
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+      - name: includeUsage
+        required: false
+        in: query
+        schema:
+          type: boolean
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomProperty'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Custom Properties
+  /v1/projects/{project}/customProperties/{key}:
+    get:
+      operationId: CustomPropertiesController_findOne
+      summary: Get a Custom Property
+      description: Get a Custom Property by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Custom Property key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomProperty'
+        '401':
+          description: ''
+        '403':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Custom Properties
+    patch:
+      operationId: CustomPropertiesController_update
+      summary: Update a Custom Property
+      description: Update an Custom Property by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Custom Property key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomPropertyDto'
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomProperty'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '404':
+          description: ''
+        '409':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictErrorResponse'
+      tags:
+      - Custom Properties
+    delete:
+      operationId: CustomPropertiesController_remove
+      summary: Delete a Custom Property
+      description: Delete an Custom Property by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Custom Property key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+        '401':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - Custom Properties
+components:
+  schemas:
+    EnumSchema:
+      type: object
+      properties:
+        allowedValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllowedValue'
+        allowAdditionalValues:
+          type: boolean
+      required:
+      - allowedValues
+      - allowAdditionalValues
+    CustomProperty:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Display name for Custom Property.
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        _id:
+          type: string
+          description: A unique CustomProperty ID
+          example: 61450f3daec96f5cf4a49946
+        _project:
+          type: string
+          description: The Project owning the Custom Property
+        _createdBy:
+          type: string
+          description: ID of the User who created the project
+        propertyKey:
+          type: string
+          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
+          example: Delivery App Secret Agent Code
+        type:
+          description: The Custom Property type
+          example: String
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Project was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Project was last updated
+        schema:
+          description: Schema definition for the custom property.
+          allOf:
+          - $ref: '#/components/schemas/PropertySchema'
+        hasUsage:
+          type: boolean
+          description: Whether the custom property is in use by a feature
+          example: true
+      required:
+      - name
+      - key
+      - _id
+      - _project
+      - _createdBy
+      - propertyKey
+      - type
+      - createdAt
+      - updatedAt
+    UpdateCustomPropertyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Display name for Custom Property.
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        propertyKey:
+          type: string
+          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
+          example: Delivery App Secret Agent Code
+        type:
+          type: string
+          description: 'Type of the Custom Propety. Must be one of: "Boolean", "Number" or "String"'
+          enum:
+          - String
+          - Boolean
+          - Number
+        schema:
+          description: Schema definition for the custom property.
+          allOf:
+          - $ref: '#/components/schemas/PropertySchema'
+    CreateCustomPropertyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Display name for Custom Property.
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        type:
+          description: 'Type of the Custom Propety. Must be one of: "Boolean", "Number" or "String"'
+          example: String
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+        propertyKey:
+          type: string
+          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
+          example: Delivery App Secret Agent Code
+        schema:
+          description: Schema definition for the custom property.
+          allOf:
+          - $ref: '#/components/schemas/PropertySchema'
+      required:
+      - name
+      - key
+      - type
+      - propertyKey
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType
+    AllowedValue:
+      type: object
+      properties:
+        label:
+          type: string
+        value:
+          type: object
+      required:
+      - label
+      - value
+    PropertySchema:
+      type: object
+      properties:
+        schemaType:
+          type: string
+          enum:
+          - enum
+        required:
+          type: boolean
+        enumSchema:
+          $ref: '#/components/schemas/EnumSchema'
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

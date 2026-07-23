@@ -1,0 +1,225 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences Feature Opt-in API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: Feature Opt-in
+paths:
+  /v1/optInConfig:
+    get:
+      summary: Fetch opt-in config
+      description: Fetch a project config to display features available for Opt-in
+      tags:
+      - Feature Opt-in
+      parameters:
+      - name: sdkKey
+        in: query
+        description: SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or "sdkKey" query parameter is required to be set.
+        required: false
+        schema:
+          type: string
+      - name: user_id
+        in: query
+        description: Unique id to identify the user
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Opt-in Config Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptInConfigResponse'
+              example:
+                settings:
+                  _project: 614df3aa473928459060721a
+                  enabled: true
+                  title: Feature Preview
+                  description: Opt in to preview upcoming features
+                  imageURL: https://example.com/preview.png
+                  colors:
+                    primary: '#0066ff'
+                    secondary: '#ffffff'
+                  poweredByAlignment: center
+                features:
+                - id: 614ef6aa473928459060721a
+                  name: New Dashboard
+                  description: Try our redesigned dashboard interface
+                  resolution: explicit
+                  status: true
+                - id: 614ef6aa473928459060721b
+                  name: Beta Analytics
+                  description: Access to new analytics features
+                  resolution: implicit
+                  status: false
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+  /v1/optIns/{user_id}:
+    put:
+      summary: Update opt-in preferences for a user
+      tags:
+      - Feature Opt-in
+      parameters:
+      - name: user_id
+        in: path
+        description: Unique user_id to identify the user
+        required: true
+        schema:
+          type: string
+      - name: sdkKey
+        in: query
+        description: SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or "sdkKey" query parameter is required to be set.
+        required: false
+        schema:
+          type: string
+      requestBody:
+        description: A map of feature IDs to boolean values. The value should be true if the user has opted in, false otherwise
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserOptInData'
+            example:
+              614ef6aa473928459060721a: true
+              614ef6aa473928459060721b: false
+      responses:
+        200:
+          description: Opt-in update success response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Successfully updated user opt-in data for environment with key 'production'.
+        400:
+          $ref: '#/components/responses/BadRequest'
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+        403:
+          $ref: '#/components/responses/ForbiddenError'
+        500:
+          $ref: '#/components/responses/InternalServerError'
+components:
+  schemas:
+    UserOptInData:
+      type: object
+      additionalProperties:
+        type: boolean
+    ErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Error response status code
+        message:
+          type: string
+          description: Error message
+        data:
+          type: object
+          description: Additional error information detailing the error reasoning
+      required:
+      - message
+    OptInConfigResponse:
+      type: object
+      properties:
+        settings:
+          type: object
+          properties:
+            _project:
+              type: string
+              description: Project ID
+            enabled:
+              type: boolean
+              description: Whether opt-in is enabled for this project
+            title:
+              type: string
+              description: Title for the opt-in UI
+            description:
+              type: string
+              description: Description for the opt-in UI
+            imageURL:
+              type: string
+              description: Image URL for the opt-in UI
+            colors:
+              type: object
+              properties:
+                primary:
+                  type: string
+                  description: Primary color hex code
+                secondary:
+                  type: string
+                  description: Secondary color hex code
+            poweredByAlignment:
+              type: string
+              description: Alignment for "powered by" text
+              enum:
+              - left
+              - center
+              - right
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Feature ID
+              name:
+                type: string
+                description: Public name of the feature
+              description:
+                type: string
+                description: Public description of the feature
+              resolution:
+                type: string
+                enum:
+                - explicit
+                - implicit
+                description: Whether the opt-in status was explicitly set by the user or implicitly defaulted
+              status:
+                type: boolean
+                description: Current opt-in status for this feature
+      required:
+      - settings
+      - features
+  responses:
+    UnauthorizedError:
+      description: Missing 'sdkKey' query parameter or 'Authorization' header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    ForbiddenError:
+      description: Forbidden - Feature not enabled or insufficient permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token

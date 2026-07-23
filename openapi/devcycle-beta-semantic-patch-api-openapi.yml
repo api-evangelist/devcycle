@@ -1,0 +1,110 @@
+openapi: 3.1.0
+info:
+  title: DevCycle Bucketing Audiences [Beta] Semantic Patch API
+  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
+  version: 1.3.0
+servers:
+- url: https://bucketing-api.devcycle.com/
+tags:
+- name: '[Beta] Semantic Patch'
+paths:
+  /v1/semantic/projects/{project}/audiences/{key}:
+    patch:
+      operationId: SemanticPatchController_semanticUpdate
+      summary: '[Beta] Semantic Patch Update an Audience'
+      description: Semantic Patch Update an Audience by ID or key
+      parameters:
+      - name: key
+        required: true
+        in: path
+        description: A Audience key or ID
+        schema:
+          type: string
+      - name: project
+        required: true
+        in: path
+        description: A Project key or ID
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AudiencePatchDto'
+      responses:
+        '200':
+          description: ''
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestErrorResponse'
+        '401':
+          description: ''
+        '404':
+          description: ''
+      tags:
+      - '[Beta] Semantic Patch'
+components:
+  schemas:
+    AudiencePatchInstructionsDto:
+      type: object
+      properties:
+        op:
+          type: string
+          enum:
+          - addFilterValues
+          - removeFilterValues
+        action:
+          $ref: '#/components/schemas/AudiencePatchAction'
+      required:
+      - op
+      - action
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    AudiencePatchAction:
+      type: object
+      properties:
+        values:
+          type: object
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+        filterIndex:
+          type: string
+      required:
+      - values
+      - filterIndex
+    AudiencePatchDto:
+      type: object
+      properties:
+        instructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AudiencePatchInstructionsDto'
+      required:
+      - instructions
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Enter your DevCycle SDK token
