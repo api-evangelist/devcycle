@@ -1,0 +1,84 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devcycle-management-openapi.json
+identity: >-
+  Resources are addressed by a human-defined `key` scoped to a project; the URL
+  hierarchy is /v1/projects/{project}/<resource>. An internal `_id` also exists.
+entities:
+- name: Project
+  key: key
+  path: /v1/projects/{project}
+  schemas: [Project, CreateProjectDto, ProjectSettings]
+  description: Top-level container that owns environments, features, variables, and audiences.
+- name: Environment
+  key: key
+  path: /v1/projects/{project}/environments/{key}
+  schemas: [Environment, CreateEnvironmentDto, EnvironmentSettings]
+  description: A deployment target (e.g. development, staging, production) with its own SDK keys.
+- name: Feature
+  key: key
+  path: /v1/projects/{project}/features/{key}
+  schemas: [Feature, CreateFeatureDto]
+  description: A feature flag with targeting configuration and variations.
+- name: Variation
+  path: /v1/projects/{project}/features/{feature}/variations
+  schemas: [Variation, CreateVariationDto]
+  description: A named set of variable values a feature can serve.
+- name: Variable
+  key: key
+  path: /v1/projects/{project}/variables/{key}
+  schemas: [Variable, CreateVariableDto]
+  description: A typed value (Boolean/String/Number/JSON) evaluated by SDKs; belongs to a feature.
+- name: Audience
+  key: key
+  path: /v1/projects/{project}/audiences/{key}
+  schemas: [Audience, CreateAudienceDto, AudienceMatchFilter]
+  description: A reusable set of targeting filters that can be referenced by features.
+- name: Webhook
+  path: /v1/projects/{project}/webhooks/{id}
+  description: Outbound HTTP subscription for project change/audit events.
+- name: CustomProperty
+  path: /v1/projects/{project}/customProperties
+  description: Custom user/context properties usable in targeting rules.
+relationships:
+- from: Environment
+  to: Project
+  type: belongs_to
+  via: project
+- from: Feature
+  to: Project
+  type: belongs_to
+  via: project
+- from: Variation
+  to: Feature
+  type: belongs_to
+  via: feature
+- from: Feature
+  to: Variation
+  type: has_many
+  via: variations
+- from: Variable
+  to: Feature
+  type: belongs_to
+  via: feature
+- from: Feature
+  to: Variable
+  type: has_many
+  via: variables
+- from: Audience
+  to: Project
+  type: belongs_to
+  via: project
+- from: Feature
+  to: Audience
+  type: has_many
+  via: targeting audience filters
+- from: Webhook
+  to: Project
+  type: belongs_to
+  via: project
+notes: >-
+  Entity-relationship graph derived from the Management API path hierarchy and
+  component schemas (151 schemas total). The core evaluation loop is
+  Project > Feature > Variation/Variable, with Environment scoping SDK keys and
+  Audience providing reusable targeting.

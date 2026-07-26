@@ -1,0 +1,28 @@
+# DevCycle
+
+> DevCycle is an OpenFeature-native feature flag and feature management platform (a Dynatrace company). It provides a Management API for administering projects, environments, features, variables, variations, and audiences, and a Bucketing API for server-side flag evaluation, backed by client and server SDKs across all major languages, a CLI, and an official MCP server for AI coding agents.
+
+## APIs
+- [Management API docs](https://docs.devcycle.com/management-api/): OAuth2 client_credentials, base https://api.devcycle.com/v1
+- [Bucketing API docs](https://docs.devcycle.com/bucketing-api/): SDK-key bearer auth, base https://bucketing-api.devcycle.com/
+
+## Specs
+- [Management API OpenAPI](https://api.devcycle.com/openapi.json): OpenAPI 3.0.0, 103 operations
+- [Bucketing API OpenAPI](https://docs.devcycle.com/redocusaurus/bucketing-api.yaml): OpenAPI 3.1.0
+
+## Developer
+- [Documentation](https://docs.devcycle.com/)
+- [SDKs](https://docs.devcycle.com/sdk/): JS/Node/React/NestJS, Python, Go, Ruby, PHP, Java, .NET, Android (Kotlin), iOS (Swift), Flutter, Roku, plus OpenFeature providers
+- [CLI & MCP](https://docs.devcycle.com/cli/): `dvc` CLI (npm i -g @devcycle/cli) and the DevCycle MCP server
+- [MCP Server](https://docs.devcycle.com/cli-mcp/mcp-reference/): hosted at https://mcp.devcycle.com/mcp (registry com.devcycle/mcp)
+- [GitHub organization](https://github.com/DevCycleHQ)
+- [Changelog](https://changelog.devcycle.com/)
+- [Status](https://devcycle.statuspage.io/)
+
+## Company
+- [Homepage](https://www.devcycle.com/)
+- [Blog](https://blog.devcycle.com/)
+- [Pricing](https://devcycle.com/pricing): Free / Business ($500/mo) / Enterprise
+- [Security & Trust](https://devcycle.com/security): SOC 2 Type II, GDPR; trust.devcycle.com
+- [Terms of Service](https://devcycle.com/company/terms-conditions)
+- [Privacy Policy](https://devcycle.com/company/privacy-policy)

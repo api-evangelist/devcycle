@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: searched
+source: https://changelog.devcycle.com/
+mirror: https://blog.devcycle.com/tag/changelog/
+scheme: dated product changelog (Headway)
+current_focus: AI-native feature management + MCP
+entries:
+- date: '2026'
+  highlights:
+  - Launched the hosted DevCycle MCP Server (OAuth, SSE/HTTP streaming) for AI editors and coding agents, with an official MCP registry entry.
+  - AI-assisted dashboard tooling - AI Generated Schemas that auto-create guardrails and AI Generated Feature Summaries to keep docs in sync.
+  - Embedded code snippets directly within the onboarding flow.
+  breaking: false
+notes: >-
+  Recent-window capture only; changelog.devcycle.com (Headway) is the live source
+  of truth. Product-update posts are also tagged on blog.devcycle.com. Entry dates
+  beyond the year are not individually timestamped in the aggregated sources, so
+  only the recent themes are recorded rather than fabricated per-item dates.

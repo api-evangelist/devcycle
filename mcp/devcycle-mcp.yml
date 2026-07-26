@@ -1,0 +1,78 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://docs.devcycle.com/cli-mcp/mcp-reference/
+registry: com.devcycle/mcp
+server:
+  name: devcycle
+  vendor: DevCycle
+  transports:
+  - transport: streamable-http
+    url: https://mcp.devcycle.com/mcp
+  - transport: sse
+    url: https://mcp.devcycle.com/sse
+    note: SSE-only fallback endpoint for clients with protocol-negotiation issues
+  - transport: stdio
+    command: dvc-mcp
+    package: "@devcycle/cli"
+    install: npm install -g @devcycle/cli
+  auth:
+    type: oauth2
+    provider: DevCycle Auth0 tenant (auth.devcycle.com)
+    note: remote server is OAuth-backed, zero local setup; stdio uses CLI auth or env vars
+docs:
+- https://docs.devcycle.com/cli-mcp/mcp-getting-started/
+- https://docs.devcycle.com/cli-mcp/mcp-reference/
+- https://blog.devcycle.com/introducing-the-devcycle-mcp-server/
+tools:
+- name: list_features
+  description: Browse and filter feature flags
+- name: create_feature
+  description: Add new feature flags
+- name: update_feature
+  description: Modify existing flags
+- name: update_feature_status
+  description: Change flag status (e.g. active/complete/archived)
+- name: delete_feature
+  description: Remove flags (destructive)
+- name: cleanup_feature
+  description: Guidance for safe codebase cleanup of a flag
+- name: get_feature_audit_log_history
+  description: Retrieve change history for a feature
+- name: list_variables
+  description: View all variables
+- name: create_variable
+  description: Create new variables
+- name: update_variable
+  description: Edit variables
+- name: delete_variable
+  description: Remove variables (destructive)
+- name: list_projects
+  description: Browse organization projects
+- name: get_current_project
+  description: Retrieve active project details
+- name: select_project
+  description: Switch active project
+- name: get_self_targeting_identity
+  description: Retrieve the test identity
+- name: update_self_targeting_identity
+  description: Modify the test identity
+- name: list_self_targeting_overrides
+  description: View active test overrides
+- name: set_self_targeting_override
+  description: Apply a variation override for testing
+- name: clear_feature_self_targeting_overrides
+  description: Remove overrides for a feature
+- name: get_feature_total_evaluations
+  description: Feature-specific evaluation metrics
+- name: get_project_total_evaluations
+  description: Project-wide evaluation analytics
+- name: install_devcycle_sdk
+  description: Multi-language SDK setup guides
+notes: >-
+  Official first-party MCP server. Available both as a hosted, OAuth-backed remote
+  endpoint (https://mcp.devcycle.com/mcp, streamable HTTP with SSE fallback,
+  listed in the official MCP registry as com.devcycle/mcp) and as a local stdio
+  server (dvc-mcp) shipped in the @devcycle/cli package. Tools map to Management
+  API operations for feature/variable/project management plus self-targeting
+  overrides and evaluation analytics.

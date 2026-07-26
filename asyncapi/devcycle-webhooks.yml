@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devcycle-management-openapi.json
+spec_type: Webhooks
+summary: >-
+  DevCycle does not publish an AsyncAPI document. It does expose an outbound
+  webhook surface managed through the Management API (Webhooks tag): projects can
+  register HTTP webhook subscriptions that DevCycle calls when configured events
+  occur. This artifact captures the webhook management surface derived from the
+  Management API operations; the event payload catalog itself is documented in the
+  DevCycle dashboard.
+management_operations:
+- operationId: WebhooksController_create
+  method: POST
+  path: /v1/projects/{project}/webhooks
+  summary: Register a webhook subscription for a project
+- operationId: WebhooksController_findAll
+  method: GET
+  path: /v1/projects/{project}/webhooks
+  summary: List a project's webhook subscriptions
+- operationId: WebhooksController_findOne
+  method: GET
+  path: /v1/projects/{project}/webhooks/{id}
+  summary: Retrieve a webhook subscription
+- operationId: WebhooksController_update
+  method: PATCH
+  path: /v1/projects/{project}/webhooks/{id}
+  summary: Update a webhook subscription
+- operationId: WebhooksController_remove
+  method: DELETE
+  path: /v1/projects/{project}/webhooks/{id}
+  summary: Delete a webhook subscription
+docs: https://docs.devcycle.com/integrations/webhooks
+notes: >-
+  Webhooks are configured per project and deliver change/audit events to a
+  subscriber URL. There is no published AsyncAPI/event-schema document, so this
+  provider's asyncapi scoring family is N/A rather than penalized; the Webhooks
+  pointer captures the real event/webhook surface.

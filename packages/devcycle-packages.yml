@@ -1,0 +1,131 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.devcycle.com/sdk/ + public registries
+packages:
+- language: javascript
+  registry: npm
+  name: "@devcycle/nodejs-server-sdk"
+  url: https://www.npmjs.com/package/@devcycle/nodejs-server-sdk
+  install: npm install @devcycle/nodejs-server-sdk
+  version: 1.55.7
+  kind: server-sdk
+  official: true
+- language: javascript
+  registry: npm
+  name: "@devcycle/js-client-sdk"
+  url: https://www.npmjs.com/package/@devcycle/js-client-sdk
+  install: npm install @devcycle/js-client-sdk
+  version: 1.47.8
+  kind: client-sdk
+  official: true
+- language: javascript
+  registry: npm
+  name: "@devcycle/react-client-sdk"
+  url: https://www.npmjs.com/package/@devcycle/react-client-sdk
+  install: npm install @devcycle/react-client-sdk
+  version: 1.45.8
+  kind: client-sdk
+  official: true
+- language: javascript
+  registry: npm
+  name: "@devcycle/nestjs-server-sdk"
+  url: https://www.npmjs.com/package/@devcycle/nestjs-server-sdk
+  install: npm install @devcycle/nestjs-server-sdk
+  version: 0.33.7
+  kind: server-sdk
+  official: true
+- language: javascript
+  registry: npm
+  name: "@devcycle/openfeature-web-provider"
+  url: https://www.npmjs.com/package/@devcycle/openfeature-web-provider
+  install: npm install @devcycle/openfeature-web-provider
+  version: 1.12.8
+  kind: openfeature-provider
+  official: true
+- language: python
+  registry: pypi
+  name: devcycle-python-server-sdk
+  url: https://pypi.org/project/devcycle-python-server-sdk/
+  install: pip install devcycle-python-server-sdk
+  version: 3.13.10
+  kind: server-sdk
+  official: true
+- language: go
+  registry: pkg.go.dev
+  name: github.com/devcyclehq/go-server-sdk/v2
+  url: https://pkg.go.dev/github.com/devcyclehq/go-server-sdk/v2
+  install: go get github.com/devcyclehq/go-server-sdk/v2
+  kind: server-sdk
+  official: true
+- language: ruby
+  registry: rubygems
+  name: devcycle-ruby-server-sdk
+  url: https://rubygems.org/gems/devcycle-ruby-server-sdk
+  install: gem install devcycle-ruby-server-sdk
+  version: 3.8.1
+  kind: server-sdk
+  official: true
+- language: php
+  registry: packagist
+  name: devcycle/php-server-sdk
+  url: https://packagist.org/packages/devcycle/php-server-sdk
+  install: composer require devcycle/php-server-sdk
+  kind: server-sdk
+  official: true
+- language: csharp
+  registry: nuget
+  name: DevCycle.SDK.Server.Local
+  url: https://www.nuget.org/packages/DevCycle.SDK.Server.Local
+  install: dotnet add package DevCycle.SDK.Server.Local
+  version: 4.9.0
+  kind: server-sdk
+  official: true
+- language: csharp
+  registry: nuget
+  name: DevCycle.SDK.Server.Cloud
+  url: https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud
+  install: dotnet add package DevCycle.SDK.Server.Cloud
+  version: 3.9.0
+  kind: server-sdk
+  official: true
+- language: java
+  registry: maven-central
+  name: com.devcycle:java-server-sdk
+  url: https://central.sonatype.com/artifact/com.devcycle/java-server-sdk
+  source: https://github.com/DevCycleHQ/java-server-sdk
+  kind: server-sdk
+  official: true
+- language: kotlin
+  registry: github
+  name: android-client-sdk
+  url: https://github.com/DevCycleHQ/android-client-sdk
+  kind: client-sdk
+  official: true
+- language: swift
+  registry: github
+  name: ios-client-sdk
+  url: https://github.com/DevCycleHQ/ios-client-sdk
+  kind: client-sdk
+  official: true
+- language: dart
+  registry: pub.dev
+  name: devcycle_flutter_client_sdk
+  url: https://pub.dev/packages/devcycle_flutter_client_sdk
+  source: https://github.com/DevCycleHQ/flutter-client-sdk
+  kind: client-sdk
+  official: true
+- language: javascript
+  registry: npm
+  name: "@devcycle/cli"
+  url: https://www.npmjs.com/package/@devcycle/cli
+  install: npm install -g @devcycle/cli
+  version: 6.3.2
+  kind: cli
+  official: true
+- language: hcl
+  registry: terraform
+  name: devcyclehq/devcycle
+  url: https://registry.terraform.io/providers/devcyclehq/devcycle/latest
+  source: https://github.com/DevCycleHQ/terraform-provider-devcycle
+  kind: terraform-provider
+  official: true

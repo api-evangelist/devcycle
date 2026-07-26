@@ -1,0 +1,45 @@
+arazzo: 1.0.1
+info:
+  title: DevCycle - evaluate feature flags for a user (Bucketing API)
+  version: 1.0.0
+  summary: Fetch all variables and features for a user context and report an event.
+sourceDescriptions:
+- name: bucketing
+  url: ../openapi/devcycle-bucketing-openapi.yaml
+  type: openapi
+workflows:
+- workflowId: evaluateForUser
+  summary: Get all variables and features for a user, then post a tracking event.
+  inputs:
+    type: object
+    properties:
+      user_id:
+        type: string
+  steps:
+  - stepId: getVariables
+    operationId: getVariables
+    requestBody:
+      contentType: application/json
+      payload:
+        user_id: $inputs.user_id
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: getFeatures
+    operationId: getFeatures
+    requestBody:
+      contentType: application/json
+      payload:
+        user_id: $inputs.user_id
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: postEvent
+    operationId: postEvents
+    requestBody:
+      contentType: application/json
+      payload:
+        user:
+          user_id: $inputs.user_id
+        events:
+        - type: customEvent
+    successCriteria:
+    - condition: $statusCode == 201

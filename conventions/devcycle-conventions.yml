@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devcycle-management-openapi.json + https://docs.devcycle.com/management-api/
+authentication:
+  management_api: OAuth2 client_credentials (bearer), audience https://api.devcycle.com/
+  bucketing_api: DevCycle SDK key as bearer token
+  ref: authentication/devcycle-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No Idempotency-Key header or idempotent-retry contract is documented or present
+    in the OpenAPI. Resource identity is instead enforced via unique keys - creating
+    a duplicate key returns 409 Conflict (ConflictErrorResponse).
+pagination:
+  style: page-number
+  params:
+  - page
+  - perPage
+  sort_params:
+  - sortBy
+  - sortOrder
+  filter_params:
+  - search
+  - startDate
+  - endDate
+  notes: List endpoints use page/perPage with sortBy/sortOrder; audit/results endpoints add startDate/endDate.
+resource_identity:
+  scheme: >-
+    Most resources are addressed by a human-defined `key` (project, feature,
+    variable, environment) scoped to a project; internal `_id` values also exist.
+error_envelope:
+  ref: errors/devcycle-problem-types.yml
+  shape: '{ statusCode, message, error }'
+  rfc9457: false
+versioning:
+  ref: lifecycle/devcycle-lifecycle.yml
+  scheme: uri-path (/v1, with /v2 for newer resources)
+rate_limiting:
+  documented: false
+  notes: No public rate-limit headers or numeric limits are documented for the Management API.
+notes: >-
+  Cross-cutting request/response semantics for the DevCycle Management API,
+  derived from the OpenAPI and management-api docs. Idempotency is intentionally
+  recorded as unsupported - no idempotency pointer is emitted.

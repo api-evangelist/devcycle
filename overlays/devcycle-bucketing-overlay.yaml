@@ -1,0 +1,13 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for DevCycle Bucketing API
+  version: 1.0.0
+extends: openapi/devcycle-bucketing-openapi.yaml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: devcycle
+    x-apievangelist-auth: DevCycle server SDK key as bearer token
+    x-apievangelist-base-url: https://bucketing-api.devcycle.com/
+    x-apievangelist-purpose: server-side feature-flag evaluation (bucketing) without a local SDK
+    x-apievangelist-openfeature: DevCycle is OpenFeature-native

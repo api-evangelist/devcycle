@@ -1,27 +1,487 @@
 aid: devcycle
 name: DevCycle
-description: 'DevCycle is a company surfaced as a portfolio company of initialized-capital and added to
-  the API Evangelist network as a stub for enrichment. Sector: enterprise-saas. This profile is a lead
-  awaiting the enrichment pipeline.'
+description: >-
+  DevCycle is an OpenFeature-native feature flag and feature management platform (a
+  Dynatrace company) for creating, targeting, rolling out, and cleaning up feature
+  flags without disrupting developer workflow. It exposes a Management API for
+  administering projects, environments, features, variables, variations, and
+  audiences, and a Bucketing API for server-side flag evaluation, backed by client
+  and server SDKs across every major language, OpenFeature providers, a `dvc` CLI,
+  a Terraform provider, and an official hosted MCP server for AI coding agents.
 url: https://raw.githubusercontent.com/api-evangelist/devcycle/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - initialized-capital
-x-tier: stub
-x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://devcycle.com/social-default.png
 tags:
 - Company
 - Enterprise Saas
-apis: []
+- Feature Flags
+- Feature Management
+- Feature Flags as a Service
+- Experimentation
+- OpenFeature
+- Developer Tools
+- DevOps
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: devcycle:devcycle-audiences-api
+  name: DevCycle Audiences API
+  description: The Audiences API from DevCycle — 3 operation(s) for audiences.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Audiences
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-audiences-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-audit-log-api
+  name: DevCycle Audit Log API
+  description: The Audit Log API from DevCycle — 1 operation(s) for audit log.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Audit Log
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-audit-log-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-beta-semantic-patch-api
+  name: DevCycle [Beta] Semantic Patch API
+  description: The [Beta] Semantic Patch API from DevCycle — 1 operation(s) for [beta] semantic patch.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - '[Beta] Semantic Patch'
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-beta-semantic-patch-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-bucketing-api-api
+  name: DevCycle Bucketing API API
+  description: The Bucketing API API from DevCycle — 4 operation(s) for bucketing api.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Bucketing API
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-bucketing-api-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-custom-properties-api
+  name: DevCycle Custom Properties API
+  description: The Custom Properties API from DevCycle — 2 operation(s) for custom properties.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Custom Properties
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-custom-properties-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-deprecated-features-v1-api
+  name: DevCycle [Deprecated] Features v1 API
+  description: >-
+    The [Deprecated] Features v1 API from DevCycle — 7 operation(s) for [deprecated] features v1.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - '[Deprecated] Features v1'
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-deprecated-features-v1-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-edgedb-api
+  name: DevCycle EdgeDB API
+  description: The EdgeDB API from DevCycle — 1 operation(s) for edgedb.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - EdgeDB
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-edgedb-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-environments-api
+  name: DevCycle Environments API
+  description: The Environments API from DevCycle — 4 operation(s) for environments.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Environments
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-environments-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-feature-change-requests-api
+  name: DevCycle Feature Change Requests API
+  description: >-
+    The Feature Change Requests API from DevCycle — 7 operation(s) for feature change requests.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Feature Change Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-feature-change-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-feature-configurations-api
+  name: DevCycle Feature Configurations API
+  description: >-
+    The Feature Configurations API from DevCycle — 1 operation(s) for feature configurations.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Feature Configurations
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-feature-configurations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-feature-opt-in-api
+  name: DevCycle Feature Opt-in API
+  description: The Feature Opt-in API from DevCycle — 2 operation(s) for feature opt-in.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Feature Opt-in
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-feature-opt-in-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-features-v2-api
+  name: DevCycle Features v2 API
+  description: The Features v2 API from DevCycle — 6 operation(s) for features v2.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Features v2
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-features-v2-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-integrations-dynatrace-api
+  name: 'DevCycle Integrations: Dynatrace API'
+  description: >-
+    The Integrations: Dynatrace API from DevCycle — 2 operation(s) for integrations: dynatrace.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - 'Integrations: Dynatrace'
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-integrations-dynatrace-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-integrations-jira-api
+  name: 'DevCycle Integrations: Jira API'
+  description: 'The Integrations: Jira API from DevCycle — 3 operation(s) for integrations: jira.'
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - 'Integrations: Jira'
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-integrations-jira-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-metric-associations-api
+  name: DevCycle Metric Associations API
+  description: The Metric Associations API from DevCycle — 1 operation(s) for metric associations.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Metric Associations
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-metric-associations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-metrics-api
+  name: DevCycle Metrics API
+  description: The Metrics API from DevCycle — 4 operation(s) for metrics.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-openfeature-remote-evaluation-api-ofrep-api
+  name: DevCycle OpenFeature Remote Evaluation API (OFREP) API
+  description: >-
+    See the OpenFeature documentation for more information: https://github.com/open-feature/protocol
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - OpenFeature Remote Evaluation API (OFREP)
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-openfeature-remote-evaluation-api-ofrep-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-overrides-api
+  name: DevCycle Overrides API
+  description: The Overrides API from DevCycle — 3 operation(s) for overrides.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Overrides
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-overrides-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-project-change-requests-api
+  name: DevCycle Project Change Requests API
+  description: >-
+    The Project Change Requests API from DevCycle — 1 operation(s) for project change requests.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Project Change Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-project-change-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-projects-api
+  name: DevCycle Projects API
+  description: The Projects API from DevCycle — 5 operation(s) for projects.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-projects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-results-api
+  name: DevCycle Results API
+  description: The Results API from DevCycle — 3 operation(s) for results.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Results
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-results-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-user-profiles-api
+  name: DevCycle User Profiles API
+  description: The User Profiles API from DevCycle — 1 operation(s) for user profiles.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - User Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-user-profiles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-variables-api
+  name: DevCycle Variables API
+  description: The Variables API from DevCycle — 3 operation(s) for variables.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Variables
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-variables-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-variations-api
+  name: DevCycle Variations API
+  description: The Variations API from DevCycle — 2 operation(s) for variations.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Variations
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-variations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
+- aid: devcycle:devcycle-webhooks-api
+  name: DevCycle Webhooks API
+  description: The Webhooks API from DevCycle — 2 operation(s) for webhooks.
+  humanURL: https://docs.devcycle.com/management-api/
+  baseURL: https://api.devcycle.com/v1
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/devcycle-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.devcycle.com/management-api/
+  - type: Documentation
+    url: https://docs.devcycle.com/bucketing-api/
 common:
+- type: DeveloperPortal
+  url: https://docs.devcycle.com/
+- type: Documentation
+  url: https://docs.devcycle.com/
+- type: APIReference
+  url: https://docs.devcycle.com/management-api/
+- type: GettingStarted
+  url: https://docs.devcycle.com/quickstart
+- type: SignUp
+  url: https://app.devcycle.com/
+- type: Pricing
+  url: https://devcycle.com/pricing
+- type: TermsOfService
+  url: https://devcycle.com/company/terms-conditions
+- type: PrivacyPolicy
+  url: https://devcycle.com/company/privacy-policy
+- type: Support
+  url: https://docs.devcycle.com/
+- type: Blog
+  url: https://blog.devcycle.com/
+- type: GitHubOrganization
+  url: https://github.com/DevCycleHQ
+- type: StatusPage
+  url: https://devcycle.statuspage.io/
+- type: ChangeLog
+  url: https://changelog.devcycle.com/
+- type: Deprecation
+  url: https://docs.devcycle.com/sdk/lifecycle/
+- type: Compliance
+  url: https://devcycle.com/security
 - type: Website
   url: https://www.devcycle.com/
+- type: Packages
+  url: packages/devcycle-packages.yml
+- type: SDKs
+  url: packages/devcycle-packages.yml
+- type: CLI
+  url: cli/devcycle-cli.yml
+- type: MCPServer
+  url: mcp/devcycle-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Webhooks
+  url: asyncapi/devcycle-webhooks.yml
+- type: WellKnown
+  url: well-known/devcycle-well-known.yml
+- type: SecurityTxt
+  url: well-known/devcycle-security.txt
+- type: LLMsTxt
+  url: llms/devcycle-llms.txt
+- type: Authentication
+  url: authentication/devcycle-authentication.yml
+- type: Conventions
+  url: conventions/devcycle-conventions.yml
+- type: ErrorCatalog
+  url: errors/devcycle-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/devcycle-lifecycle.yml
+- type: DataModel
+  url: data-model/devcycle-data-model.yml
+- type: Conformance
+  url: conformance/devcycle-conformance.yml
+- type: AgenticAccess
+  url: agentic-access/devcycle-agentic-access.yml
+- type: DomainSecurity
+  url: security/devcycle-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/devcycle-vulnerability-disclosure.yml
+- type: Security
+  url: https://github.com/DevCycleHQ/.github/blob/main/.github/SECURITY.md
+- type: TrustCenter
+  url: security/devcycle-trust-center.yml
+- type: Arazzo
+  name: Create a feature with a variable and variation
+  url: arazzo/devcycle-create-feature.yml
+- type: Arazzo
+  name: Evaluate feature flags for a user
+  url: arazzo/devcycle-evaluate-flags.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

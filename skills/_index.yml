@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/DevCycleHQ/AI-Prompts-And-Rules + generated from openapi/devcycle-management-openapi.json
+skills:
+- file: devcycle-create-feature-flag.md
+  name: Create and roll out a DevCycle feature flag
+  api: openapi/devcycle-management-openapi.json
+  operations: [ProjectsController_findAll, FeaturesController_create, VariablesController_create, VariationsController_create, VariationsController_findAll, FeaturesController_updateStatus]
+  method: generated
+- file: devcycle-install-sdk.md
+  name: Install the DevCycle SDK into a project
+  method: searched
+  source: https://github.com/DevCycleHQ/AI-Prompts-And-Rules/blob/main/devcycle-install-sdk.md
+- file: devcycle-insert-variable.md
+  name: Insert a new DevCycle feature-flag variable into code
+  method: searched
+  source: https://github.com/DevCycleHQ/AI-Prompts-And-Rules/blob/main/devcycle-insert-variable.md
+- file: devcycle-cleanup-variable.md
+  name: Clean up a DevCycle feature flag no longer needed
+  method: searched
+  source: https://github.com/DevCycleHQ/AI-Prompts-And-Rules/blob/main/devcycle-cleanup-variable.md
+notes: >-
+  DevCycle publishes agent prompts/rules in the DevCycleHQ/AI-Prompts-And-Rules
+  repo (install/insert/cleanup), saved here verbatim. The create-feature-flag
+  skill is generated and grounded in verified Management API operationIds.

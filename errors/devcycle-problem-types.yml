@@ -1,0 +1,52 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devcycle-management-openapi.json
+format: custom-json
+envelope:
+  description: >-
+    DevCycle Management API errors are returned as a JSON object (NOT RFC 9457
+    application/problem+json). The envelope carries a numeric statusCode, a
+    message (string or array of validation strings), and an error type string.
+  fields:
+    statusCode: numeric HTTP status code
+    message: human-readable detail (string) or array of field validation messages
+    error: short error type label (e.g. "Bad Request", "Conflict", "Not Found")
+problems:
+- status: 400
+  schema: BadRequestErrorResponse
+  error: Bad Request
+  title: Invalid request - missing or invalid properties
+  example_message: ["key should not be empty"]
+  remediation: Fix the request body/query; validation messages list the offending fields.
+- status: 401
+  error: Unauthorized
+  title: Missing or invalid credentials
+  remediation: Obtain a fresh OAuth bearer token from auth.devcycle.com/oauth/token (Management API) or supply a valid SDK key (Bucketing API).
+- status: 403
+  error: Forbidden
+  title: Authenticated but not permitted for this resource
+  remediation: Ensure the client/project has access to the target resource.
+- status: 404
+  schema: NotFoundErrorResponse
+  error: Not Found
+  title: Resource not found
+  example_message: "Item with key 'key-123' not found"
+- status: 405
+  schema: CannotDeleteLastItemErrorResponse
+  error: Method Not Allowed
+  title: Operation not permitted (e.g. cannot delete the last item)
+  example_message: "Cannot DELETE last item"
+- status: 409
+  schema: ConflictErrorResponse
+  error: Conflict
+  title: Duplicate or conflicting resource
+  example_message: "Duplicate key 'key-123'"
+  remediation: Use a unique key or update the existing resource.
+- status: 412
+  schema: PreconditionFailedErrorResponse
+  error: Precondition Failed
+  title: A precondition on the resource relationship failed
+  example_message: "Variable does not belong to Feature"
+notes: >-
+  Derived from the Management API OpenAPI response schemas. The Bucketing API
+  returns standard 4xx codes for bad SDK keys / malformed evaluation requests.

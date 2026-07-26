@@ -1,0 +1,19 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for DevCycle Management API
+  version: 1.0.0
+extends: openapi/devcycle-management-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: devcycle
+    x-apievangelist-auth: OAuth2 client_credentials (audience https://api.devcycle.com/)
+    x-apievangelist-base-url: https://api.devcycle.com/v1
+    x-apievangelist-error-envelope: '{ statusCode, message, error } (not RFC 9457)'
+    x-apievangelist-pagination: page/perPage with sortBy/sortOrder
+    x-apievangelist-webhooks: managed via WebhooksController_* operations
+    x-apievangelist-mcp: com.devcycle/mcp (https://mcp.devcycle.com/mcp)
+- target: $.servers
+  update:
+  - url: https://api.devcycle.com
+    description: DevCycle Management API (paths are under /v1, newer resources under /v2)

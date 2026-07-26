@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.devcycle.com/management-api/ + https://docs.devcycle.com/sdk/lifecycle/
+versioning:
+  scheme: uri-path
+  current: v1
+  notes: >-
+    The Management API is served under /v1 with newer resources exposed under
+    /v2 (e.g. Features v2). Legacy resources remain available and are tagged
+    "[Deprecated]" in the OpenAPI (Features v1, some Jira integration endpoints).
+  docs: https://docs.devcycle.com/management-api/
+deprecation:
+  policy: >-
+    DevCycle marks superseded operations with a "[Deprecated]" tag in the
+    Management API OpenAPI and maintains an SDK release lifecycle policy for
+    client/server SDKs.
+  sdk_lifecycle_docs: https://docs.devcycle.com/sdk/lifecycle/
+  feature_status_docs: https://docs.devcycle.com/platform/feature-flags/status-and-lifecycle/
+status_page: https://devcycle.statuspage.io/
+changelog: https://changelog.devcycle.com/
+deprecated_operations:
+- openapi/devcycle-management-openapi.json#[Deprecated] Features v1
+notes: >-
+  Status is published at devcycle.statuspage.io. A dated product changelog runs at
+  changelog.devcycle.com (Headway) with a mirror under blog.devcycle.com/tag/changelog.
+  DevCycle also publishes an SDK release lifecycle (stable/beta/deprecated) and a
+  feature-flag status/lifecycle model in-product.

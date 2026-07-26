@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+hosts:
+- host: https://api.devcycle.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: devcycle-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+- host: https://auth.devcycle.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: devcycle-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: devcycle-oauth-authorization-server.json
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://docs.devcycle.com
+  documents:
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: devcycle-ai-plugin.json
+  - path: /.well-known/security.txt
+    status: 200
+    note: served identically to api host
+- host: https://www.devcycle.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+notes: >-
+  The Auth0 tenant at auth.devcycle.com exposes full OIDC discovery
+  (openid-configuration + RFC 8414 oauth-authorization-server). A legacy
+  /.well-known/ai-plugin.json on the docs host advertises the two DevCycle APIs
+  (bucketing-api unauthenticated, management-api OAuth). RFC 9116 security.txt is
+  served across the api/www/docs hosts.

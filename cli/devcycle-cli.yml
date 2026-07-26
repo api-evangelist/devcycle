@@ -1,0 +1,61 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.devcycle.com/cli/
+name: DevCycle CLI
+binary: dvc
+package: "@devcycle/cli"
+repo: https://github.com/DevCycleHQ/cli
+install:
+- method: npm
+  command: npm install -g @devcycle/cli
+- method: homebrew
+  command: brew tap devcyclehq/cli && brew install devcycle
+auth:
+  commands: [login, logout]
+  note: OAuth login; also drives the local dvc-mcp MCP server
+commands:
+- name: alias
+  description: Repository variable alias management
+- name: cleanup
+  description: Replace DevCycle variables with static values in code
+- name: diff
+  description: Compare variable usage between code versions
+- name: environments
+  description: Create and manage environments
+- name: features
+  description: Manage features via the Management API
+- name: generate
+  description: Generate DevCycle-related files (e.g. typed variable definitions)
+- name: identity
+  description: View or manage your DevCycle identity
+- name: keys
+  description: Retrieve SDK keys
+- name: login
+  description: Authenticate the CLI
+- name: logout
+  description: Sign out
+- name: organizations
+  description: List or switch between organizations
+- name: overrides
+  description: Manage self-targeting overrides
+- name: projects
+  description: Create or view projects
+- name: repo
+  description: Configure repository settings
+- name: status
+  description: Check CLI health and configuration
+- name: targeting
+  description: Create or modify targeting rules
+- name: usages
+  description: Identify variable usage in a codebase
+- name: variables
+  description: Create or modify variables
+- name: variations
+  description: Create feature variations
+key_flows:
+- Code-usage scanning (usages/diff) to find and clean up stale flags
+- Type generation (generate) for typed variable access
+- Serving a local MCP server (dvc-mcp) for AI coding agents
+notes: >-
+  First-party TypeScript CLI. The binary is catalogued in packages/; this artifact
+  captures its command surface. The CLI also embeds the local stdio MCP server.

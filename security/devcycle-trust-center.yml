@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+probe: true
+source: https://devcycle.com/security
+url: https://trust.devcycle.com
+parent_trust_center: https://trust.dynatrace.com/
+certifications:
+- SOC 2 Type II
+- GDPR
+notes: >-
+  DevCycle publishes SOC 2 Type II and full GDPR compliance on its security page,
+  with customizable data residency available on request. DevCycle is a Dynatrace
+  company; its trust portal (trust.devcycle.com) and vulnerability disclosure roll
+  up into the Dynatrace trust center (trust.dynatrace.com), which additionally
+  carries ISO 27001/27017/27018, PCI DSS, HIPAA, and FedRAMP for the broader
+  platform. DevCycle is a registered CVE Numbering Authority.
+evidence:
+- source: https://devcycle.com/security
+  keywords:
+  - soc 2 type ii
+  - gdpr
+  - trust center
+  - cve numbering authority

@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devcycle-management-openapi.json + openapi/devcycle-bucketing-openapi.yaml
+workflows:
+- file: devcycle-create-feature.yml
+  workflowId: createFeatureWithVariable
+  title: Create a feature with a variable and variation
+  summary: List projects, create a feature, add a variable, then add a variation (Management API).
+- file: devcycle-evaluate-flags.yml
+  workflowId: evaluateForUser
+  title: Evaluate feature flags for a user
+  summary: Fetch all variables and features for a user context and post a tracking event (Bucketing API).

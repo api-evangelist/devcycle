@@ -1,0 +1,72 @@
+arazzo: 1.0.1
+info:
+  title: DevCycle - create a feature with a variable and variation
+  version: 1.0.0
+  summary: Create a feature flag, a variable, and a variation via the DevCycle Management API.
+sourceDescriptions:
+- name: management
+  url: ../openapi/devcycle-management-openapi.json
+  type: openapi
+workflows:
+- workflowId: createFeatureWithVariable
+  summary: List projects, create a feature, add a variable, then add a variation.
+  inputs:
+    type: object
+    properties:
+      project:
+        type: string
+        description: Project key
+      featureKey:
+        type: string
+      variableKey:
+        type: string
+  steps:
+  - stepId: listProjects
+    operationId: ProjectsController_findAll
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: createFeature
+    operationId: FeaturesController_create
+    parameters:
+    - name: project
+      in: path
+      value: $inputs.project
+    requestBody:
+      contentType: application/json
+      payload:
+        key: $inputs.featureKey
+        name: $inputs.featureKey
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      feature: $response.body#/key
+  - stepId: createVariable
+    operationId: VariablesController_create
+    parameters:
+    - name: project
+      in: path
+      value: $inputs.project
+    requestBody:
+      contentType: application/json
+      payload:
+        key: $inputs.variableKey
+        type: Boolean
+        _feature: $steps.createFeature.outputs.feature
+    successCriteria:
+    - condition: $statusCode == 200
+  - stepId: createVariation
+    operationId: VariationsController_create
+    parameters:
+    - name: project
+      in: path
+      value: $inputs.project
+    - name: feature
+      in: path
+      value: $steps.createFeature.outputs.feature
+    requestBody:
+      contentType: application/json
+      payload:
+        key: control
+        name: Control
+    successCriteria:
+    - condition: $statusCode == 200
