@@ -402,6 +402,8 @@ apis:
   - type: Documentation
     url: https://docs.devcycle.com/bucketing-api/
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/devcycle/overview
 - type: DeveloperPortal
   url: https://docs.devcycle.com/
 - type: Documentation
