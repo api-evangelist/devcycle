@@ -1,0 +1,686 @@
+{
+  "info": {
+    "_postman_id": "3d1a0e72-4d16-40ac-90f4-3c586982cdc7",
+    "name": "DevCycle Bucketing Audiences Feature Opt-in API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:39.000Z",
+    "updatedAt": "2026-07-28T01:30:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3d1a0e72-4d16-40ac-90f4-3c586982cdc7"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "optInConfig",
+          "item": [
+            {
+              "name": "Fetch opt-in config",
+              "id": "bf062c87-0b89-41b3-a3b5-c0483b0f86e8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/optInConfig?sdkKey=<string>&user_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "optInConfig"
+                  ],
+                  "query": [
+                    {
+                      "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                      "key": "sdkKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Unique id to identify the user",
+                      "key": "user_id",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Fetch a project config to display features available for Opt-in"
+              },
+              "response": [
+                {
+                  "id": "416e6867-f766-4693-aca8-cbc990192aa0",
+                  "name": "Opt-in Config Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/optInConfig?sdkKey=<string>&user_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "optInConfig"
+                      ],
+                      "query": [
+                        {
+                          "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                          "key": "sdkKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique id to identify the user",
+                          "key": "user_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"settings\": {\n    \"_project\": \"<string>\",\n    \"enabled\": \"<boolean>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"imageURL\": \"<string>\",\n    \"colors\": {\n      \"primary\": \"<string>\",\n      \"secondary\": \"<string>\"\n    },\n    \"poweredByAlignment\": \"right\"\n  },\n  \"features\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"resolution\": \"implicit\",\n      \"status\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"resolution\": \"implicit\",\n      \"status\": \"<boolean>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:30:39.000Z",
+                  "updatedAt": "2026-07-28T01:30:39.000Z",
+                  "uid": "35240-416e6867-f766-4693-aca8-cbc990192aa0"
+                },
+                {
+                  "id": "bb6e153f-40f7-453d-a113-17c475d24d3f",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/optInConfig?sdkKey=<string>&user_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "optInConfig"
+                      ],
+                      "query": [
+                        {
+                          "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                          "key": "sdkKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique id to identify the user",
+                          "key": "user_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:39.000Z",
+                  "updatedAt": "2026-07-28T01:30:39.000Z",
+                  "uid": "35240-bb6e153f-40f7-453d-a113-17c475d24d3f"
+                },
+                {
+                  "id": "a3331bae-2f41-488c-9ff1-561a980a39fd",
+                  "name": "Missing 'sdkKey' query parameter or 'Authorization' header",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/optInConfig?sdkKey=<string>&user_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "optInConfig"
+                      ],
+                      "query": [
+                        {
+                          "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                          "key": "sdkKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique id to identify the user",
+                          "key": "user_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:39.000Z",
+                  "updatedAt": "2026-07-28T01:30:39.000Z",
+                  "uid": "35240-a3331bae-2f41-488c-9ff1-561a980a39fd"
+                },
+                {
+                  "id": "de6dd414-3b2c-4b93-8488-b6f4569c24c0",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/optInConfig?sdkKey=<string>&user_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "optInConfig"
+                      ],
+                      "query": [
+                        {
+                          "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                          "key": "sdkKey",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Unique id to identify the user",
+                          "key": "user_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:39.000Z",
+                  "updatedAt": "2026-07-28T01:30:39.000Z",
+                  "uid": "35240-de6dd414-3b2c-4b93-8488-b6f4569c24c0"
+                }
+              ],
+              "createdAt": "2026-07-28T01:30:39.000Z",
+              "updatedAt": "2026-07-28T01:30:39.000Z",
+              "uid": "35240-bf062c87-0b89-41b3-a3b5-c0483b0f86e8"
+            }
+          ],
+          "id": "3aed4831-db02-4b33-987a-7b70747663c6",
+          "createdAt": "2026-07-28T01:30:39.000Z",
+          "updatedAt": "2026-07-28T01:30:39.000Z",
+          "uid": "35240-3aed4831-db02-4b33-987a-7b70747663c6"
+        },
+        {
+          "name": "optIns",
+          "item": [
+            {
+              "name": "{user_id}",
+              "item": [
+                {
+                  "name": "Update opt-in preferences for a user",
+                  "id": "a0facdd3-a867-4c15-ab06-f258b330eb56",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"culpa_3a0\": \"<boolean>\",\n  \"do3c\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/optIns/:user_id?sdkKey=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "optIns",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                          "key": "sdkKey",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7bc2a4c0-e657-42eb-bc33-49b2a1363de1",
+                          "key": "user_id",
+                          "value": "<string>",
+                          "description": "(Required) Unique user_id to identify the user"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1e65e7e3-30ca-4bf5-924c-d96cb6ec286b",
+                      "name": "Opt-in update success response",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"culpa_3a0\": \"<boolean>\",\n  \"do3c\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/optIns/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "optIns",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:30:39.000Z",
+                      "updatedAt": "2026-07-28T01:30:39.000Z",
+                      "uid": "35240-1e65e7e3-30ca-4bf5-924c-d96cb6ec286b"
+                    },
+                    {
+                      "id": "30129b03-bf9d-4e86-bbde-76721e57ebd4",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"culpa_3a0\": \"<boolean>\",\n  \"do3c\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/optIns/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "optIns",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:39.000Z",
+                      "updatedAt": "2026-07-28T01:30:39.000Z",
+                      "uid": "35240-30129b03-bf9d-4e86-bbde-76721e57ebd4"
+                    },
+                    {
+                      "id": "5e684d0c-b9d1-4a1f-8859-4d6d98f18350",
+                      "name": "Missing 'sdkKey' query parameter or 'Authorization' header",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"culpa_3a0\": \"<boolean>\",\n  \"do3c\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/optIns/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "optIns",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:39.000Z",
+                      "updatedAt": "2026-07-28T01:30:39.000Z",
+                      "uid": "35240-5e684d0c-b9d1-4a1f-8859-4d6d98f18350"
+                    },
+                    {
+                      "id": "4f6abc9e-2744-4857-8c3b-a4674b5d064a",
+                      "name": "Forbidden - Feature not enabled or insufficient permissions",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"culpa_3a0\": \"<boolean>\",\n  \"do3c\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/optIns/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "optIns",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:39.000Z",
+                      "updatedAt": "2026-07-28T01:30:39.000Z",
+                      "uid": "35240-4f6abc9e-2744-4857-8c3b-a4674b5d064a"
+                    },
+                    {
+                      "id": "121eb67d-7036-494a-bf10-0e88319bbcb6",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"culpa_3a0\": \"<boolean>\",\n  \"do3c\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/optIns/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "optIns",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:39.000Z",
+                      "updatedAt": "2026-07-28T01:30:39.000Z",
+                      "uid": "35240-121eb67d-7036-494a-bf10-0e88319bbcb6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:39.000Z",
+                  "updatedAt": "2026-07-28T01:30:39.000Z",
+                  "uid": "35240-a0facdd3-a867-4c15-ab06-f258b330eb56"
+                }
+              ],
+              "id": "6888f75d-6107-404a-bb85-85ca3db50a43",
+              "createdAt": "2026-07-28T01:30:39.000Z",
+              "updatedAt": "2026-07-28T01:30:39.000Z",
+              "uid": "35240-6888f75d-6107-404a-bb85-85ca3db50a43"
+            }
+          ],
+          "id": "a8b7a397-92b0-4666-be31-02f0b5dff610",
+          "createdAt": "2026-07-28T01:30:39.000Z",
+          "updatedAt": "2026-07-28T01:30:39.000Z",
+          "uid": "35240-a8b7a397-92b0-4666-be31-02f0b5dff610"
+        }
+      ],
+      "id": "0554e67f-bf68-4f94-973c-38659ab73228",
+      "createdAt": "2026-07-28T01:30:39.000Z",
+      "updatedAt": "2026-07-28T01:30:39.000Z",
+      "uid": "35240-0554e67f-bf68-4f94-973c-38659ab73228"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

@@ -1,0 +1,2403 @@
+{
+  "info": {
+    "_postman_id": "8b9fbb67-dc92-4a04-a854-42bd0b8d7270",
+    "name": "DevCycle Bucketing Audiences Environments API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:35.000Z",
+    "updatedAt": "2026-07-28T01:30:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8b9fbb67-dc92-4a04-a854-42bd0b8d7270"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "environments",
+                  "item": [
+                    {
+                      "name": "{key}",
+                      "item": [
+                        {
+                          "name": "Get an Environment",
+                          "id": "d05a543b-16f2-490b-9c57-1ffde94a375a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "614fd09b-78fa-4645-92ad-70383ffea805",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "a951acac-e9e6-4d3b-b462-b0388d1d0617",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Environment key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Returns the environment; if the token does not have permission to view protected environments, the environment will be filtered to only show non-protected SDK Keys for security."
+                          },
+                          "response": [
+                            {
+                              "id": "a94f697f-c58a-48e4-970f-4a6975c043d3",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"jppryjd-q4t\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"production\",\n  \"_createdBy\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"readonly\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"color\": \"#5C0\",\n  \"sdkKeys\": {\n    \"mobile\": [],\n    \"client\": [],\n    \"server\": []\n  },\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-a94f697f-c58a-48e4-970f-4a6975c043d3"
+                            },
+                            {
+                              "id": "908a2af7-c11d-4d18-b730-87e0021559ad",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-908a2af7-c11d-4d18-b730-87e0021559ad"
+                            },
+                            {
+                              "id": "b7b04c51-9aec-4e3b-8a0a-fc4fe72c135f",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-b7b04c51-9aec-4e3b-8a0a-fc4fe72c135f"
+                            },
+                            {
+                              "id": "a6b05da8-a1ce-4c12-a7aa-c66255a595fb",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-a6b05da8-a1ce-4c12-a7aa-c66255a595fb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-d05a543b-16f2-490b-9c57-1ffde94a375a"
+                        },
+                        {
+                          "name": "Update an Environment",
+                          "id": "7b09aebb-b2a9-4ef6-b21c-72eff1e5d47f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8oxb4r4z2d1\",\n  \"description\": \"<string>\",\n  \"color\": \"#4fa\",\n  \"type\": \"development\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d96abd06-8bf8-4b22-91ab-cfb2b65f9b9c",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "e787510f-a4ce-49fb-875c-118c3b8ed08e",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Environment key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Update an environment by ID or key. The environment key (if edited) must be unique within the project. If permissions are enabled, changing a protected environment type requires Publisher permissions"
+                          },
+                          "response": [
+                            {
+                              "id": "70979270-c574-46bd-b582-df7dfff382e4",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8oxb4r4z2d1\",\n  \"description\": \"<string>\",\n  \"color\": \"#4fa\",\n  \"type\": \"development\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"jppryjd-q4t\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"production\",\n  \"_createdBy\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"readonly\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"color\": \"#5C0\",\n  \"sdkKeys\": {\n    \"mobile\": [],\n    \"client\": [],\n    \"server\": []\n  },\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-70979270-c574-46bd-b582-df7dfff382e4"
+                            },
+                            {
+                              "id": "e5bff2a5-e133-4c1f-b3da-6042dbf79798",
+                              "name": "Invalid request body",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8oxb4r4z2d1\",\n  \"description\": \"<string>\",\n  \"color\": \"#4fa\",\n  \"type\": \"development\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-e5bff2a5-e133-4c1f-b3da-6042dbf79798"
+                            },
+                            {
+                              "id": "94fec451-5883-4957-83b0-eee40adc36d0",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8oxb4r4z2d1\",\n  \"description\": \"<string>\",\n  \"color\": \"#4fa\",\n  \"type\": \"development\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-94fec451-5883-4957-83b0-eee40adc36d0"
+                            },
+                            {
+                              "id": "f24365b0-417d-4551-819f-0be84eacfcf8",
+                              "name": "Environment not found",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8oxb4r4z2d1\",\n  \"description\": \"<string>\",\n  \"color\": \"#4fa\",\n  \"type\": \"development\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-f24365b0-417d-4551-819f-0be84eacfcf8"
+                            },
+                            {
+                              "id": "038621ff-e209-4b8b-aae0-ef6993626765",
+                              "name": "Environment key already exists, cannot rename an environment to an existing one.",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8oxb4r4z2d1\",\n  \"description\": \"<string>\",\n  \"color\": \"#4fa\",\n  \"type\": \"development\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-038621ff-e209-4b8b-aae0-ef6993626765"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-7b09aebb-b2a9-4ef6-b21c-72eff1e5d47f"
+                        },
+                        {
+                          "name": "Delete an Environment",
+                          "id": "f7e060b7-afbd-4f31-aeb3-bcb12fffa8d0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b8e077fd-3624-4650-9bce-f17a3087d703",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "b96547db-6e01-4f2b-a9ca-f60796931666",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Environment key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Delete an Environment by ID or key"
+                          },
+                          "response": [
+                            {
+                              "id": "02a911ff-352f-48aa-8f91-a96ee4b1e231",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-02a911ff-352f-48aa-8f91-a96ee4b1e231"
+                            },
+                            {
+                              "id": "07479dda-5f72-4ece-b73a-fe3183915157",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-07479dda-5f72-4ece-b73a-fe3183915157"
+                            },
+                            {
+                              "id": "b3e0a1b3-20cc-4fb0-ae55-161398b6fd0b",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-b3e0a1b3-20cc-4fb0-ae55-161398b6fd0b"
+                            },
+                            {
+                              "id": "7ff68097-6dab-4bfa-b2ae-73d0a8751c5a",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-7ff68097-6dab-4bfa-b2ae-73d0a8751c5a"
+                            },
+                            {
+                              "id": "62645329-dcca-4c9d-bc71-bcbfb5672119",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Method Not Allowed",
+                              "code": 405,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-62645329-dcca-4c9d-bc71-bcbfb5672119"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-f7e060b7-afbd-4f31-aeb3-bcb12fffa8d0"
+                        }
+                      ],
+                      "id": "bbee0738-16af-4736-a35b-57ef0cf14cd8",
+                      "createdAt": "2026-07-28T01:30:36.000Z",
+                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                      "uid": "35240-bbee0738-16af-4736-a35b-57ef0cf14cd8"
+                    },
+                    {
+                      "name": "{environment}",
+                      "item": [
+                        {
+                          "name": "sdk-keys",
+                          "item": [
+                            {
+                              "name": "{key}",
+                              "item": [
+                                {
+                                  "name": "Invalidate an SDK key",
+                                  "id": "a71b049e-951e-4d45-bea0-29c651c90cf1",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "environments",
+                                        ":environment",
+                                        "sdk-keys",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "c04d1b4a-afe5-460c-a6e1-36f76bedf985",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) A Project key or ID"
+                                        },
+                                        {
+                                          "id": "36343481-1706-4471-9ad2-53b4fa54ba27",
+                                          "key": "environment",
+                                          "value": "<string>",
+                                          "description": "(Required) An Environment key or ID"
+                                        },
+                                        {
+                                          "id": "cf34e84b-b3ab-47ac-8a14-b742a9a0154d",
+                                          "key": "key",
+                                          "value": "<string>",
+                                          "description": "(Required) An SDK key"
+                                        }
+                                      ]
+                                    },
+                                    "description": "This will invalidate all configs associated with a given key. This is an instantaneous change and all SDKs using this key will stop working immediately. This is the expected and recommended way to rotate SDK keys."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "6cfc8a04-74c7-4fe5-b3b4-bfd4f1afffb2",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "environments",
+                                            ":environment",
+                                            "sdk-keys",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "environment"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:36.000Z",
+                                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                                      "uid": "35240-6cfc8a04-74c7-4fe5-b3b4-bfd4f1afffb2"
+                                    },
+                                    {
+                                      "id": "b83e4da3-e1ac-405f-8262-a413053457f2",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "environments",
+                                            ":environment",
+                                            "sdk-keys",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "environment"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:36.000Z",
+                                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                                      "uid": "35240-b83e4da3-e1ac-405f-8262-a413053457f2"
+                                    },
+                                    {
+                                      "id": "f5d34290-3238-40f2-9ce1-024c4c13842c",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "environments",
+                                            ":environment",
+                                            "sdk-keys",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "environment"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:36.000Z",
+                                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                                      "uid": "35240-f5d34290-3238-40f2-9ce1-024c4c13842c"
+                                    },
+                                    {
+                                      "id": "cf026e5e-3015-4ecf-bf6f-542e9c20e6fd",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "environments",
+                                            ":environment",
+                                            "sdk-keys",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "environment"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:30:36.000Z",
+                                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                                      "uid": "35240-cf026e5e-3015-4ecf-bf6f-542e9c20e6fd"
+                                    },
+                                    {
+                                      "id": "34e27a02-579a-4205-9386-5d560c31b57f",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "environments",
+                                            ":environment",
+                                            "sdk-keys",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "environment"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Method Not Allowed",
+                                      "code": 405,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:30:36.000Z",
+                                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                                      "uid": "35240-34e27a02-579a-4205-9386-5d560c31b57f"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:30:36.000Z",
+                                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                                  "uid": "35240-a71b049e-951e-4d45-bea0-29c651c90cf1"
+                                }
+                              ],
+                              "id": "d241e9f9-e229-4bab-92bf-907cb713d2a0",
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-d241e9f9-e229-4bab-92bf-907cb713d2a0"
+                            },
+                            {
+                              "name": "Generate SDK Keys",
+                              "id": "2630c6b1-7666-40e6-a08b-9e06e6d6dc29",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"client\": \"<boolean>\",\n  \"server\": \"<boolean>\",\n  \"mobile\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "environments",
+                                    ":environment",
+                                    "sdk-keys"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "2a94a4f9-7e22-4e41-9868-6f6fa6cfe4e9",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "a7c4186d-cea6-46f3-84fa-204df6be88f8",
+                                      "key": "environment",
+                                      "value": "<string>",
+                                      "description": "(Required) An Environment key or ID"
+                                    }
+                                  ]
+                                },
+                                "description": "Generate new SDK keys for an environment, for any or all of the SDK types. This is the expected and recommended way to rotate SDK keys. Adding a new SDK key will not invalidate existing SDK keys.\nGenerating new keys is restricted for protected environments to those with Publisher permissions"
+                              },
+                              "response": [
+                                {
+                                  "id": "eaae052b-92f2-4354-ae89-22dcf04edc70",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"client\": \"<boolean>\",\n  \"server\": \"<boolean>\",\n  \"mobile\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "environments",
+                                        ":environment",
+                                        "sdk-keys"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "environment"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"jppryjd-q4t\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"production\",\n  \"_createdBy\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"readonly\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"color\": \"#5C0\",\n  \"sdkKeys\": {\n    \"mobile\": [],\n    \"client\": [],\n    \"server\": []\n  },\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:30:36.000Z",
+                                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                                  "uid": "35240-eaae052b-92f2-4354-ae89-22dcf04edc70"
+                                },
+                                {
+                                  "id": "86503f0a-761e-4be5-87aa-f4c7cde1abcf",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"client\": \"<boolean>\",\n  \"server\": \"<boolean>\",\n  \"mobile\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "environments",
+                                        ":environment",
+                                        "sdk-keys"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "environment"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"jppryjd-q4t\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"production\",\n  \"_createdBy\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"readonly\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"color\": \"#5C0\",\n  \"sdkKeys\": {\n    \"mobile\": [],\n    \"client\": [],\n    \"server\": []\n  },\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:30:36.000Z",
+                                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                                  "uid": "35240-86503f0a-761e-4be5-87aa-f4c7cde1abcf"
+                                },
+                                {
+                                  "id": "498d1d17-7a94-4b51-a31f-54b99eabccec",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"client\": \"<boolean>\",\n  \"server\": \"<boolean>\",\n  \"mobile\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "environments",
+                                        ":environment",
+                                        "sdk-keys"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "environment"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:36.000Z",
+                                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                                  "uid": "35240-498d1d17-7a94-4b51-a31f-54b99eabccec"
+                                },
+                                {
+                                  "id": "3a9bbc41-ae33-45e0-a70a-e91ef37236c6",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"client\": \"<boolean>\",\n  \"server\": \"<boolean>\",\n  \"mobile\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "environments",
+                                        ":environment",
+                                        "sdk-keys"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "environment"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:36.000Z",
+                                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                                  "uid": "35240-3a9bbc41-ae33-45e0-a70a-e91ef37236c6"
+                                },
+                                {
+                                  "id": "5e296eab-5ca7-4b57-b088-8d4c4feb7614",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"client\": \"<boolean>\",\n  \"server\": \"<boolean>\",\n  \"mobile\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "environments",
+                                        ":environment",
+                                        "sdk-keys"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "environment"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:36.000Z",
+                                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                                  "uid": "35240-5e296eab-5ca7-4b57-b088-8d4c4feb7614"
+                                },
+                                {
+                                  "id": "a3aa8f1f-501f-40b0-b05a-39fc65b57cf7",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"client\": \"<boolean>\",\n  \"server\": \"<boolean>\",\n  \"mobile\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/environments/:environment/sdk-keys",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "environments",
+                                        ":environment",
+                                        "sdk-keys"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "environment"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:36.000Z",
+                                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                                  "uid": "35240-a3aa8f1f-501f-40b0-b05a-39fc65b57cf7"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:36.000Z",
+                              "updatedAt": "2026-07-28T01:30:36.000Z",
+                              "uid": "35240-2630c6b1-7666-40e6-a08b-9e06e6d6dc29"
+                            }
+                          ],
+                          "id": "65730b85-5f05-44c1-9ddd-1600e653afb4",
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-65730b85-5f05-44c1-9ddd-1600e653afb4"
+                        }
+                      ],
+                      "id": "f73198fb-0d3e-448a-989d-a9c51cb4fca1",
+                      "createdAt": "2026-07-28T01:30:36.000Z",
+                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                      "uid": "35240-f73198fb-0d3e-448a-989d-a9c51cb4fca1"
+                    },
+                    {
+                      "name": "Create Environment",
+                      "id": "ec81a959-3918-4029-ab53-d91f648a23fe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"1qqs-yx6pd\",\n  \"type\": \"staging\",\n  \"description\": \"<string>\",\n  \"color\": \"#bdEE6DcA\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/environments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "environments"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b451f439-c5a7-44cb-b904-f0b0b23a3786",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "Create a new environment for a project. The environment key must be unique within the project. Multiple environments can share a type.\nCreating an environment will auto-generate a set of SDK Keys for the various types of SDKs.\nWhen permissions are enabled for the organization, the token must have Publisher permissions for the environment to be created."
+                      },
+                      "response": [
+                        {
+                          "id": "3cb51d89-5cdf-4d30-8dbb-dcb79b62ad92",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"1qqs-yx6pd\",\n  \"type\": \"staging\",\n  \"description\": \"<string>\",\n  \"color\": \"#bdEE6DcA\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"jppryjd-q4t\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"production\",\n  \"_createdBy\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"readonly\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"color\": \"#5C0\",\n  \"sdkKeys\": {\n    \"mobile\": [],\n    \"client\": [],\n    \"server\": []\n  },\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-3cb51d89-5cdf-4d30-8dbb-dcb79b62ad92"
+                        },
+                        {
+                          "id": "af0c44d1-cc21-45fd-aa1f-4fc751035033",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"1qqs-yx6pd\",\n  \"type\": \"staging\",\n  \"description\": \"<string>\",\n  \"color\": \"#bdEE6DcA\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-af0c44d1-cc21-45fd-aa1f-4fc751035033"
+                        },
+                        {
+                          "id": "97de5af6-07da-459c-a988-dc72c3931be1",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"1qqs-yx6pd\",\n  \"type\": \"staging\",\n  \"description\": \"<string>\",\n  \"color\": \"#bdEE6DcA\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-97de5af6-07da-459c-a988-dc72c3931be1"
+                        },
+                        {
+                          "id": "989dd0f9-97d1-43f3-80b3-2c746b9579ec",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"1qqs-yx6pd\",\n  \"type\": \"staging\",\n  \"description\": \"<string>\",\n  \"color\": \"#bdEE6DcA\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-989dd0f9-97d1-43f3-80b3-2c746b9579ec"
+                        },
+                        {
+                          "id": "4244d483-55be-4947-86b7-e5e82905f382",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"1qqs-yx6pd\",\n  \"type\": \"staging\",\n  \"description\": \"<string>\",\n  \"color\": \"#bdEE6DcA\",\n  \"settings\": {\n    \"appIconURI\": \"<string>\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-4244d483-55be-4947-86b7-e5e82905f382"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:36.000Z",
+                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                      "uid": "35240-ec81a959-3918-4029-ab53-d91f648a23fe"
+                    },
+                    {
+                      "name": "List Environments",
+                      "id": "e705db8f-1e7a-4ce7-9ca0-a4d7997387bf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/environments?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "environments"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "perPage",
+                              "value": "100"
+                            },
+                            {
+                              "key": "sortBy",
+                              "value": "createdAt"
+                            },
+                            {
+                              "key": "sortOrder",
+                              "value": "desc"
+                            },
+                            {
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "createdBy",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c8fa8389-2f53-4c4a-abef-224f81e3c752",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "List all environments for a project. If a token does not have permission to view protected environments the environments will be filtered to only show non-protected environments SDK Keys for security."
+                      },
+                      "response": [
+                        {
+                          "id": "9696c465-2d0a-4a90-a8cf-0e085fadf0a8",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"name\": \"<string>\",\n    \"key\": \"pt0oi\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"type\": \"staging\",\n    \"_createdBy\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"readonly\": \"<boolean>\",\n    \"description\": \"<string>\",\n    \"color\": \"#bc9FE81f\",\n    \"sdkKeys\": {\n      \"mobile\": [],\n      \"client\": [],\n      \"server\": []\n    },\n    \"settings\": {\n      \"appIconURI\": \"<string>\"\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"key\": \"oj5\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"type\": \"production\",\n    \"_createdBy\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"readonly\": \"<boolean>\",\n    \"description\": \"<string>\",\n    \"color\": \"#7F4\",\n    \"sdkKeys\": {\n      \"mobile\": [],\n      \"client\": [],\n      \"server\": []\n    },\n    \"settings\": {\n      \"appIconURI\": \"<string>\"\n    }\n  }\n]",
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-9696c465-2d0a-4a90-a8cf-0e085fadf0a8"
+                        },
+                        {
+                          "id": "b8c1a9a3-467d-45dd-80bf-83354018bf92",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-b8c1a9a3-467d-45dd-80bf-83354018bf92"
+                        },
+                        {
+                          "id": "0c3f27aa-18f8-4170-bc60-03f384582a18",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-0c3f27aa-18f8-4170-bc60-03f384582a18"
+                        },
+                        {
+                          "id": "61b3a17d-9c42-4a0a-a150-06afb7cb5875",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-61b3a17d-9c42-4a0a-a150-06afb7cb5875"
+                        },
+                        {
+                          "id": "9fb02dbf-6df5-40ca-8ec7-6d10e8aa0dd9",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/environments?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "environments"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:36.000Z",
+                          "updatedAt": "2026-07-28T01:30:36.000Z",
+                          "uid": "35240-9fb02dbf-6df5-40ca-8ec7-6d10e8aa0dd9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:36.000Z",
+                      "updatedAt": "2026-07-28T01:30:36.000Z",
+                      "uid": "35240-e705db8f-1e7a-4ce7-9ca0-a4d7997387bf"
+                    }
+                  ],
+                  "id": "a7ae48fc-cdf1-4d16-bf13-c2a664f67476",
+                  "createdAt": "2026-07-28T01:30:36.000Z",
+                  "updatedAt": "2026-07-28T01:30:36.000Z",
+                  "uid": "35240-a7ae48fc-cdf1-4d16-bf13-c2a664f67476"
+                }
+              ],
+              "id": "8d9b048d-2590-4735-827c-e834ffa1a1ca",
+              "createdAt": "2026-07-28T01:30:36.000Z",
+              "updatedAt": "2026-07-28T01:30:36.000Z",
+              "uid": "35240-8d9b048d-2590-4735-827c-e834ffa1a1ca"
+            }
+          ],
+          "id": "8e4f63da-d453-478d-8e7f-2c9f566f05d4",
+          "createdAt": "2026-07-28T01:30:36.000Z",
+          "updatedAt": "2026-07-28T01:30:36.000Z",
+          "uid": "35240-8e4f63da-d453-478d-8e7f-2c9f566f05d4"
+        }
+      ],
+      "id": "76f47ba1-14a7-4966-86c4-95f254f6addc",
+      "createdAt": "2026-07-28T01:30:36.000Z",
+      "updatedAt": "2026-07-28T01:30:36.000Z",
+      "uid": "35240-76f47ba1-14a7-4966-86c4-95f254f6addc"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

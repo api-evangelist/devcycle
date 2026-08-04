@@ -1,0 +1,1129 @@
+{
+  "info": {
+    "_postman_id": "6774b917-8867-48ba-b65c-3dad75af403a",
+    "name": "DevCycle Bucketing Audiences Results API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:24.000Z",
+    "updatedAt": "2026-07-28T01:31:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6774b917-8867-48ba-b65c-3dad75af403a"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "features",
+                  "item": [
+                    {
+                      "name": "{feature}",
+                      "item": [
+                        {
+                          "name": "results",
+                          "item": [
+                            {
+                              "name": "total-evaluations",
+                              "item": [
+                                {
+                                  "name": "Feature Variable Evaluations (total)",
+                                  "id": "5e614a10-a9af-4a11-bcf3-0c5a00e1091b",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/results/total-evaluations?startDate=<number>&endDate=<number>&platform=<string>&variable=<string>&environment=<string>&period=day&sdkType=mobile",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "results",
+                                        "total-evaluations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "startDate",
+                                          "value": "<number>"
+                                        },
+                                        {
+                                          "key": "endDate",
+                                          "value": "<number>"
+                                        },
+                                        {
+                                          "key": "platform",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "variable",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "period",
+                                          "value": "day"
+                                        },
+                                        {
+                                          "description": "SDK type to filter evaluation results by",
+                                          "key": "sdkType",
+                                          "value": "mobile"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "d970f146-e840-4006-83bb-1a4361586bbf",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) A Project key or ID"
+                                        },
+                                        {
+                                          "id": "2eadf47e-0325-4d29-bd7d-1d742d1a7bdd",
+                                          "key": "feature",
+                                          "value": "<string>",
+                                          "description": "(Required) A Feature key or ID"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Fetch total variable evaluations per hour for a feature"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "7b7f0455-a4ed-4f81-9fd3-0342caae0b45",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/results/total-evaluations?startDate=<number>&endDate=<number>&platform=<string>&variable=<string>&environment=<string>&period=day&sdkType=mobile",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "results",
+                                            "total-evaluations"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "startDate",
+                                              "value": "<number>"
+                                            },
+                                            {
+                                              "key": "endDate",
+                                              "value": "<number>"
+                                            },
+                                            {
+                                              "key": "platform",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "variable",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "A Environment key or ID",
+                                              "key": "environment",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "period",
+                                              "value": "day"
+                                            },
+                                            {
+                                              "description": "SDK type to filter evaluation results by",
+                                              "key": "sdkType",
+                                              "value": "mobile"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"result\": {\n    \"evaluations\": [\n      {\n        \"values\": {},\n        \"date\": \"<dateTime>\"\n      },\n      {\n        \"values\": {},\n        \"date\": \"<dateTime>\"\n      }\n    ]\n  },\n  \"cached\": \"<boolean>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                      "createdAt": "2026-07-28T01:31:25.000Z",
+                                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                                      "uid": "35240-7b7f0455-a4ed-4f81-9fd3-0342caae0b45"
+                                    },
+                                    {
+                                      "id": "35aec145-bdb0-4c72-a072-45fe74e96344",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/results/total-evaluations?startDate=<number>&endDate=<number>&platform=<string>&variable=<string>&environment=<string>&period=day&sdkType=mobile",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "results",
+                                            "total-evaluations"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "startDate",
+                                              "value": "<number>"
+                                            },
+                                            {
+                                              "key": "endDate",
+                                              "value": "<number>"
+                                            },
+                                            {
+                                              "key": "platform",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "variable",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "A Environment key or ID",
+                                              "key": "environment",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "period",
+                                              "value": "day"
+                                            },
+                                            {
+                                              "description": "SDK type to filter evaluation results by",
+                                              "key": "sdkType",
+                                              "value": "mobile"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:31:25.000Z",
+                                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                                      "uid": "35240-35aec145-bdb0-4c72-a072-45fe74e96344"
+                                    },
+                                    {
+                                      "id": "aa54b648-053c-4c44-8357-6eaa28191144",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/results/total-evaluations?startDate=<number>&endDate=<number>&platform=<string>&variable=<string>&environment=<string>&period=day&sdkType=mobile",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "results",
+                                            "total-evaluations"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "startDate",
+                                              "value": "<number>"
+                                            },
+                                            {
+                                              "key": "endDate",
+                                              "value": "<number>"
+                                            },
+                                            {
+                                              "key": "platform",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "variable",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "A Environment key or ID",
+                                              "key": "environment",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "period",
+                                              "value": "day"
+                                            },
+                                            {
+                                              "description": "SDK type to filter evaluation results by",
+                                              "key": "sdkType",
+                                              "value": "mobile"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:31:25.000Z",
+                                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                                      "uid": "35240-aa54b648-053c-4c44-8357-6eaa28191144"
+                                    },
+                                    {
+                                      "id": "596cd3c9-02c1-4268-ac6f-5370a287c3e2",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/results/total-evaluations?startDate=<number>&endDate=<number>&platform=<string>&variable=<string>&environment=<string>&period=day&sdkType=mobile",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "results",
+                                            "total-evaluations"
+                                          ],
+                                          "query": [
+                                            {
+                                              "key": "startDate",
+                                              "value": "<number>"
+                                            },
+                                            {
+                                              "key": "endDate",
+                                              "value": "<number>"
+                                            },
+                                            {
+                                              "key": "platform",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "variable",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "A Environment key or ID",
+                                              "key": "environment",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "key": "period",
+                                              "value": "day"
+                                            },
+                                            {
+                                              "description": "SDK type to filter evaluation results by",
+                                              "key": "sdkType",
+                                              "value": "mobile"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:31:25.000Z",
+                                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                                      "uid": "35240-596cd3c9-02c1-4268-ac6f-5370a287c3e2"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:31:25.000Z",
+                                  "updatedAt": "2026-07-28T01:31:25.000Z",
+                                  "uid": "35240-5e614a10-a9af-4a11-bcf3-0c5a00e1091b"
+                                }
+                              ],
+                              "id": "1a4f3660-d637-45d1-90c0-0a256f82b799",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-1a4f3660-d637-45d1-90c0-0a256f82b799"
+                            }
+                          ],
+                          "id": "9d3cfa55-4665-4ad3-ba4d-62537d7c061a",
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-9d3cfa55-4665-4ad3-ba4d-62537d7c061a"
+                        }
+                      ],
+                      "id": "ef734149-1346-407f-b3e4-b7f68f18499f",
+                      "createdAt": "2026-07-28T01:31:25.000Z",
+                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                      "uid": "35240-ef734149-1346-407f-b3e4-b7f68f18499f"
+                    }
+                  ],
+                  "id": "00352e42-971e-465c-b1e9-18821518e7dc",
+                  "createdAt": "2026-07-28T01:31:25.000Z",
+                  "updatedAt": "2026-07-28T01:31:25.000Z",
+                  "uid": "35240-00352e42-971e-465c-b1e9-18821518e7dc"
+                },
+                {
+                  "name": "results",
+                  "item": [
+                    {
+                      "name": "evaluations",
+                      "item": [
+                        {
+                          "name": "Project Variable Evaluations (unique user)",
+                          "id": "fad1a3ef-309d-48ee-9318-d77d738594f5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/results/evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "results",
+                                "evaluations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "startDate",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "key": "endDate",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "A Environment key or ID",
+                                  "key": "environment",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "period",
+                                  "value": "day"
+                                },
+                                {
+                                  "description": "SDK type to filter evaluation results by",
+                                  "key": "sdkType",
+                                  "value": "mobile"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "14c08e32-5ef5-4078-8457-c66e83130f71",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Fetch unique user variable evaluations per hour for a project"
+                          },
+                          "response": [
+                            {
+                              "id": "6a459a46-17dd-43be-b6c2-ad8ea8783644",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/results/evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "results",
+                                    "evaluations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "SDK type to filter evaluation results by",
+                                      "key": "sdkType",
+                                      "value": "mobile"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"result\": {\n    \"evaluations\": [\n      {\n        \"date\": \"<dateTime>\",\n        \"value\": \"<number>\"\n      },\n      {\n        \"date\": \"<dateTime>\",\n        \"value\": \"<number>\"\n      }\n    ]\n  },\n  \"cached\": \"<boolean>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-6a459a46-17dd-43be-b6c2-ad8ea8783644"
+                            },
+                            {
+                              "id": "5089ecb5-292e-4e4d-bfed-757076d9e380",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/results/evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "results",
+                                    "evaluations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "SDK type to filter evaluation results by",
+                                      "key": "sdkType",
+                                      "value": "mobile"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-5089ecb5-292e-4e4d-bfed-757076d9e380"
+                            },
+                            {
+                              "id": "3096909c-3ca4-446a-82f5-085aa8fd202f",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/results/evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "results",
+                                    "evaluations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "SDK type to filter evaluation results by",
+                                      "key": "sdkType",
+                                      "value": "mobile"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-3096909c-3ca4-446a-82f5-085aa8fd202f"
+                            },
+                            {
+                              "id": "d01194be-8033-4457-a627-aae2e3add74f",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/results/evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "results",
+                                    "evaluations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "SDK type to filter evaluation results by",
+                                      "key": "sdkType",
+                                      "value": "mobile"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-d01194be-8033-4457-a627-aae2e3add74f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-fad1a3ef-309d-48ee-9318-d77d738594f5"
+                        }
+                      ],
+                      "id": "64e4d903-634c-4681-a38b-09d94381935b",
+                      "createdAt": "2026-07-28T01:31:25.000Z",
+                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                      "uid": "35240-64e4d903-634c-4681-a38b-09d94381935b"
+                    },
+                    {
+                      "name": "total-evaluations",
+                      "item": [
+                        {
+                          "name": "Project Variable Evaluations (total)",
+                          "id": "fe20be2e-e099-4834-9348-e90ab8a36b80",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/results/total-evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "results",
+                                "total-evaluations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "startDate",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "key": "endDate",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "A Environment key or ID",
+                                  "key": "environment",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "period",
+                                  "value": "day"
+                                },
+                                {
+                                  "description": "SDK type to filter evaluation results by",
+                                  "key": "sdkType",
+                                  "value": "mobile"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "22fa57a6-ee24-4212-9b8d-a6747f4640f7",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Fetch total variable evaluations per hour for a project"
+                          },
+                          "response": [
+                            {
+                              "id": "4d1eaf54-986e-4ca0-8a6e-24961ba6145a",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/results/total-evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "results",
+                                    "total-evaluations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "SDK type to filter evaluation results by",
+                                      "key": "sdkType",
+                                      "value": "mobile"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"result\": {\n    \"evaluations\": [\n      {\n        \"date\": \"<dateTime>\",\n        \"value\": \"<number>\"\n      },\n      {\n        \"date\": \"<dateTime>\",\n        \"value\": \"<number>\"\n      }\n    ]\n  },\n  \"cached\": \"<boolean>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-4d1eaf54-986e-4ca0-8a6e-24961ba6145a"
+                            },
+                            {
+                              "id": "87ea85a6-de63-49ed-b552-0b5993348a12",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/results/total-evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "results",
+                                    "total-evaluations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "SDK type to filter evaluation results by",
+                                      "key": "sdkType",
+                                      "value": "mobile"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-87ea85a6-de63-49ed-b552-0b5993348a12"
+                            },
+                            {
+                              "id": "06094cd9-4dca-43e9-bf5c-de85defadd61",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/results/total-evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "results",
+                                    "total-evaluations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "SDK type to filter evaluation results by",
+                                      "key": "sdkType",
+                                      "value": "mobile"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-06094cd9-4dca-43e9-bf5c-de85defadd61"
+                            },
+                            {
+                              "id": "0cdf9876-488e-434e-9fa4-3f63a8939bb7",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/results/total-evaluations?startDate=<number>&endDate=<number>&environment=<string>&period=day&sdkType=mobile",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "results",
+                                    "total-evaluations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<number>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "period",
+                                      "value": "day"
+                                    },
+                                    {
+                                      "description": "SDK type to filter evaluation results by",
+                                      "key": "sdkType",
+                                      "value": "mobile"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:25.000Z",
+                              "updatedAt": "2026-07-28T01:31:25.000Z",
+                              "uid": "35240-0cdf9876-488e-434e-9fa4-3f63a8939bb7"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:25.000Z",
+                          "updatedAt": "2026-07-28T01:31:25.000Z",
+                          "uid": "35240-fe20be2e-e099-4834-9348-e90ab8a36b80"
+                        }
+                      ],
+                      "id": "43804e7c-ac6e-4c90-8d03-55a3c27b402b",
+                      "createdAt": "2026-07-28T01:31:25.000Z",
+                      "updatedAt": "2026-07-28T01:31:25.000Z",
+                      "uid": "35240-43804e7c-ac6e-4c90-8d03-55a3c27b402b"
+                    }
+                  ],
+                  "id": "a7a8a64e-fd28-4ab0-a705-037fd2a6ff05",
+                  "createdAt": "2026-07-28T01:31:25.000Z",
+                  "updatedAt": "2026-07-28T01:31:25.000Z",
+                  "uid": "35240-a7a8a64e-fd28-4ab0-a705-037fd2a6ff05"
+                }
+              ],
+              "id": "ec84ddf9-4159-444f-83ca-9c9992336ec1",
+              "createdAt": "2026-07-28T01:31:25.000Z",
+              "updatedAt": "2026-07-28T01:31:25.000Z",
+              "uid": "35240-ec84ddf9-4159-444f-83ca-9c9992336ec1"
+            }
+          ],
+          "id": "0c1242cd-1606-488f-8fbb-bb5117d167af",
+          "createdAt": "2026-07-28T01:31:25.000Z",
+          "updatedAt": "2026-07-28T01:31:25.000Z",
+          "uid": "35240-0c1242cd-1606-488f-8fbb-bb5117d167af"
+        }
+      ],
+      "id": "16572f20-ad57-4bf4-aaed-196f3867b075",
+      "createdAt": "2026-07-28T01:31:25.000Z",
+      "updatedAt": "2026-07-28T01:31:25.000Z",
+      "uid": "35240-16572f20-ad57-4bf4-aaed-196f3867b075"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

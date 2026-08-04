@@ -1,0 +1,359 @@
+{
+  "info": {
+    "_postman_id": "0d0e9f92-c966-4e4e-ab20-160d8802783a",
+    "name": "DevCycle Bucketing Audiences Project Change Requests API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:22.000Z",
+    "updatedAt": "2026-07-28T01:31:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0d0e9f92-c966-4e4e-ab20-160d8802783a"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "change-requests",
+                  "item": [
+                    {
+                      "name": "Get a list of Feature Change Requests for a Project",
+                      "id": "e6afc66e-eddc-4305-a5ec-86edc3779015",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/projects/:project/change-requests?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&status=draft&reviewer=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "projects",
+                            ":project",
+                            "change-requests"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "perPage",
+                              "value": "100"
+                            },
+                            {
+                              "key": "sortBy",
+                              "value": "createdAt"
+                            },
+                            {
+                              "key": "sortOrder",
+                              "value": "desc"
+                            },
+                            {
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "createdBy",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "status",
+                              "value": "draft"
+                            },
+                            {
+                              "key": "reviewer",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "3fb4da5c-7720-4bca-8f9d-481c176490c7",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "Get a list of Feature Change Requests for a Project"
+                      },
+                      "response": [
+                        {
+                          "id": "810e6492-0b48-4b00-92cd-b1095093473a",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/projects/:project/change-requests?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&status=draft&reviewer=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "projects",
+                                ":project",
+                                "change-requests"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "draft"
+                                },
+                                {
+                                  "key": "reviewer",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"_feature\": \"<string>\",\n    \"status\": \"draft\",\n    \"operation\": \"featureStatusUpdate\",\n    \"reviewers\": {},\n    \"reviews\": [],\n    \"_createdBy\": \"<string>\",\n    \"feature\": {\n      \"key\": \"j30_ri1q8\",\n      \"name\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"_updatedBy\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  },\n  {\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"_feature\": \"<string>\",\n    \"status\": \"cancelled\",\n    \"operation\": \"featureStaticConfigurationUpdate\",\n    \"reviewers\": {},\n    \"reviews\": [],\n    \"_createdBy\": \"<string>\",\n    \"feature\": {\n      \"key\": \"h21auhecg.e\",\n      \"name\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"description\": \"<string>\",\n    \"_updatedBy\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:23.000Z",
+                          "updatedAt": "2026-07-28T01:31:23.000Z",
+                          "uid": "35240-810e6492-0b48-4b00-92cd-b1095093473a"
+                        },
+                        {
+                          "id": "6cfa8461-7825-4339-be13-dbe1ddc15f02",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/projects/:project/change-requests?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&status=draft&reviewer=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "projects",
+                                ":project",
+                                "change-requests"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "draft"
+                                },
+                                {
+                                  "key": "reviewer",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:31:23.000Z",
+                          "updatedAt": "2026-07-28T01:31:23.000Z",
+                          "uid": "35240-6cfa8461-7825-4339-be13-dbe1ddc15f02"
+                        },
+                        {
+                          "id": "55dc8399-3103-4145-9b96-047ff4f9280d",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/projects/:project/change-requests?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&status=draft&reviewer=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "projects",
+                                ":project",
+                                "change-requests"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "draft"
+                                },
+                                {
+                                  "key": "reviewer",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Method Not Allowed",
+                          "code": 405,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:31:23.000Z",
+                          "updatedAt": "2026-07-28T01:31:23.000Z",
+                          "uid": "35240-55dc8399-3103-4145-9b96-047ff4f9280d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:23.000Z",
+                      "updatedAt": "2026-07-28T01:31:23.000Z",
+                      "uid": "35240-e6afc66e-eddc-4305-a5ec-86edc3779015"
+                    }
+                  ],
+                  "id": "fdd638ab-7f4e-4768-ab75-2f70329301b0",
+                  "createdAt": "2026-07-28T01:31:23.000Z",
+                  "updatedAt": "2026-07-28T01:31:23.000Z",
+                  "uid": "35240-fdd638ab-7f4e-4768-ab75-2f70329301b0"
+                }
+              ],
+              "id": "d1667448-a880-418b-a670-a455384d7e89",
+              "createdAt": "2026-07-28T01:31:23.000Z",
+              "updatedAt": "2026-07-28T01:31:23.000Z",
+              "uid": "35240-d1667448-a880-418b-a670-a455384d7e89"
+            }
+          ],
+          "id": "d8073987-6326-4a62-979a-bd4dd9cbe090",
+          "createdAt": "2026-07-28T01:31:23.000Z",
+          "updatedAt": "2026-07-28T01:31:23.000Z",
+          "uid": "35240-d8073987-6326-4a62-979a-bd4dd9cbe090"
+        }
+      ],
+      "id": "3dd9d948-1ffb-4c9b-8a9e-33d6c4ea4f80",
+      "createdAt": "2026-07-28T01:31:23.000Z",
+      "updatedAt": "2026-07-28T01:31:23.000Z",
+      "uid": "35240-3dd9d948-1ffb-4c9b-8a9e-33d6c4ea4f80"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

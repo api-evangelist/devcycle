@@ -1,0 +1,1418 @@
+{
+  "info": {
+    "_postman_id": "d193eada-c241-4427-be8b-e41132683cd9",
+    "name": "DevCycle Bucketing Audiences Variations API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:27.000Z",
+    "updatedAt": "2026-07-28T01:31:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d193eada-c241-4427-be8b-e41132683cd9"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "features",
+                  "item": [
+                    {
+                      "name": "{feature}",
+                      "item": [
+                        {
+                          "name": "variations",
+                          "item": [
+                            {
+                              "name": "{key}",
+                              "item": [
+                                {
+                                  "name": "Get a Feature Variation",
+                                  "id": "fd4c5290-bc4b-4e5d-8a13-96548afdd834",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "0687a6be-0553-495d-b36e-15e5e8245d36",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) A Project key or ID"
+                                        },
+                                        {
+                                          "id": "ff60f2b8-d5f7-4357-8f29-038d9d43faf8",
+                                          "key": "feature",
+                                          "value": "<string>",
+                                          "description": "(Required) A Feature key or ID"
+                                        },
+                                        {
+                                          "id": "23f5d4bf-86f1-4794-9401-6c831f94a76a",
+                                          "key": "key",
+                                          "value": "<string>",
+                                          "description": "(Required) A Variation key or ID"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Get a variation by ID or key"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "48df23f3-05dd-4c07-b688-dd696fa3f72a",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"key\": \"0b\",\n  \"name\": \"<string>\",\n  \"_id\": \"<string>\",\n  \"variables\": {\n    \"laboree\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-48df23f3-05dd-4c07-b688-dd696fa3f72a"
+                                    },
+                                    {
+                                      "id": "b7242ea5-7d2f-4483-a0e4-f893f9eded0c",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-b7242ea5-7d2f-4483-a0e4-f893f9eded0c"
+                                    },
+                                    {
+                                      "id": "925baed7-aaf1-44b5-b1d7-25ddec9cd56c",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-925baed7-aaf1-44b5-b1d7-25ddec9cd56c"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-fd4c5290-bc4b-4e5d-8a13-96548afdd834"
+                                },
+                                {
+                                  "name": "Update a Feature Variation",
+                                  "id": "bf7eb72c-cc46-40a9-9319-3a10f8419b66",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"key\": \"q2h3y1.-i\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"amet_e\": \"<string>\",\n    \"aute_1\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations",
+                                        ":key"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "4e534483-d350-45c6-8148-4123d0e28ad1",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) A Project key or ID"
+                                        },
+                                        {
+                                          "id": "5ae5a92a-a4a3-407b-9a49-61db7473a28d",
+                                          "key": "feature",
+                                          "value": "<string>",
+                                          "description": "(Required) A Feature key or ID"
+                                        },
+                                        {
+                                          "id": "d4556bbd-f2c1-4b97-ae11-139880cfae31",
+                                          "key": "key",
+                                          "value": "<string>",
+                                          "description": "(Required) A Feature key or ID"
+                                        }
+                                      ]
+                                    },
+                                    "description": "Update a variation by ID or key"
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "d22413a2-5c94-49d5-914b-a9d6ff20735f",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"key\": \"q2h3y1.-i\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"amet_e\": \"<string>\",\n    \"aute_1\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"source\": \"terraform\",\n  \"status\": \"complete\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"controlVariation\": \"<string>\",\n  \"readonly\": \"<boolean>\",\n  \"configurations\": [\n    {\n      \"_feature\": \"<string>\",\n      \"_environment\": \"<string>\",\n      \"status\": \"active\",\n      \"updatedAt\": \"<dateTime>\",\n      \"targets\": [\n        {\n          \"_id\": \"<string>\",\n          \"audience\": {\n            \"filters\": {\n              \"filters\": [\n                {\n                  \"type\": \"all\"\n                },\n                {\n                  \"type\": \"all\"\n                }\n              ],\n              \"operator\": \"and\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"distribution\": [\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            }\n          ],\n          \"name\": \"<string>\",\n          \"rollout\": {\n            \"type\": \"schedule\",\n            \"startDate\": \"<dateTime>\",\n            \"startPercentage\": \"<number>\",\n            \"stages\": [\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"discrete\",\n                \"date\": \"<dateTime>\"\n              }\n            ]\n          },\n          \"bucketingKey\": \"<string>\"\n        },\n        {\n          \"_id\": \"<string>\",\n          \"audience\": {\n            \"filters\": {\n              \"filters\": [\n                {\n                  \"type\": \"all\"\n                },\n                {\n                  \"type\": \"all\"\n                }\n              ],\n              \"operator\": \"and\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"distribution\": [\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            }\n          ],\n          \"name\": \"<string>\",\n          \"rollout\": {\n            \"type\": \"gradual\",\n            \"startDate\": \"<dateTime>\",\n            \"startPercentage\": \"<number>\",\n            \"stages\": [\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              }\n            ]\n          },\n          \"bucketingKey\": \"<string>\"\n        }\n      ],\n      \"readonly\": \"<boolean>\",\n      \"hasStaticConfig\": \"<boolean>\",\n      \"_createdBy\": \"<string>\",\n      \"startedAt\": \"<dateTime>\"\n    },\n    {\n      \"_feature\": \"<string>\",\n      \"_environment\": \"<string>\",\n      \"status\": \"inactive\",\n      \"updatedAt\": \"<dateTime>\",\n      \"targets\": [\n        {\n          \"_id\": \"<string>\",\n          \"audience\": {\n            \"filters\": {\n              \"filters\": [\n                {\n                  \"type\": \"all\"\n                },\n                {\n                  \"type\": \"all\"\n                }\n              ],\n              \"operator\": \"and\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"distribution\": [\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            }\n          ],\n          \"name\": \"<string>\",\n          \"rollout\": {\n            \"type\": \"stepped\",\n            \"startDate\": \"<dateTime>\",\n            \"startPercentage\": \"<number>\",\n            \"stages\": [\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              }\n            ]\n          },\n          \"bucketingKey\": \"<string>\"\n        },\n        {\n          \"_id\": \"<string>\",\n          \"audience\": {\n            \"filters\": {\n              \"filters\": [\n                {\n                  \"type\": \"all\"\n                },\n                {\n                  \"type\": \"all\"\n                }\n              ],\n              \"operator\": \"or\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"distribution\": [\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            }\n          ],\n          \"name\": \"<string>\",\n          \"rollout\": {\n            \"type\": \"gradual\",\n            \"startDate\": \"<dateTime>\",\n            \"startPercentage\": \"<number>\",\n            \"stages\": [\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"discrete\",\n                \"date\": \"<dateTime>\"\n              }\n            ]\n          },\n          \"bucketingKey\": \"<string>\"\n        }\n      ],\n      \"readonly\": \"<boolean>\",\n      \"hasStaticConfig\": \"<boolean>\",\n      \"_createdBy\": \"<string>\",\n      \"startedAt\": \"<dateTime>\"\n    }\n  ],\n  \"summary\": {\n    \"maintainers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"links\": [\n      {\n        \"url\": \"<string>\",\n        \"title\": \"<string>\"\n      },\n      {\n        \"url\": \"<string>\",\n        \"title\": \"<string>\"\n      }\n    ],\n    \"markdown\": \"<string>\"\n  },\n  \"type\": \"release\",\n  \"description\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"prodTargetingUpdatedAt\": \"<dateTime>\",\n  \"variations\": [\n    {\n      \"key\": \"-qie76\",\n      \"name\": \"<string>\",\n      \"_id\": \"<string>\",\n      \"variables\": {\n        \"irure_f7c\": \"<string>\",\n        \"reprehenderit_c\": \"<string>\"\n      }\n    },\n    {\n      \"key\": \"9rkto.\",\n      \"name\": \"<string>\",\n      \"_id\": \"<string>\",\n      \"variables\": {\n        \"qui_6d\": \"<string>\"\n      }\n    }\n  ],\n  \"staticVariation\": \"<string>\",\n  \"variables\": [\n    {\n      \"key\": \"p\",\n      \"_id\": \"<string>\",\n      \"_project\": \"<string>\",\n      \"type\": \"JSON\",\n      \"status\": \"archived\",\n      \"source\": \"api\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"_feature\": \"<string>\",\n      \"_createdBy\": \"<string>\",\n      \"validationSchema\": {\n        \"schemaType\": {},\n        \"description\": \"<string>\",\n        \"exampleValue\": {},\n        \"enumValues\": {},\n        \"regexPattern\": \"<string>\",\n        \"jsonSchema\": \"<string>\"\n      },\n      \"persistent\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"p7z9g41b\",\n      \"_id\": \"<string>\",\n      \"_project\": \"<string>\",\n      \"type\": \"JSON\",\n      \"status\": \"active\",\n      \"source\": \"bitbucket.code_usages\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"_feature\": \"<string>\",\n      \"_createdBy\": \"<string>\",\n      \"validationSchema\": {\n        \"schemaType\": {},\n        \"description\": \"<string>\",\n        \"exampleValue\": {},\n        \"enumValues\": {},\n        \"regexPattern\": \"<string>\",\n        \"jsonSchema\": \"<string>\"\n      },\n      \"persistent\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ldLink\": \"<string>\",\n  \"settings\": {\n    \"publicName\": \"<string>\",\n    \"publicDescription\": \"<string>\",\n    \"optInEnabled\": \"<boolean>\"\n  },\n  \"sdkVisibility\": {\n    \"mobile\": \"<boolean>\",\n    \"client\": \"<boolean>\",\n    \"server\": \"<boolean>\"\n  },\n  \"latestUpdate\": {\n    \"date\": \"<dateTime>\",\n    \"a0_user\": \"<string>\",\n    \"changes\": []\n  },\n  \"staleness\": {},\n  \"customStatus\": {\n    \"_status\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-d22413a2-5c94-49d5-914b-a9d6ff20735f"
+                                    },
+                                    {
+                                      "id": "80d39b29-d13e-4762-91f8-45dbe7066a50",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"key\": \"q2h3y1.-i\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"amet_e\": \"<string>\",\n    \"aute_1\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-80d39b29-d13e-4762-91f8-45dbe7066a50"
+                                    },
+                                    {
+                                      "id": "1267ab4e-e9c7-45f4-850a-b32010e30475",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"key\": \"q2h3y1.-i\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"amet_e\": \"<string>\",\n    \"aute_1\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-1267ab4e-e9c7-45f4-850a-b32010e30475"
+                                    },
+                                    {
+                                      "id": "1e7a596a-904c-43f4-bf48-874387daf1dc",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"key\": \"q2h3y1.-i\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"amet_e\": \"<string>\",\n    \"aute_1\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-1e7a596a-904c-43f4-bf48-874387daf1dc"
+                                    },
+                                    {
+                                      "id": "d4829d87-01b6-4f41-8ca1-cbc46a3bef83",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"key\": \"q2h3y1.-i\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"amet_e\": \"<string>\",\n    \"aute_1\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-d4829d87-01b6-4f41-8ca1-cbc46a3bef83"
+                                    },
+                                    {
+                                      "id": "74f9b7ea-da42-412a-ad48-77dda93c1ab6",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"key\": \"q2h3y1.-i\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"amet_e\": \"<string>\",\n    \"aute_1\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations/:key",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "variations",
+                                            ":key"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            },
+                                            {
+                                              "key": "key"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Conflict",
+                                      "code": 409,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:31:28.000Z",
+                                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                                      "uid": "35240-74f9b7ea-da42-412a-ad48-77dda93c1ab6"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-bf7eb72c-cc46-40a9-9319-3a10f8419b66"
+                                }
+                              ],
+                              "id": "2ca22a6c-ea5b-457b-be5a-1730b4b68452",
+                              "createdAt": "2026-07-28T01:31:28.000Z",
+                              "updatedAt": "2026-07-28T01:31:28.000Z",
+                              "uid": "35240-2ca22a6c-ea5b-457b-be5a-1730b4b68452"
+                            },
+                            {
+                              "name": "Create a Feature Variation",
+                              "id": "cfc67610-e901-49b5-9fdf-b0865fd4b431",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"key\": \"_wq\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"ex8\": \"<string>\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "features",
+                                    ":feature",
+                                    "variations"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a87f1da7-6aaf-4f2e-81eb-f50e862bf5b0",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "f0d48fca-16c3-4528-96db-ddade9c8339f",
+                                      "key": "feature",
+                                      "value": "<string>",
+                                      "description": "(Required) A Feature key or ID"
+                                    }
+                                  ]
+                                },
+                                "description": "Create a new variation within a Feature"
+                              },
+                              "response": [
+                                {
+                                  "id": "def0983b-ecd2-4726-8a31-fb09c1d3a60a",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"key\": \"_wq\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"ex8\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Created",
+                                  "code": 201,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"source\": \"terraform\",\n  \"status\": \"complete\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"controlVariation\": \"<string>\",\n  \"readonly\": \"<boolean>\",\n  \"configurations\": [\n    {\n      \"_feature\": \"<string>\",\n      \"_environment\": \"<string>\",\n      \"status\": \"active\",\n      \"updatedAt\": \"<dateTime>\",\n      \"targets\": [\n        {\n          \"_id\": \"<string>\",\n          \"audience\": {\n            \"filters\": {\n              \"filters\": [\n                {\n                  \"type\": \"all\"\n                },\n                {\n                  \"type\": \"all\"\n                }\n              ],\n              \"operator\": \"and\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"distribution\": [\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            }\n          ],\n          \"name\": \"<string>\",\n          \"rollout\": {\n            \"type\": \"schedule\",\n            \"startDate\": \"<dateTime>\",\n            \"startPercentage\": \"<number>\",\n            \"stages\": [\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"discrete\",\n                \"date\": \"<dateTime>\"\n              }\n            ]\n          },\n          \"bucketingKey\": \"<string>\"\n        },\n        {\n          \"_id\": \"<string>\",\n          \"audience\": {\n            \"filters\": {\n              \"filters\": [\n                {\n                  \"type\": \"all\"\n                },\n                {\n                  \"type\": \"all\"\n                }\n              ],\n              \"operator\": \"and\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"distribution\": [\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            }\n          ],\n          \"name\": \"<string>\",\n          \"rollout\": {\n            \"type\": \"gradual\",\n            \"startDate\": \"<dateTime>\",\n            \"startPercentage\": \"<number>\",\n            \"stages\": [\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              }\n            ]\n          },\n          \"bucketingKey\": \"<string>\"\n        }\n      ],\n      \"readonly\": \"<boolean>\",\n      \"hasStaticConfig\": \"<boolean>\",\n      \"_createdBy\": \"<string>\",\n      \"startedAt\": \"<dateTime>\"\n    },\n    {\n      \"_feature\": \"<string>\",\n      \"_environment\": \"<string>\",\n      \"status\": \"inactive\",\n      \"updatedAt\": \"<dateTime>\",\n      \"targets\": [\n        {\n          \"_id\": \"<string>\",\n          \"audience\": {\n            \"filters\": {\n              \"filters\": [\n                {\n                  \"type\": \"all\"\n                },\n                {\n                  \"type\": \"all\"\n                }\n              ],\n              \"operator\": \"and\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"distribution\": [\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            }\n          ],\n          \"name\": \"<string>\",\n          \"rollout\": {\n            \"type\": \"stepped\",\n            \"startDate\": \"<dateTime>\",\n            \"startPercentage\": \"<number>\",\n            \"stages\": [\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              }\n            ]\n          },\n          \"bucketingKey\": \"<string>\"\n        },\n        {\n          \"_id\": \"<string>\",\n          \"audience\": {\n            \"filters\": {\n              \"filters\": [\n                {\n                  \"type\": \"all\"\n                },\n                {\n                  \"type\": \"all\"\n                }\n              ],\n              \"operator\": \"or\"\n            },\n            \"name\": \"<string>\"\n          },\n          \"distribution\": [\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"_variation\": \"<string>\"\n            }\n          ],\n          \"name\": \"<string>\",\n          \"rollout\": {\n            \"type\": \"gradual\",\n            \"startDate\": \"<dateTime>\",\n            \"startPercentage\": \"<number>\",\n            \"stages\": [\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"linear\",\n                \"date\": \"<dateTime>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"type\": \"discrete\",\n                \"date\": \"<dateTime>\"\n              }\n            ]\n          },\n          \"bucketingKey\": \"<string>\"\n        }\n      ],\n      \"readonly\": \"<boolean>\",\n      \"hasStaticConfig\": \"<boolean>\",\n      \"_createdBy\": \"<string>\",\n      \"startedAt\": \"<dateTime>\"\n    }\n  ],\n  \"summary\": {\n    \"maintainers\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"links\": [\n      {\n        \"url\": \"<string>\",\n        \"title\": \"<string>\"\n      },\n      {\n        \"url\": \"<string>\",\n        \"title\": \"<string>\"\n      }\n    ],\n    \"markdown\": \"<string>\"\n  },\n  \"type\": \"release\",\n  \"description\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"prodTargetingUpdatedAt\": \"<dateTime>\",\n  \"variations\": [\n    {\n      \"key\": \"-qie76\",\n      \"name\": \"<string>\",\n      \"_id\": \"<string>\",\n      \"variables\": {\n        \"irure_f7c\": \"<string>\",\n        \"reprehenderit_c\": \"<string>\"\n      }\n    },\n    {\n      \"key\": \"9rkto.\",\n      \"name\": \"<string>\",\n      \"_id\": \"<string>\",\n      \"variables\": {\n        \"qui_6d\": \"<string>\"\n      }\n    }\n  ],\n  \"staticVariation\": \"<string>\",\n  \"variables\": [\n    {\n      \"key\": \"p\",\n      \"_id\": \"<string>\",\n      \"_project\": \"<string>\",\n      \"type\": \"JSON\",\n      \"status\": \"archived\",\n      \"source\": \"api\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"_feature\": \"<string>\",\n      \"_createdBy\": \"<string>\",\n      \"validationSchema\": {\n        \"schemaType\": {},\n        \"description\": \"<string>\",\n        \"exampleValue\": {},\n        \"enumValues\": {},\n        \"regexPattern\": \"<string>\",\n        \"jsonSchema\": \"<string>\"\n      },\n      \"persistent\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"key\": \"p7z9g41b\",\n      \"_id\": \"<string>\",\n      \"_project\": \"<string>\",\n      \"type\": \"JSON\",\n      \"status\": \"active\",\n      \"source\": \"bitbucket.code_usages\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"_feature\": \"<string>\",\n      \"_createdBy\": \"<string>\",\n      \"validationSchema\": {\n        \"schemaType\": {},\n        \"description\": \"<string>\",\n        \"exampleValue\": {},\n        \"enumValues\": {},\n        \"regexPattern\": \"<string>\",\n        \"jsonSchema\": \"<string>\"\n      },\n      \"persistent\": \"<boolean>\",\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ldLink\": \"<string>\",\n  \"settings\": {\n    \"publicName\": \"<string>\",\n    \"publicDescription\": \"<string>\",\n    \"optInEnabled\": \"<boolean>\"\n  },\n  \"sdkVisibility\": {\n    \"mobile\": \"<boolean>\",\n    \"client\": \"<boolean>\",\n    \"server\": \"<boolean>\"\n  },\n  \"latestUpdate\": {\n    \"date\": \"<dateTime>\",\n    \"a0_user\": \"<string>\",\n    \"changes\": []\n  },\n  \"staleness\": {},\n  \"customStatus\": {\n    \"_status\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\"\n  }\n}",
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-def0983b-ecd2-4726-8a31-fb09c1d3a60a"
+                                },
+                                {
+                                  "id": "5a4e8f8b-fec1-43dc-92f9-ff0c6d33d340",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"key\": \"_wq\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"ex8\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-5a4e8f8b-fec1-43dc-92f9-ff0c6d33d340"
+                                },
+                                {
+                                  "id": "c9eba838-09cd-4872-a27e-e705bd269c77",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"key\": \"_wq\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"ex8\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-c9eba838-09cd-4872-a27e-e705bd269c77"
+                                },
+                                {
+                                  "id": "35d63f0a-730e-4fac-8624-75e42223dba8",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"key\": \"_wq\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"ex8\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-35d63f0a-730e-4fac-8624-75e42223dba8"
+                                },
+                                {
+                                  "id": "90229335-fe7a-4ce6-b386-f2ad1ef178e4",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"key\": \"_wq\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"ex8\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-90229335-fe7a-4ce6-b386-f2ad1ef178e4"
+                                },
+                                {
+                                  "id": "881a51e0-e8b1-4144-8d43-3e35f0e5c786",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"key\": \"_wq\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"ex8\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Conflict",
+                                  "code": 409,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-881a51e0-e8b1-4144-8d43-3e35f0e5c786"
+                                },
+                                {
+                                  "id": "92e82879-a382-4933-8370-8207ee0a906c",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"key\": \"_wq\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"ex8\": \"<string>\"\n  }\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Precondition Failed",
+                                  "code": 412,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-92e82879-a382-4933-8370-8207ee0a906c"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:31:28.000Z",
+                              "updatedAt": "2026-07-28T01:31:28.000Z",
+                              "uid": "35240-cfc67610-e901-49b5-9fdf-b0865fd4b431"
+                            },
+                            {
+                              "name": "List Feature Variations",
+                              "id": "8e5e2cee-f853-4986-826b-9788e7968243",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "features",
+                                    ":feature",
+                                    "variations"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "21ce2d07-783d-43fa-aeac-4e24c6bf9da8",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "944a7164-4ad9-41d9-8abc-658cc9746ceb",
+                                      "key": "feature",
+                                      "value": "<string>",
+                                      "description": "(Required) A Feature key or ID"
+                                    }
+                                  ]
+                                },
+                                "description": "Get a list of variations for a feature"
+                              },
+                              "response": [
+                                {
+                                  "id": "388bc5d1-da8f-486c-be6f-4fbf04c15ee5",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"key\": \"eqqceo\",\n    \"name\": \"<string>\",\n    \"_id\": \"<string>\",\n    \"variables\": {\n      \"ipsum_c\": \"<string>\"\n    }\n  },\n  {\n    \"key\": \"cl4v5\",\n    \"name\": \"<string>\",\n    \"_id\": \"<string>\",\n    \"variables\": {\n      \"dolorec97\": \"<string>\",\n      \"irure_d2\": \"<string>\"\n    }\n  }\n]",
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-388bc5d1-da8f-486c-be6f-4fbf04c15ee5"
+                                },
+                                {
+                                  "id": "b68752e5-c401-4848-837b-751bcb84dad6",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-b68752e5-c401-4848-837b-751bcb84dad6"
+                                },
+                                {
+                                  "id": "97b9d9f2-5c1b-4128-a48a-e866b88ed1c5",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/variations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "variations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:31:28.000Z",
+                                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                                  "uid": "35240-97b9d9f2-5c1b-4128-a48a-e866b88ed1c5"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:31:28.000Z",
+                              "updatedAt": "2026-07-28T01:31:28.000Z",
+                              "uid": "35240-8e5e2cee-f853-4986-826b-9788e7968243"
+                            }
+                          ],
+                          "id": "3301495e-095f-4edf-94a9-9dd67ec81300",
+                          "createdAt": "2026-07-28T01:31:28.000Z",
+                          "updatedAt": "2026-07-28T01:31:28.000Z",
+                          "uid": "35240-3301495e-095f-4edf-94a9-9dd67ec81300"
+                        }
+                      ],
+                      "id": "08996be9-20a4-4ca3-a415-80307ebcb8c0",
+                      "createdAt": "2026-07-28T01:31:28.000Z",
+                      "updatedAt": "2026-07-28T01:31:28.000Z",
+                      "uid": "35240-08996be9-20a4-4ca3-a415-80307ebcb8c0"
+                    }
+                  ],
+                  "id": "76e57de8-baa5-4f65-957c-a44f130de75e",
+                  "createdAt": "2026-07-28T01:31:28.000Z",
+                  "updatedAt": "2026-07-28T01:31:28.000Z",
+                  "uid": "35240-76e57de8-baa5-4f65-957c-a44f130de75e"
+                }
+              ],
+              "id": "00a2ff0c-993d-448a-98ec-563b1ce941a2",
+              "createdAt": "2026-07-28T01:31:28.000Z",
+              "updatedAt": "2026-07-28T01:31:28.000Z",
+              "uid": "35240-00a2ff0c-993d-448a-98ec-563b1ce941a2"
+            }
+          ],
+          "id": "ea31e765-5931-430f-9452-5e17726dd71a",
+          "createdAt": "2026-07-28T01:31:28.000Z",
+          "updatedAt": "2026-07-28T01:31:28.000Z",
+          "uid": "35240-ea31e765-5931-430f-9452-5e17726dd71a"
+        }
+      ],
+      "id": "f96bbff8-bd14-4b9e-8059-5ccba752aa7d",
+      "createdAt": "2026-07-28T01:31:28.000Z",
+      "updatedAt": "2026-07-28T01:31:28.000Z",
+      "uid": "35240-f96bbff8-bd14-4b9e-8059-5ccba752aa7d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

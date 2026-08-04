@@ -1,0 +1,1504 @@
+{
+  "info": {
+    "_postman_id": "567b2aca-efa4-43bc-96b6-d0f35038164a",
+    "name": "DevCycle Bucketing Audiences Bucketing API API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:29.000Z",
+    "updatedAt": "2026-07-28T01:30:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-567b2aca-efa4-43bc-96b6-d0f35038164a"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "variables",
+          "item": [
+            {
+              "name": "{key}",
+              "item": [
+                {
+                  "name": "Get variable by key for user data",
+                  "id": "a865e220-6e65-44e3-86e4-63cf15bcc6bc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "apikey",
+                      "apikey": [
+                        {
+                          "key": "key",
+                          "value": "Authorization",
+                          "type": "string"
+                        },
+                        {
+                          "key": "value",
+                          "value": "{{apiKey}}",
+                          "type": "string"
+                        },
+                        {
+                          "key": "in",
+                          "value": "header",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/variables/:key",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "variables",
+                        ":key"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fe358e66-ac55-4644-85a2-e2cf806619b1",
+                          "key": "key",
+                          "value": ".-_t_q0okg",
+                          "description": "(Required) Variable key"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "eeb80a49-f4f9-44e2-83eb-3f7daf76cd87",
+                      "name": "Variable response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/variables/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "variables",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"_id\": \"<string>\",\n  \"key\": \"0v38nu1\",\n  \"type\": \"String\",\n  \"value\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"eval\": {\n    \"reason\": \"TARGETING_MATCH\",\n    \"details\": \"<string>\",\n    \"target_id\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:30:30.000Z",
+                      "updatedAt": "2026-07-28T01:30:30.000Z",
+                      "uid": "35240-eeb80a49-f4f9-44e2-83eb-3f7daf76cd87"
+                    },
+                    {
+                      "id": "376bfa21-bec5-4dac-af11-a3138da31069",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/variables/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "variables",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:30.000Z",
+                      "updatedAt": "2026-07-28T01:30:30.000Z",
+                      "uid": "35240-376bfa21-bec5-4dac-af11-a3138da31069"
+                    },
+                    {
+                      "id": "96d01041-97ac-4507-bc8e-b71061622707",
+                      "name": "Missing 'sdkKey' query parameter or 'Authorization' header",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/variables/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "variables",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:30.000Z",
+                      "updatedAt": "2026-07-28T01:30:30.000Z",
+                      "uid": "35240-96d01041-97ac-4507-bc8e-b71061622707"
+                    },
+                    {
+                      "id": "0f5e25b6-dcc6-4609-b387-376ade0ad07b",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/variables/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "variables",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:30.000Z",
+                      "updatedAt": "2026-07-28T01:30:30.000Z",
+                      "uid": "35240-0f5e25b6-dcc6-4609-b387-376ade0ad07b"
+                    },
+                    {
+                      "id": "2195d53f-7a90-4489-a375-d38e52e36340",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "Authorization",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/variables/:key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "variables",
+                            ":key"
+                          ],
+                          "variable": [
+                            {
+                              "key": "key"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:30.000Z",
+                      "updatedAt": "2026-07-28T01:30:30.000Z",
+                      "uid": "35240-2195d53f-7a90-4489-a375-d38e52e36340"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-a865e220-6e65-44e3-86e4-63cf15bcc6bc"
+                }
+              ],
+              "id": "d91929ce-115e-4eef-a677-8e6c24beb77f",
+              "createdAt": "2026-07-28T01:30:30.000Z",
+              "updatedAt": "2026-07-28T01:30:30.000Z",
+              "uid": "35240-d91929ce-115e-4eef-a677-8e6c24beb77f"
+            },
+            {
+              "name": "Get all variables by key for user data",
+              "id": "6e886281-aff5-4334-97a8-4ffaa8b0bc48",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "Authorization",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/variables",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "variables"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "f8e76eb7-24b5-4c02-b832-a0bb2593c522",
+                  "name": "Variables response (map of variable keys to Variable objects)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/variables",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "variables"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"labore_414\": {\n    \"_id\": \"<string>\",\n    \"key\": \"vwq9ofjw_\",\n    \"type\": \"String\",\n    \"value\": \"<string>\",\n    \"_feature\": \"<string>\",\n    \"eval\": {\n      \"reason\": \"STATIC\",\n      \"details\": \"<string>\",\n      \"target_id\": \"<string>\"\n    }\n  },\n  \"consequat_0_7\": {\n    \"_id\": \"<string>\",\n    \"key\": \"gzulq.k-28\",\n    \"type\": \"Number\",\n    \"value\": \"<string>\",\n    \"_feature\": \"<string>\",\n    \"eval\": {\n      \"reason\": \"TARGETING_MATCH\",\n      \"details\": \"<string>\",\n      \"target_id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-f8e76eb7-24b5-4c02-b832-a0bb2593c522"
+                },
+                {
+                  "id": "0a62a094-1097-45c4-8539-00c0d7d4c959",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/variables",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "variables"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-0a62a094-1097-45c4-8539-00c0d7d4c959"
+                },
+                {
+                  "id": "e9d431db-0778-44f0-8432-9977379e1c57",
+                  "name": "Missing 'sdkKey' query parameter or 'Authorization' header",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/variables",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "variables"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-e9d431db-0778-44f0-8432-9977379e1c57"
+                },
+                {
+                  "id": "6712ee2e-321a-4002-8e81-a575701d3a93",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/variables",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "variables"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-6712ee2e-321a-4002-8e81-a575701d3a93"
+                },
+                {
+                  "id": "771b5815-adea-47f5-8826-feea979a7545",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/variables",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "variables"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-771b5815-adea-47f5-8826-feea979a7545"
+                }
+              ],
+              "createdAt": "2026-07-28T01:30:30.000Z",
+              "updatedAt": "2026-07-28T01:30:30.000Z",
+              "uid": "35240-6e886281-aff5-4334-97a8-4ffaa8b0bc48"
+            }
+          ],
+          "id": "9ac4ff64-9a8a-4832-9c61-9b9e0bd9b4c0",
+          "createdAt": "2026-07-28T01:30:30.000Z",
+          "updatedAt": "2026-07-28T01:30:30.000Z",
+          "uid": "35240-9ac4ff64-9a8a-4832-9c61-9b9e0bd9b4c0"
+        },
+        {
+          "name": "features",
+          "item": [
+            {
+              "name": "Get all features by key for user data",
+              "id": "1f1657a2-25af-4c35-824f-b24bcd857248",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "Authorization",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/features",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "features"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d62c497d-91c2-4c92-8be1-f3b533ba46c0",
+                  "name": "Features response (map of Feature keys to Feature objects)",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/features",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "features"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"labore0b6\": {\n    \"_id\": \"<string>\",\n    \"key\": \"id\",\n    \"type\": \"ops\",\n    \"_variation\": \"<string>\",\n    \"variationName\": \"<string>\",\n    \"variationKey\": \"<string>\",\n    \"eval\": {\n      \"reason\": \"DEFAULT\",\n      \"details\": \"<string>\",\n      \"target_id\": \"<string>\"\n    }\n  },\n  \"voluptate_7d\": {\n    \"_id\": \"<string>\",\n    \"key\": \"-kfbpio9\",\n    \"type\": \"release\",\n    \"_variation\": \"<string>\",\n    \"variationName\": \"<string>\",\n    \"variationKey\": \"<string>\",\n    \"eval\": {\n      \"reason\": \"STATIC\",\n      \"details\": \"<string>\",\n      \"target_id\": \"<string>\"\n    }\n  },\n  \"eiusmod48b\": {\n    \"_id\": \"<string>\",\n    \"key\": \"k_\",\n    \"type\": \"ops\",\n    \"_variation\": \"<string>\",\n    \"variationName\": \"<string>\",\n    \"variationKey\": \"<string>\",\n    \"eval\": {\n      \"reason\": \"TARGETING_MATCH\",\n      \"details\": \"<string>\",\n      \"target_id\": \"<string>\"\n    }\n  },\n  \"qui_0e\": {\n    \"_id\": \"<string>\",\n    \"key\": \"wpdzrguyv\",\n    \"type\": \"ops\",\n    \"_variation\": \"<string>\",\n    \"variationName\": \"<string>\",\n    \"variationKey\": \"<string>\",\n    \"eval\": {\n      \"reason\": \"DEFAULT\",\n      \"details\": \"<string>\",\n      \"target_id\": \"<string>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-d62c497d-91c2-4c92-8be1-f3b533ba46c0"
+                },
+                {
+                  "id": "6f4f8261-ceb5-484e-a430-b59cf8b91dd1",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/features",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "features"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-6f4f8261-ceb5-484e-a430-b59cf8b91dd1"
+                },
+                {
+                  "id": "a46011c8-fff6-4531-9cb7-53d5e131bf93",
+                  "name": "Missing 'sdkKey' query parameter or 'Authorization' header",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/features",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "features"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-a46011c8-fff6-4531-9cb7-53d5e131bf93"
+                },
+                {
+                  "id": "0ad313b4-d49d-40b6-bfa2-0fd8edfdb9cd",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/features",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "features"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-0ad313b4-d49d-40b6-bfa2-0fd8edfdb9cd"
+                },
+                {
+                  "id": "ab1c65ea-dece-44a5-a590-43440e595535",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": \"<string>\",\n  \"country\": \"<string>\",\n  \"appVersion\": \"<string>\",\n  \"appBuild\": \"<string>\",\n  \"customData\": {},\n  \"privateCustomData\": {},\n  \"createdDate\": \"<number>\",\n  \"lastSeenDate\": \"<number>\",\n  \"platform\": \"<string>\",\n  \"platformVersion\": \"<string>\",\n  \"deviceModel\": \"<string>\",\n  \"sdkType\": \"mobile\",\n  \"sdkVersion\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/features",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "features"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-ab1c65ea-dece-44a5-a590-43440e595535"
+                }
+              ],
+              "createdAt": "2026-07-28T01:30:30.000Z",
+              "updatedAt": "2026-07-28T01:30:30.000Z",
+              "uid": "35240-1f1657a2-25af-4c35-824f-b24bcd857248"
+            }
+          ],
+          "id": "d40d3d00-f1ce-496b-ae7c-cacbe83251e7",
+          "createdAt": "2026-07-28T01:30:30.000Z",
+          "updatedAt": "2026-07-28T01:30:30.000Z",
+          "uid": "35240-d40d3d00-f1ce-496b-ae7c-cacbe83251e7"
+        },
+        {
+          "name": "track",
+          "item": [
+            {
+              "name": "Post events to DevCycle for user",
+              "id": "ebe20b88-7157-4c79-bbcc-0acd9aae0cc1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "apikey",
+                  "apikey": [
+                    {
+                      "key": "key",
+                      "value": "Authorization",
+                      "type": "string"
+                    },
+                    {
+                      "key": "value",
+                      "value": "{{apiKey}}",
+                      "type": "string"
+                    },
+                    {
+                      "key": "in",
+                      "value": "header",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"events\": [\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    }\n  ],\n  \"user\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"language\": \"<string>\",\n    \"country\": \"<string>\",\n    \"appVersion\": \"<string>\",\n    \"appBuild\": \"<string>\",\n    \"customData\": {},\n    \"privateCustomData\": {},\n    \"createdDate\": \"<number>\",\n    \"lastSeenDate\": \"<number>\",\n    \"platform\": \"<string>\",\n    \"platformVersion\": \"<string>\",\n    \"deviceModel\": \"<string>\",\n    \"sdkType\": \"server\",\n    \"sdkVersion\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/track",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "track"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5180a973-e2ac-46d7-ad49-c333dd54446b",
+                  "name": "Events received successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"events\": [\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    }\n  ],\n  \"user\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"language\": \"<string>\",\n    \"country\": \"<string>\",\n    \"appVersion\": \"<string>\",\n    \"appBuild\": \"<string>\",\n    \"customData\": {},\n    \"privateCustomData\": {},\n    \"createdDate\": \"<number>\",\n    \"lastSeenDate\": \"<number>\",\n    \"platform\": \"<string>\",\n    \"platformVersion\": \"<string>\",\n    \"deviceModel\": \"<string>\",\n    \"sdkType\": \"server\",\n    \"sdkVersion\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/track",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "track"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-5180a973-e2ac-46d7-ad49-c333dd54446b"
+                },
+                {
+                  "id": "25df02bb-2851-4cdd-ba4f-c9488cf3b2ca",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"events\": [\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    }\n  ],\n  \"user\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"language\": \"<string>\",\n    \"country\": \"<string>\",\n    \"appVersion\": \"<string>\",\n    \"appBuild\": \"<string>\",\n    \"customData\": {},\n    \"privateCustomData\": {},\n    \"createdDate\": \"<number>\",\n    \"lastSeenDate\": \"<number>\",\n    \"platform\": \"<string>\",\n    \"platformVersion\": \"<string>\",\n    \"deviceModel\": \"<string>\",\n    \"sdkType\": \"server\",\n    \"sdkVersion\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/track",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "track"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-25df02bb-2851-4cdd-ba4f-c9488cf3b2ca"
+                },
+                {
+                  "id": "cdff7a31-d0f2-4b61-9b81-3896853b2fbe",
+                  "name": "Missing 'sdkKey' query parameter or 'Authorization' header",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"events\": [\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    }\n  ],\n  \"user\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"language\": \"<string>\",\n    \"country\": \"<string>\",\n    \"appVersion\": \"<string>\",\n    \"appBuild\": \"<string>\",\n    \"customData\": {},\n    \"privateCustomData\": {},\n    \"createdDate\": \"<number>\",\n    \"lastSeenDate\": \"<number>\",\n    \"platform\": \"<string>\",\n    \"platformVersion\": \"<string>\",\n    \"deviceModel\": \"<string>\",\n    \"sdkType\": \"server\",\n    \"sdkVersion\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/track",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "track"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-cdff7a31-d0f2-4b61-9b81-3896853b2fbe"
+                },
+                {
+                  "id": "7ee5d6f1-0de5-42a5-8414-54439fbd0ce2",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"events\": [\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    }\n  ],\n  \"user\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"language\": \"<string>\",\n    \"country\": \"<string>\",\n    \"appVersion\": \"<string>\",\n    \"appBuild\": \"<string>\",\n    \"customData\": {},\n    \"privateCustomData\": {},\n    \"createdDate\": \"<number>\",\n    \"lastSeenDate\": \"<number>\",\n    \"platform\": \"<string>\",\n    \"platformVersion\": \"<string>\",\n    \"deviceModel\": \"<string>\",\n    \"sdkType\": \"server\",\n    \"sdkVersion\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/track",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "track"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-7ee5d6f1-0de5-42a5-8414-54439fbd0ce2"
+                },
+                {
+                  "id": "98995ef5-23e8-4e35-8439-7ba8bee0632f",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"events\": [\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"target\": \"<string>\",\n      \"date\": \"<number>\",\n      \"value\": \"<number>\",\n      \"metaData\": {}\n    }\n  ],\n  \"user\": {\n    \"user_id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"language\": \"<string>\",\n    \"country\": \"<string>\",\n    \"appVersion\": \"<string>\",\n    \"appBuild\": \"<string>\",\n    \"customData\": {},\n    \"privateCustomData\": {},\n    \"createdDate\": \"<number>\",\n    \"lastSeenDate\": \"<number>\",\n    \"platform\": \"<string>\",\n    \"platformVersion\": \"<string>\",\n    \"deviceModel\": \"<string>\",\n    \"sdkType\": \"server\",\n    \"sdkVersion\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/track",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "track"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                  "createdAt": "2026-07-28T01:30:30.000Z",
+                  "updatedAt": "2026-07-28T01:30:30.000Z",
+                  "uid": "35240-98995ef5-23e8-4e35-8439-7ba8bee0632f"
+                }
+              ],
+              "createdAt": "2026-07-28T01:30:30.000Z",
+              "updatedAt": "2026-07-28T01:30:30.000Z",
+              "uid": "35240-ebe20b88-7157-4c79-bbcc-0acd9aae0cc1"
+            }
+          ],
+          "id": "e65c98e1-2bef-4c7a-839d-1b204d4f511b",
+          "createdAt": "2026-07-28T01:30:30.000Z",
+          "updatedAt": "2026-07-28T01:30:30.000Z",
+          "uid": "35240-e65c98e1-2bef-4c7a-839d-1b204d4f511b"
+        }
+      ],
+      "id": "d997ecb6-20ae-4928-a124-026941756994",
+      "createdAt": "2026-07-28T01:30:30.000Z",
+      "updatedAt": "2026-07-28T01:30:30.000Z",
+      "uid": "35240-d997ecb6-20ae-4928-a124-026941756994"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

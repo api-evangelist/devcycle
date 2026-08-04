@@ -1,0 +1,974 @@
+{
+  "info": {
+    "_postman_id": "f8dc5f06-a33a-4103-9e4e-80e53a23d927",
+    "name": "DevCycle Bucketing Audiences OpenFeature Remote Evaluation API (OFREP) API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:45.000Z",
+    "updatedAt": "2026-07-28T01:30:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f8dc5f06-a33a-4103-9e4e-80e53a23d927"
+  },
+  "item": [
+    {
+      "name": "ofrep",
+      "item": [
+        {
+          "name": "v1",
+          "item": [
+            {
+              "name": "evaluate",
+              "item": [
+                {
+                  "name": "flags",
+                  "item": [
+                    {
+                      "name": "{key}",
+                      "item": [
+                        {
+                          "name": "OFREP Single Flag Evaluation Request",
+                          "id": "5c6425e4-6140-4f44-98b2-5ec31c156faa",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ofrep",
+                                "v1",
+                                "evaluate",
+                                "flags",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "051bcde4-6a81-454b-ae06-818a53b438f9",
+                                  "key": "key",
+                                  "value": "1q5fevy",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Return a single flag for a user context"
+                          },
+                          "response": [
+                            {
+                              "id": "5e01c932-a303-4b88-a3e0-3358615d87f7",
+                              "name": "OFREP successful evaluation response",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"context\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ofrep",
+                                    "v1",
+                                    "evaluate",
+                                    "flags",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"value\": \"<boolean>\",\n  \"key\": \"6t0_jlwz0\",\n  \"reason\": \"STATIC\",\n  \"variant\": \"<string>\",\n  \"metadata\": {}\n}",
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-5e01c932-a303-4b88-a3e0-3358615d87f7"
+                            },
+                            {
+                              "id": "21121200-9770-47d8-b4d3-7c9e12344a56",
+                              "name": "Bad evaluation request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"context\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ofrep",
+                                    "v1",
+                                    "evaluate",
+                                    "flags",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"key\": \"5\",\n  \"errorCode\": \"GENERAL\",\n  \"errorDetails\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-21121200-9770-47d8-b4d3-7c9e12344a56"
+                            },
+                            {
+                              "id": "6f6ff888-0df6-43c6-bccd-2a9724652d10",
+                              "name": "Unauthorized - You need credentials to access the API",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"context\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ofrep",
+                                    "v1",
+                                    "evaluate",
+                                    "flags",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-6f6ff888-0df6-43c6-bccd-2a9724652d10"
+                            },
+                            {
+                              "id": "99f1836e-d4bd-4aa1-8e0f-119e6efa5f29",
+                              "name": "Forbidden - You are not authorized to access the API",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"context\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ofrep",
+                                    "v1",
+                                    "evaluate",
+                                    "flags",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-99f1836e-d4bd-4aa1-8e0f-119e6efa5f29"
+                            },
+                            {
+                              "id": "5f375d94-5f2c-49b7-b666-7f8dcc6f7cf9",
+                              "name": "Flag not found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"context\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ofrep",
+                                    "v1",
+                                    "evaluate",
+                                    "flags",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"key\": \"4s3.nv\",\n  \"errorCode\": \"FLAG_NOT_FOUND\",\n  \"errorDetails\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-5f375d94-5f2c-49b7-b666-7f8dcc6f7cf9"
+                            },
+                            {
+                              "id": "ed2747a8-569d-4cfc-8d17-eeb059783c37",
+                              "name": "Rate limit reached on the Flag Management System",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"context\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ofrep",
+                                    "v1",
+                                    "evaluate",
+                                    "flags",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Indicates when to retry the request again",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "Retry-Later",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-ed2747a8-569d-4cfc-8d17-eeb059783c37"
+                            },
+                            {
+                              "id": "814ad061-68ad-4767-9b60-f697e15ab820",
+                              "name": "Internal server error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"context\": {}\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "ofrep",
+                                    "v1",
+                                    "evaluate",
+                                    "flags",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"errorDetails\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-814ad061-68ad-4767-9b60-f697e15ab820"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-5c6425e4-6140-4f44-98b2-5ec31c156faa"
+                        }
+                      ],
+                      "id": "84423d5f-02cd-4274-8dd9-735e4ed743f4",
+                      "createdAt": "2026-07-28T01:30:46.000Z",
+                      "updatedAt": "2026-07-28T01:30:46.000Z",
+                      "uid": "35240-84423d5f-02cd-4274-8dd9-735e4ed743f4"
+                    },
+                    {
+                      "name": "OFREP Bulk Evaluation Request",
+                      "id": "a8376739-e58b-4cc7-b584-52a601423d61",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "The request will be processed only if ETag doesn't match any of the values listed.",
+                            "key": "If-None-Match",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"context\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ofrep",
+                            "v1",
+                            "evaluate",
+                            "flags"
+                          ]
+                        },
+                        "description": "Return all flag values for a user context."
+                      },
+                      "response": [
+                        {
+                          "id": "77ce3576-8fc9-4e7f-92af-777fc986349f",
+                          "name": "OFREP successful evaluation response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "The request will be processed only if ETag doesn't match any of the values listed.",
+                                "key": "If-None-Match",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ofrep",
+                                "v1",
+                                "evaluate",
+                                "flags"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "Entity tag used for cache validation",
+                                "type": "text/plain"
+                              },
+                              "key": "ETag",
+                              "value": "<string>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"flags\": [\n    {\n      \"value\": \"<boolean>\",\n      \"key\": \".l\",\n      \"reason\": \"TARGETING_MATCH\",\n      \"variant\": \"<string>\",\n      \"metadata\": {}\n    },\n    {\n      \"value\": \"<boolean>\",\n      \"key\": \"ofutv9-i8o\",\n      \"reason\": \"STATIC\",\n      \"variant\": \"<string>\",\n      \"metadata\": {}\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-77ce3576-8fc9-4e7f-92af-777fc986349f"
+                        },
+                        {
+                          "id": "33664df8-e512-4865-908b-151b7d7ff3de",
+                          "name": "Bulk evaluation is not modified",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "The request will be processed only if ETag doesn't match any of the values listed.",
+                                "key": "If-None-Match",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ofrep",
+                                "v1",
+                                "evaluate",
+                                "flags"
+                              ]
+                            }
+                          },
+                          "status": "Not Modified",
+                          "code": 304,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-33664df8-e512-4865-908b-151b7d7ff3de"
+                        },
+                        {
+                          "id": "8c14b136-366d-4a50-84da-0f0cc489d0be",
+                          "name": "Bad evaluation request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "The request will be processed only if ETag doesn't match any of the values listed.",
+                                "key": "If-None-Match",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ofrep",
+                                "v1",
+                                "evaluate",
+                                "flags"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorCode\": \"<string>\",\n  \"errorDetails\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-8c14b136-366d-4a50-84da-0f0cc489d0be"
+                        },
+                        {
+                          "id": "bbaeba97-d150-45da-8a49-d88030c09751",
+                          "name": "Unauthorized - You need credentials to access the API",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "The request will be processed only if ETag doesn't match any of the values listed.",
+                                "key": "If-None-Match",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ofrep",
+                                "v1",
+                                "evaluate",
+                                "flags"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-bbaeba97-d150-45da-8a49-d88030c09751"
+                        },
+                        {
+                          "id": "e37e04b2-4355-47b5-b546-461515c1b593",
+                          "name": "Forbidden - You are not authorized to access the API",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "The request will be processed only if ETag doesn't match any of the values listed.",
+                                "key": "If-None-Match",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ofrep",
+                                "v1",
+                                "evaluate",
+                                "flags"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-e37e04b2-4355-47b5-b546-461515c1b593"
+                        },
+                        {
+                          "id": "7a3aef50-bfb5-4fac-b0f8-4d7ad166a702",
+                          "name": "Rate limit reached on the Flag Management System",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "The request will be processed only if ETag doesn't match any of the values listed.",
+                                "key": "If-None-Match",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ofrep",
+                                "v1",
+                                "evaluate",
+                                "flags"
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "Indicates when to retry the request again",
+                                "type": "text/plain"
+                              },
+                              "key": "Retry-Later",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-7a3aef50-bfb5-4fac-b0f8-4d7ad166a702"
+                        },
+                        {
+                          "id": "02929bff-20fa-451c-887a-9199a35110b4",
+                          "name": "Internal server error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "The request will be processed only if ETag doesn't match any of the values listed.",
+                                "key": "If-None-Match",
+                                "value": "<string>"
+                              },
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"context\": {}\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/ofrep/v1/evaluate/flags",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "ofrep",
+                                "v1",
+                                "evaluate",
+                                "flags"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"errorDetails\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-02929bff-20fa-451c-887a-9199a35110b4"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:46.000Z",
+                      "updatedAt": "2026-07-28T01:30:46.000Z",
+                      "uid": "35240-a8376739-e58b-4cc7-b584-52a601423d61"
+                    }
+                  ],
+                  "id": "6d282e51-0536-43d5-9208-647fd66fb71d",
+                  "createdAt": "2026-07-28T01:30:46.000Z",
+                  "updatedAt": "2026-07-28T01:30:46.000Z",
+                  "uid": "35240-6d282e51-0536-43d5-9208-647fd66fb71d"
+                }
+              ],
+              "id": "7d806ed1-f128-4b67-8ece-ba521e02dcae",
+              "createdAt": "2026-07-28T01:30:46.000Z",
+              "updatedAt": "2026-07-28T01:30:46.000Z",
+              "uid": "35240-7d806ed1-f128-4b67-8ece-ba521e02dcae"
+            }
+          ],
+          "id": "42cf9694-f919-45cf-af2b-8ace961cf551",
+          "createdAt": "2026-07-28T01:30:46.000Z",
+          "updatedAt": "2026-07-28T01:30:46.000Z",
+          "uid": "35240-42cf9694-f919-45cf-af2b-8ace961cf551"
+        }
+      ],
+      "id": "33aca260-555e-45b7-ad11-73c081b199b7",
+      "createdAt": "2026-07-28T01:30:46.000Z",
+      "updatedAt": "2026-07-28T01:30:46.000Z",
+      "uid": "35240-33aca260-555e-45b7-ad11-73c081b199b7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

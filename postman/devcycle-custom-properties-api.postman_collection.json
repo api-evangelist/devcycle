@@ -1,0 +1,1601 @@
+{
+  "info": {
+    "_postman_id": "75789489-78ea-4591-890b-80b7459aab2c",
+    "name": "DevCycle Bucketing Audiences Custom Properties API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:30.000Z",
+    "updatedAt": "2026-07-28T01:30:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-75789489-78ea-4591-890b-80b7459aab2c"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "customProperties",
+                  "item": [
+                    {
+                      "name": "{key}",
+                      "item": [
+                        {
+                          "name": "Get a Custom Property",
+                          "id": "848e61c8-7d2f-48d9-b2b7-dd995abb4b10",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d7d5f4e1-21de-4f30-862a-c5eb38e36bc0",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "db38e361-f3f5-4d4a-9c3c-6823f490fac6",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Custom Property key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Get a Custom Property by ID or key"
+                          },
+                          "response": [
+                            {
+                              "id": "ce52bd0d-f941-406d-88f4-3ca016af8512",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"t21yqvah0l\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Boolean\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  },\n  \"hasUsage\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-ce52bd0d-f941-406d-88f4-3ca016af8512"
+                            },
+                            {
+                              "id": "c1046329-44bc-4c93-a3b6-6298a22e7cb1",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-c1046329-44bc-4c93-a3b6-6298a22e7cb1"
+                            },
+                            {
+                              "id": "79425f57-b8d8-442b-8609-1c2bd8c9796d",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-79425f57-b8d8-442b-8609-1c2bd8c9796d"
+                            },
+                            {
+                              "id": "a5e6bbd1-705b-4db3-a85a-76b9922a6deb",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-a5e6bbd1-705b-4db3-a85a-76b9922a6deb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-848e61c8-7d2f-48d9-b2b7-dd995abb4b10"
+                        },
+                        {
+                          "name": "Update a Custom Property",
+                          "id": "1a89267d-1fbe-4c8d-906a-4cecad83fbfc",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"hp8hq2.\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Number\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "548dbb26-913e-4b7a-bdf3-647c22c093b7",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "9b55cd26-e22e-4d3f-b809-1bb5e30f0694",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Custom Property key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Update an Custom Property by ID or key"
+                          },
+                          "response": [
+                            {
+                              "id": "175c91f6-31b8-4c80-b6d2-8ffe3a7e4e31",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"hp8hq2.\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Number\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"t21yqvah0l\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Boolean\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  },\n  \"hasUsage\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-175c91f6-31b8-4c80-b6d2-8ffe3a7e4e31"
+                            },
+                            {
+                              "id": "5ae9a059-cdba-49c0-8c55-a055bc5134bd",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"hp8hq2.\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Number\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-5ae9a059-cdba-49c0-8c55-a055bc5134bd"
+                            },
+                            {
+                              "id": "0be1add7-c877-42ae-b808-d3a476b7a4ba",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"hp8hq2.\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Number\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-0be1add7-c877-42ae-b808-d3a476b7a4ba"
+                            },
+                            {
+                              "id": "8f52049e-0683-4f0b-8126-e7805b8c2ea4",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"hp8hq2.\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Number\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-8f52049e-0683-4f0b-8126-e7805b8c2ea4"
+                            },
+                            {
+                              "id": "2d09f186-fbae-489e-ac41-7e7d5b799924",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"hp8hq2.\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Number\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-2d09f186-fbae-489e-ac41-7e7d5b799924"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-1a89267d-1fbe-4c8d-906a-4cecad83fbfc"
+                        },
+                        {
+                          "name": "Delete a Custom Property",
+                          "id": "e4da9a97-d9ea-4932-8376-05bfcde45f5a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "71e44252-4079-44b0-97ad-5e49bd15df5e",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "99f803da-e4e1-4aa6-9b4a-e1fac7bcb995",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Custom Property key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Delete an Custom Property by ID or key"
+                          },
+                          "response": [
+                            {
+                              "id": "602f412e-fb02-421c-bfba-7efb36851117",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-602f412e-fb02-421c-bfba-7efb36851117"
+                            },
+                            {
+                              "id": "f646a9d4-a1ee-4d98-9046-5c125f34d5af",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-f646a9d4-a1ee-4d98-9046-5c125f34d5af"
+                            },
+                            {
+                              "id": "6595e7ac-1684-433e-b6af-dadc405e1a00",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/customProperties/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "customProperties",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:31.000Z",
+                              "updatedAt": "2026-07-28T01:30:31.000Z",
+                              "uid": "35240-6595e7ac-1684-433e-b6af-dadc405e1a00"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-e4da9a97-d9ea-4932-8376-05bfcde45f5a"
+                        }
+                      ],
+                      "id": "3e40c697-2d73-4218-bf43-a9450d5a0d7e",
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-3e40c697-2d73-4218-bf43-a9450d5a0d7e"
+                    },
+                    {
+                      "name": "Create Custom Property",
+                      "id": "c4c38357-29ef-4ba8-86e1-7a7756bd749d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8adkjv8ro2.\",\n  \"type\": \"Boolean\",\n  \"propertyKey\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/customProperties",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "customProperties"
+                          ],
+                          "variable": [
+                            {
+                              "id": "44dcbfd2-bc99-41d8-9e02-7d6929894ebf",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "Create a new Custom Property"
+                      },
+                      "response": [
+                        {
+                          "id": "632cb670-13dd-49d5-a16a-5b161b967004",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8adkjv8ro2.\",\n  \"type\": \"Boolean\",\n  \"propertyKey\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"t21yqvah0l\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"Boolean\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  },\n  \"hasUsage\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-632cb670-13dd-49d5-a16a-5b161b967004"
+                        },
+                        {
+                          "id": "1f83fe9c-3e90-45be-896e-dc4df762f4ec",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8adkjv8ro2.\",\n  \"type\": \"Boolean\",\n  \"propertyKey\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-1f83fe9c-3e90-45be-896e-dc4df762f4ec"
+                        },
+                        {
+                          "id": "2e5fbd7b-6cc5-4b7f-b969-6cc5ec6ab937",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8adkjv8ro2.\",\n  \"type\": \"Boolean\",\n  \"propertyKey\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-2e5fbd7b-6cc5-4b7f-b969-6cc5ec6ab937"
+                        },
+                        {
+                          "id": "4c1d6e54-0d1e-4537-928e-547e30e386e4",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8adkjv8ro2.\",\n  \"type\": \"Boolean\",\n  \"propertyKey\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-4c1d6e54-0d1e-4537-928e-547e30e386e4"
+                        },
+                        {
+                          "id": "0c7f10c3-d634-48bf-896f-721374471691",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8adkjv8ro2.\",\n  \"type\": \"Boolean\",\n  \"propertyKey\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-0c7f10c3-d634-48bf-896f-721374471691"
+                        },
+                        {
+                          "id": "329d9a37-343f-477d-a8aa-853edeadc244",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"8adkjv8ro2.\",\n  \"type\": \"Boolean\",\n  \"propertyKey\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-329d9a37-343f-477d-a8aa-853edeadc244"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-c4c38357-29ef-4ba8-86e1-7a7756bd749d"
+                    },
+                    {
+                      "name": "List Custom Properties",
+                      "id": "31896998-e4f2-4466-a8e3-cc85ccef4abb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/customProperties?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&type=String&includeUsage=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "customProperties"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "perPage",
+                              "value": "100"
+                            },
+                            {
+                              "key": "sortBy",
+                              "value": "createdAt"
+                            },
+                            {
+                              "key": "sortOrder",
+                              "value": "desc"
+                            },
+                            {
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "type",
+                              "value": "String"
+                            },
+                            {
+                              "key": "includeUsage",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "a73e802c-59c2-4491-8398-88bc0b2ce202",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "List Custom Properties"
+                      },
+                      "response": [
+                        {
+                          "id": "e570f3df-a385-48bb-aa41-f533e1da4404",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&type=String&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "String"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"name\": \"<string>\",\n    \"key\": \"cagn7\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"_createdBy\": \"<string>\",\n    \"propertyKey\": \"<string>\",\n    \"type\": \"Number\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"schema\": {\n      \"schemaType\": \"enum\",\n      \"required\": \"<boolean>\",\n      \"enumSchema\": {\n        \"allowedValues\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": {}\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": {}\n          }\n        ],\n        \"allowAdditionalValues\": \"<boolean>\"\n      }\n    },\n    \"hasUsage\": \"<boolean>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"key\": \"0n1s3dp\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"_createdBy\": \"<string>\",\n    \"propertyKey\": \"<string>\",\n    \"type\": \"Boolean\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"schema\": {\n      \"schemaType\": \"enum\",\n      \"required\": \"<boolean>\",\n      \"enumSchema\": {\n        \"allowedValues\": [\n          {\n            \"label\": \"<string>\",\n            \"value\": {}\n          },\n          {\n            \"label\": \"<string>\",\n            \"value\": {}\n          }\n        ],\n        \"allowAdditionalValues\": \"<boolean>\"\n      }\n    },\n    \"hasUsage\": \"<boolean>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-e570f3df-a385-48bb-aa41-f533e1da4404"
+                        },
+                        {
+                          "id": "c1a0ec72-671e-41a7-a5ff-896942f0535e",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&type=String&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "String"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-c1a0ec72-671e-41a7-a5ff-896942f0535e"
+                        },
+                        {
+                          "id": "2f022606-cc97-4ea6-b6d8-98b1106080a2",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&type=String&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "String"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-2f022606-cc97-4ea6-b6d8-98b1106080a2"
+                        },
+                        {
+                          "id": "f4d3771d-069e-44d9-a15b-fc7ee8739e1e",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&type=String&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "String"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-f4d3771d-069e-44d9-a15b-fc7ee8739e1e"
+                        },
+                        {
+                          "id": "fd962090-d4ac-47f8-9f6c-27dd810837cf",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/customProperties?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&type=String&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "customProperties"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "String"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:31.000Z",
+                          "updatedAt": "2026-07-28T01:30:31.000Z",
+                          "uid": "35240-fd962090-d4ac-47f8-9f6c-27dd810837cf"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:31.000Z",
+                      "updatedAt": "2026-07-28T01:30:31.000Z",
+                      "uid": "35240-31896998-e4f2-4466-a8e3-cc85ccef4abb"
+                    }
+                  ],
+                  "id": "84c033ee-b98c-4985-85b6-d6c07768e78d",
+                  "createdAt": "2026-07-28T01:30:31.000Z",
+                  "updatedAt": "2026-07-28T01:30:31.000Z",
+                  "uid": "35240-84c033ee-b98c-4985-85b6-d6c07768e78d"
+                }
+              ],
+              "id": "b4887ad5-490a-4cdf-a3c8-d07212784422",
+              "createdAt": "2026-07-28T01:30:31.000Z",
+              "updatedAt": "2026-07-28T01:30:31.000Z",
+              "uid": "35240-b4887ad5-490a-4cdf-a3c8-d07212784422"
+            }
+          ],
+          "id": "0e3d08b0-8663-41c5-a218-56d7e5b10ee8",
+          "createdAt": "2026-07-28T01:30:31.000Z",
+          "updatedAt": "2026-07-28T01:30:31.000Z",
+          "uid": "35240-0e3d08b0-8663-41c5-a218-56d7e5b10ee8"
+        }
+      ],
+      "id": "f5652d68-ef14-4aef-8264-fcefe509c19d",
+      "createdAt": "2026-07-28T01:30:31.000Z",
+      "updatedAt": "2026-07-28T01:30:31.000Z",
+      "uid": "35240-f5652d68-ef14-4aef-8264-fcefe509c19d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

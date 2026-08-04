@@ -1,0 +1,1531 @@
+{
+  "info": {
+    "_postman_id": "09c660d4-a116-4649-b0d7-b5de4586abee",
+    "name": "DevCycle Bucketing Audiences Overrides API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:46.000Z",
+    "updatedAt": "2026-07-28T01:30:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-09c660d4-a116-4649-b0d7-b5de4586abee"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "features",
+                  "item": [
+                    {
+                      "name": "{feature}",
+                      "item": [
+                        {
+                          "name": "overrides",
+                          "item": [
+                            {
+                              "name": "current",
+                              "item": [
+                                {
+                                  "name": "Update Overrides for the Current User",
+                                  "id": "21cdd933-30ea-4d32-94f4-88ced0f260ab",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"environment\": \"<string>\",\n  \"variation\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "overrides",
+                                        "current"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "26d92279-1330-4715-b6a9-33647b27b9a3",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) A Project key or ID"
+                                        },
+                                        {
+                                          "id": "18378853-1cdf-40f9-a67f-ed24b0f857cc",
+                                          "key": "feature",
+                                          "value": "<string>",
+                                          "description": "(Required) A Feature key or ID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "c5306b23-7d10-4baa-9aaf-a7614d63c50e",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"environment\": \"<string>\",\n  \"variation\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"_project\": \"<string>\",\n  \"_environment\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"_variation\": \"<string>\",\n  \"dvcUserId\": \"<string>\",\n  \"createdAt\": \"<number>\",\n  \"updatedAt\": \"<number>\",\n  \"a0_user\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-c5306b23-7d10-4baa-9aaf-a7614d63c50e"
+                                    },
+                                    {
+                                      "id": "0c76c5a4-7ae9-4930-907e-83725afcb4fd",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"environment\": \"<string>\",\n  \"variation\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Bad Request",
+                                      "code": 400,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-0c76c5a4-7ae9-4930-907e-83725afcb4fd"
+                                    },
+                                    {
+                                      "id": "eff98911-658f-40ee-82d7-581448844fe2",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"environment\": \"<string>\",\n  \"variation\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-eff98911-658f-40ee-82d7-581448844fe2"
+                                    },
+                                    {
+                                      "id": "57fc7b90-eea0-40fa-9211-cd3d67c76e9c",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"environment\": \"<string>\",\n  \"variation\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-57fc7b90-eea0-40fa-9211-cd3d67c76e9c"
+                                    },
+                                    {
+                                      "id": "d4ea424d-0ccd-483d-a9dd-c9d5b72d906e",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"environment\": \"<string>\",\n  \"variation\": \"<string>\"\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-d4ea424d-0ccd-483d-a9dd-c9d5b72d906e"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:30:46.000Z",
+                                  "updatedAt": "2026-07-28T01:30:46.000Z",
+                                  "uid": "35240-21cdd933-30ea-4d32-94f4-88ced0f260ab"
+                                },
+                                {
+                                  "name": "Get feature overrides for current user",
+                                  "id": "9cc2940f-2c6e-4811-aa73-f5980362b1f9",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "overrides",
+                                        "current"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "359293f6-2c83-485e-8f98-93d26d1ac742",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) A Project key or ID"
+                                        },
+                                        {
+                                          "id": "74be5b8f-c10c-4e43-b1fc-3e5a0d4024b6",
+                                          "key": "feature",
+                                          "value": "<string>",
+                                          "description": "(Required) A Feature key or ID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "09244c36-cf3c-432e-b482-ae4da3042611",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"overrides\": [\n    {\n      \"_environment\": \"<string>\",\n      \"_variation\": \"<string>\"\n    },\n    {\n      \"_environment\": \"<string>\",\n      \"_variation\": \"<string>\"\n    }\n  ]\n}",
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-09244c36-cf3c-432e-b482-ae4da3042611"
+                                    },
+                                    {
+                                      "id": "4ebe3e0d-27c0-4e9b-8aac-eb0cba0c2c3e",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-4ebe3e0d-27c0-4e9b-8aac-eb0cba0c2c3e"
+                                    },
+                                    {
+                                      "id": "0fc9610f-c33b-4304-941a-1564e944990b",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-0fc9610f-c33b-4304-941a-1564e944990b"
+                                    },
+                                    {
+                                      "id": "f81f1b50-33ed-42b4-99ca-92861920b8bb",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-f81f1b50-33ed-42b4-99ca-92861920b8bb"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:30:46.000Z",
+                                  "updatedAt": "2026-07-28T01:30:46.000Z",
+                                  "uid": "35240-9cc2940f-2c6e-4811-aa73-f5980362b1f9"
+                                },
+                                {
+                                  "name": "Delete override for specific feature and environment for the current user",
+                                  "id": "1845e37f-85b1-4fe7-ba85-4288c56a54da",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "DELETE",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "overrides",
+                                        "current"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "4253bed9-12b3-4bb1-84fb-5af21feb8166",
+                                          "key": "project",
+                                          "value": "<string>",
+                                          "description": "(Required) A Project key or ID"
+                                        },
+                                        {
+                                          "id": "c827de64-9f0c-4aaa-b6de-1928a08c8ad1",
+                                          "key": "feature",
+                                          "value": "<string>",
+                                          "description": "(Required) A Feature key or ID"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "8cd75872-4a44-4d98-bc20-b602c0098a63",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current?environment=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) A Environment key or ID",
+                                              "key": "environment",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-8cd75872-4a44-4d98-bc20-b602c0098a63"
+                                    },
+                                    {
+                                      "id": "7c4e8b80-493e-4bc1-9eae-147bead5aeb9",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current?environment=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) A Environment key or ID",
+                                              "key": "environment",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-7c4e8b80-493e-4bc1-9eae-147bead5aeb9"
+                                    },
+                                    {
+                                      "id": "f23c10f9-7912-4a0e-be04-135c2779938a",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current?environment=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) A Environment key or ID",
+                                              "key": "environment",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-f23c10f9-7912-4a0e-be04-135c2779938a"
+                                    },
+                                    {
+                                      "id": "c8467e13-e138-4114-a539-c941cab3c55e",
+                                      "name": "New Response",
+                                      "originalRequest": {
+                                        "method": "DELETE",
+                                        "header": [],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides/current?environment=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v1",
+                                            "projects",
+                                            ":project",
+                                            "features",
+                                            ":feature",
+                                            "overrides",
+                                            "current"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) A Environment key or ID",
+                                              "key": "environment",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "project"
+                                            },
+                                            {
+                                              "key": "feature"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-07-28T01:30:47.000Z",
+                                      "updatedAt": "2026-07-28T01:30:47.000Z",
+                                      "uid": "35240-c8467e13-e138-4114-a539-c941cab3c55e"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:30:46.000Z",
+                                  "updatedAt": "2026-07-28T01:30:46.000Z",
+                                  "uid": "35240-1845e37f-85b1-4fe7-ba85-4288c56a54da"
+                                }
+                              ],
+                              "id": "59cc76b5-af47-4d7e-b923-8541fe9ec8f1",
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-59cc76b5-af47-4d7e-b923-8541fe9ec8f1"
+                            },
+                            {
+                              "name": "Get overrides for feature",
+                              "id": "44e1c4dd-c3cc-4065-8e9a-14bd39be3d53",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides?addMetadata=<boolean>&environment=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "features",
+                                    ":feature",
+                                    "overrides"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "addMetadata",
+                                      "value": "<boolean>"
+                                    },
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "45e47f39-2072-4f36-b0ee-57a19558ef19",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "acec6b08-5b5a-4c37-aa76-b392847c8f4b",
+                                      "key": "feature",
+                                      "value": "<string>",
+                                      "description": "(Required) A Feature key or ID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "ae0761a7-248e-40da-9806-13becd37be58",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides?addMetadata=<boolean>&environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "overrides"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "addMetadata",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "description": "A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"overrides\": {\n    \"dolore_bd0\": [\n      {\n        \"_project\": \"<string>\",\n        \"_environment\": \"<string>\",\n        \"_feature\": \"<string>\",\n        \"_variation\": \"<string>\",\n        \"dvcUserId\": \"<string>\",\n        \"createdAt\": \"<number>\",\n        \"updatedAt\": \"<number>\",\n        \"a0_user\": \"<string>\"\n      },\n      {\n        \"_project\": \"<string>\",\n        \"_environment\": \"<string>\",\n        \"_feature\": \"<string>\",\n        \"_variation\": \"<string>\",\n        \"dvcUserId\": \"<string>\",\n        \"createdAt\": \"<number>\",\n        \"updatedAt\": \"<number>\",\n        \"a0_user\": \"<string>\"\n      }\n    ],\n    \"sed__6\": [\n      {\n        \"_project\": \"<string>\",\n        \"_environment\": \"<string>\",\n        \"_feature\": \"<string>\",\n        \"_variation\": \"<string>\",\n        \"dvcUserId\": \"<string>\",\n        \"createdAt\": \"<number>\",\n        \"updatedAt\": \"<number>\",\n        \"a0_user\": \"<string>\"\n      },\n      {\n        \"_project\": \"<string>\",\n        \"_environment\": \"<string>\",\n        \"_feature\": \"<string>\",\n        \"_variation\": \"<string>\",\n        \"dvcUserId\": \"<string>\",\n        \"createdAt\": \"<number>\",\n        \"updatedAt\": \"<number>\",\n        \"a0_user\": \"<string>\"\n      }\n    ]\n  },\n  \"uniqueTeamMembers\": \"<number>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-ae0761a7-248e-40da-9806-13becd37be58"
+                                },
+                                {
+                                  "id": "678d3d78-7f54-47f4-99d7-a9a7753cde62",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides?addMetadata=<boolean>&environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "overrides"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "addMetadata",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "description": "A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-678d3d78-7f54-47f4-99d7-a9a7753cde62"
+                                },
+                                {
+                                  "id": "44d72b9f-a5a4-462c-ab90-a08fb6500395",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/overrides?addMetadata=<boolean>&environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "overrides"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "addMetadata",
+                                          "value": "<boolean>"
+                                        },
+                                        {
+                                          "description": "A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:47.000Z",
+                                  "updatedAt": "2026-07-28T01:30:47.000Z",
+                                  "uid": "35240-44d72b9f-a5a4-462c-ab90-a08fb6500395"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:46.000Z",
+                              "updatedAt": "2026-07-28T01:30:46.000Z",
+                              "uid": "35240-44e1c4dd-c3cc-4065-8e9a-14bd39be3d53"
+                            }
+                          ],
+                          "id": "cfa7c6cd-ba48-474a-a7b7-995ddc379abb",
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-cfa7c6cd-ba48-474a-a7b7-995ddc379abb"
+                        }
+                      ],
+                      "id": "71bb5ffa-bcb9-4506-b632-bda47b9004bf",
+                      "createdAt": "2026-07-28T01:30:46.000Z",
+                      "updatedAt": "2026-07-28T01:30:46.000Z",
+                      "uid": "35240-71bb5ffa-bcb9-4506-b632-bda47b9004bf"
+                    }
+                  ],
+                  "id": "9932d2be-de14-4d72-b5eb-d632b24bdde1",
+                  "createdAt": "2026-07-28T01:30:46.000Z",
+                  "updatedAt": "2026-07-28T01:30:46.000Z",
+                  "uid": "35240-9932d2be-de14-4d72-b5eb-d632b24bdde1"
+                },
+                {
+                  "name": "overrides",
+                  "item": [
+                    {
+                      "name": "current",
+                      "item": [
+                        {
+                          "name": "Get all overrides for project for current user",
+                          "id": "4af7c4b6-7ea3-4885-bfbc-0f1f9120671b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "overrides",
+                                "current"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "71848154-e80b-4100-8812-66d68a21fb06",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "5bd37690-f93d-4961-b64d-1d793b847608",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "overrides",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"_feature\": \"<string>\",\n    \"featureName\": \"<string>\",\n    \"_environment\": \"<string>\",\n    \"environmentName\": \"<string>\",\n    \"_variation\": \"<string>\",\n    \"variationName\": \"<string>\"\n  },\n  {\n    \"_feature\": \"<string>\",\n    \"featureName\": \"<string>\",\n    \"_environment\": \"<string>\",\n    \"environmentName\": \"<string>\",\n    \"_variation\": \"<string>\",\n    \"variationName\": \"<string>\"\n  }\n]",
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-5bd37690-f93d-4961-b64d-1d793b847608"
+                            },
+                            {
+                              "id": "9988b89c-07d9-49b6-9ac2-2651836dad41",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "overrides",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-9988b89c-07d9-49b6-9ac2-2651836dad41"
+                            },
+                            {
+                              "id": "e46ad81f-8b5c-4e54-a359-3a8bf3896485",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "overrides",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-e46ad81f-8b5c-4e54-a359-3a8bf3896485"
+                            },
+                            {
+                              "id": "9177693a-f798-4b0f-b673-1b10585461a9",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "overrides",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-9177693a-f798-4b0f-b673-1b10585461a9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-4af7c4b6-7ea3-4885-bfbc-0f1f9120671b"
+                        },
+                        {
+                          "name": "Delete all overrides for project for current user",
+                          "id": "a3b9eee3-6c21-459e-a0b8-1594aa4ec354",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "overrides",
+                                "current"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7d744360-4a3c-4af1-bad6-17f795494a9c",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "0931c7f1-9235-4ece-9e32-9c9059e30104",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "overrides",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-0931c7f1-9235-4ece-9e32-9c9059e30104"
+                            },
+                            {
+                              "id": "459ee0ef-0760-48ec-a096-d506f075527c",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "overrides",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-459ee0ef-0760-48ec-a096-d506f075527c"
+                            },
+                            {
+                              "id": "869ba010-bb98-412e-b1b2-ad47a4c43ce6",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "overrides",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-869ba010-bb98-412e-b1b2-ad47a4c43ce6"
+                            },
+                            {
+                              "id": "2282e645-7b07-4057-a5bf-f20b86818b89",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/overrides/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "overrides",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:47.000Z",
+                              "updatedAt": "2026-07-28T01:30:47.000Z",
+                              "uid": "35240-2282e645-7b07-4057-a5bf-f20b86818b89"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:46.000Z",
+                          "updatedAt": "2026-07-28T01:30:46.000Z",
+                          "uid": "35240-a3b9eee3-6c21-459e-a0b8-1594aa4ec354"
+                        }
+                      ],
+                      "id": "33d07d4d-75ba-451b-aa9f-9a63a22dd07e",
+                      "createdAt": "2026-07-28T01:30:46.000Z",
+                      "updatedAt": "2026-07-28T01:30:46.000Z",
+                      "uid": "35240-33d07d4d-75ba-451b-aa9f-9a63a22dd07e"
+                    }
+                  ],
+                  "id": "5c3d1bae-e51e-47db-95a7-ec1e18a36c34",
+                  "createdAt": "2026-07-28T01:30:46.000Z",
+                  "updatedAt": "2026-07-28T01:30:46.000Z",
+                  "uid": "35240-5c3d1bae-e51e-47db-95a7-ec1e18a36c34"
+                }
+              ],
+              "id": "5298d589-eb72-465a-8a6e-5c466d221a5b",
+              "createdAt": "2026-07-28T01:30:46.000Z",
+              "updatedAt": "2026-07-28T01:30:46.000Z",
+              "uid": "35240-5298d589-eb72-465a-8a6e-5c466d221a5b"
+            }
+          ],
+          "id": "0ac3a042-cafb-44a4-b9bb-a9ebaab303bd",
+          "createdAt": "2026-07-28T01:30:46.000Z",
+          "updatedAt": "2026-07-28T01:30:46.000Z",
+          "uid": "35240-0ac3a042-cafb-44a4-b9bb-a9ebaab303bd"
+        }
+      ],
+      "id": "cadc623d-0419-4d3f-b69c-eece63dea7d3",
+      "createdAt": "2026-07-28T01:30:46.000Z",
+      "updatedAt": "2026-07-28T01:30:46.000Z",
+      "uid": "35240-cadc623d-0419-4d3f-b69c-eece63dea7d3"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

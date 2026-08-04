@@ -1,0 +1,634 @@
+{
+  "info": {
+    "_postman_id": "74fefd46-11a0-400b-93ad-6dc0f9d5318d",
+    "name": "DevCycle Bucketing Audiences User Profiles API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:25.000Z",
+    "updatedAt": "2026-07-28T01:31:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-74fefd46-11a0-400b-93ad-6dc0f9d5318d"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "userProfile",
+                  "item": [
+                    {
+                      "name": "current",
+                      "item": [
+                        {
+                          "name": "Get User Profile for the Current User in the specified Project",
+                          "id": "e5fc06eb-6068-4b2d-92f9-7a8ea1f6ef90",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "userProfile",
+                                "current"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "119b784a-acb9-45b3-9e5f-1da0f8908a09",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Get User Profile for the authenticated User in the specified Project"
+                          },
+                          "response": [
+                            {
+                              "id": "8d5629e0-8aaf-4eb6-917c-93fa17cf6d8c",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"a0_user\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"dvcUserId\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-8d5629e0-8aaf-4eb6-917c-93fa17cf6d8c"
+                            },
+                            {
+                              "id": "4bad5fd7-f8b0-4877-a657-8715bef23e1e",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-4bad5fd7-f8b0-4877-a657-8715bef23e1e"
+                            },
+                            {
+                              "id": "d4b5e1f4-1fab-4e44-92d3-bc33687730b2",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-d4b5e1f4-1fab-4e44-92d3-bc33687730b2"
+                            },
+                            {
+                              "id": "fdc30b30-185d-4ee4-a80d-49b8f6ff809b",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-fdc30b30-185d-4ee4-a80d-49b8f6ff809b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:26.000Z",
+                          "updatedAt": "2026-07-28T01:31:26.000Z",
+                          "uid": "35240-e5fc06eb-6068-4b2d-92f9-7a8ea1f6ef90"
+                        },
+                        {
+                          "name": "Create or Update User Profile for the Current User in the specified Project",
+                          "id": "1f8fedce-f56a-4b33-8ce8-85739eb26f4c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"dvcUserId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "userProfile",
+                                "current"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ed88acce-ee4d-479f-a489-d406ee1efce2",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Create or Update a User Profile for Overrides"
+                          },
+                          "response": [
+                            {
+                              "id": "6594c23a-5465-4ca0-a523-d85e5aca46e0",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"dvcUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"a0_user\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"dvcUserId\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-6594c23a-5465-4ca0-a523-d85e5aca46e0"
+                            },
+                            {
+                              "id": "c488d6d7-7e9c-4c49-b112-97679a467b48",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"dvcUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-c488d6d7-7e9c-4c49-b112-97679a467b48"
+                            },
+                            {
+                              "id": "3c6813e6-026e-4597-98db-cd244d2db63c",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"dvcUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-3c6813e6-026e-4597-98db-cd244d2db63c"
+                            },
+                            {
+                              "id": "16904c25-1fb4-4683-9536-7fc85e31ef6a",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"dvcUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-16904c25-1fb4-4683-9536-7fc85e31ef6a"
+                            },
+                            {
+                              "id": "6d1a214d-88d8-4909-9e0f-fdd48c1df6ae",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"dvcUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-6d1a214d-88d8-4909-9e0f-fdd48c1df6ae"
+                            },
+                            {
+                              "id": "b2d3538d-9327-45a3-aa8b-e88239f8d975",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"dvcUserId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/userProfile/current",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "userProfile",
+                                    "current"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:26.000Z",
+                              "updatedAt": "2026-07-28T01:31:26.000Z",
+                              "uid": "35240-b2d3538d-9327-45a3-aa8b-e88239f8d975"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:26.000Z",
+                          "updatedAt": "2026-07-28T01:31:26.000Z",
+                          "uid": "35240-1f8fedce-f56a-4b33-8ce8-85739eb26f4c"
+                        }
+                      ],
+                      "id": "d401f3a2-b886-4869-ad83-185ad8e1929d",
+                      "createdAt": "2026-07-28T01:31:26.000Z",
+                      "updatedAt": "2026-07-28T01:31:26.000Z",
+                      "uid": "35240-d401f3a2-b886-4869-ad83-185ad8e1929d"
+                    }
+                  ],
+                  "id": "ebc091f9-5c30-4f44-a69e-d5a0aa784ec9",
+                  "createdAt": "2026-07-28T01:31:26.000Z",
+                  "updatedAt": "2026-07-28T01:31:26.000Z",
+                  "uid": "35240-ebc091f9-5c30-4f44-a69e-d5a0aa784ec9"
+                }
+              ],
+              "id": "bc672d03-680e-4b59-81da-004ecaa050b5",
+              "createdAt": "2026-07-28T01:31:26.000Z",
+              "updatedAt": "2026-07-28T01:31:26.000Z",
+              "uid": "35240-bc672d03-680e-4b59-81da-004ecaa050b5"
+            }
+          ],
+          "id": "502f3adc-b789-4916-ba53-a16923c46e3a",
+          "createdAt": "2026-07-28T01:31:26.000Z",
+          "updatedAt": "2026-07-28T01:31:26.000Z",
+          "uid": "35240-502f3adc-b789-4916-ba53-a16923c46e3a"
+        }
+      ],
+      "id": "05349bac-bebf-4e83-8be7-fc35283d2ece",
+      "createdAt": "2026-07-28T01:31:26.000Z",
+      "updatedAt": "2026-07-28T01:31:26.000Z",
+      "uid": "35240-05349bac-bebf-4e83-8be7-fc35283d2ece"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

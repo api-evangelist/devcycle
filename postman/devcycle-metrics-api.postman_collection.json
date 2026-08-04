@@ -1,0 +1,2467 @@
+{
+  "info": {
+    "_postman_id": "c4ec9002-afe8-4273-b293-f1203bebc127",
+    "name": "DevCycle Bucketing Audiences Metrics API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:44.000Z",
+    "updatedAt": "2026-07-28T01:30:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c4ec9002-afe8-4273-b293-f1203bebc127"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "metrics",
+                  "item": [
+                    {
+                      "name": "{key}",
+                      "item": [
+                        {
+                          "name": "results",
+                          "item": [
+                            {
+                              "name": "Fetch results for a Metric",
+                              "id": "34059c54-2a99-437d-96a6-ec18498b3151",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key/results?feature=<string>&environment=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key",
+                                    "results"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "feature",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "startDate",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "endDate",
+                                      "value": "<dateTime>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "f1282101-26dc-4b1e-a036-b1cb908f28c5",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "e15f3e43-df4d-4d48-99bb-ffa560b990f2",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "c3ba2844-959e-4eb8-8069-7b2a0d2081b2",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key/results?feature=<string>&environment=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "metrics",
+                                        ":key",
+                                        "results"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "feature",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"result\": {\n    \"dataSeries\": [\n      {\n        \"date\": \"<dateTime>\",\n        \"values\": {}\n      },\n      {\n        \"date\": \"<dateTime>\",\n        \"values\": {}\n      }\n    ],\n    \"variations\": [\n      {\n        \"key\": \"<string>\",\n        \"name\": \"<string>\",\n        \"numerator\": \"<number>\",\n        \"denominator\": \"<number>\",\n        \"rate\": \"<number>\",\n        \"percentDifference\": \"<number>\",\n        \"chanceToBeatControl\": \"<number>\",\n        \"avgValue\": \"<number>\",\n        \"totalValue\": \"<number>\",\n        \"stdev\": \"<number>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"name\": \"<string>\",\n        \"numerator\": \"<number>\",\n        \"denominator\": \"<number>\",\n        \"rate\": \"<number>\",\n        \"percentDifference\": \"<number>\",\n        \"chanceToBeatControl\": \"<number>\",\n        \"avgValue\": \"<number>\",\n        \"totalValue\": \"<number>\",\n        \"stdev\": \"<number>\"\n      }\n    ]\n  },\n  \"cached\": \"<boolean>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:44.000Z",
+                                  "updatedAt": "2026-07-28T01:30:44.000Z",
+                                  "uid": "35240-c3ba2844-959e-4eb8-8069-7b2a0d2081b2"
+                                },
+                                {
+                                  "id": "9d9d5138-2d35-4c7f-ab77-e64a830fcf9c",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key/results?feature=<string>&environment=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "metrics",
+                                        ":key",
+                                        "results"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "feature",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:44.000Z",
+                                  "updatedAt": "2026-07-28T01:30:44.000Z",
+                                  "uid": "35240-9d9d5138-2d35-4c7f-ab77-e64a830fcf9c"
+                                },
+                                {
+                                  "id": "4f8fcc86-2e8e-4f5c-9d46-ed4c0af0f0db",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key/results?feature=<string>&environment=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "metrics",
+                                        ":key",
+                                        "results"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "feature",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:44.000Z",
+                                  "updatedAt": "2026-07-28T01:30:44.000Z",
+                                  "uid": "35240-4f8fcc86-2e8e-4f5c-9d46-ed4c0af0f0db"
+                                },
+                                {
+                                  "id": "fecae0f1-ed28-4111-ba76-d76e353acbec",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key/results?feature=<string>&environment=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "metrics",
+                                        ":key",
+                                        "results"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "feature",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:44.000Z",
+                                  "updatedAt": "2026-07-28T01:30:44.000Z",
+                                  "uid": "35240-fecae0f1-ed28-4111-ba76-d76e353acbec"
+                                },
+                                {
+                                  "id": "cf47d01d-4a34-40c8-a45b-f2540dafb85d",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key/results?feature=<string>&environment=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "metrics",
+                                        ":key",
+                                        "results"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "feature",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "description": "(Required) ",
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:44.000Z",
+                                  "updatedAt": "2026-07-28T01:30:44.000Z",
+                                  "uid": "35240-cf47d01d-4a34-40c8-a45b-f2540dafb85d"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-34059c54-2a99-437d-96a6-ec18498b3151"
+                            }
+                          ],
+                          "id": "481ee4d4-f72e-4641-bd1a-571de8703937",
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-481ee4d4-f72e-4641-bd1a-571de8703937"
+                        },
+                        {
+                          "name": "Get a Metric",
+                          "id": "fc5bd87d-85e8-4e88-9499-c92e43cb1db2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "adf27132-7fe7-4c0d-825c-b8c3b6732a61",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "2baf1b20-56d7-432b-b3e0-cedc0168f185",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "314a513a-fd83-4d40-929d-de2665fac752",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"wgrveqi0kk1\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"TOTAL_AVERAGE\",\n  \"optimize\": \"increase\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"source\": \"slack\"\n}",
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-314a513a-fd83-4d40-929d-de2665fac752"
+                            },
+                            {
+                              "id": "16035a34-4b32-4c8a-b507-6f2f067ccb2c",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-16035a34-4b32-4c8a-b507-6f2f067ccb2c"
+                            },
+                            {
+                              "id": "6ac948f2-1ac0-4850-a250-9e566376deb2",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-6ac948f2-1ac0-4850-a250-9e566376deb2"
+                            },
+                            {
+                              "id": "03fac53b-56e8-4bfe-aed4-69dcd89cc971",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-03fac53b-56e8-4bfe-aed4-69dcd89cc971"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-fc5bd87d-85e8-4e88-9499-c92e43cb1db2"
+                        },
+                        {
+                          "name": "Update a Metric",
+                          "id": "9095764a-5699-431a-92bf-7afc8653cc81",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"k\",\n  \"description\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"COUNT_PER_VARIABLE_EVALUATION\",\n  \"optimize\": \"decrease\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8f4d72a0-2d8e-437b-825a-346875fca761",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "03b2574b-40f6-466b-bad5-cb09a7ed2bdc",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e656bae3-a297-475b-9e86-28b47bed7f03",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"k\",\n  \"description\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"COUNT_PER_VARIABLE_EVALUATION\",\n  \"optimize\": \"decrease\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"wgrveqi0kk1\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"TOTAL_AVERAGE\",\n  \"optimize\": \"increase\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"source\": \"slack\"\n}",
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-e656bae3-a297-475b-9e86-28b47bed7f03"
+                            },
+                            {
+                              "id": "6cfc9628-d881-4b8a-a1bd-b6f7c675387d",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"k\",\n  \"description\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"COUNT_PER_VARIABLE_EVALUATION\",\n  \"optimize\": \"decrease\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-6cfc9628-d881-4b8a-a1bd-b6f7c675387d"
+                            },
+                            {
+                              "id": "c5b2d13d-a9d6-4b6f-afce-32a2aebc07f5",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"k\",\n  \"description\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"COUNT_PER_VARIABLE_EVALUATION\",\n  \"optimize\": \"decrease\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-c5b2d13d-a9d6-4b6f-afce-32a2aebc07f5"
+                            },
+                            {
+                              "id": "fa14620d-c1cb-42f1-a949-a8d740132f84",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"k\",\n  \"description\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"COUNT_PER_VARIABLE_EVALUATION\",\n  \"optimize\": \"decrease\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-fa14620d-c1cb-42f1-a949-a8d740132f84"
+                            },
+                            {
+                              "id": "2a2b5461-d768-4221-a50b-13488750e72f",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"k\",\n  \"description\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"COUNT_PER_VARIABLE_EVALUATION\",\n  \"optimize\": \"decrease\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-2a2b5461-d768-4221-a50b-13488750e72f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-9095764a-5699-431a-92bf-7afc8653cc81"
+                        },
+                        {
+                          "name": "Delete a Metric",
+                          "id": "d4aa8464-25af-4413-b5a0-22f8eb57e640",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7d9cd7bf-c495-4aa9-8a5a-469f9f3cf6ab",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "743195a6-9b83-4340-a7a8-3876476df4fe",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "c902258b-7ef2-481e-9a70-7e966130ae17",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-c902258b-7ef2-481e-9a70-7e966130ae17"
+                            },
+                            {
+                              "id": "a447e865-f873-4320-9de8-a6553cd14ba0",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-a447e865-f873-4320-9de8-a6553cd14ba0"
+                            },
+                            {
+                              "id": "64f78e99-25b9-454d-97c0-9231f7114f5a",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-64f78e99-25b9-454d-97c0-9231f7114f5a"
+                            },
+                            {
+                              "id": "7bf6e11a-58a5-4a44-a01f-5121b009cf08",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/metrics/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "metrics",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:44.000Z",
+                              "updatedAt": "2026-07-28T01:30:44.000Z",
+                              "uid": "35240-7bf6e11a-58a5-4a44-a01f-5121b009cf08"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-d4aa8464-25af-4413-b5a0-22f8eb57e640"
+                        }
+                      ],
+                      "id": "a85a331c-d6a0-4474-adeb-739f06833de8",
+                      "createdAt": "2026-07-28T01:30:44.000Z",
+                      "updatedAt": "2026-07-28T01:30:44.000Z",
+                      "uid": "35240-a85a331c-d6a0-4474-adeb-739f06833de8"
+                    },
+                    {
+                      "name": "Create Metric",
+                      "id": "7d6f77ab-555f-40d6-b04b-df7134f5ae1b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"icb4cc4mg4\",\n  \"event\": \"<string>\",\n  \"dimension\": \"SUM_PER_UNIQUE_USER\",\n  \"optimize\": \"decrease\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/metrics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "metrics"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b78970ad-be26-4ee3-8790-69bf5ddd83e4",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "Create a new Metric"
+                      },
+                      "response": [
+                        {
+                          "id": "4d92d42c-2bdf-4026-a1b2-512e470b3dcc",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"icb4cc4mg4\",\n  \"event\": \"<string>\",\n  \"dimension\": \"SUM_PER_UNIQUE_USER\",\n  \"optimize\": \"decrease\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"name\": \"<string>\",\n  \"key\": \"wgrveqi0kk1\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"event\": \"<string>\",\n  \"dimension\": \"TOTAL_AVERAGE\",\n  \"optimize\": \"increase\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"source\": \"slack\"\n}",
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-4d92d42c-2bdf-4026-a1b2-512e470b3dcc"
+                        },
+                        {
+                          "id": "12327d4e-78bc-4c9a-b9d3-08f4a8bd7dac",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"icb4cc4mg4\",\n  \"event\": \"<string>\",\n  \"dimension\": \"SUM_PER_UNIQUE_USER\",\n  \"optimize\": \"decrease\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-12327d4e-78bc-4c9a-b9d3-08f4a8bd7dac"
+                        },
+                        {
+                          "id": "fe1c7ef2-43bf-40d9-b170-2db79e1e9f2a",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"icb4cc4mg4\",\n  \"event\": \"<string>\",\n  \"dimension\": \"SUM_PER_UNIQUE_USER\",\n  \"optimize\": \"decrease\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-fe1c7ef2-43bf-40d9-b170-2db79e1e9f2a"
+                        },
+                        {
+                          "id": "41a9d6e1-aec8-41ea-8645-773eaf720323",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"icb4cc4mg4\",\n  \"event\": \"<string>\",\n  \"dimension\": \"SUM_PER_UNIQUE_USER\",\n  \"optimize\": \"decrease\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-41a9d6e1-aec8-41ea-8645-773eaf720323"
+                        },
+                        {
+                          "id": "c8030acf-ced2-4f6d-bdd1-c26431cb49a1",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"icb4cc4mg4\",\n  \"event\": \"<string>\",\n  \"dimension\": \"SUM_PER_UNIQUE_USER\",\n  \"optimize\": \"decrease\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-c8030acf-ced2-4f6d-bdd1-c26431cb49a1"
+                        },
+                        {
+                          "id": "f32f5659-96aa-4b34-b542-b343cfd775c2",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"icb4cc4mg4\",\n  \"event\": \"<string>\",\n  \"dimension\": \"SUM_PER_UNIQUE_USER\",\n  \"optimize\": \"decrease\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-f32f5659-96aa-4b34-b542-b343cfd775c2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:44.000Z",
+                      "updatedAt": "2026-07-28T01:30:44.000Z",
+                      "uid": "35240-7d6f77ab-555f-40d6-b04b-df7134f5ae1b"
+                    },
+                    {
+                      "name": "Get All Metrics",
+                      "id": "c2676f57-cb26-46a3-adfb-4af2a063f93b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/metrics?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&dimension=TOTAL_SUM",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "metrics"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "perPage",
+                              "value": "100"
+                            },
+                            {
+                              "key": "sortBy",
+                              "value": "createdAt"
+                            },
+                            {
+                              "key": "sortOrder",
+                              "value": "desc"
+                            },
+                            {
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "dimension",
+                              "value": "TOTAL_SUM"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "18407bc3-913c-4e8e-969c-74f86dbd9f74",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "73e50f49-037c-4c00-ba03-67327905dc6e",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&dimension=TOTAL_SUM",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"name\": \"<string>\",\n    \"key\": \"lmvj7xv\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"event\": \"<string>\",\n    \"dimension\": \"SUM_PER_UNIQUE_USER\",\n    \"optimize\": \"decrease\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"source\": \"github.pr_insights\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"key\": \"4a\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"event\": \"<string>\",\n    \"dimension\": \"TOTAL_SUM\",\n    \"optimize\": \"decrease\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"source\": \"bitbucket.code_usages\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-73e50f49-037c-4c00-ba03-67327905dc6e"
+                        },
+                        {
+                          "id": "fe3a3883-36f9-4321-ab71-5aa9f7a210ad",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&dimension=TOTAL_SUM",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-fe3a3883-36f9-4321-ab71-5aa9f7a210ad"
+                        },
+                        {
+                          "id": "26c71e59-b231-489b-89aa-af340b8157c2",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&dimension=TOTAL_SUM",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-26c71e59-b231-489b-89aa-af340b8157c2"
+                        },
+                        {
+                          "id": "3e568822-c3fd-4ad6-9d95-ef0e84c5f8d4",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&dimension=TOTAL_SUM",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-3e568822-c3fd-4ad6-9d95-ef0e84c5f8d4"
+                        },
+                        {
+                          "id": "d5521edd-bff7-4398-8a44-68a99420e8d7",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metrics?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&dimension=TOTAL_SUM",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metrics"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-d5521edd-bff7-4398-8a44-68a99420e8d7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:44.000Z",
+                      "updatedAt": "2026-07-28T01:30:44.000Z",
+                      "uid": "35240-c2676f57-cb26-46a3-adfb-4af2a063f93b"
+                    }
+                  ],
+                  "id": "6217ddf3-8ab5-4c19-91e0-cdbf03b3e330",
+                  "createdAt": "2026-07-28T01:30:44.000Z",
+                  "updatedAt": "2026-07-28T01:30:44.000Z",
+                  "uid": "35240-6217ddf3-8ab5-4c19-91e0-cdbf03b3e330"
+                },
+                {
+                  "name": "test-metric-results",
+                  "item": [
+                    {
+                      "name": "Test Metric Results",
+                      "id": "451e4395-3a63-4e28-869f-b06a73ccbd5c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/test-metric-results?feature=<string>&control=<string>&optimize=decrease&environment=<string>&event=<string>&dimension=TOTAL_SUM&startDate=<dateTime>&endDate=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "test-metric-results"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "feature",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "control",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "optimize",
+                              "value": "decrease"
+                            },
+                            {
+                              "key": "environment",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "event",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "dimension",
+                              "value": "TOTAL_SUM"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "startDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "endDate",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "1e2991b1-0fef-4a88-a3c5-ec9c253945ad",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "Fetch metric results with the given parameters"
+                      },
+                      "response": [
+                        {
+                          "id": "7da0a477-53e1-49ab-894f-db0574122d7f",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/test-metric-results?feature=<string>&control=<string>&optimize=decrease&environment=<string>&event=<string>&dimension=TOTAL_SUM&startDate=<dateTime>&endDate=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "test-metric-results"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "control",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "optimize",
+                                  "value": "decrease"
+                                },
+                                {
+                                  "key": "environment",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "event",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "startDate",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "endDate",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"result\": {\n    \"dataSeries\": [\n      {\n        \"date\": \"<dateTime>\",\n        \"values\": {}\n      },\n      {\n        \"date\": \"<dateTime>\",\n        \"values\": {}\n      }\n    ],\n    \"variations\": [\n      {\n        \"key\": \"<string>\",\n        \"name\": \"<string>\",\n        \"numerator\": \"<number>\",\n        \"denominator\": \"<number>\",\n        \"rate\": \"<number>\",\n        \"percentDifference\": \"<number>\",\n        \"chanceToBeatControl\": \"<number>\",\n        \"avgValue\": \"<number>\",\n        \"totalValue\": \"<number>\",\n        \"stdev\": \"<number>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"name\": \"<string>\",\n        \"numerator\": \"<number>\",\n        \"denominator\": \"<number>\",\n        \"rate\": \"<number>\",\n        \"percentDifference\": \"<number>\",\n        \"chanceToBeatControl\": \"<number>\",\n        \"avgValue\": \"<number>\",\n        \"totalValue\": \"<number>\",\n        \"stdev\": \"<number>\"\n      }\n    ]\n  },\n  \"cached\": \"<boolean>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-7da0a477-53e1-49ab-894f-db0574122d7f"
+                        },
+                        {
+                          "id": "a6b8d004-9161-494a-bf65-394c2f706007",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/test-metric-results?feature=<string>&control=<string>&optimize=decrease&environment=<string>&event=<string>&dimension=TOTAL_SUM&startDate=<dateTime>&endDate=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "test-metric-results"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "control",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "optimize",
+                                  "value": "decrease"
+                                },
+                                {
+                                  "key": "environment",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "event",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "startDate",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "endDate",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-a6b8d004-9161-494a-bf65-394c2f706007"
+                        },
+                        {
+                          "id": "eabe3063-4bab-42cf-b9d4-ce4df91f925d",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/test-metric-results?feature=<string>&control=<string>&optimize=decrease&environment=<string>&event=<string>&dimension=TOTAL_SUM&startDate=<dateTime>&endDate=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "test-metric-results"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "control",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "optimize",
+                                  "value": "decrease"
+                                },
+                                {
+                                  "key": "environment",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "event",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "startDate",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "endDate",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-eabe3063-4bab-42cf-b9d4-ce4df91f925d"
+                        },
+                        {
+                          "id": "efdab610-de21-4b49-b944-6caa2ac50fd9",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/test-metric-results?feature=<string>&control=<string>&optimize=decrease&environment=<string>&event=<string>&dimension=TOTAL_SUM&startDate=<dateTime>&endDate=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "test-metric-results"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "control",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "optimize",
+                                  "value": "decrease"
+                                },
+                                {
+                                  "key": "environment",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "event",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "dimension",
+                                  "value": "TOTAL_SUM"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "startDate",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "endDate",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:44.000Z",
+                          "updatedAt": "2026-07-28T01:30:44.000Z",
+                          "uid": "35240-efdab610-de21-4b49-b944-6caa2ac50fd9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:44.000Z",
+                      "updatedAt": "2026-07-28T01:30:44.000Z",
+                      "uid": "35240-451e4395-3a63-4e28-869f-b06a73ccbd5c"
+                    }
+                  ],
+                  "id": "f6681c00-f670-4ff1-bece-46f38bb9b2f2",
+                  "createdAt": "2026-07-28T01:30:44.000Z",
+                  "updatedAt": "2026-07-28T01:30:44.000Z",
+                  "uid": "35240-f6681c00-f670-4ff1-bece-46f38bb9b2f2"
+                }
+              ],
+              "id": "77bcd860-a0f3-4e7c-b689-c9076f8659ba",
+              "createdAt": "2026-07-28T01:30:44.000Z",
+              "updatedAt": "2026-07-28T01:30:44.000Z",
+              "uid": "35240-77bcd860-a0f3-4e7c-b689-c9076f8659ba"
+            }
+          ],
+          "id": "e36049c3-b089-489e-b109-e811a2711382",
+          "createdAt": "2026-07-28T01:30:44.000Z",
+          "updatedAt": "2026-07-28T01:30:44.000Z",
+          "uid": "35240-e36049c3-b089-489e-b109-e811a2711382"
+        }
+      ],
+      "id": "aceed643-2371-4ec3-aef0-a9cc39a41e55",
+      "createdAt": "2026-07-28T01:30:44.000Z",
+      "updatedAt": "2026-07-28T01:30:44.000Z",
+      "uid": "35240-aceed643-2371-4ec3-aef0-a9cc39a41e55"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

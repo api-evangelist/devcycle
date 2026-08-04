@@ -1,0 +1,852 @@
+{
+  "info": {
+    "_postman_id": "94895269-a19d-4378-bde6-9f2bd4b09687",
+    "name": "DevCycle Bucketing Audiences Metric Associations API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:43.000Z",
+    "updatedAt": "2026-07-28T01:30:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-94895269-a19d-4378-bde6-9f2bd4b09687"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "metric-associations",
+                  "item": [
+                    {
+                      "name": "Get Metric Associations",
+                      "id": "648bbaa5-adc0-48dc-bdc5-af29d4e3a9a0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "metric-associations"
+                          ],
+                          "query": [
+                            {
+                              "key": "metric",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "feature",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "72f22b50-c399-47e4-8937-bfa8036fb62a",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0bffd39e-7532-4ece-8201-38c617dc312b",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"_project\": \"<string>\",\n    \"feature\": {\n      \"_id\": \"<string>\",\n      \"_project\": \"<string>\",\n      \"source\": \"gitlab.code_usages\",\n      \"status\": \"active\",\n      \"name\": \"<string>\",\n      \"key\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"controlVariation\": \"<string>\",\n      \"readonly\": \"<boolean>\",\n      \"configurations\": [\n        {\n          \"_feature\": \"<string>\",\n          \"_environment\": \"<string>\",\n          \"status\": \"active\",\n          \"updatedAt\": \"<dateTime>\",\n          \"targets\": [\n            {\n              \"_id\": \"<string>\",\n              \"audience\": {\n                \"filters\": {\n                  \"filters\": [\n                    {\n                      \"type\": \"all\"\n                    },\n                    {\n                      \"type\": \"all\"\n                    }\n                  ],\n                  \"operator\": \"and\"\n                },\n                \"name\": \"<string>\"\n              },\n              \"distribution\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                }\n              ],\n              \"name\": \"<string>\",\n              \"rollout\": {\n                \"type\": \"stepped\",\n                \"startDate\": \"<dateTime>\",\n                \"startPercentage\": \"<number>\",\n                \"stages\": [\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  },\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  }\n                ]\n              },\n              \"bucketingKey\": \"<string>\"\n            },\n            {\n              \"_id\": \"<string>\",\n              \"audience\": {\n                \"filters\": {\n                  \"filters\": [\n                    {\n                      \"type\": \"all\"\n                    },\n                    {\n                      \"type\": \"all\"\n                    }\n                  ],\n                  \"operator\": \"or\"\n                },\n                \"name\": \"<string>\"\n              },\n              \"distribution\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                }\n              ],\n              \"name\": \"<string>\",\n              \"rollout\": {\n                \"type\": \"stepped\",\n                \"startDate\": \"<dateTime>\",\n                \"startPercentage\": \"<number>\",\n                \"stages\": [\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  },\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"linear\",\n                    \"date\": \"<dateTime>\"\n                  }\n                ]\n              },\n              \"bucketingKey\": \"<string>\"\n            }\n          ],\n          \"readonly\": \"<boolean>\",\n          \"hasStaticConfig\": \"<boolean>\",\n          \"_createdBy\": \"<string>\",\n          \"startedAt\": \"<dateTime>\"\n        },\n        {\n          \"_feature\": \"<string>\",\n          \"_environment\": \"<string>\",\n          \"status\": \"inactive\",\n          \"updatedAt\": \"<dateTime>\",\n          \"targets\": [\n            {\n              \"_id\": \"<string>\",\n              \"audience\": {\n                \"filters\": {\n                  \"filters\": [\n                    {\n                      \"type\": \"all\"\n                    },\n                    {\n                      \"type\": \"all\"\n                    }\n                  ],\n                  \"operator\": \"or\"\n                },\n                \"name\": \"<string>\"\n              },\n              \"distribution\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                }\n              ],\n              \"name\": \"<string>\",\n              \"rollout\": {\n                \"type\": \"gradual\",\n                \"startDate\": \"<dateTime>\",\n                \"startPercentage\": \"<number>\",\n                \"stages\": [\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  },\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"linear\",\n                    \"date\": \"<dateTime>\"\n                  }\n                ]\n              },\n              \"bucketingKey\": \"<string>\"\n            },\n            {\n              \"_id\": \"<string>\",\n              \"audience\": {\n                \"filters\": {\n                  \"filters\": [\n                    {\n                      \"type\": \"all\"\n                    },\n                    {\n                      \"type\": \"all\"\n                    }\n                  ],\n                  \"operator\": \"or\"\n                },\n                \"name\": \"<string>\"\n              },\n              \"distribution\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                }\n              ],\n              \"name\": \"<string>\",\n              \"rollout\": {\n                \"type\": \"schedule\",\n                \"startDate\": \"<dateTime>\",\n                \"startPercentage\": \"<number>\",\n                \"stages\": [\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  },\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"linear\",\n                    \"date\": \"<dateTime>\"\n                  }\n                ]\n              },\n              \"bucketingKey\": \"<string>\"\n            }\n          ],\n          \"readonly\": \"<boolean>\",\n          \"hasStaticConfig\": \"<boolean>\",\n          \"_createdBy\": \"<string>\",\n          \"startedAt\": \"<dateTime>\"\n        }\n      ],\n      \"summary\": {\n        \"maintainers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"links\": [\n          {\n            \"url\": \"<string>\",\n            \"title\": \"<string>\"\n          },\n          {\n            \"url\": \"<string>\",\n            \"title\": \"<string>\"\n          }\n        ],\n        \"markdown\": \"<string>\"\n      },\n      \"type\": \"experiment\",\n      \"description\": \"<string>\",\n      \"_createdBy\": \"<string>\",\n      \"prodTargetingUpdatedAt\": \"<dateTime>\",\n      \"variations\": [\n        {\n          \"key\": \"7qy01zz7g\",\n          \"name\": \"<string>\",\n          \"_id\": \"<string>\",\n          \"variables\": {\n            \"dolore9d\": \"<string>\"\n          }\n        },\n        {\n          \"key\": \"a8g41\",\n          \"name\": \"<string>\",\n          \"_id\": \"<string>\",\n          \"variables\": {\n            \"commodo_31\": \"<string>\"\n          }\n        }\n      ],\n      \"staticVariation\": \"<string>\",\n      \"variables\": [\n        {\n          \"key\": \"hy5o\",\n          \"_id\": \"<string>\",\n          \"_project\": \"<string>\",\n          \"type\": \"Boolean\",\n          \"status\": \"archived\",\n          \"source\": \"gitlab.pr_insights\",\n          \"createdAt\": \"<dateTime>\",\n          \"updatedAt\": \"<dateTime>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"_feature\": \"<string>\",\n          \"_createdBy\": \"<string>\",\n          \"validationSchema\": {\n            \"schemaType\": {},\n            \"description\": \"<string>\",\n            \"exampleValue\": {},\n            \"enumValues\": {},\n            \"regexPattern\": \"<string>\",\n            \"jsonSchema\": \"<string>\"\n          },\n          \"persistent\": \"<boolean>\",\n          \"tags\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"key\": \"g6jr4\",\n          \"_id\": \"<string>\",\n          \"_project\": \"<string>\",\n          \"type\": \"Number\",\n          \"status\": \"archived\",\n          \"source\": \"bitbucket.pr_insights\",\n          \"createdAt\": \"<dateTime>\",\n          \"updatedAt\": \"<dateTime>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"_feature\": \"<string>\",\n          \"_createdBy\": \"<string>\",\n          \"validationSchema\": {\n            \"schemaType\": {},\n            \"description\": \"<string>\",\n            \"exampleValue\": {},\n            \"enumValues\": {},\n            \"regexPattern\": \"<string>\",\n            \"jsonSchema\": \"<string>\"\n          },\n          \"persistent\": \"<boolean>\",\n          \"tags\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ldLink\": \"<string>\",\n      \"settings\": {\n        \"publicName\": \"<string>\",\n        \"publicDescription\": \"<string>\",\n        \"optInEnabled\": \"<boolean>\"\n      },\n      \"sdkVisibility\": {\n        \"mobile\": \"<boolean>\",\n        \"client\": \"<boolean>\",\n        \"server\": \"<boolean>\"\n      },\n      \"latestUpdate\": {\n        \"date\": \"<dateTime>\",\n        \"a0_user\": \"<string>\",\n        \"changes\": []\n      },\n      \"staleness\": {},\n      \"customStatus\": {\n        \"_status\": \"<string>\",\n        \"updatedAt\": \"<dateTime>\"\n      }\n    },\n    \"metric\": {\n      \"name\": \"<string>\",\n      \"key\": \"lj0vpno\",\n      \"_id\": \"<string>\",\n      \"_project\": \"<string>\",\n      \"event\": \"<string>\",\n      \"dimension\": \"COUNT_PER_VARIABLE_EVALUATION\",\n      \"optimize\": \"increase\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"source\": \"dashboard\"\n    },\n    \"createdAt\": \"<dateTime>\"\n  },\n  {\n    \"_project\": \"<string>\",\n    \"feature\": {\n      \"_id\": \"<string>\",\n      \"_project\": \"<string>\",\n      \"source\": \"github.pr_insights\",\n      \"status\": \"archived\",\n      \"name\": \"<string>\",\n      \"key\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"controlVariation\": \"<string>\",\n      \"readonly\": \"<boolean>\",\n      \"configurations\": [\n        {\n          \"_feature\": \"<string>\",\n          \"_environment\": \"<string>\",\n          \"status\": \"active\",\n          \"updatedAt\": \"<dateTime>\",\n          \"targets\": [\n            {\n              \"_id\": \"<string>\",\n              \"audience\": {\n                \"filters\": {\n                  \"filters\": [\n                    {\n                      \"type\": \"all\"\n                    },\n                    {\n                      \"type\": \"all\"\n                    }\n                  ],\n                  \"operator\": \"and\"\n                },\n                \"name\": \"<string>\"\n              },\n              \"distribution\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                }\n              ],\n              \"name\": \"<string>\",\n              \"rollout\": {\n                \"type\": \"gradual\",\n                \"startDate\": \"<dateTime>\",\n                \"startPercentage\": \"<number>\",\n                \"stages\": [\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"linear\",\n                    \"date\": \"<dateTime>\"\n                  },\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"linear\",\n                    \"date\": \"<dateTime>\"\n                  }\n                ]\n              },\n              \"bucketingKey\": \"<string>\"\n            },\n            {\n              \"_id\": \"<string>\",\n              \"audience\": {\n                \"filters\": {\n                  \"filters\": [\n                    {\n                      \"type\": \"all\"\n                    },\n                    {\n                      \"type\": \"all\"\n                    }\n                  ],\n                  \"operator\": \"and\"\n                },\n                \"name\": \"<string>\"\n              },\n              \"distribution\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                }\n              ],\n              \"name\": \"<string>\",\n              \"rollout\": {\n                \"type\": \"stepped\",\n                \"startDate\": \"<dateTime>\",\n                \"startPercentage\": \"<number>\",\n                \"stages\": [\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"linear\",\n                    \"date\": \"<dateTime>\"\n                  },\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  }\n                ]\n              },\n              \"bucketingKey\": \"<string>\"\n            }\n          ],\n          \"readonly\": \"<boolean>\",\n          \"hasStaticConfig\": \"<boolean>\",\n          \"_createdBy\": \"<string>\",\n          \"startedAt\": \"<dateTime>\"\n        },\n        {\n          \"_feature\": \"<string>\",\n          \"_environment\": \"<string>\",\n          \"status\": \"inactive\",\n          \"updatedAt\": \"<dateTime>\",\n          \"targets\": [\n            {\n              \"_id\": \"<string>\",\n              \"audience\": {\n                \"filters\": {\n                  \"filters\": [\n                    {\n                      \"type\": \"all\"\n                    },\n                    {\n                      \"type\": \"all\"\n                    }\n                  ],\n                  \"operator\": \"and\"\n                },\n                \"name\": \"<string>\"\n              },\n              \"distribution\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                }\n              ],\n              \"name\": \"<string>\",\n              \"rollout\": {\n                \"type\": \"stepped\",\n                \"startDate\": \"<dateTime>\",\n                \"startPercentage\": \"<number>\",\n                \"stages\": [\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  },\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  }\n                ]\n              },\n              \"bucketingKey\": \"<string>\"\n            },\n            {\n              \"_id\": \"<string>\",\n              \"audience\": {\n                \"filters\": {\n                  \"filters\": [\n                    {\n                      \"type\": \"all\"\n                    },\n                    {\n                      \"type\": \"all\"\n                    }\n                  ],\n                  \"operator\": \"or\"\n                },\n                \"name\": \"<string>\"\n              },\n              \"distribution\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"_variation\": \"<string>\"\n                }\n              ],\n              \"name\": \"<string>\",\n              \"rollout\": {\n                \"type\": \"gradual\",\n                \"startDate\": \"<dateTime>\",\n                \"startPercentage\": \"<number>\",\n                \"stages\": [\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"discrete\",\n                    \"date\": \"<dateTime>\"\n                  },\n                  {\n                    \"percentage\": \"<number>\",\n                    \"type\": \"linear\",\n                    \"date\": \"<dateTime>\"\n                  }\n                ]\n              },\n              \"bucketingKey\": \"<string>\"\n            }\n          ],\n          \"readonly\": \"<boolean>\",\n          \"hasStaticConfig\": \"<boolean>\",\n          \"_createdBy\": \"<string>\",\n          \"startedAt\": \"<dateTime>\"\n        }\n      ],\n      \"summary\": {\n        \"maintainers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"links\": [\n          {\n            \"url\": \"<string>\",\n            \"title\": \"<string>\"\n          },\n          {\n            \"url\": \"<string>\",\n            \"title\": \"<string>\"\n          }\n        ],\n        \"markdown\": \"<string>\"\n      },\n      \"type\": \"release\",\n      \"description\": \"<string>\",\n      \"_createdBy\": \"<string>\",\n      \"prodTargetingUpdatedAt\": \"<dateTime>\",\n      \"variations\": [\n        {\n          \"key\": \"qo9_iz6jyu\",\n          \"name\": \"<string>\",\n          \"_id\": \"<string>\",\n          \"variables\": {\n            \"ut011\": \"<string>\"\n          }\n        },\n        {\n          \"key\": \"9n8uh2\",\n          \"name\": \"<string>\",\n          \"_id\": \"<string>\",\n          \"variables\": {\n            \"eu571\": \"<string>\",\n            \"id2\": \"<string>\"\n          }\n        }\n      ],\n      \"staticVariation\": \"<string>\",\n      \"variables\": [\n        {\n          \"key\": \"ahhqr1a59k3\",\n          \"_id\": \"<string>\",\n          \"_project\": \"<string>\",\n          \"type\": \"Number\",\n          \"status\": \"active\",\n          \"source\": \"slack\",\n          \"createdAt\": \"<dateTime>\",\n          \"updatedAt\": \"<dateTime>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"_feature\": \"<string>\",\n          \"_createdBy\": \"<string>\",\n          \"validationSchema\": {\n            \"schemaType\": {},\n            \"description\": \"<string>\",\n            \"exampleValue\": {},\n            \"enumValues\": {},\n            \"regexPattern\": \"<string>\",\n            \"jsonSchema\": \"<string>\"\n          },\n          \"persistent\": \"<boolean>\",\n          \"tags\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        },\n        {\n          \"key\": \"y4ej\",\n          \"_id\": \"<string>\",\n          \"_project\": \"<string>\",\n          \"type\": \"Number\",\n          \"status\": \"active\",\n          \"source\": \"bitbucket.code_usages\",\n          \"createdAt\": \"<dateTime>\",\n          \"updatedAt\": \"<dateTime>\",\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"_feature\": \"<string>\",\n          \"_createdBy\": \"<string>\",\n          \"validationSchema\": {\n            \"schemaType\": {},\n            \"description\": \"<string>\",\n            \"exampleValue\": {},\n            \"enumValues\": {},\n            \"regexPattern\": \"<string>\",\n            \"jsonSchema\": \"<string>\"\n          },\n          \"persistent\": \"<boolean>\",\n          \"tags\": [\n            \"<string>\",\n            \"<string>\"\n          ]\n        }\n      ],\n      \"tags\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ldLink\": \"<string>\",\n      \"settings\": {\n        \"publicName\": \"<string>\",\n        \"publicDescription\": \"<string>\",\n        \"optInEnabled\": \"<boolean>\"\n      },\n      \"sdkVisibility\": {\n        \"mobile\": \"<boolean>\",\n        \"client\": \"<boolean>\",\n        \"server\": \"<boolean>\"\n      },\n      \"latestUpdate\": {\n        \"date\": \"<dateTime>\",\n        \"a0_user\": \"<string>\",\n        \"changes\": []\n      },\n      \"staleness\": {},\n      \"customStatus\": {\n        \"_status\": \"<string>\",\n        \"updatedAt\": \"<dateTime>\"\n      }\n    },\n    \"metric\": {\n      \"name\": \"<string>\",\n      \"key\": \"9il2zfw2d5\",\n      \"_id\": \"<string>\",\n      \"_project\": \"<string>\",\n      \"event\": \"<string>\",\n      \"dimension\": \"COUNT_PER_UNIQUE_USER\",\n      \"optimize\": \"increase\",\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"description\": \"<string>\",\n      \"source\": \"github.code_usages\"\n    },\n    \"createdAt\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-0bffd39e-7532-4ece-8201-38c617dc312b"
+                        },
+                        {
+                          "id": "f7218b80-1761-4757-b206-ebb014b1574e",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-f7218b80-1761-4757-b206-ebb014b1574e"
+                        },
+                        {
+                          "id": "07835596-8a61-422c-8709-38c346fbe6ac",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-07835596-8a61-422c-8709-38c346fbe6ac"
+                        },
+                        {
+                          "id": "e6034dae-fbb7-4f67-b55d-23012a3978d1",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-e6034dae-fbb7-4f67-b55d-23012a3978d1"
+                        },
+                        {
+                          "id": "29dffecd-de74-4026-bc36-8c68bef24c5d",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-29dffecd-de74-4026-bc36-8c68bef24c5d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:43.000Z",
+                      "updatedAt": "2026-07-28T01:30:43.000Z",
+                      "uid": "35240-648bbaa5-adc0-48dc-bdc5-af29d4e3a9a0"
+                    },
+                    {
+                      "name": "Associate a Metric with a Feature",
+                      "id": "f99c04f4-440f-4f1c-aff4-769a9797d8ab",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/metric-associations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "metric-associations"
+                          ],
+                          "variable": [
+                            {
+                              "id": "07cadd0c-dd87-48d6-a598-00a5221eb4f1",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "83851419-e22c-4edf-a648-5b29a101f37f",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_project\": \"<string>\",\n  \"feature\": {\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"source\": \"mcp\",\n    \"status\": \"archived\",\n    \"name\": \"<string>\",\n    \"key\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"controlVariation\": \"<string>\",\n    \"readonly\": \"<boolean>\",\n    \"configurations\": [\n      {\n        \"_feature\": \"<string>\",\n        \"_environment\": \"<string>\",\n        \"status\": \"inactive\",\n        \"updatedAt\": \"<dateTime>\",\n        \"targets\": [\n          {\n            \"_id\": \"<string>\",\n            \"audience\": {\n              \"filters\": {\n                \"filters\": [\n                  {\n                    \"type\": \"all\"\n                  },\n                  {\n                    \"type\": \"all\"\n                  }\n                ],\n                \"operator\": \"and\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"distribution\": [\n              {\n                \"percentage\": \"<number>\",\n                \"_variation\": \"<string>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"_variation\": \"<string>\"\n              }\n            ],\n            \"name\": \"<string>\",\n            \"rollout\": {\n              \"type\": \"stepped\",\n              \"startDate\": \"<dateTime>\",\n              \"startPercentage\": \"<number>\",\n              \"stages\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"type\": \"linear\",\n                  \"date\": \"<dateTime>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"type\": \"discrete\",\n                  \"date\": \"<dateTime>\"\n                }\n              ]\n            },\n            \"bucketingKey\": \"<string>\"\n          },\n          {\n            \"_id\": \"<string>\",\n            \"audience\": {\n              \"filters\": {\n                \"filters\": [\n                  {\n                    \"type\": \"all\"\n                  },\n                  {\n                    \"type\": \"all\"\n                  }\n                ],\n                \"operator\": \"or\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"distribution\": [\n              {\n                \"percentage\": \"<number>\",\n                \"_variation\": \"<string>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"_variation\": \"<string>\"\n              }\n            ],\n            \"name\": \"<string>\",\n            \"rollout\": {\n              \"type\": \"gradual\",\n              \"startDate\": \"<dateTime>\",\n              \"startPercentage\": \"<number>\",\n              \"stages\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"type\": \"linear\",\n                  \"date\": \"<dateTime>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"type\": \"discrete\",\n                  \"date\": \"<dateTime>\"\n                }\n              ]\n            },\n            \"bucketingKey\": \"<string>\"\n          }\n        ],\n        \"readonly\": \"<boolean>\",\n        \"hasStaticConfig\": \"<boolean>\",\n        \"_createdBy\": \"<string>\",\n        \"startedAt\": \"<dateTime>\"\n      },\n      {\n        \"_feature\": \"<string>\",\n        \"_environment\": \"<string>\",\n        \"status\": \"inactive\",\n        \"updatedAt\": \"<dateTime>\",\n        \"targets\": [\n          {\n            \"_id\": \"<string>\",\n            \"audience\": {\n              \"filters\": {\n                \"filters\": [\n                  {\n                    \"type\": \"all\"\n                  },\n                  {\n                    \"type\": \"all\"\n                  }\n                ],\n                \"operator\": \"or\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"distribution\": [\n              {\n                \"percentage\": \"<number>\",\n                \"_variation\": \"<string>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"_variation\": \"<string>\"\n              }\n            ],\n            \"name\": \"<string>\",\n            \"rollout\": {\n              \"type\": \"gradual\",\n              \"startDate\": \"<dateTime>\",\n              \"startPercentage\": \"<number>\",\n              \"stages\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"type\": \"linear\",\n                  \"date\": \"<dateTime>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"type\": \"linear\",\n                  \"date\": \"<dateTime>\"\n                }\n              ]\n            },\n            \"bucketingKey\": \"<string>\"\n          },\n          {\n            \"_id\": \"<string>\",\n            \"audience\": {\n              \"filters\": {\n                \"filters\": [\n                  {\n                    \"type\": \"all\"\n                  },\n                  {\n                    \"type\": \"all\"\n                  }\n                ],\n                \"operator\": \"or\"\n              },\n              \"name\": \"<string>\"\n            },\n            \"distribution\": [\n              {\n                \"percentage\": \"<number>\",\n                \"_variation\": \"<string>\"\n              },\n              {\n                \"percentage\": \"<number>\",\n                \"_variation\": \"<string>\"\n              }\n            ],\n            \"name\": \"<string>\",\n            \"rollout\": {\n              \"type\": \"gradual\",\n              \"startDate\": \"<dateTime>\",\n              \"startPercentage\": \"<number>\",\n              \"stages\": [\n                {\n                  \"percentage\": \"<number>\",\n                  \"type\": \"discrete\",\n                  \"date\": \"<dateTime>\"\n                },\n                {\n                  \"percentage\": \"<number>\",\n                  \"type\": \"linear\",\n                  \"date\": \"<dateTime>\"\n                }\n              ]\n            },\n            \"bucketingKey\": \"<string>\"\n          }\n        ],\n        \"readonly\": \"<boolean>\",\n        \"hasStaticConfig\": \"<boolean>\",\n        \"_createdBy\": \"<string>\",\n        \"startedAt\": \"<dateTime>\"\n      }\n    ],\n    \"summary\": {\n      \"maintainers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"links\": [\n        {\n          \"url\": \"<string>\",\n          \"title\": \"<string>\"\n        },\n        {\n          \"url\": \"<string>\",\n          \"title\": \"<string>\"\n        }\n      ],\n      \"markdown\": \"<string>\"\n    },\n    \"type\": \"release\",\n    \"description\": \"<string>\",\n    \"_createdBy\": \"<string>\",\n    \"prodTargetingUpdatedAt\": \"<dateTime>\",\n    \"variations\": [\n      {\n        \"key\": \"j\",\n        \"name\": \"<string>\",\n        \"_id\": \"<string>\",\n        \"variables\": {\n          \"incididunt_fe\": \"<string>\",\n          \"ex_2d\": \"<string>\",\n          \"labore_55\": \"<string>\"\n        }\n      },\n      {\n        \"key\": \"ng8zi.0y9y\",\n        \"name\": \"<string>\",\n        \"_id\": \"<string>\",\n        \"variables\": {\n          \"est_d84\": \"<string>\"\n        }\n      }\n    ],\n    \"staticVariation\": \"<string>\",\n    \"variables\": [\n      {\n        \"key\": \"6-5fe9huz\",\n        \"_id\": \"<string>\",\n        \"_project\": \"<string>\",\n        \"type\": \"Boolean\",\n        \"status\": \"archived\",\n        \"source\": \"bitbucket.code_usages\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"_feature\": \"<string>\",\n        \"_createdBy\": \"<string>\",\n        \"validationSchema\": {\n          \"schemaType\": {},\n          \"description\": \"<string>\",\n          \"exampleValue\": {},\n          \"enumValues\": {},\n          \"regexPattern\": \"<string>\",\n          \"jsonSchema\": \"<string>\"\n        },\n        \"persistent\": \"<boolean>\",\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"key\": \"tfot8smne\",\n        \"_id\": \"<string>\",\n        \"_project\": \"<string>\",\n        \"type\": \"JSON\",\n        \"status\": \"active\",\n        \"source\": \"github.pr_insights\",\n        \"createdAt\": \"<dateTime>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"name\": \"<string>\",\n        \"description\": \"<string>\",\n        \"_feature\": \"<string>\",\n        \"_createdBy\": \"<string>\",\n        \"validationSchema\": {\n          \"schemaType\": {},\n          \"description\": \"<string>\",\n          \"exampleValue\": {},\n          \"enumValues\": {},\n          \"regexPattern\": \"<string>\",\n          \"jsonSchema\": \"<string>\"\n        },\n        \"persistent\": \"<boolean>\",\n        \"tags\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"ldLink\": \"<string>\",\n    \"settings\": {\n      \"publicName\": \"<string>\",\n      \"publicDescription\": \"<string>\",\n      \"optInEnabled\": \"<boolean>\"\n    },\n    \"sdkVisibility\": {\n      \"mobile\": \"<boolean>\",\n      \"client\": \"<boolean>\",\n      \"server\": \"<boolean>\"\n    },\n    \"latestUpdate\": {\n      \"date\": \"<dateTime>\",\n      \"a0_user\": \"<string>\",\n      \"changes\": []\n    },\n    \"staleness\": {},\n    \"customStatus\": {\n      \"_status\": \"<string>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  },\n  \"metric\": {\n    \"name\": \"<string>\",\n    \"key\": \"qwy5b\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"event\": \"<string>\",\n    \"dimension\": \"COUNT_PER_VARIABLE_EVALUATION\",\n    \"optimize\": \"decrease\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"source\": \"dashboard\"\n  },\n  \"createdAt\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-83851419-e22c-4edf-a648-5b29a101f37f"
+                        },
+                        {
+                          "id": "6f6887a6-5551-443e-af78-5905bfdee896",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-6f6887a6-5551-443e-af78-5905bfdee896"
+                        },
+                        {
+                          "id": "ba3f4902-25f3-4996-bab2-febf388ba5f9",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-ba3f4902-25f3-4996-bab2-febf388ba5f9"
+                        },
+                        {
+                          "id": "3a216335-422b-4ee8-8620-82c1456da2bc",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-3a216335-422b-4ee8-8620-82c1456da2bc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:43.000Z",
+                      "updatedAt": "2026-07-28T01:30:43.000Z",
+                      "uid": "35240-f99c04f4-440f-4f1c-aff4-769a9797d8ab"
+                    },
+                    {
+                      "name": "Delete an Association of a Metric and a Feature",
+                      "id": "f7a3b83b-3a78-448c-b34e-5b7ef98eac62",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "metric-associations"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "metric",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) ",
+                              "key": "feature",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "206dd672-fa5b-47c5-9c02-a8009a2970f5",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f0696282-ceab-4850-a544-368e0549618c",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-f0696282-ceab-4850-a544-368e0549618c"
+                        },
+                        {
+                          "id": "19268bbf-d4e6-4f4a-b7b3-1f7a7a054830",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-19268bbf-d4e6-4f4a-b7b3-1f7a7a054830"
+                        },
+                        {
+                          "id": "9fa9c54b-a74b-48e8-87ad-42ab08a3bcc8",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-9fa9c54b-a74b-48e8-87ad-42ab08a3bcc8"
+                        },
+                        {
+                          "id": "c20c32b5-4bd5-4383-a650-e376dfb7d48a",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/metric-associations?metric=<string>&feature=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "metric-associations"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "metric",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "feature",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-c20c32b5-4bd5-4383-a650-e376dfb7d48a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:43.000Z",
+                      "updatedAt": "2026-07-28T01:30:43.000Z",
+                      "uid": "35240-f7a3b83b-3a78-448c-b34e-5b7ef98eac62"
+                    }
+                  ],
+                  "id": "850b42cf-34ce-4bb6-bae3-00cc1a1a070e",
+                  "createdAt": "2026-07-28T01:30:43.000Z",
+                  "updatedAt": "2026-07-28T01:30:43.000Z",
+                  "uid": "35240-850b42cf-34ce-4bb6-bae3-00cc1a1a070e"
+                }
+              ],
+              "id": "73353222-a387-432f-ab89-52d5763e55f2",
+              "createdAt": "2026-07-28T01:30:43.000Z",
+              "updatedAt": "2026-07-28T01:30:43.000Z",
+              "uid": "35240-73353222-a387-432f-ab89-52d5763e55f2"
+            }
+          ],
+          "id": "db8cb739-13fa-4776-b0ce-263575a780ac",
+          "createdAt": "2026-07-28T01:30:43.000Z",
+          "updatedAt": "2026-07-28T01:30:43.000Z",
+          "uid": "35240-db8cb739-13fa-4776-b0ce-263575a780ac"
+        }
+      ],
+      "id": "98b981ee-a318-4585-b922-c793ab65d64d",
+      "createdAt": "2026-07-28T01:30:43.000Z",
+      "updatedAt": "2026-07-28T01:30:43.000Z",
+      "uid": "35240-98b981ee-a318-4585-b922-c793ab65d64d"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

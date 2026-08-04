@@ -1,0 +1,464 @@
+{
+  "info": {
+    "_postman_id": "7ca28729-fa0e-4342-8340-c017290b4470",
+    "name": "DevCycle Bucketing Audiences Audit Log API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:28.000Z",
+    "updatedAt": "2026-07-28T01:30:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7ca28729-fa0e-4342-8340-c017290b4470"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "features",
+                  "item": [
+                    {
+                      "name": "{feature}",
+                      "item": [
+                        {
+                          "name": "audit",
+                          "item": [
+                            {
+                              "name": "Get Audit Log For Feature",
+                              "id": "5731ae52-dc9e-4305-92cb-ac454022d311",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/audit?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&environment=<string>&a0_user=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "features",
+                                    ":feature",
+                                    "audit"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "1"
+                                    },
+                                    {
+                                      "key": "perPage",
+                                      "value": "100"
+                                    },
+                                    {
+                                      "key": "sortBy",
+                                      "value": "createdAt"
+                                    },
+                                    {
+                                      "key": "sortOrder",
+                                      "value": "desc"
+                                    },
+                                    {
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "a0_user",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "startDate",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "key": "endDate",
+                                      "value": "<dateTime>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a71d6529-559e-4cc7-a882-f9bab76dda7f",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "9e1770bd-d15b-46c8-b32a-325794c789cd",
+                                      "key": "feature",
+                                      "value": "<string>",
+                                      "description": "(Required) A Feature key or ID"
+                                    }
+                                  ]
+                                },
+                                "description": "Get Audit Log For Feature"
+                              },
+                              "response": [
+                                {
+                                  "id": "69505b19-40cd-45d0-a707-4e9a3baf4801",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/audit?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&environment=<string>&a0_user=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "audit"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "page",
+                                          "value": "1"
+                                        },
+                                        {
+                                          "key": "perPage",
+                                          "value": "100"
+                                        },
+                                        {
+                                          "key": "sortBy",
+                                          "value": "createdAt"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "desc"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "a0_user",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"date\": \"<dateTime>\",\n    \"a0_user\": \"<string>\",\n    \"changes\": []\n  },\n  {\n    \"date\": \"<dateTime>\",\n    \"a0_user\": \"<string>\",\n    \"changes\": []\n  }\n]",
+                                  "createdAt": "2026-07-28T01:30:28.000Z",
+                                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                                  "uid": "35240-69505b19-40cd-45d0-a707-4e9a3baf4801"
+                                },
+                                {
+                                  "id": "3aec6876-dd64-4f0e-b74b-176f3e8d494a",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/audit?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&environment=<string>&a0_user=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "audit"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "page",
+                                          "value": "1"
+                                        },
+                                        {
+                                          "key": "perPage",
+                                          "value": "100"
+                                        },
+                                        {
+                                          "key": "sortBy",
+                                          "value": "createdAt"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "desc"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "a0_user",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:28.000Z",
+                                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                                  "uid": "35240-3aec6876-dd64-4f0e-b74b-176f3e8d494a"
+                                },
+                                {
+                                  "id": "3a9c1757-f553-499a-b5c8-8c7862a5ffeb",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/audit?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&environment=<string>&a0_user=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "audit"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "page",
+                                          "value": "1"
+                                        },
+                                        {
+                                          "key": "perPage",
+                                          "value": "100"
+                                        },
+                                        {
+                                          "key": "sortBy",
+                                          "value": "createdAt"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "desc"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "a0_user",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:28.000Z",
+                                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                                  "uid": "35240-3a9c1757-f553-499a-b5c8-8c7862a5ffeb"
+                                },
+                                {
+                                  "id": "08869d3e-2811-4020-a426-281cafe4bc18",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/audit?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&environment=<string>&a0_user=<string>&startDate=<dateTime>&endDate=<dateTime>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "audit"
+                                      ],
+                                      "query": [
+                                        {
+                                          "key": "page",
+                                          "value": "1"
+                                        },
+                                        {
+                                          "key": "perPage",
+                                          "value": "100"
+                                        },
+                                        {
+                                          "key": "sortBy",
+                                          "value": "createdAt"
+                                        },
+                                        {
+                                          "key": "sortOrder",
+                                          "value": "desc"
+                                        },
+                                        {
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "a0_user",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "key": "startDate",
+                                          "value": "<dateTime>"
+                                        },
+                                        {
+                                          "key": "endDate",
+                                          "value": "<dateTime>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:28.000Z",
+                                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                                  "uid": "35240-08869d3e-2811-4020-a426-281cafe4bc18"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:28.000Z",
+                              "updatedAt": "2026-07-28T01:30:28.000Z",
+                              "uid": "35240-5731ae52-dc9e-4305-92cb-ac454022d311"
+                            }
+                          ],
+                          "id": "6d0a311b-b8d5-4d32-b618-c71ce1bf3ae0",
+                          "createdAt": "2026-07-28T01:30:28.000Z",
+                          "updatedAt": "2026-07-28T01:30:28.000Z",
+                          "uid": "35240-6d0a311b-b8d5-4d32-b618-c71ce1bf3ae0"
+                        }
+                      ],
+                      "id": "bbb78fe8-89b8-48ae-aad7-a2b2b2185186",
+                      "createdAt": "2026-07-28T01:30:28.000Z",
+                      "updatedAt": "2026-07-28T01:30:28.000Z",
+                      "uid": "35240-bbb78fe8-89b8-48ae-aad7-a2b2b2185186"
+                    }
+                  ],
+                  "id": "5807301a-1174-4f0d-8357-48ba2181adf3",
+                  "createdAt": "2026-07-28T01:30:28.000Z",
+                  "updatedAt": "2026-07-28T01:30:28.000Z",
+                  "uid": "35240-5807301a-1174-4f0d-8357-48ba2181adf3"
+                }
+              ],
+              "id": "2eae7735-c826-4914-b6c7-7f52320ae1a4",
+              "createdAt": "2026-07-28T01:30:28.000Z",
+              "updatedAt": "2026-07-28T01:30:28.000Z",
+              "uid": "35240-2eae7735-c826-4914-b6c7-7f52320ae1a4"
+            }
+          ],
+          "id": "3f325bf5-15d6-46aa-88d4-87d743181795",
+          "createdAt": "2026-07-28T01:30:28.000Z",
+          "updatedAt": "2026-07-28T01:30:28.000Z",
+          "uid": "35240-3f325bf5-15d6-46aa-88d4-87d743181795"
+        }
+      ],
+      "id": "ed065064-a2a4-41f3-919a-5632cd80bd78",
+      "createdAt": "2026-07-28T01:30:28.000Z",
+      "updatedAt": "2026-07-28T01:30:28.000Z",
+      "uid": "35240-ed065064-a2a4-41f3-919a-5632cd80bd78"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

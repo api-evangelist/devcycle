@@ -1,0 +1,1838 @@
+{
+  "info": {
+    "_postman_id": "f881fb43-d3d8-4298-b235-1f6fca1b4d2d",
+    "name": "DevCycle Bucketing Audiences API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:27.000Z",
+    "updatedAt": "2026-07-28T01:30:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f881fb43-d3d8-4298-b235-1f6fca1b4d2d"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "audiences",
+                  "item": [
+                    {
+                      "name": "{key}",
+                      "item": [
+                        {
+                          "name": "usage",
+                          "item": [
+                            {
+                              "name": "Get all direct usages of an Audience",
+                              "id": "7c53113b-a1e1-434c-a6a3-88385954e8ec",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key/usage",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key",
+                                    "usage"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "444e004d-d928-4d47-a7c4-fce654368839",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "268c5773-4a24-40ba-8b64-fcb21ea69557",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) A Audience key or ID"
+                                    }
+                                  ]
+                                },
+                                "description": "Get the direct usages of an Audiences Usage by Features OR other Audiences by ID or key"
+                              },
+                              "response": [
+                                {
+                                  "id": "2fa96820-a358-471f-9ac3-6c1f161ef064",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key/usage",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "audiences",
+                                        ":key",
+                                        "usage"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"features\": [\n    {\n      \"key\": \"rq3lr\",\n      \"name\": \"<string>\",\n      \"id\": \"<string>\",\n      \"environments\": {}\n    },\n    {\n      \"key\": \".u4r8s4fh\",\n      \"name\": \"<string>\",\n      \"id\": \"<string>\",\n      \"environments\": {}\n    }\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:30:27.000Z",
+                                  "updatedAt": "2026-07-28T01:30:27.000Z",
+                                  "uid": "35240-2fa96820-a358-471f-9ac3-6c1f161ef064"
+                                },
+                                {
+                                  "id": "1219f983-6c33-4e04-897c-1616c19f1dec",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key/usage",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "audiences",
+                                        ":key",
+                                        "usage"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:27.000Z",
+                                  "updatedAt": "2026-07-28T01:30:27.000Z",
+                                  "uid": "35240-1219f983-6c33-4e04-897c-1616c19f1dec"
+                                },
+                                {
+                                  "id": "f2ce9508-79f8-4208-94fb-8dc8558f2ec2",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key/usage",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "audiences",
+                                        ":key",
+                                        "usage"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:27.000Z",
+                                  "updatedAt": "2026-07-28T01:30:27.000Z",
+                                  "uid": "35240-f2ce9508-79f8-4208-94fb-8dc8558f2ec2"
+                                },
+                                {
+                                  "id": "000476f0-fce4-49e9-8407-dd5b5d9cedf1",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key/usage",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "audiences",
+                                        ":key",
+                                        "usage"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:27.000Z",
+                                  "updatedAt": "2026-07-28T01:30:27.000Z",
+                                  "uid": "35240-000476f0-fce4-49e9-8407-dd5b5d9cedf1"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-7c53113b-a1e1-434c-a6a3-88385954e8ec"
+                            }
+                          ],
+                          "id": "c32c3231-d25a-4920-8225-db09da25d95d",
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-c32c3231-d25a-4920-8225-db09da25d95d"
+                        },
+                        {
+                          "name": "Get an Audience",
+                          "id": "0de56d58-84b4-486f-9c8d-813299a3b40a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3a89ed86-12c0-4871-a5f6-676037299984",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "565627c8-bf1b-45b3-acb0-03b2ecbd15cb",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Audience key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Get an Audience by ID or key"
+                          },
+                          "response": [
+                            {
+                              "id": "9be6157f-fabc-4b69-9d84-01e6c5372cfb",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"or\"\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"readonly\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"key\": \"n7\",\n  \"description\": \"<string>\",\n  \"source\": \"gitlab.code_usages\",\n  \"_createdBy\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasUsage\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-9be6157f-fabc-4b69-9d84-01e6c5372cfb"
+                            },
+                            {
+                              "id": "5fce1eb5-6af4-4a6d-a28b-2909dd100f9a",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-5fce1eb5-6af4-4a6d-a28b-2909dd100f9a"
+                            },
+                            {
+                              "id": "8c2d5292-aec1-48c3-ba28-90692b744409",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-8c2d5292-aec1-48c3-ba28-90692b744409"
+                            },
+                            {
+                              "id": "c6593f5f-c8bc-4ac2-b468-8c341f685fa6",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-c6593f5f-c8bc-4ac2-b468-8c341f685fa6"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-0de56d58-84b4-486f-9c8d-813299a3b40a"
+                        },
+                        {
+                          "name": "Update an Audience",
+                          "id": "5a813335-3f5b-4a02-b1dc-a542b13777ec",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"do_.yr_d\",\n  \"description\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9d58f474-698c-4ec9-ae43-6c8aeffc7ec2",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "5dd66c85-96aa-4284-8334-476db0ac8f1d",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Audience key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Update an Audience by ID or key"
+                          },
+                          "response": [
+                            {
+                              "id": "4bc15d25-5ee8-4ec6-8f3f-2b1a52ccbb0f",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"do_.yr_d\",\n  \"description\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"or\"\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"readonly\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"key\": \"n7\",\n  \"description\": \"<string>\",\n  \"source\": \"gitlab.code_usages\",\n  \"_createdBy\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasUsage\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-4bc15d25-5ee8-4ec6-8f3f-2b1a52ccbb0f"
+                            },
+                            {
+                              "id": "ced57e73-89be-45ec-aaed-d2b4755c77fe",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"do_.yr_d\",\n  \"description\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-ced57e73-89be-45ec-aaed-d2b4755c77fe"
+                            },
+                            {
+                              "id": "7c310d5b-f4fd-4d3a-b064-525010b13223",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"do_.yr_d\",\n  \"description\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-7c310d5b-f4fd-4d3a-b064-525010b13223"
+                            },
+                            {
+                              "id": "fea957a4-b628-4ce4-8df9-d910bbd593c4",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"do_.yr_d\",\n  \"description\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-fea957a4-b628-4ce4-8df9-d910bbd593c4"
+                            },
+                            {
+                              "id": "38656bf4-fe42-4560-a2c1-4fc6d03c1b15",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"do_.yr_d\",\n  \"description\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-38656bf4-fe42-4560-a2c1-4fc6d03c1b15"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-5a813335-3f5b-4a02-b1dc-a542b13777ec"
+                        },
+                        {
+                          "name": "Delete an Audience",
+                          "id": "0f5b3a7a-370e-407f-b015-a1f629243d12",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "88275dc0-84f7-492b-bf81-ef9953a862f2",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "b0363b32-f943-49b7-92c8-4544bcb6d293",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Audience key or ID"
+                                }
+                              ]
+                            },
+                            "description": "Delete an Audience by ID or key"
+                          },
+                          "response": [
+                            {
+                              "id": "f3716c21-55be-4b9d-9b8a-550a403d656d",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-f3716c21-55be-4b9d-9b8a-550a403d656d"
+                            },
+                            {
+                              "id": "2a656309-f2ac-4807-afaf-2d2db6ceb64b",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-2a656309-f2ac-4807-afaf-2d2db6ceb64b"
+                            },
+                            {
+                              "id": "d237d10f-4b2a-4ecd-8c31-136e3704180d",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-d237d10f-4b2a-4ecd-8c31-136e3704180d"
+                            },
+                            {
+                              "id": "48137ab3-a636-403e-8aac-b80c663f10b7",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/audiences/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "audiences",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Precondition Failed",
+                              "code": 412,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:27.000Z",
+                              "updatedAt": "2026-07-28T01:30:27.000Z",
+                              "uid": "35240-48137ab3-a636-403e-8aac-b80c663f10b7"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-0f5b3a7a-370e-407f-b015-a1f629243d12"
+                        }
+                      ],
+                      "id": "fb43052c-ca1d-4623-b951-3bb57574b933",
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-fb43052c-ca1d-4623-b951-3bb57574b933"
+                    },
+                    {
+                      "name": "Create Audience",
+                      "id": "91bd4f07-112b-4dae-a75f-98b93eed7a1e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"name\": \"<string>\",\n  \"key\": \"ceg\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/audiences",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "audiences"
+                          ],
+                          "variable": [
+                            {
+                              "id": "80e8f76e-7157-4f8e-8dc5-910c0a9c35a3",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "Create a new Audience"
+                      },
+                      "response": [
+                        {
+                          "id": "27185f5e-252a-41fe-bbf8-36fd946f8a24",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"name\": \"<string>\",\n  \"key\": \"ceg\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"or\"\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"readonly\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"key\": \"n7\",\n  \"description\": \"<string>\",\n  \"source\": \"gitlab.code_usages\",\n  \"_createdBy\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"hasUsage\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-27185f5e-252a-41fe-bbf8-36fd946f8a24"
+                        },
+                        {
+                          "id": "f8578c27-1f1b-4e3d-a769-93c4b442a1f2",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"name\": \"<string>\",\n  \"key\": \"ceg\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-f8578c27-1f1b-4e3d-a769-93c4b442a1f2"
+                        },
+                        {
+                          "id": "faca01bc-bf48-4896-bfe6-5a6819a76918",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"name\": \"<string>\",\n  \"key\": \"ceg\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-faca01bc-bf48-4896-bfe6-5a6819a76918"
+                        },
+                        {
+                          "id": "f9afdf42-5360-47b4-a3a4-bcf43e52ef9c",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"name\": \"<string>\",\n  \"key\": \"ceg\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-f9afdf42-5360-47b4-a3a4-bcf43e52ef9c"
+                        },
+                        {
+                          "id": "68a645a8-d068-417f-b9dd-73db92dd2447",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"name\": \"<string>\",\n  \"key\": \"ceg\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-68a645a8-d068-417f-b9dd-73db92dd2447"
+                        },
+                        {
+                          "id": "342483e1-d49c-4aba-81a5-1abc77b73947",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filters\": {\n    \"filters\": [\n      {\n        \"type\": \"all\"\n      },\n      {\n        \"type\": \"all\"\n      }\n    ],\n    \"operator\": \"and\"\n  },\n  \"name\": \"<string>\",\n  \"key\": \"ceg\",\n  \"description\": \"<string>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-342483e1-d49c-4aba-81a5-1abc77b73947"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-91bd4f07-112b-4dae-a75f-98b93eed7a1e"
+                    },
+                    {
+                      "name": "List Audiences",
+                      "id": "b1929bc6-0ec6-4611-96fa-221f4f124c7e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/audiences?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&includeUsage=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "audiences"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "perPage",
+                              "value": "100"
+                            },
+                            {
+                              "key": "sortBy",
+                              "value": "createdAt"
+                            },
+                            {
+                              "key": "sortOrder",
+                              "value": "desc"
+                            },
+                            {
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "createdBy",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "includeUsage",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "b8c1af7f-0ce3-465a-8bce-bae7ccf6d9ec",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        },
+                        "description": "List Audiences"
+                      },
+                      "response": [
+                        {
+                          "id": "bc591e9d-31ff-4a78-8fce-e27e07af2c8a",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"filters\": {\n      \"filters\": [\n        {\n          \"type\": \"all\"\n        },\n        {\n          \"type\": \"all\"\n        }\n      ],\n      \"operator\": \"or\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"readonly\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"key\": \"qi\",\n    \"description\": \"<string>\",\n    \"source\": \"api\",\n    \"_createdBy\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hasUsage\": \"<boolean>\"\n  },\n  {\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"filters\": {\n      \"filters\": [\n        {\n          \"type\": \"all\"\n        },\n        {\n          \"type\": \"all\"\n        }\n      ],\n      \"operator\": \"or\"\n    },\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"readonly\": \"<boolean>\",\n    \"name\": \"<string>\",\n    \"key\": \"klidyv71x\",\n    \"description\": \"<string>\",\n    \"source\": \"cli\",\n    \"_createdBy\": \"<string>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"hasUsage\": \"<boolean>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-bc591e9d-31ff-4a78-8fce-e27e07af2c8a"
+                        },
+                        {
+                          "id": "a0325036-2394-4556-b682-c1b5bea1d6de",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-a0325036-2394-4556-b682-c1b5bea1d6de"
+                        },
+                        {
+                          "id": "adfb1f78-d350-40af-b698-a7b69c2227e5",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-adfb1f78-d350-40af-b698-a7b69c2227e5"
+                        },
+                        {
+                          "id": "6eaf099e-97d7-4a90-bf5d-ff84f6cb66f0",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/audiences?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&createdBy=<string>&includeUsage=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "audiences"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "createdBy",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "includeUsage",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:27.000Z",
+                          "updatedAt": "2026-07-28T01:30:27.000Z",
+                          "uid": "35240-6eaf099e-97d7-4a90-bf5d-ff84f6cb66f0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:27.000Z",
+                      "updatedAt": "2026-07-28T01:30:27.000Z",
+                      "uid": "35240-b1929bc6-0ec6-4611-96fa-221f4f124c7e"
+                    }
+                  ],
+                  "id": "90891f25-e344-45da-a763-ac346c0a0331",
+                  "createdAt": "2026-07-28T01:30:27.000Z",
+                  "updatedAt": "2026-07-28T01:30:27.000Z",
+                  "uid": "35240-90891f25-e344-45da-a763-ac346c0a0331"
+                }
+              ],
+              "id": "94903881-644c-4e88-89d3-1baffa348a25",
+              "createdAt": "2026-07-28T01:30:27.000Z",
+              "updatedAt": "2026-07-28T01:30:27.000Z",
+              "uid": "35240-94903881-644c-4e88-89d3-1baffa348a25"
+            }
+          ],
+          "id": "3dc3300d-d673-4605-9a42-f3e344dfb1e6",
+          "createdAt": "2026-07-28T01:30:27.000Z",
+          "updatedAt": "2026-07-28T01:30:27.000Z",
+          "uid": "35240-3dc3300d-d673-4605-9a42-f3e344dfb1e6"
+        }
+      ],
+      "id": "0bd5ecb7-5274-4649-aea9-d45c75c96552",
+      "createdAt": "2026-07-28T01:30:27.000Z",
+      "updatedAt": "2026-07-28T01:30:27.000Z",
+      "uid": "35240-0bd5ecb7-5274-4649-aea9-d45c75c96552"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

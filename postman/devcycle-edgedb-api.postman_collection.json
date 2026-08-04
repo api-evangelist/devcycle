@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "48424475-f33c-4cff-b6c8-afd533b9ebe8",
+    "name": "DevCycle Bucketing Audiences EdgeDB API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:34.000Z",
+    "updatedAt": "2026-07-28T01:30:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-48424475-f33c-4cff-b6c8-afd533b9ebe8"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "edgedb",
+          "item": [
+            {
+              "name": "{user_id}",
+              "item": [
+                {
+                  "name": "Update EdgeDB data based on unique id and project id",
+                  "id": "b84426ba-abec-40a2-a4f6-2332b128f225",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": {\n    \"ullamco_37d\": \"<string>\"\n  },\n  \"country\": {\n    \"Excepteurf_\": \"<string>\"\n  },\n  \"customData\": {},\n  \"lastSeenDate\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/edgedb/:user_id?sdkKey=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "edgedb",
+                        ":user_id"
+                      ],
+                      "query": [
+                        {
+                          "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                          "key": "sdkKey",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "f7aac6c0-de6f-4089-ba2a-04ab49738d9d",
+                          "key": "user_id",
+                          "value": "<string>",
+                          "description": "(Required) A unique id used to fetch and update the EdgeDB data"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "63733a52-8717-4c36-8f12-d8b22cbc9ff8",
+                      "name": "Client SDK API Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": {\n    \"ullamco_37d\": \"<string>\"\n  },\n  \"country\": {\n    \"Excepteurf_\": \"<string>\"\n  },\n  \"customData\": {},\n  \"lastSeenDate\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/edgedb/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "edgedb",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:30:35.000Z",
+                      "updatedAt": "2026-07-28T01:30:35.000Z",
+                      "uid": "35240-63733a52-8717-4c36-8f12-d8b22cbc9ff8"
+                    },
+                    {
+                      "id": "88942fad-82e0-44d6-bca2-ffdbdb6a3325",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": {\n    \"ullamco_37d\": \"<string>\"\n  },\n  \"country\": {\n    \"Excepteurf_\": \"<string>\"\n  },\n  \"customData\": {},\n  \"lastSeenDate\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/edgedb/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "edgedb",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:35.000Z",
+                      "updatedAt": "2026-07-28T01:30:35.000Z",
+                      "uid": "35240-88942fad-82e0-44d6-bca2-ffdbdb6a3325"
+                    },
+                    {
+                      "id": "0e9b1ab5-80a9-4645-9b2d-619b020e5a09",
+                      "name": "Missing 'sdkKey' query parameter or 'Authorization' header",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": {\n    \"ullamco_37d\": \"<string>\"\n  },\n  \"country\": {\n    \"Excepteurf_\": \"<string>\"\n  },\n  \"customData\": {},\n  \"lastSeenDate\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/edgedb/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "edgedb",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:35.000Z",
+                      "updatedAt": "2026-07-28T01:30:35.000Z",
+                      "uid": "35240-0e9b1ab5-80a9-4645-9b2d-619b020e5a09"
+                    },
+                    {
+                      "id": "6af4d4d1-31c1-473b-bc2b-bd96e5937ce2",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": {\n    \"ullamco_37d\": \"<string>\"\n  },\n  \"country\": {\n    \"Excepteurf_\": \"<string>\"\n  },\n  \"customData\": {},\n  \"lastSeenDate\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/edgedb/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "edgedb",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:35.000Z",
+                      "updatedAt": "2026-07-28T01:30:35.000Z",
+                      "uid": "35240-6af4d4d1-31c1-473b-bc2b-bd96e5937ce2"
+                    },
+                    {
+                      "id": "8a0af101-1f41-4412-b2be-65ed5ae92371",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\",\n  \"language\": {\n    \"ullamco_37d\": \"<string>\"\n  },\n  \"country\": {\n    \"Excepteurf_\": \"<string>\"\n  },\n  \"customData\": {},\n  \"lastSeenDate\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/edgedb/:user_id?sdkKey=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "edgedb",
+                            ":user_id"
+                          ],
+                          "query": [
+                            {
+                              "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set.",
+                              "key": "sdkKey",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"statusCode\": \"<number>\",\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T01:30:35.000Z",
+                      "updatedAt": "2026-07-28T01:30:35.000Z",
+                      "uid": "35240-8a0af101-1f41-4412-b2be-65ed5ae92371"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:35.000Z",
+                  "updatedAt": "2026-07-28T01:30:35.000Z",
+                  "uid": "35240-b84426ba-abec-40a2-a4f6-2332b128f225"
+                }
+              ],
+              "id": "cfd6b086-c8dd-4274-9711-6447bea68eb8",
+              "createdAt": "2026-07-28T01:30:35.000Z",
+              "updatedAt": "2026-07-28T01:30:35.000Z",
+              "uid": "35240-cfd6b086-c8dd-4274-9711-6447bea68eb8"
+            }
+          ],
+          "id": "ea78ddbe-28ea-4852-a807-aaae2662406a",
+          "createdAt": "2026-07-28T01:30:35.000Z",
+          "updatedAt": "2026-07-28T01:30:35.000Z",
+          "uid": "35240-ea78ddbe-28ea-4852-a807-aaae2662406a"
+        }
+      ],
+      "id": "9f31a245-2afc-404e-b1ae-cec2142c186e",
+      "createdAt": "2026-07-28T01:30:35.000Z",
+      "updatedAt": "2026-07-28T01:30:35.000Z",
+      "uid": "35240-9f31a245-2afc-404e-b1ae-cec2142c186e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

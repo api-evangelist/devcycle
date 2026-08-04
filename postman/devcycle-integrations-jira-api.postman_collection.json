@@ -1,0 +1,384 @@
+{
+  "info": {
+    "_postman_id": "abf0f1f3-af2f-41d1-bafc-8c7102d1fe66",
+    "name": "DevCycle Bucketing Audiences Integrations: Jira API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:42.000Z",
+    "updatedAt": "2026-07-28T01:30:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-abf0f1f3-af2f-41d1-bafc-8c7102d1fe66"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "integrations",
+          "item": [
+            {
+              "name": "jira",
+              "item": [
+                {
+                  "name": "{token}",
+                  "item": [
+                    {
+                      "name": "[Deprecated] Remove Jira Integration Configuration",
+                      "id": "6aa92c23-c68b-4b33-82a0-bf9e3fa191d6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/jira/:token",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "jira",
+                            ":token"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1c25a941-7645-45cb-b1e0-9a3ca52248c2",
+                              "key": "token",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "DEPRECATED - Not recommended to be used. Use /integrations/jira/organization/:token or /integrations/jira/project/:token instead."
+                      },
+                      "response": [
+                        {
+                          "id": "74713e04-2998-4b30-ba21-3865ee2c3e3b",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/integrations/jira/:token",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "integrations",
+                                "jira",
+                                ":token"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "token"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-74713e04-2998-4b30-ba21-3865ee2c3e3b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:43.000Z",
+                      "updatedAt": "2026-07-28T01:30:43.000Z",
+                      "uid": "35240-6aa92c23-c68b-4b33-82a0-bf9e3fa191d6"
+                    }
+                  ],
+                  "id": "790d70e8-bd22-46b3-8378-bbbed991caf7",
+                  "createdAt": "2026-07-28T01:30:42.000Z",
+                  "updatedAt": "2026-07-28T01:30:42.000Z",
+                  "uid": "35240-790d70e8-bd22-46b3-8378-bbbed991caf7"
+                },
+                {
+                  "name": "organization",
+                  "item": [
+                    {
+                      "name": "{token}",
+                      "item": [
+                        {
+                          "name": "Remove Jira Organization Integration Configuration",
+                          "id": "984faa66-7849-411d-9147-661e44c249b5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/integrations/jira/organization/:token",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "integrations",
+                                "jira",
+                                "organization",
+                                ":token"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2c4afaeb-9207-40c4-b03c-5bb0085129b3",
+                                  "key": "token",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Remove the Jira integration configuration for an organization. This will remove the integration for an organization wide connection, but not project connections."
+                          },
+                          "response": [
+                            {
+                              "id": "30a67fc0-3c6e-4290-a7c1-76f734e98813",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/integrations/jira/organization/:token",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "integrations",
+                                    "jira",
+                                    "organization",
+                                    ":token"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "token"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:43.000Z",
+                              "updatedAt": "2026-07-28T01:30:43.000Z",
+                              "uid": "35240-30a67fc0-3c6e-4290-a7c1-76f734e98813"
+                            },
+                            {
+                              "id": "520431cf-1ca9-40f9-ae06-7704904fa53e",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/integrations/jira/organization/:token",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "integrations",
+                                    "jira",
+                                    "organization",
+                                    ":token"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "token"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:43.000Z",
+                              "updatedAt": "2026-07-28T01:30:43.000Z",
+                              "uid": "35240-520431cf-1ca9-40f9-ae06-7704904fa53e"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-984faa66-7849-411d-9147-661e44c249b5"
+                        }
+                      ],
+                      "id": "40fea731-5574-4df5-ac83-5de959c68a41",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-40fea731-5574-4df5-ac83-5de959c68a41"
+                    }
+                  ],
+                  "id": "eae35a5b-cdb8-4ff3-bc4c-55bbd5801318",
+                  "createdAt": "2026-07-28T01:30:42.000Z",
+                  "updatedAt": "2026-07-28T01:30:42.000Z",
+                  "uid": "35240-eae35a5b-cdb8-4ff3-bc4c-55bbd5801318"
+                },
+                {
+                  "name": "project",
+                  "item": [
+                    {
+                      "name": "{token}",
+                      "item": [
+                        {
+                          "name": "Remove Jira Project Integration Configuration",
+                          "id": "5667a8bd-91e4-4208-b637-2f8f7326ed55",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/integrations/jira/project/:token",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "integrations",
+                                "jira",
+                                "project",
+                                ":token"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "00f01056-7898-4f67-bfa8-797f2b2ab441",
+                                  "key": "token",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Remove a specific project"
+                          },
+                          "response": [
+                            {
+                              "id": "4a0fdaae-51b9-4de8-b7a1-a9cb71e58df4",
+                              "name": "Connection removed successfully",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/integrations/jira/project/:token",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "integrations",
+                                    "jira",
+                                    "project",
+                                    ":token"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "token"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:43.000Z",
+                              "updatedAt": "2026-07-28T01:30:43.000Z",
+                              "uid": "35240-4a0fdaae-51b9-4de8-b7a1-a9cb71e58df4"
+                            },
+                            {
+                              "id": "078280bf-e9fc-4d0b-8b95-b03f762a5121",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/integrations/jira/project/:token",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "integrations",
+                                    "jira",
+                                    "project",
+                                    ":token"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "token"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:30:43.000Z",
+                              "updatedAt": "2026-07-28T01:30:43.000Z",
+                              "uid": "35240-078280bf-e9fc-4d0b-8b95-b03f762a5121"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:30:43.000Z",
+                          "updatedAt": "2026-07-28T01:30:43.000Z",
+                          "uid": "35240-5667a8bd-91e4-4208-b637-2f8f7326ed55"
+                        }
+                      ],
+                      "id": "79224ce3-6a9e-441a-a042-34c453d0c360",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-79224ce3-6a9e-441a-a042-34c453d0c360"
+                    }
+                  ],
+                  "id": "6b5690ab-8902-4241-bd97-e07891e64eec",
+                  "createdAt": "2026-07-28T01:30:42.000Z",
+                  "updatedAt": "2026-07-28T01:30:42.000Z",
+                  "uid": "35240-6b5690ab-8902-4241-bd97-e07891e64eec"
+                }
+              ],
+              "id": "e339027e-aed1-4e9c-856b-6eb58ebbd7ed",
+              "createdAt": "2026-07-28T01:30:42.000Z",
+              "updatedAt": "2026-07-28T01:30:42.000Z",
+              "uid": "35240-e339027e-aed1-4e9c-856b-6eb58ebbd7ed"
+            }
+          ],
+          "id": "ec1924f0-edd2-4164-825b-8562716506a8",
+          "createdAt": "2026-07-28T01:30:42.000Z",
+          "updatedAt": "2026-07-28T01:30:42.000Z",
+          "uid": "35240-ec1924f0-edd2-4164-825b-8562716506a8"
+        }
+      ],
+      "id": "b11daea8-5309-41bc-806b-b22a6a05c53b",
+      "createdAt": "2026-07-28T01:30:42.000Z",
+      "updatedAt": "2026-07-28T01:30:42.000Z",
+      "uid": "35240-b11daea8-5309-41bc-806b-b22a6a05c53b"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

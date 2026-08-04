@@ -1,0 +1,579 @@
+{
+  "info": {
+    "_postman_id": "e95715c3-7618-469c-b13e-ca2f607a3c30",
+    "name": "DevCycle Bucketing Audiences Integrations: Dynatrace API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:41.000Z",
+    "updatedAt": "2026-07-28T01:30:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e95715c3-7618-469c-b13e-ca2f607a3c30"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "integrations",
+          "item": [
+            {
+              "name": "dynatrace",
+              "item": [
+                {
+                  "name": "{dynatraceEnvironmentId}",
+                  "item": [
+                    {
+                      "name": "Delete Dynatrace Environment",
+                      "id": "dd7d7752-2b0d-4dd7-8592-faad826751fb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/dynatrace/:dynatraceEnvironmentId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "dynatrace",
+                            ":dynatraceEnvironmentId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9744a72a-5906-453b-8b30-a566360b5e94",
+                              "key": "dynatraceEnvironmentId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "55c47518-c9cb-48d2-9fc0-1d54d9539c4d",
+                          "name": "Environment deleted successfully",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/integrations/dynatrace/:dynatraceEnvironmentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "integrations",
+                                "dynatrace",
+                                ":dynatraceEnvironmentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dynatraceEnvironmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-55c47518-c9cb-48d2-9fc0-1d54d9539c4d"
+                        },
+                        {
+                          "id": "85576dc4-3e36-434e-9c2b-78f73b8a0fc9",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/integrations/dynatrace/:dynatraceEnvironmentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "integrations",
+                                "dynatrace",
+                                ":dynatraceEnvironmentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dynatraceEnvironmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-85576dc4-3e36-434e-9c2b-78f73b8a0fc9"
+                        },
+                        {
+                          "id": "4542f58e-2abb-40f4-81ed-e004229e4180",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/integrations/dynatrace/:dynatraceEnvironmentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "integrations",
+                                "dynatrace",
+                                ":dynatraceEnvironmentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dynatraceEnvironmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-4542f58e-2abb-40f4-81ed-e004229e4180"
+                        },
+                        {
+                          "id": "e4ba9b5d-79f6-4689-bd8d-2e6eb71a37f6",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/integrations/dynatrace/:dynatraceEnvironmentId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "integrations",
+                                "dynatrace",
+                                ":dynatraceEnvironmentId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "dynatraceEnvironmentId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:30:42.000Z",
+                          "updatedAt": "2026-07-28T01:30:42.000Z",
+                          "uid": "35240-e4ba9b5d-79f6-4689-bd8d-2e6eb71a37f6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-dd7d7752-2b0d-4dd7-8592-faad826751fb"
+                    }
+                  ],
+                  "id": "4ca11649-206c-4021-8f76-7543cf80a977",
+                  "createdAt": "2026-07-28T01:30:42.000Z",
+                  "updatedAt": "2026-07-28T01:30:42.000Z",
+                  "uid": "35240-4ca11649-206c-4021-8f76-7543cf80a977"
+                },
+                {
+                  "name": "Create or Update Organization Dynatrace Integration",
+                  "id": "b6115803-68fd-40cf-85c5-d19f10901ddc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "integrations",
+                        "dynatrace"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bd19bc78-4b69-4dd6-b468-94c5ae4022c9",
+                      "name": "Integration created/updated successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "dynatrace"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-bd19bc78-4b69-4dd6-b468-94c5ae4022c9"
+                    },
+                    {
+                      "id": "0500f502-46e1-49ef-82de-3e3e820f5b25",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "dynatrace"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-0500f502-46e1-49ef-82de-3e3e820f5b25"
+                    },
+                    {
+                      "id": "dc41e2db-ee8a-440c-bfcc-78f7c667f416",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "dynatrace"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-dc41e2db-ee8a-440c-bfcc-78f7c667f416"
+                    },
+                    {
+                      "id": "25724548-9f13-4995-aeca-6dbfd6396c5a",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "dynatrace"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-25724548-9f13-4995-aeca-6dbfd6396c5a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:42.000Z",
+                  "updatedAt": "2026-07-28T01:30:42.000Z",
+                  "uid": "35240-b6115803-68fd-40cf-85c5-d19f10901ddc"
+                },
+                {
+                  "name": "Get Dynatrace Integrations",
+                  "id": "e6870287-76e5-4dfd-ab01-90a02a93ca38",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "integrations",
+                        "dynatrace"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b3793d56-86a3-4007-b8a8-d1b80b4a02ad",
+                      "name": "Integrations fetched successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "dynatrace"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"environments\": [\n    {\n      \"dynatraceEnvironmentId\": \"<string>\",\n      \"accessToken\": \"<string>\",\n      \"environmentUrl\": \"<string>\",\n      \"projects\": [\n        {\n          \"_id\": \"<string>\",\n          \"_organization\": \"<string>\",\n          \"_createdBy\": \"<string>\",\n          \"name\": \"<string>\",\n          \"key\": \"<string>\",\n          \"settings\": {\n            \"edgeDB\": {\n              \"enabled\": \"<boolean>\"\n            },\n            \"optIn\": {\n              \"enabled\": \"<boolean>\",\n              \"title\": \"<string>\",\n              \"description\": \"<string>\",\n              \"imageURL\": \"<string>\",\n              \"colors\": {\n                \"primary\": \"<string>\",\n                \"secondary\": \"<string>\"\n              },\n              \"poweredByAlignment\": {}\n            },\n            \"sdkTypeVisibility\": {\n              \"enabledInFeatureSettings\": \"<boolean>\"\n            },\n            \"lifeCycle\": {\n              \"disableCodeRefChecks\": \"<boolean>\"\n            },\n            \"obfuscation\": {\n              \"enabled\": \"<boolean>\",\n              \"required\": \"<boolean>\"\n            },\n            \"featureApprovalWorkflow\": {\n              \"enabled\": \"<boolean>\",\n              \"allowPublisherBypass\": \"<boolean>\",\n              \"defaultReviewers\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"disablePassthroughRollouts\": \"<boolean>\",\n            \"staleness\": {\n              \"enabled\": \"<boolean>\",\n              \"released\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unmodifiedLong\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unmodifiedShort\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unused\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"email\": {\n                \"enabled\": \"<boolean>\",\n                \"frequency\": \"weekly\",\n                \"users\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"lastNotification\": \"<dateTime>\"\n              }\n            },\n            \"dynatrace\": {\n              \"enabled\": \"<boolean>\",\n              \"environmentMap\": {}\n            }\n          },\n          \"createdAt\": \"<dateTime>\",\n          \"updatedAt\": \"<dateTime>\",\n          \"hasJiraIntegration\": \"<boolean>\",\n          \"hasReceivedCodeUsages\": \"<boolean>\",\n          \"hasUserConfigFetch\": \"<boolean>\",\n          \"jiraBaseUrl\": \"<string>\",\n          \"readonly\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"color\": \"<string>\",\n          \"vercelEdgeConfigConnections\": [\n            {\n              \"edgeConfigName\": \"<string>\",\n              \"configurationId\": \"<string>\"\n            },\n            {\n              \"edgeConfigName\": \"<string>\",\n              \"configurationId\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"_id\": \"<string>\",\n          \"_organization\": \"<string>\",\n          \"_createdBy\": \"<string>\",\n          \"name\": \"<string>\",\n          \"key\": \"<string>\",\n          \"settings\": {\n            \"edgeDB\": {\n              \"enabled\": \"<boolean>\"\n            },\n            \"optIn\": {\n              \"enabled\": \"<boolean>\",\n              \"title\": \"<string>\",\n              \"description\": \"<string>\",\n              \"imageURL\": \"<string>\",\n              \"colors\": {\n                \"primary\": \"<string>\",\n                \"secondary\": \"<string>\"\n              },\n              \"poweredByAlignment\": {}\n            },\n            \"sdkTypeVisibility\": {\n              \"enabledInFeatureSettings\": \"<boolean>\"\n            },\n            \"lifeCycle\": {\n              \"disableCodeRefChecks\": \"<boolean>\"\n            },\n            \"obfuscation\": {\n              \"enabled\": \"<boolean>\",\n              \"required\": \"<boolean>\"\n            },\n            \"featureApprovalWorkflow\": {\n              \"enabled\": \"<boolean>\",\n              \"allowPublisherBypass\": \"<boolean>\",\n              \"defaultReviewers\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"disablePassthroughRollouts\": \"<boolean>\",\n            \"staleness\": {\n              \"enabled\": \"<boolean>\",\n              \"released\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unmodifiedLong\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unmodifiedShort\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unused\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"email\": {\n                \"enabled\": \"<boolean>\",\n                \"frequency\": \"monthly\",\n                \"users\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"lastNotification\": \"<dateTime>\"\n              }\n            },\n            \"dynatrace\": {\n              \"enabled\": \"<boolean>\",\n              \"environmentMap\": {}\n            }\n          },\n          \"createdAt\": \"<dateTime>\",\n          \"updatedAt\": \"<dateTime>\",\n          \"hasJiraIntegration\": \"<boolean>\",\n          \"hasReceivedCodeUsages\": \"<boolean>\",\n          \"hasUserConfigFetch\": \"<boolean>\",\n          \"jiraBaseUrl\": \"<string>\",\n          \"readonly\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"color\": \"<string>\",\n          \"vercelEdgeConfigConnections\": [\n            {\n              \"edgeConfigName\": \"<string>\",\n              \"configurationId\": \"<string>\"\n            },\n            {\n              \"edgeConfigName\": \"<string>\",\n              \"configurationId\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"dynatraceEnvironmentId\": \"<string>\",\n      \"accessToken\": \"<string>\",\n      \"environmentUrl\": \"<string>\",\n      \"projects\": [\n        {\n          \"_id\": \"<string>\",\n          \"_organization\": \"<string>\",\n          \"_createdBy\": \"<string>\",\n          \"name\": \"<string>\",\n          \"key\": \"<string>\",\n          \"settings\": {\n            \"edgeDB\": {\n              \"enabled\": \"<boolean>\"\n            },\n            \"optIn\": {\n              \"enabled\": \"<boolean>\",\n              \"title\": \"<string>\",\n              \"description\": \"<string>\",\n              \"imageURL\": \"<string>\",\n              \"colors\": {\n                \"primary\": \"<string>\",\n                \"secondary\": \"<string>\"\n              },\n              \"poweredByAlignment\": {}\n            },\n            \"sdkTypeVisibility\": {\n              \"enabledInFeatureSettings\": \"<boolean>\"\n            },\n            \"lifeCycle\": {\n              \"disableCodeRefChecks\": \"<boolean>\"\n            },\n            \"obfuscation\": {\n              \"enabled\": \"<boolean>\",\n              \"required\": \"<boolean>\"\n            },\n            \"featureApprovalWorkflow\": {\n              \"enabled\": \"<boolean>\",\n              \"allowPublisherBypass\": \"<boolean>\",\n              \"defaultReviewers\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"disablePassthroughRollouts\": \"<boolean>\",\n            \"staleness\": {\n              \"enabled\": \"<boolean>\",\n              \"released\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unmodifiedLong\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unmodifiedShort\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unused\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"email\": {\n                \"enabled\": \"<boolean>\",\n                \"frequency\": \"biweekly\",\n                \"users\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"lastNotification\": \"<dateTime>\"\n              }\n            },\n            \"dynatrace\": {\n              \"enabled\": \"<boolean>\",\n              \"environmentMap\": {}\n            }\n          },\n          \"createdAt\": \"<dateTime>\",\n          \"updatedAt\": \"<dateTime>\",\n          \"hasJiraIntegration\": \"<boolean>\",\n          \"hasReceivedCodeUsages\": \"<boolean>\",\n          \"hasUserConfigFetch\": \"<boolean>\",\n          \"jiraBaseUrl\": \"<string>\",\n          \"readonly\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"color\": \"<string>\",\n          \"vercelEdgeConfigConnections\": [\n            {\n              \"edgeConfigName\": \"<string>\",\n              \"configurationId\": \"<string>\"\n            },\n            {\n              \"edgeConfigName\": \"<string>\",\n              \"configurationId\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"_id\": \"<string>\",\n          \"_organization\": \"<string>\",\n          \"_createdBy\": \"<string>\",\n          \"name\": \"<string>\",\n          \"key\": \"<string>\",\n          \"settings\": {\n            \"edgeDB\": {\n              \"enabled\": \"<boolean>\"\n            },\n            \"optIn\": {\n              \"enabled\": \"<boolean>\",\n              \"title\": \"<string>\",\n              \"description\": \"<string>\",\n              \"imageURL\": \"<string>\",\n              \"colors\": {\n                \"primary\": \"<string>\",\n                \"secondary\": \"<string>\"\n              },\n              \"poweredByAlignment\": {}\n            },\n            \"sdkTypeVisibility\": {\n              \"enabledInFeatureSettings\": \"<boolean>\"\n            },\n            \"lifeCycle\": {\n              \"disableCodeRefChecks\": \"<boolean>\"\n            },\n            \"obfuscation\": {\n              \"enabled\": \"<boolean>\",\n              \"required\": \"<boolean>\"\n            },\n            \"featureApprovalWorkflow\": {\n              \"enabled\": \"<boolean>\",\n              \"allowPublisherBypass\": \"<boolean>\",\n              \"defaultReviewers\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            \"disablePassthroughRollouts\": \"<boolean>\",\n            \"staleness\": {\n              \"enabled\": \"<boolean>\",\n              \"released\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unmodifiedLong\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unmodifiedShort\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"unused\": {\n                \"enabled\": \"<boolean>\"\n              },\n              \"email\": {\n                \"enabled\": \"<boolean>\",\n                \"frequency\": \"weekly\",\n                \"users\": [\n                  \"<string>\",\n                  \"<string>\"\n                ],\n                \"lastNotification\": \"<dateTime>\"\n              }\n            },\n            \"dynatrace\": {\n              \"enabled\": \"<boolean>\",\n              \"environmentMap\": {}\n            }\n          },\n          \"createdAt\": \"<dateTime>\",\n          \"updatedAt\": \"<dateTime>\",\n          \"hasJiraIntegration\": \"<boolean>\",\n          \"hasReceivedCodeUsages\": \"<boolean>\",\n          \"hasUserConfigFetch\": \"<boolean>\",\n          \"jiraBaseUrl\": \"<string>\",\n          \"readonly\": \"<boolean>\",\n          \"description\": \"<string>\",\n          \"color\": \"<string>\",\n          \"vercelEdgeConfigConnections\": [\n            {\n              \"edgeConfigName\": \"<string>\",\n              \"configurationId\": \"<string>\"\n            },\n            {\n              \"edgeConfigName\": \"<string>\",\n              \"configurationId\": \"<string>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-b3793d56-86a3-4007-b8a8-d1b80b4a02ad"
+                    },
+                    {
+                      "id": "05cbbc1e-1a19-4a5f-82d8-8a6254a7514d",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "dynatrace"
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-05cbbc1e-1a19-4a5f-82d8-8a6254a7514d"
+                    },
+                    {
+                      "id": "c26a4c80-33f5-4f11-b934-8ff647eb154e",
+                      "name": "New Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/integrations/dynatrace",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "integrations",
+                            "dynatrace"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:30:42.000Z",
+                      "updatedAt": "2026-07-28T01:30:42.000Z",
+                      "uid": "35240-c26a4c80-33f5-4f11-b934-8ff647eb154e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:30:42.000Z",
+                  "updatedAt": "2026-07-28T01:30:42.000Z",
+                  "uid": "35240-e6870287-76e5-4dfd-ab01-90a02a93ca38"
+                }
+              ],
+              "id": "3fbb7b17-7f98-49e4-8622-3644dc304266",
+              "createdAt": "2026-07-28T01:30:42.000Z",
+              "updatedAt": "2026-07-28T01:30:42.000Z",
+              "uid": "35240-3fbb7b17-7f98-49e4-8622-3644dc304266"
+            }
+          ],
+          "id": "7164e19b-bae9-4320-8792-cc3ad3dabcb7",
+          "createdAt": "2026-07-28T01:30:42.000Z",
+          "updatedAt": "2026-07-28T01:30:42.000Z",
+          "uid": "35240-7164e19b-bae9-4320-8792-cc3ad3dabcb7"
+        }
+      ],
+      "id": "5f263322-133a-46f7-a18d-4269211c8e1a",
+      "createdAt": "2026-07-28T01:30:42.000Z",
+      "updatedAt": "2026-07-28T01:30:42.000Z",
+      "uid": "35240-5f263322-133a-46f7-a18d-4269211c8e1a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

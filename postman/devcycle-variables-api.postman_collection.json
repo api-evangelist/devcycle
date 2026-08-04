@@ -1,0 +1,2125 @@
+{
+  "info": {
+    "_postman_id": "9021eb53-6a18-46df-abbc-3b1b6a81d95b",
+    "name": "DevCycle Bucketing Audiences Variables API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:31:26.000Z",
+    "updatedAt": "2026-07-28T01:31:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9021eb53-6a18-46df-abbc-3b1b6a81d95b"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "variables",
+                  "item": [
+                    {
+                      "name": "{key}",
+                      "item": [
+                        {
+                          "name": "status",
+                          "item": [
+                            {
+                              "name": "Update a Variable status to archived or active",
+                              "id": "e97f4103-6a4f-43d3-a8b4-56ce6f779fdd",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"status\": \"archived\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key/status",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key",
+                                    "status"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "b34f3b4d-4b5b-4512-9f64-6422d43a4768",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "afc0b45e-ff3e-4fd6-983f-3bd160714d29",
+                                      "key": "key",
+                                      "value": "<string>",
+                                      "description": "(Required) A Variable key or ID"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "f124fd80-c1cc-469e-a3c8-7e4037dbcde9",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"archived\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/variables/:key/status",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "variables",
+                                        ":key",
+                                        "status"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"key\": \"cpyd\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"Number\",\n  \"status\": \"archived\",\n  \"source\": \"importer\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "createdAt": "2026-07-28T01:31:27.000Z",
+                                  "updatedAt": "2026-07-28T01:31:27.000Z",
+                                  "uid": "35240-f124fd80-c1cc-469e-a3c8-7e4037dbcde9"
+                                },
+                                {
+                                  "id": "9d0b70f9-53b4-4ef4-a986-d89c4a91a5f4",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"archived\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/variables/:key/status",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "variables",
+                                        ":key",
+                                        "status"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:31:27.000Z",
+                                  "updatedAt": "2026-07-28T01:31:27.000Z",
+                                  "uid": "35240-9d0b70f9-53b4-4ef4-a986-d89c4a91a5f4"
+                                },
+                                {
+                                  "id": "26fd1fe8-9e02-4bf6-bd48-1dadfec5a1db",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"archived\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/variables/:key/status",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "variables",
+                                        ":key",
+                                        "status"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:31:27.000Z",
+                                  "updatedAt": "2026-07-28T01:31:27.000Z",
+                                  "uid": "35240-26fd1fe8-9e02-4bf6-bd48-1dadfec5a1db"
+                                },
+                                {
+                                  "id": "6ad1467e-0196-423b-9348-79a16a74e3cb",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"archived\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/variables/:key/status",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "variables",
+                                        ":key",
+                                        "status"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:31:27.000Z",
+                                  "updatedAt": "2026-07-28T01:31:27.000Z",
+                                  "uid": "35240-6ad1467e-0196-423b-9348-79a16a74e3cb"
+                                },
+                                {
+                                  "id": "5d0cf857-b4d2-4460-bb1b-a0ef794b3349",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"archived\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/variables/:key/status",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "variables",
+                                        ":key",
+                                        "status"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "key"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Precondition Failed",
+                                  "code": 412,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:31:27.000Z",
+                                  "updatedAt": "2026-07-28T01:31:27.000Z",
+                                  "uid": "35240-5d0cf857-b4d2-4460-bb1b-a0ef794b3349"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-e97f4103-6a4f-43d3-a8b4-56ce6f779fdd"
+                            }
+                          ],
+                          "id": "443d6860-f29d-4fb4-af0e-353c9ca55e6e",
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-443d6860-f29d-4fb4-af0e-353c9ca55e6e"
+                        },
+                        {
+                          "name": "Get a Variable",
+                          "id": "ad89f0cb-435e-427b-8d87-0056cbd2b0e2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0aa0b30f-89a0-47f5-888e-872d7fbf43a8",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "a1a33b38-47b0-4ff0-bb6a-624935b0a6cb",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Variable key or ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "0413fcb4-709a-4825-b796-6477c6cb5879",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"key\": \"cpyd\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"Number\",\n  \"status\": \"archived\",\n  \"source\": \"importer\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-0413fcb4-709a-4825-b796-6477c6cb5879"
+                            },
+                            {
+                              "id": "8d7742b8-c316-462f-992c-bd46c4431126",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-8d7742b8-c316-462f-992c-bd46c4431126"
+                            },
+                            {
+                              "id": "2ea701a0-53e9-4be9-94c4-52eac3420e52",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-2ea701a0-53e9-4be9-94c4-52eac3420e52"
+                            },
+                            {
+                              "id": "31ce05c6-0ac4-4c4d-a367-64ce2aa7ad63",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-31ce05c6-0ac4-4c4d-a367-64ce2aa7ad63"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-ad89f0cb-435e-427b-8d87-0056cbd2b0e2"
+                        },
+                        {
+                          "name": "Update a Variable",
+                          "id": "60ae741c-6507-4463-9a88-582756f1158a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"key\": \"ojm3wj3pv\",\n  \"type\": \"String\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0ef1fd05-3077-49dd-bb5c-3d2d9487a54f",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "d8a6678e-9ee6-4b16-82b5-6dc9a139fa30",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Variable key or ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "ef5d0f41-374a-4b29-bd56-e091047b0fae",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"key\": \"ojm3wj3pv\",\n  \"type\": \"String\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"key\": \"cpyd\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"Number\",\n  \"status\": \"archived\",\n  \"source\": \"importer\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-ef5d0f41-374a-4b29-bd56-e091047b0fae"
+                            },
+                            {
+                              "id": "fb67d0f2-659d-492d-8542-c0c8a51edfbf",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"key\": \"ojm3wj3pv\",\n  \"type\": \"String\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-fb67d0f2-659d-492d-8542-c0c8a51edfbf"
+                            },
+                            {
+                              "id": "e0a51b30-fb12-44d1-813c-d5bd4ac218f8",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"key\": \"ojm3wj3pv\",\n  \"type\": \"String\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-e0a51b30-fb12-44d1-813c-d5bd4ac218f8"
+                            },
+                            {
+                              "id": "270ea611-8eb7-4e2e-b34d-0539c2db2a09",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"key\": \"ojm3wj3pv\",\n  \"type\": \"String\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-270ea611-8eb7-4e2e-b34d-0539c2db2a09"
+                            },
+                            {
+                              "id": "cd832df0-8317-4fb4-b3a9-87c171085734",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"key\": \"ojm3wj3pv\",\n  \"type\": \"String\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Conflict",
+                              "code": 409,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-cd832df0-8317-4fb4-b3a9-87c171085734"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-60ae741c-6507-4463-9a88-582756f1158a"
+                        },
+                        {
+                          "name": "Delete a Variable",
+                          "id": "d2547162-1273-498e-bda9-a35f108b540f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables",
+                                ":key"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ea6dfec7-f014-43c4-b449-5de5cc4cbd28",
+                                  "key": "project",
+                                  "value": "<string>",
+                                  "description": "(Required) A Project key or ID"
+                                },
+                                {
+                                  "id": "b1e7400f-6b31-41e6-86d3-3f6340cb1847",
+                                  "key": "key",
+                                  "value": "<string>",
+                                  "description": "(Required) A Variable key or ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "956a1aa7-409d-4a5d-acdf-532495b3f538",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-956a1aa7-409d-4a5d-acdf-532495b3f538"
+                            },
+                            {
+                              "id": "71d64619-dfce-4c9f-8f32-053ed8db5b99",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-71d64619-dfce-4c9f-8f32-053ed8db5b99"
+                            },
+                            {
+                              "id": "9f5f5a0e-a063-45b5-9824-f26e08fd1b7f",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-9f5f5a0e-a063-45b5-9824-f26e08fd1b7f"
+                            },
+                            {
+                              "id": "e08bf3f3-92ab-42c3-8c28-4f78d274ad91",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-e08bf3f3-92ab-42c3-8c28-4f78d274ad91"
+                            },
+                            {
+                              "id": "e9f39f71-45cd-4109-a1a3-0766487c00fa",
+                              "name": "New Response",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/variables/:key",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "variables",
+                                    ":key"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "project"
+                                    },
+                                    {
+                                      "key": "key"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Precondition Failed",
+                              "code": 412,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:31:27.000Z",
+                              "updatedAt": "2026-07-28T01:31:27.000Z",
+                              "uid": "35240-e9f39f71-45cd-4109-a1a3-0766487c00fa"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-d2547162-1273-498e-bda9-a35f108b540f"
+                        }
+                      ],
+                      "id": "85af0b02-68c8-486e-a581-e79ac4d24015",
+                      "createdAt": "2026-07-28T01:31:27.000Z",
+                      "updatedAt": "2026-07-28T01:31:27.000Z",
+                      "uid": "35240-85af0b02-68c8-486e-a581-e79ac4d24015"
+                    },
+                    {
+                      "name": "Create a Variable",
+                      "id": "f16e1e87-22ae-41ca-b950-4ff49bfb3eed",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key\": \"j1d7c\",\n  \"type\": \"Boolean\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/variables",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "variables"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c13317dd-e4ab-4b2a-8c0d-6441ec93d5ff",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "bf6ab6b0-215f-4c57-aa83-129527ec7d3c",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"j1d7c\",\n  \"type\": \"Boolean\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"key\": \"cpyd\",\n  \"_id\": \"<string>\",\n  \"_project\": \"<string>\",\n  \"type\": \"Number\",\n  \"status\": \"archived\",\n  \"source\": \"importer\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"_createdBy\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"persistent\": \"<boolean>\",\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-bf6ab6b0-215f-4c57-aa83-129527ec7d3c"
+                        },
+                        {
+                          "id": "8d918a0d-cb83-4c7e-81e8-5c43a64654e5",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"j1d7c\",\n  \"type\": \"Boolean\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-8d918a0d-cb83-4c7e-81e8-5c43a64654e5"
+                        },
+                        {
+                          "id": "9ab79e78-321f-4fa0-b2b6-d3e86fed3f6b",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"j1d7c\",\n  \"type\": \"Boolean\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-9ab79e78-321f-4fa0-b2b6-d3e86fed3f6b"
+                        },
+                        {
+                          "id": "a8bc6c43-2326-4190-8402-f51bd3628288",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"j1d7c\",\n  \"type\": \"Boolean\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-a8bc6c43-2326-4190-8402-f51bd3628288"
+                        },
+                        {
+                          "id": "d6847b47-0eaf-4ac9-abc9-6433f6bee4db",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"j1d7c\",\n  \"type\": \"Boolean\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-d6847b47-0eaf-4ac9-abc9-6433f6bee4db"
+                        },
+                        {
+                          "id": "9844bb5d-48d5-4a8a-990e-158a7e75b597",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"key\": \"j1d7c\",\n  \"type\": \"Boolean\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"_feature\": \"<string>\",\n  \"validationSchema\": {\n    \"schemaType\": {},\n    \"description\": \"<string>\",\n    \"exampleValue\": {},\n    \"enumValues\": {},\n    \"regexPattern\": \"<string>\",\n    \"jsonSchema\": \"<string>\"\n  },\n  \"tags\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\",\n  \"errorType\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-9844bb5d-48d5-4a8a-990e-158a7e75b597"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:27.000Z",
+                      "updatedAt": "2026-07-28T01:31:27.000Z",
+                      "uid": "35240-f16e1e87-22ae-41ca-b950-4ff49bfb3eed"
+                    },
+                    {
+                      "name": "List Variables",
+                      "id": "0be2ab0d-86ff-490b-9a75-2936c86f687d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/projects/:project/variables?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&feature=<string>&type=JSON&status=active",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "projects",
+                            ":project",
+                            "variables"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "perPage",
+                              "value": "100"
+                            },
+                            {
+                              "key": "sortBy",
+                              "value": "createdAt"
+                            },
+                            {
+                              "key": "sortOrder",
+                              "value": "desc"
+                            },
+                            {
+                              "key": "search",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "feature",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "type",
+                              "value": "JSON"
+                            },
+                            {
+                              "key": "status",
+                              "value": "active"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "7cc9247c-dd5a-4635-8edc-ffa24368e47e",
+                              "key": "project",
+                              "value": "<string>",
+                              "description": "(Required) A Project key or ID"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ce7d2e9a-1ab6-4339-9f23-d54972b5d206",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&feature=<string>&type=JSON&status=active",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "JSON"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "active"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"key\": \"7y5j7f.\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"type\": \"Boolean\",\n    \"status\": \"active\",\n    \"source\": \"bitbucket.pr_insights\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"_feature\": \"<string>\",\n    \"_createdBy\": \"<string>\",\n    \"validationSchema\": {\n      \"schemaType\": {},\n      \"description\": \"<string>\",\n      \"exampleValue\": {},\n      \"enumValues\": {},\n      \"regexPattern\": \"<string>\",\n      \"jsonSchema\": \"<string>\"\n    },\n    \"persistent\": \"<boolean>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"key\": \"6w13nrbuk.5\",\n    \"_id\": \"<string>\",\n    \"_project\": \"<string>\",\n    \"type\": \"String\",\n    \"status\": \"archived\",\n    \"source\": \"gitlab.code_usages\",\n    \"createdAt\": \"<dateTime>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"_feature\": \"<string>\",\n    \"_createdBy\": \"<string>\",\n    \"validationSchema\": {\n      \"schemaType\": {},\n      \"description\": \"<string>\",\n      \"exampleValue\": {},\n      \"enumValues\": {},\n      \"regexPattern\": \"<string>\",\n      \"jsonSchema\": \"<string>\"\n    },\n    \"persistent\": \"<boolean>\",\n    \"tags\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-ce7d2e9a-1ab6-4339-9f23-d54972b5d206"
+                        },
+                        {
+                          "id": "5bc0f60f-d10a-4ee3-a6ee-b211b0e1e546",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&feature=<string>&type=JSON&status=active",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "JSON"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "active"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-5bc0f60f-d10a-4ee3-a6ee-b211b0e1e546"
+                        },
+                        {
+                          "id": "40060b30-1d98-45d3-aec9-69839bcd197e",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&feature=<string>&type=JSON&status=active",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "JSON"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "active"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-40060b30-1d98-45d3-aec9-69839bcd197e"
+                        },
+                        {
+                          "id": "fbe44914-381b-4bdd-983c-2e371631d8e4",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&feature=<string>&type=JSON&status=active",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "JSON"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "active"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-fbe44914-381b-4bdd-983c-2e371631d8e4"
+                        },
+                        {
+                          "id": "2a62f381-3c5b-4422-932d-2cad261b8975",
+                          "name": "New Response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/projects/:project/variables?page=1&perPage=100&sortBy=createdAt&sortOrder=desc&search=<string>&feature=<string>&type=JSON&status=active",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "projects",
+                                ":project",
+                                "variables"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "perPage",
+                                  "value": "100"
+                                },
+                                {
+                                  "key": "sortBy",
+                                  "value": "createdAt"
+                                },
+                                {
+                                  "key": "sortOrder",
+                                  "value": "desc"
+                                },
+                                {
+                                  "key": "search",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "feature",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "type",
+                                  "value": "JSON"
+                                },
+                                {
+                                  "key": "status",
+                                  "value": "active"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "project"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:31:27.000Z",
+                          "updatedAt": "2026-07-28T01:31:27.000Z",
+                          "uid": "35240-2a62f381-3c5b-4422-932d-2cad261b8975"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:31:27.000Z",
+                      "updatedAt": "2026-07-28T01:31:27.000Z",
+                      "uid": "35240-0be2ab0d-86ff-490b-9a75-2936c86f687d"
+                    }
+                  ],
+                  "id": "f85f6203-a255-4916-b699-f1a37fd08f82",
+                  "createdAt": "2026-07-28T01:31:27.000Z",
+                  "updatedAt": "2026-07-28T01:31:27.000Z",
+                  "uid": "35240-f85f6203-a255-4916-b699-f1a37fd08f82"
+                }
+              ],
+              "id": "1624c58a-2fbc-4f59-b333-05adfe595712",
+              "createdAt": "2026-07-28T01:31:27.000Z",
+              "updatedAt": "2026-07-28T01:31:27.000Z",
+              "uid": "35240-1624c58a-2fbc-4f59-b333-05adfe595712"
+            }
+          ],
+          "id": "bdcca2dd-76b4-496e-8306-5d2d82853d41",
+          "createdAt": "2026-07-28T01:31:27.000Z",
+          "updatedAt": "2026-07-28T01:31:27.000Z",
+          "uid": "35240-bdcca2dd-76b4-496e-8306-5d2d82853d41"
+        }
+      ],
+      "id": "3c8989b5-2306-4f68-b53e-fc0366acc937",
+      "createdAt": "2026-07-28T01:31:27.000Z",
+      "updatedAt": "2026-07-28T01:31:27.000Z",
+      "uid": "35240-3c8989b5-2306-4f68-b53e-fc0366acc937"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}

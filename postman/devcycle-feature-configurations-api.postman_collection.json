@@ -1,0 +1,675 @@
+{
+  "info": {
+    "_postman_id": "c6bd6a50-fc25-4e41-ab66-22a1afd2fca4",
+    "name": "DevCycle Bucketing Audiences Feature Configurations API",
+    "description": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:30:37.000Z",
+    "updatedAt": "2026-07-28T01:30:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c6bd6a50-fc25-4e41-ab66-22a1afd2fca4"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "projects",
+          "item": [
+            {
+              "name": "{project}",
+              "item": [
+                {
+                  "name": "features",
+                  "item": [
+                    {
+                      "name": "{feature}",
+                      "item": [
+                        {
+                          "name": "configurations",
+                          "item": [
+                            {
+                              "name": "List Feature configurations",
+                              "id": "d842962c-2534-4106-afac-5572ca27722b",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "features",
+                                    ":feature",
+                                    "configurations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "34804d4c-7cb2-4fa4-865f-ea822fb69dec",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "d6be9e31-04d7-4a1d-80cd-52c298fc1c4c",
+                                      "key": "feature",
+                                      "value": "<string>",
+                                      "description": "(Required) A Feature key or ID"
+                                    }
+                                  ]
+                                },
+                                "description": "List Feature configurations for all environments or by environment key or ID"
+                              },
+                              "response": [
+                                {
+                                  "id": "39bd5743-f78f-4ea4-9edb-eeebeaabd1c6",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "configurations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"_feature\": \"<string>\",\n    \"_environment\": \"<string>\",\n    \"status\": \"active\",\n    \"updatedAt\": \"<dateTime>\",\n    \"targets\": [\n      {\n        \"_id\": \"<string>\",\n        \"audience\": {\n          \"filters\": {\n            \"filters\": [\n              {\n                \"type\": \"all\"\n              },\n              {\n                \"type\": \"all\"\n              }\n            ],\n            \"operator\": \"or\"\n          },\n          \"name\": \"<string>\"\n        },\n        \"distribution\": [\n          {\n            \"percentage\": \"<number>\",\n            \"_variation\": \"<string>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"_variation\": \"<string>\"\n          }\n        ],\n        \"name\": \"<string>\",\n        \"rollout\": {\n          \"type\": \"stepped\",\n          \"startDate\": \"<dateTime>\",\n          \"startPercentage\": \"<number>\",\n          \"stages\": [\n            {\n              \"percentage\": \"<number>\",\n              \"type\": \"discrete\",\n              \"date\": \"<dateTime>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"type\": \"linear\",\n              \"date\": \"<dateTime>\"\n            }\n          ]\n        },\n        \"bucketingKey\": \"<string>\"\n      },\n      {\n        \"_id\": \"<string>\",\n        \"audience\": {\n          \"filters\": {\n            \"filters\": [\n              {\n                \"type\": \"all\"\n              },\n              {\n                \"type\": \"all\"\n              }\n            ],\n            \"operator\": \"or\"\n          },\n          \"name\": \"<string>\"\n        },\n        \"distribution\": [\n          {\n            \"percentage\": \"<number>\",\n            \"_variation\": \"<string>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"_variation\": \"<string>\"\n          }\n        ],\n        \"name\": \"<string>\",\n        \"rollout\": {\n          \"type\": \"schedule\",\n          \"startDate\": \"<dateTime>\",\n          \"startPercentage\": \"<number>\",\n          \"stages\": [\n            {\n              \"percentage\": \"<number>\",\n              \"type\": \"discrete\",\n              \"date\": \"<dateTime>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"type\": \"linear\",\n              \"date\": \"<dateTime>\"\n            }\n          ]\n        },\n        \"bucketingKey\": \"<string>\"\n      }\n    ],\n    \"readonly\": \"<boolean>\",\n    \"hasStaticConfig\": \"<boolean>\",\n    \"_createdBy\": \"<string>\",\n    \"startedAt\": \"<dateTime>\"\n  },\n  {\n    \"_feature\": \"<string>\",\n    \"_environment\": \"<string>\",\n    \"status\": \"inactive\",\n    \"updatedAt\": \"<dateTime>\",\n    \"targets\": [\n      {\n        \"_id\": \"<string>\",\n        \"audience\": {\n          \"filters\": {\n            \"filters\": [\n              {\n                \"type\": \"all\"\n              },\n              {\n                \"type\": \"all\"\n              }\n            ],\n            \"operator\": \"and\"\n          },\n          \"name\": \"<string>\"\n        },\n        \"distribution\": [\n          {\n            \"percentage\": \"<number>\",\n            \"_variation\": \"<string>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"_variation\": \"<string>\"\n          }\n        ],\n        \"name\": \"<string>\",\n        \"rollout\": {\n          \"type\": \"schedule\",\n          \"startDate\": \"<dateTime>\",\n          \"startPercentage\": \"<number>\",\n          \"stages\": [\n            {\n              \"percentage\": \"<number>\",\n              \"type\": \"linear\",\n              \"date\": \"<dateTime>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"type\": \"linear\",\n              \"date\": \"<dateTime>\"\n            }\n          ]\n        },\n        \"bucketingKey\": \"<string>\"\n      },\n      {\n        \"_id\": \"<string>\",\n        \"audience\": {\n          \"filters\": {\n            \"filters\": [\n              {\n                \"type\": \"all\"\n              },\n              {\n                \"type\": \"all\"\n              }\n            ],\n            \"operator\": \"or\"\n          },\n          \"name\": \"<string>\"\n        },\n        \"distribution\": [\n          {\n            \"percentage\": \"<number>\",\n            \"_variation\": \"<string>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"_variation\": \"<string>\"\n          }\n        ],\n        \"name\": \"<string>\",\n        \"rollout\": {\n          \"type\": \"schedule\",\n          \"startDate\": \"<dateTime>\",\n          \"startPercentage\": \"<number>\",\n          \"stages\": [\n            {\n              \"percentage\": \"<number>\",\n              \"type\": \"discrete\",\n              \"date\": \"<dateTime>\"\n            },\n            {\n              \"percentage\": \"<number>\",\n              \"type\": \"discrete\",\n              \"date\": \"<dateTime>\"\n            }\n          ]\n        },\n        \"bucketingKey\": \"<string>\"\n      }\n    ],\n    \"readonly\": \"<boolean>\",\n    \"hasStaticConfig\": \"<boolean>\",\n    \"_createdBy\": \"<string>\",\n    \"startedAt\": \"<dateTime>\"\n  }\n]",
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-39bd5743-f78f-4ea4-9edb-eeebeaabd1c6"
+                                },
+                                {
+                                  "id": "d3dec01d-3124-404e-bbd0-3c8ddbbc8cac",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "configurations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-d3dec01d-3124-404e-bbd0-3c8ddbbc8cac"
+                                },
+                                {
+                                  "id": "0e5139a1-c427-4c90-8f98-dde4dd17ab3b",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "configurations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-0e5139a1-c427-4c90-8f98-dde4dd17ab3b"
+                                },
+                                {
+                                  "id": "7fb69f82-80d9-45bb-8da2-4b40ab5f37e7",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "configurations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-7fb69f82-80d9-45bb-8da2-4b40ab5f37e7"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:38.000Z",
+                              "updatedAt": "2026-07-28T01:30:38.000Z",
+                              "uid": "35240-d842962c-2534-4106-afac-5572ca27722b"
+                            },
+                            {
+                              "name": "Update a Feature configuration",
+                              "id": "6e51354c-fc68-4d99-9e85-410ad3a55335",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"status\": \"inactive\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"stepped\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"linear\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "projects",
+                                    ":project",
+                                    "features",
+                                    ":feature",
+                                    "configurations"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) A Environment key or ID",
+                                      "key": "environment",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d5be8976-c23e-4dcd-a923-54d010dfa75a",
+                                      "key": "project",
+                                      "value": "<string>",
+                                      "description": "(Required) A Project key or ID"
+                                    },
+                                    {
+                                      "id": "7e67ccf6-47b9-4db5-987f-6a8e9d192a20",
+                                      "key": "feature",
+                                      "value": "<string>",
+                                      "description": "(Required) A Feature key or ID"
+                                    }
+                                  ]
+                                },
+                                "description": "Update a Feature configuration by environment key or ID"
+                              },
+                              "response": [
+                                {
+                                  "id": "9df5c2fd-ea22-4633-bffd-65f48d901e06",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"inactive\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"stepped\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"linear\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "configurations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"_feature\": \"<string>\",\n  \"_environment\": \"<string>\",\n  \"status\": \"active\",\n  \"updatedAt\": \"<dateTime>\",\n  \"targets\": [\n    {\n      \"_id\": \"<string>\",\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"linear\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      },\n      \"bucketingKey\": \"<string>\"\n    },\n    {\n      \"_id\": \"<string>\",\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"and\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"stepped\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"linear\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      },\n      \"bucketingKey\": \"<string>\"\n    }\n  ],\n  \"readonly\": \"<boolean>\",\n  \"hasStaticConfig\": \"<boolean>\",\n  \"_createdBy\": \"<string>\",\n  \"startedAt\": \"<dateTime>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-9df5c2fd-ea22-4633-bffd-65f48d901e06"
+                                },
+                                {
+                                  "id": "bec065bf-a3ef-43d9-8136-2b5cb22d7b98",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"inactive\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"stepped\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"linear\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "configurations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-bec065bf-a3ef-43d9-8136-2b5cb22d7b98"
+                                },
+                                {
+                                  "id": "cd6a93bb-0c83-42e7-8c9e-ca6825448861",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"inactive\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"stepped\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"linear\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "configurations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-cd6a93bb-0c83-42e7-8c9e-ca6825448861"
+                                },
+                                {
+                                  "id": "69cbbcdc-f53a-40fd-bd16-b2d0edfdad72",
+                                  "name": "New Response",
+                                  "originalRequest": {
+                                    "method": "PATCH",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"status\": \"inactive\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"stepped\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": [\n            {\n              \"type\": \"all\"\n            },\n            {\n              \"type\": \"all\"\n            }\n          ],\n          \"operator\": \"or\"\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"discrete\",\n            \"date\": \"<dateTime>\"\n          },\n          {\n            \"percentage\": \"<number>\",\n            \"type\": \"linear\",\n            \"date\": \"<dateTime>\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v1/projects/:project/features/:feature/configurations?environment=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v1",
+                                        "projects",
+                                        ":project",
+                                        "features",
+                                        ":feature",
+                                        "configurations"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) A Environment key or ID",
+                                          "key": "environment",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "project"
+                                        },
+                                        {
+                                          "key": "feature"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"statusCode\": \"<number>\",\n  \"message\": {},\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:30:38.000Z",
+                                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                                  "uid": "35240-69cbbcdc-f53a-40fd-bd16-b2d0edfdad72"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:30:38.000Z",
+                              "updatedAt": "2026-07-28T01:30:38.000Z",
+                              "uid": "35240-6e51354c-fc68-4d99-9e85-410ad3a55335"
+                            }
+                          ],
+                          "id": "fb07f93a-77fa-4869-99d7-09e912f270b5",
+                          "createdAt": "2026-07-28T01:30:38.000Z",
+                          "updatedAt": "2026-07-28T01:30:38.000Z",
+                          "uid": "35240-fb07f93a-77fa-4869-99d7-09e912f270b5"
+                        }
+                      ],
+                      "id": "9624f985-777e-49b0-8890-76a511cf7ea5",
+                      "createdAt": "2026-07-28T01:30:38.000Z",
+                      "updatedAt": "2026-07-28T01:30:38.000Z",
+                      "uid": "35240-9624f985-777e-49b0-8890-76a511cf7ea5"
+                    }
+                  ],
+                  "id": "a06a8073-1097-489e-8dcd-359586b1ca8c",
+                  "createdAt": "2026-07-28T01:30:38.000Z",
+                  "updatedAt": "2026-07-28T01:30:38.000Z",
+                  "uid": "35240-a06a8073-1097-489e-8dcd-359586b1ca8c"
+                }
+              ],
+              "id": "2359b887-68a3-4a97-ad46-ce016d020bb3",
+              "createdAt": "2026-07-28T01:30:38.000Z",
+              "updatedAt": "2026-07-28T01:30:38.000Z",
+              "uid": "35240-2359b887-68a3-4a97-ad46-ce016d020bb3"
+            }
+          ],
+          "id": "b24a4a79-549c-4ff8-bad2-80e78ff7ecb9",
+          "createdAt": "2026-07-28T01:30:38.000Z",
+          "updatedAt": "2026-07-28T01:30:38.000Z",
+          "uid": "35240-b24a4a79-549c-4ff8-bad2-80e78ff7ecb9"
+        }
+      ],
+      "id": "e35905bc-434b-4815-a2f8-8c5b87887fdd",
+      "createdAt": "2026-07-28T01:30:38.000Z",
+      "updatedAt": "2026-07-28T01:30:38.000Z",
+      "uid": "35240-e35905bc-434b-4815-a2f8-8c5b87887fdd"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://bucketing-api.devcycle.com/"
+    }
+  ]
+}
