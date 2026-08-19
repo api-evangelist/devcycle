@@ -1,0 +1,177 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences Overrides API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Overrides",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get feature overrides for current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/features/:feature/overrides/current",
+            "params": [
+              {
+                "name": "feature",
+                "value": "",
+                "type": "path",
+                "description": "A Feature key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Get feature overrides for current user"
+        },
+        {
+          "info": {
+            "name": "Update Overrides for the Current User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/features/:feature/overrides/current",
+            "params": [
+              {
+                "name": "feature",
+                "value": "",
+                "type": "path",
+                "description": "A Feature key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Overrides for the Current User"
+        },
+        {
+          "info": {
+            "name": "Delete override for specific feature and environment for the current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/features/:feature/overrides/current",
+            "params": [
+              {
+                "name": "environment",
+                "value": "",
+                "type": "query",
+                "description": "A Environment key or ID"
+              },
+              {
+                "name": "feature",
+                "value": "",
+                "type": "path",
+                "description": "A Feature key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Delete override for specific feature and environment for the current user"
+        },
+        {
+          "info": {
+            "name": "Get overrides for feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/features/:feature/overrides",
+            "params": [
+              {
+                "name": "addMetadata",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "environment",
+                "value": "",
+                "type": "query",
+                "description": "A Environment key or ID"
+              },
+              {
+                "name": "feature",
+                "value": "",
+                "type": "path",
+                "description": "A Feature key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Get overrides for feature"
+        },
+        {
+          "info": {
+            "name": "Get all overrides for project for current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/overrides/current",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Get all overrides for project for current user"
+        },
+        {
+          "info": {
+            "name": "Delete all overrides for project for current user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/overrides/current",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Delete all overrides for project for current user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

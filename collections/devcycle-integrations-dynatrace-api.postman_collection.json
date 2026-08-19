@@ -1,0 +1,553 @@
+{
+  "item": [
+    {
+      "id": "946bf5a8-8bbf-4806-b589-a29ae1015e8e",
+      "name": "Integrations: Dynatrace",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "38a63a4b-05e6-44bb-9e9d-8d3f40141581",
+          "name": "Create or Update Organization Dynatrace Integration",
+          "request": {
+            "name": "Create or Update Organization Dynatrace Integration",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                "dynatrace"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "af174db1-76a8-4d9e-bc9e-eaa03e3691e4",
+              "name": "Integration created/updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16351d66-aedc-4590-9063-2e19ad7031c7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd65373f-0780-4a60-b8b8-472042432123",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12902618-784f-48ea-879d-5329758321d9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"dynatraceEnvironmentId\": \"<string>\",\n  \"accessToken\": \"<string>\",\n  \"environmentUrl\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b04d4989-c7fa-485d-812a-cdb7ed8bbeeb",
+          "name": "Get Dynatrace Integrations",
+          "request": {
+            "name": "Get Dynatrace Integrations",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                "dynatrace"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e489cbc-3565-48bb-a518-66af59872600",
+              "name": "Integrations fetched successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"environments\": [\n    {\n      \"dynatraceEnvironmentId\": \"string\",\n      \"accessToken\": \"string\",\n      \"environmentUrl\": \"string\",\n      \"projects\": [\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"_organization\": \"string\",\n          \"_createdBy\": \"string\",\n          \"name\": \"Delivery App\",\n          \"key\": \"delivery-app\",\n          \"settings\": {\n            \"edgeDB\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"optIn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sdkTypeVisibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lifeCycle\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"obfuscation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"featureApprovalWorkflow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disablePassthroughRollouts\": true,\n            \"staleness\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dynatrace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"createdAt\": \"2023-05-22T21:56:08.546Z\",\n          \"updatedAt\": \"1987-04-11T16:04:24.143Z\",\n          \"hasJiraIntegration\": false,\n          \"hasReceivedCodeUsages\": true,\n          \"hasUserConfigFetch\": false,\n          \"jiraBaseUrl\": \"string\",\n          \"readonly\": false,\n          \"description\": \"A web app to manage outbound deliveries\",\n          \"color\": \"#4073FF\",\n          \"vercelEdgeConfigConnections\": [\n            {\n              \"edgeConfigName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"configurationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"edgeConfigName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"configurationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"_organization\": \"string\",\n          \"_createdBy\": \"string\",\n          \"name\": \"Delivery App\",\n          \"key\": \"delivery-app\",\n          \"settings\": {\n            \"edgeDB\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"optIn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sdkTypeVisibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lifeCycle\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"obfuscation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"featureApprovalWorkflow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disablePassthroughRollouts\": false,\n            \"staleness\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dynatrace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"createdAt\": \"1970-07-31T15:16:56.661Z\",\n          \"updatedAt\": \"1953-04-15T00:11:01.971Z\",\n          \"hasJiraIntegration\": false,\n          \"hasReceivedCodeUsages\": true,\n          \"hasUserConfigFetch\": true,\n          \"jiraBaseUrl\": \"string\",\n          \"readonly\": false,\n          \"description\": \"A web app to manage outbound deliveries\",\n          \"color\": \"#4073FF\",\n          \"vercelEdgeConfigConnections\": [\n            {\n              \"edgeConfigName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"configurationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"edgeConfigName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"configurationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"dynatraceEnvironmentId\": \"string\",\n      \"accessToken\": \"string\",\n      \"environmentUrl\": \"string\",\n      \"projects\": [\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"_organization\": \"string\",\n          \"_createdBy\": \"string\",\n          \"name\": \"Delivery App\",\n          \"key\": \"delivery-app\",\n          \"settings\": {\n            \"edgeDB\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"optIn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sdkTypeVisibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lifeCycle\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"obfuscation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"featureApprovalWorkflow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disablePassthroughRollouts\": false,\n            \"staleness\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dynatrace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"createdAt\": \"2000-10-06T07:26:50.153Z\",\n          \"updatedAt\": \"2004-07-12T17:01:08.624Z\",\n          \"hasJiraIntegration\": false,\n          \"hasReceivedCodeUsages\": true,\n          \"hasUserConfigFetch\": false,\n          \"jiraBaseUrl\": \"string\",\n          \"readonly\": false,\n          \"description\": \"A web app to manage outbound deliveries\",\n          \"color\": \"#4073FF\",\n          \"vercelEdgeConfigConnections\": [\n            {\n              \"edgeConfigName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"configurationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"edgeConfigName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"configurationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"_organization\": \"string\",\n          \"_createdBy\": \"string\",\n          \"name\": \"Delivery App\",\n          \"key\": \"delivery-app\",\n          \"settings\": {\n            \"edgeDB\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"optIn\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"sdkTypeVisibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lifeCycle\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"obfuscation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"featureApprovalWorkflow\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"disablePassthroughRollouts\": false,\n            \"staleness\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dynatrace\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"createdAt\": \"1981-02-21T09:02:49.498Z\",\n          \"updatedAt\": \"1971-03-02T14:25:17.871Z\",\n          \"hasJiraIntegration\": true,\n          \"hasReceivedCodeUsages\": false,\n          \"hasUserConfigFetch\": true,\n          \"jiraBaseUrl\": \"string\",\n          \"readonly\": false,\n          \"description\": \"A web app to manage outbound deliveries\",\n          \"color\": \"#4073FF\",\n          \"vercelEdgeConfigConnections\": [\n            {\n              \"edgeConfigName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"configurationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"edgeConfigName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"configurationId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c47957a8-27ff-4997-ac43-219ba5fe85c2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "38dc490d-5f28-4fdd-89e2-c993fc71df34",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba7f0f09-388b-49fe-9437-3c032e41b12f",
+          "name": "Delete Dynatrace Environment",
+          "request": {
+            "name": "Delete Dynatrace Environment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "integrations",
+                "dynatrace",
+                ":dynatraceEnvironmentId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dynatraceEnvironmentId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c77ef9a1-fc84-4da2-80f7-6a82535d4ede",
+              "name": "Environment deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace",
+                    ":dynatraceEnvironmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dynatraceEnvironmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "34a47bdc-2e6a-438e-a84c-57ecabc13090",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace",
+                    ":dynatraceEnvironmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dynatraceEnvironmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2827dac-08c8-425f-8533-79d1196e4f4c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace",
+                    ":dynatraceEnvironmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dynatraceEnvironmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ef236036-503d-40a1-987e-234066568f4c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integrations",
+                    "dynatrace",
+                    ":dynatraceEnvironmentId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dynatraceEnvironmentId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bucketing-api.devcycle.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ad2068a2-33a0-487d-bf36-fb03d71d0490",
+    "name": "DevCycle Bucketing Audiences Integrations: Dynatrace API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+      "type": "text/plain"
+    }
+  }
+}

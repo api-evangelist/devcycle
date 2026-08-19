@@ -14,7 +14,7 @@ server:
     note: SSE-only fallback endpoint for clients with protocol-negotiation issues
   - transport: stdio
     command: dvc-mcp
-    package: "@devcycle/cli"
+    package: '@devcycle/cli'
     install: npm install -g @devcycle/cli
   auth:
     type: oauth2
@@ -69,10 +69,14 @@ tools:
   description: Project-wide evaluation analytics
 - name: install_devcycle_sdk
   description: Multi-language SDK setup guides
-notes: >-
-  Official first-party MCP server. Available both as a hosted, OAuth-backed remote
-  endpoint (https://mcp.devcycle.com/mcp, streamable HTTP with SSE fallback,
-  listed in the official MCP registry as com.devcycle/mcp) and as a local stdio
-  server (dvc-mcp) shipped in the @devcycle/cli package. Tools map to Management
-  API operations for feature/variable/project management plus self-targeting
-  overrides and evaluation analytics.
+notes: Official first-party MCP server. Available both as a hosted, OAuth-backed remote endpoint (https://mcp.devcycle.com/mcp,
+  streamable HTTP with SSE fallback, listed in the official MCP registry as com.devcycle/mcp) and as a
+  local stdio server (dvc-mcp) shipped in the @devcycle/cli package. Tools map to Management API operations
+  for feature/variable/project management plus self-targeting overrides and evaluation analytics.
+deployment:
+  mode: remote
+  endpoint: https://mcp.devcycle.com/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

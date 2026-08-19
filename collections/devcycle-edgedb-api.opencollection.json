@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences EdgeDB API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EdgeDB",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update EdgeDB data based on unique id and project id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bucketing-api.devcycle.com/v1/edgedb/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "A unique id used to fetch and update the EdgeDB data"
+              },
+              {
+                "name": "sdkKey",
+                "value": "",
+                "type": "query",
+                "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update EdgeDB data based on unique id and project id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

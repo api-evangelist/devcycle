@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences Integrations: Dynatrace API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Integrations: Dynatrace",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Dynatrace Integrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/integrations/dynatrace"
+          },
+          "docs": "Get Dynatrace Integrations"
+        },
+        {
+          "info": {
+            "name": "Create or Update Organization Dynatrace Integration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/integrations/dynatrace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or Update Organization Dynatrace Integration"
+        },
+        {
+          "info": {
+            "name": "Delete Dynatrace Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bucketing-api.devcycle.com/v1/integrations/dynatrace/:dynatraceEnvironmentId",
+            "params": [
+              {
+                "name": "dynatraceEnvironmentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Dynatrace Environment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

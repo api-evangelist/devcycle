@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences Bucketing API API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bucketing API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get variable by key for user data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/variables/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "Variable key"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get variable by key for user data"
+        },
+        {
+          "info": {
+            "name": "Get all variables by key for user data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/variables",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get all variables by key for user data"
+        },
+        {
+          "info": {
+            "name": "Get all features by key for user data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/features",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get all features by key for user data"
+        },
+        {
+          "info": {
+            "name": "Post events to DevCycle for user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/track",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "Authorization",
+              "value": "{{Authorization}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Post events to DevCycle for user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

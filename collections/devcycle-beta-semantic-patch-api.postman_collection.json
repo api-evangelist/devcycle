@@ -1,0 +1,330 @@
+{
+  "item": [
+    {
+      "id": "327f7057-60a0-4a0c-a576-0651c81d4fd9",
+      "name": "[Beta] Semantic Patch",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6727cf03-6efb-4975-9104-2d2d75ed236e",
+          "name": "[Beta] Semantic Patch Update an Audience",
+          "request": {
+            "name": "[Beta] Semantic Patch Update an Audience",
+            "description": {
+              "content": "Semantic Patch Update an Audience by ID or key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "semantic",
+                "projects",
+                ":project",
+                "audiences",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Audience key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"instructions\": [\n    {\n      \"op\": \"<string>\",\n      \"action\": {\n        \"values\": \"<object>\",\n        \"filterIndex\": \"<string>\"\n      }\n    },\n    {\n      \"op\": \"<string>\",\n      \"action\": {\n        \"values\": \"<object>\",\n        \"filterIndex\": \"<string>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "000bda37-d495-43a6-b823-a8651e72f8b0",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "semantic",
+                    "projects",
+                    ":project",
+                    "audiences",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Audience key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"instructions\": [\n    {\n      \"op\": \"removeFilterValues\",\n      \"action\": {\n        \"values\": {},\n        \"filterIndex\": \"string\"\n      }\n    },\n    {\n      \"op\": \"removeFilterValues\",\n      \"action\": {\n        \"values\": {},\n        \"filterIndex\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "224a42c1-41f9-4d69-9354-89759b4904c2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "semantic",
+                    "projects",
+                    ":project",
+                    "audiences",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Audience key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"instructions\": [\n    {\n      \"op\": \"removeFilterValues\",\n      \"action\": {\n        \"values\": {},\n        \"filterIndex\": \"string\"\n      }\n    },\n    {\n      \"op\": \"removeFilterValues\",\n      \"action\": {\n        \"values\": {},\n        \"filterIndex\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e466db97-b462-473c-b871-9c799059332b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "semantic",
+                    "projects",
+                    ":project",
+                    "audiences",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Audience key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"instructions\": [\n    {\n      \"op\": \"removeFilterValues\",\n      \"action\": {\n        \"values\": {},\n        \"filterIndex\": \"string\"\n      }\n    },\n    {\n      \"op\": \"removeFilterValues\",\n      \"action\": {\n        \"values\": {},\n        \"filterIndex\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "16e73690-f060-4696-a135-bcd4e061dd2b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "semantic",
+                    "projects",
+                    ":project",
+                    "audiences",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Audience key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"instructions\": [\n    {\n      \"op\": \"removeFilterValues\",\n      \"action\": {\n        \"values\": {},\n        \"filterIndex\": \"string\"\n      }\n    },\n    {\n      \"op\": \"removeFilterValues\",\n      \"action\": {\n        \"values\": {},\n        \"filterIndex\": \"string\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bucketing-api.devcycle.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cf680648-6bfd-480b-8291-5e79eb77593a",
+    "name": "DevCycle Bucketing Audiences [Beta] Semantic Patch API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+      "type": "text/plain"
+    }
+  }
+}

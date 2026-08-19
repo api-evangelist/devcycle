@@ -1,0 +1,1622 @@
+{
+  "item": [
+    {
+      "id": "c244b93d-6f0e-4d43-a8fa-f917d061efcf",
+      "name": "Custom Properties",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc4c56d5-cc04-499a-8952-dd5b640cbcac",
+          "name": "Create Custom Property",
+          "request": {
+            "name": "Create Custom Property",
+            "description": {
+              "content": "Create a new Custom Property",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "customProperties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"type\": \"<string>\",\n  \"propertyKey\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"<string>\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f626596d-1566-4697-bfd0-deefb6573d57",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"type\": \"String\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_project\": \"string\",\n  \"_createdBy\": \"string\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"type\": \"String\",\n  \"createdAt\": \"1968-07-20T14:04:22.137Z\",\n  \"updatedAt\": \"1972-02-08T07:04:38.797Z\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  },\n  \"hasUsage\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30cd1a5c-31ef-425c-a235-83fa5541c073",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"type\": \"String\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aeee15fd-21ed-4706-86f7-ff37cec5912f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"type\": \"String\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "231bf741-61ad-4b9e-be6f-b56795a0228b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"type\": \"String\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5660853-4d3a-4300-b4d3-3c61d820eb0c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"type\": \"String\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e4b7356d-bdcb-40c4-80a1-079e0c3b9d18",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"type\": \"String\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"message\": {},\n  \"error\": \"Conflict\",\n  \"errorType\": \"ERR_DUPE_FEATURE_KEY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "beb52223-2090-406b-9f25-7f887cfba5fb",
+          "name": "List Custom Properties",
+          "request": {
+            "name": "List Custom Properties",
+            "description": {
+              "content": "List Custom Properties",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "customProperties"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "createdAt"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeUsage",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fa5e7ac-1eed-4144-b66f-bd5b383c4f19",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeUsage",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"Delivery App\",\n    \"key\": \"delivery-app\",\n    \"_id\": \"61450f3daec96f5cf4a49946\",\n    \"_project\": \"string\",\n    \"_createdBy\": \"string\",\n    \"propertyKey\": \"Delivery App Secret Agent Code\",\n    \"type\": \"String\",\n    \"createdAt\": \"2005-05-26T11:50:44.464Z\",\n    \"updatedAt\": \"2000-08-20T08:55:25.975Z\",\n    \"schema\": {\n      \"schemaType\": \"enum\",\n      \"required\": true,\n      \"enumSchema\": {\n        \"allowedValues\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"allowAdditionalValues\": true\n      }\n    },\n    \"hasUsage\": true\n  },\n  {\n    \"name\": \"Delivery App\",\n    \"key\": \"delivery-app\",\n    \"_id\": \"61450f3daec96f5cf4a49946\",\n    \"_project\": \"string\",\n    \"_createdBy\": \"string\",\n    \"propertyKey\": \"Delivery App Secret Agent Code\",\n    \"type\": \"String\",\n    \"createdAt\": \"1954-05-21T18:26:32.930Z\",\n    \"updatedAt\": \"2026-03-19T09:55:48.756Z\",\n    \"schema\": {\n      \"schemaType\": \"enum\",\n      \"required\": true,\n      \"enumSchema\": {\n        \"allowedValues\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"allowAdditionalValues\": false\n      }\n    },\n    \"hasUsage\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8be082c1-40d0-40ac-b611-0f018fa2a631",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeUsage",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8662bac7-99c2-4c6f-a2f5-ce66604fa30d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeUsage",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c7ecdcae-0f2a-4852-baf7-41d6ad74591a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeUsage",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f58b7fde-fb2f-44cb-bcda-7be45639a4de",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeUsage",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1237910-950b-4d8c-b330-5efb4a8bf10d",
+          "name": "Get a Custom Property",
+          "request": {
+            "name": "Get a Custom Property",
+            "description": {
+              "content": "Get a Custom Property by ID or key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "customProperties",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Custom Property key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e81ad12c-a456-4ba8-81b5-fdc8291c02bd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_project\": \"string\",\n  \"_createdBy\": \"string\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"type\": \"String\",\n  \"createdAt\": \"1968-07-20T14:04:22.137Z\",\n  \"updatedAt\": \"1972-02-08T07:04:38.797Z\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  },\n  \"hasUsage\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6966fbff-d133-429b-9c3b-6c7c9ab07187",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4f736b5-4e4c-447e-ab36-09e0cfae90a4",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "21ea41fa-7cf3-422d-a908-ce6c6dfa0c36",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14cdf89e-f4b4-4ed4-b8ff-6c47a03de1e3",
+          "name": "Update a Custom Property",
+          "request": {
+            "name": "Update a Custom Property",
+            "description": {
+              "content": "Update an Custom Property by ID or key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "customProperties",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Custom Property key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"propertyKey\": \"<string>\",\n  \"type\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"<string>\",\n    \"required\": \"<boolean>\",\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<object>\"\n        },\n        {\n          \"label\": \"<string>\",\n          \"value\": \"<object>\"\n        }\n      ],\n      \"allowAdditionalValues\": \"<boolean>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "548f969d-7414-47eb-8148-3d779575a330",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"type\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": true,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_project\": \"string\",\n  \"_createdBy\": \"string\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"type\": \"String\",\n  \"createdAt\": \"1968-07-20T14:04:22.137Z\",\n  \"updatedAt\": \"1972-02-08T07:04:38.797Z\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": false,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  },\n  \"hasUsage\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a90f373c-421e-4605-a99c-632de0b4fb59",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"type\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": true,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a3ae6202-c8dc-44be-8f9a-947e6506ca79",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"type\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": true,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f63294de-ae4d-4feb-93e1-e4845aa25367",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"type\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": true,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "94cbae9f-e8a7-4d7b-8d01-fd7b1f215f41",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"propertyKey\": \"Delivery App Secret Agent Code\",\n  \"type\": \"<string>\",\n  \"schema\": {\n    \"schemaType\": \"enum\",\n    \"required\": true,\n    \"enumSchema\": {\n      \"allowedValues\": [\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        },\n        {\n          \"label\": \"string\",\n          \"value\": {}\n        }\n      ],\n      \"allowAdditionalValues\": false\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"message\": {},\n  \"error\": \"Conflict\",\n  \"errorType\": \"ERR_DUPE_FEATURE_KEY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44a02e7d-4b4c-48e9-b8c3-d9e45a8f1d19",
+          "name": "Delete a Custom Property",
+          "request": {
+            "name": "Delete a Custom Property",
+            "description": {
+              "content": "Delete an Custom Property by ID or key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "customProperties",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Custom Property key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "07e34546-dc42-496a-aa8b-74d689718eae",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "457376c9-5224-4e70-8f5a-e9527354143a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6742451-7dcc-4fd5-98f6-577d1c9d8bf2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "customProperties",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Custom Property key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bucketing-api.devcycle.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6dda8190-debb-4450-9778-46f998a525bc",
+    "name": "DevCycle Bucketing Audiences Custom Properties API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+      "type": "text/plain"
+    }
+  }
+}

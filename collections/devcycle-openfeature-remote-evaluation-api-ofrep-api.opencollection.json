@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences OpenFeature Remote Evaluation API (OFREP) API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OpenFeature Remote Evaluation API (OFREP)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OFREP Single Flag Evaluation Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/ofrep/v1/evaluate/flags/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return a single flag for a user context"
+        },
+        {
+          "info": {
+            "name": "OFREP Bulk Evaluation Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/ofrep/v1/evaluate/flags",
+            "headers": [
+              {
+                "name": "If-None-Match",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Return all flag values for a user context."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

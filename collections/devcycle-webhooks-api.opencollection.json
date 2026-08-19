@@ -1,0 +1,166 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences Webhooks API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/webhooks",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "createdBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "List Webhooks"
+        },
+        {
+          "info": {
+            "name": "Create Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/webhooks",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Webhook"
+        },
+        {
+          "info": {
+            "name": "Get a Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Get a webhook by ID"
+        },
+        {
+          "info": {
+            "name": "Update Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Webhook"
+        },
+        {
+          "info": {
+            "name": "Delete a Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/webhooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Delete a webhook by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

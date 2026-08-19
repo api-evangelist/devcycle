@@ -1,0 +1,99 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences Metric Associations API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metric Associations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Metric Associations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/metric-associations",
+            "params": [
+              {
+                "name": "metric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "feature",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Get Metric Associations"
+        },
+        {
+          "info": {
+            "name": "Associate a Metric with a Feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/metric-associations",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Associate a Metric with a Feature"
+        },
+        {
+          "info": {
+            "name": "Delete an Association of a Metric and a Feature",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/metric-associations",
+            "params": [
+              {
+                "name": "metric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "feature",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Delete an Association of a Metric and a Feature"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

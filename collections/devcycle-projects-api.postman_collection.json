@@ -1,0 +1,2129 @@
+{
+  "item": [
+    {
+      "id": "ed8266eb-e8f9-4458-a25b-ca5ef3dda9a3",
+      "name": "Projects",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e677b3d-09f9-4c47-b984-157181af2046",
+          "name": "Create project in the current organization",
+          "request": {
+            "name": "Create project in the current organization",
+            "description": {
+              "content": "Creates a new project within the authed organization.\nThe project key must be unique within the organization.\nIf this is called in an Organization that has permissions controlled via an external IdP (https://docs.devcycle.com/platform/security-and-guardrails/permissions#full-role-based-access-control-project-level-roles--enterprise-only) - then no users will have permission to access this project.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"description\": \"<string>\",\n  \"color\": \"<string>\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": \"<boolean>\"\n    },\n    \"optIn\": {\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"imageURL\": \"<string>\",\n      \"colors\": {\n        \"primary\": \"<string>\",\n        \"secondary\": \"<string>\"\n      },\n      \"poweredByAlignment\": \"<string>\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": \"<boolean>\"\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": \"<boolean>\"\n    },\n    \"obfuscation\": {\n      \"enabled\": \"<boolean>\",\n      \"required\": \"<boolean>\"\n    },\n    \"disablePassthroughRollouts\": \"<boolean>\",\n    \"dynatrace\": {\n      \"enabled\": \"<boolean>\",\n      \"environmentMap\": \"<object>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "972d35ce-01d3-418c-a52e-b2793613f19e",
+              "name": "The project has been successfully created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#8d19C6\",\n        \"secondary\": \"#E60b2e\"\n      },\n      \"poweredByAlignment\": \"hidden\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": false\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": false\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_organization\": \"string\",\n  \"_createdBy\": \"string\",\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"enabled\": true,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": true,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2015-05-05T07:14:39.873Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  },\n  \"createdAt\": \"1985-06-21T08:12:04.458Z\",\n  \"updatedAt\": \"1982-02-13T09:02:42.313Z\",\n  \"hasJiraIntegration\": true,\n  \"hasReceivedCodeUsages\": true,\n  \"hasUserConfigFetch\": false,\n  \"jiraBaseUrl\": \"string\",\n  \"readonly\": true,\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"vercelEdgeConfigConnections\": [\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    },\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "926d99cb-1d57-4461-b5a9-d72116622030",
+              "name": "Invalid request - missing or invalid properties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#8d19C6\",\n        \"secondary\": \"#E60b2e\"\n      },\n      \"poweredByAlignment\": \"hidden\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": false\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": false\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1895e7c6-edf2-4a0f-ad7c-683463ddec7b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#8d19C6\",\n        \"secondary\": \"#E60b2e\"\n      },\n      \"poweredByAlignment\": \"hidden\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": false\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": false\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "29a48535-02ff-4ae4-91e7-7f40916bd3b7",
+              "name": "Project key already exists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#8d19C6\",\n        \"secondary\": \"#E60b2e\"\n      },\n      \"poweredByAlignment\": \"hidden\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": false\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": false\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"message\": {},\n  \"error\": \"Conflict\",\n  \"errorType\": \"ERR_DUPE_FEATURE_KEY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0548fd13-8718-4d51-a7ea-7d9fdde99feb",
+          "name": "List Projects that the current API Token has permission to view",
+          "request": {
+            "name": "List Projects that the current API Token has permission to view",
+            "description": {
+              "content": "Lists all projects that the current API Token has permission to view.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "createdAt"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdBy",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5ec7e75b-9221-4f69-8cc9-6de432441c4a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_id\": \"61450f3daec96f5cf4a49946\",\n    \"_organization\": \"string\",\n    \"_createdBy\": \"string\",\n    \"name\": \"Delivery App\",\n    \"key\": \"delivery-app\",\n    \"settings\": {\n      \"edgeDB\": {\n        \"enabled\": false\n      },\n      \"optIn\": {\n        \"enabled\": true,\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"imageURL\": \"string\",\n        \"colors\": {\n          \"primary\": \"string\",\n          \"secondary\": \"string\"\n        },\n        \"poweredByAlignment\": {}\n      },\n      \"sdkTypeVisibility\": {\n        \"enabledInFeatureSettings\": true\n      },\n      \"lifeCycle\": {\n        \"disableCodeRefChecks\": true\n      },\n      \"obfuscation\": {\n        \"enabled\": true,\n        \"required\": false\n      },\n      \"featureApprovalWorkflow\": {\n        \"enabled\": false,\n        \"allowPublisherBypass\": true,\n        \"defaultReviewers\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"disablePassthroughRollouts\": true,\n      \"staleness\": {\n        \"enabled\": true,\n        \"released\": {\n          \"enabled\": false\n        },\n        \"unmodifiedLong\": {\n          \"enabled\": false\n        },\n        \"unmodifiedShort\": {\n          \"enabled\": false\n        },\n        \"unused\": {\n          \"enabled\": false\n        },\n        \"email\": {\n          \"enabled\": false,\n          \"frequency\": \"biweekly\",\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"lastNotification\": \"2020-07-31T16:46:14.678Z\"\n        }\n      },\n      \"dynatrace\": {\n        \"enabled\": true,\n        \"environmentMap\": {}\n      }\n    },\n    \"createdAt\": \"1964-06-24T16:52:52.173Z\",\n    \"updatedAt\": \"1976-05-11T23:27:29.827Z\",\n    \"hasJiraIntegration\": false,\n    \"hasReceivedCodeUsages\": false,\n    \"hasUserConfigFetch\": true,\n    \"jiraBaseUrl\": \"string\",\n    \"readonly\": true,\n    \"description\": \"A web app to manage outbound deliveries\",\n    \"color\": \"#4073FF\",\n    \"vercelEdgeConfigConnections\": [\n      {\n        \"edgeConfigName\": \"string\",\n        \"configurationId\": \"string\"\n      },\n      {\n        \"edgeConfigName\": \"string\",\n        \"configurationId\": \"string\"\n      }\n    ]\n  },\n  {\n    \"_id\": \"61450f3daec96f5cf4a49946\",\n    \"_organization\": \"string\",\n    \"_createdBy\": \"string\",\n    \"name\": \"Delivery App\",\n    \"key\": \"delivery-app\",\n    \"settings\": {\n      \"edgeDB\": {\n        \"enabled\": false\n      },\n      \"optIn\": {\n        \"enabled\": true,\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"imageURL\": \"string\",\n        \"colors\": {\n          \"primary\": \"string\",\n          \"secondary\": \"string\"\n        },\n        \"poweredByAlignment\": {}\n      },\n      \"sdkTypeVisibility\": {\n        \"enabledInFeatureSettings\": false\n      },\n      \"lifeCycle\": {\n        \"disableCodeRefChecks\": true\n      },\n      \"obfuscation\": {\n        \"enabled\": true,\n        \"required\": true\n      },\n      \"featureApprovalWorkflow\": {\n        \"enabled\": false,\n        \"allowPublisherBypass\": false,\n        \"defaultReviewers\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"disablePassthroughRollouts\": true,\n      \"staleness\": {\n        \"enabled\": false,\n        \"released\": {\n          \"enabled\": false\n        },\n        \"unmodifiedLong\": {\n          \"enabled\": true\n        },\n        \"unmodifiedShort\": {\n          \"enabled\": true\n        },\n        \"unused\": {\n          \"enabled\": true\n        },\n        \"email\": {\n          \"enabled\": true,\n          \"frequency\": \"monthly\",\n          \"users\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"lastNotification\": \"2003-01-09T04:28:20.673Z\"\n        }\n      },\n      \"dynatrace\": {\n        \"enabled\": true,\n        \"environmentMap\": {}\n      }\n    },\n    \"createdAt\": \"1953-01-27T17:11:28.574Z\",\n    \"updatedAt\": \"1969-04-10T19:49:01.739Z\",\n    \"hasJiraIntegration\": true,\n    \"hasReceivedCodeUsages\": true,\n    \"hasUserConfigFetch\": true,\n    \"jiraBaseUrl\": \"string\",\n    \"readonly\": false,\n    \"description\": \"A web app to manage outbound deliveries\",\n    \"color\": \"#4073FF\",\n    \"vercelEdgeConfigConnections\": [\n      {\n        \"edgeConfigName\": \"string\",\n        \"configurationId\": \"string\"\n      },\n      {\n        \"edgeConfigName\": \"string\",\n        \"configurationId\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebfdc1d2-a9a7-41bb-a9bb-d1fc8123402c",
+              "name": "Invalid request - missing or invalid properties",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "759e44ee-51a5-4e4f-94fe-692e9645a350",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdBy",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6ce9977-6c30-409a-92fb-f678f9a7a548",
+          "name": "Get a Project",
+          "request": {
+            "name": "Get a Project",
+            "description": {
+              "content": "Get a Project by ID or key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "75dc2639-592c-43ca-8169-d736ffbe7e22",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_organization\": \"string\",\n  \"_createdBy\": \"string\",\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"enabled\": true,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": true,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2015-05-05T07:14:39.873Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  },\n  \"createdAt\": \"1985-06-21T08:12:04.458Z\",\n  \"updatedAt\": \"1982-02-13T09:02:42.313Z\",\n  \"hasJiraIntegration\": true,\n  \"hasReceivedCodeUsages\": true,\n  \"hasUserConfigFetch\": false,\n  \"jiraBaseUrl\": \"string\",\n  \"readonly\": true,\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"vercelEdgeConfigConnections\": [\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    },\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f85e1eaa-f846-4e6e-be79-23c80a27c8d9",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c05be401-f196-47e0-bf3e-71b2adb7f6b4",
+              "name": "Project does not exist by key or ID. Keys are able to be changed so try switching to ID to have a consistent value that cannot be changed.This can also be returned if the current token does not have permission to view the project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89e533ec-e347-4cb6-94be-bc9421907b5e",
+          "name": "Update a Project",
+          "request": {
+            "name": "Update a Project",
+            "description": {
+              "content": "Update a Project by ID or key. Certain facets of the project settings require additional permissions to update.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"description\": \"<string>\",\n  \"color\": \"<string>\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": \"<boolean>\"\n    },\n    \"optIn\": {\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"imageURL\": \"<string>\",\n      \"colors\": {\n        \"primary\": \"<string>\",\n        \"secondary\": \"<string>\"\n      },\n      \"poweredByAlignment\": \"<string>\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": \"<boolean>\"\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": \"<boolean>\"\n    },\n    \"obfuscation\": {\n      \"enabled\": \"<boolean>\",\n      \"required\": \"<boolean>\"\n    },\n    \"disablePassthroughRollouts\": \"<boolean>\",\n    \"dynatrace\": {\n      \"enabled\": \"<boolean>\",\n      \"environmentMap\": \"<object>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9860e60d-5482-40bf-aad3-c425944b921d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#e46\",\n        \"secondary\": \"#d4c4\"\n      },\n      \"poweredByAlignment\": \"center\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": true\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_organization\": \"string\",\n  \"_createdBy\": \"string\",\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"enabled\": true,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": true,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2015-05-05T07:14:39.873Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  },\n  \"createdAt\": \"1985-06-21T08:12:04.458Z\",\n  \"updatedAt\": \"1982-02-13T09:02:42.313Z\",\n  \"hasJiraIntegration\": true,\n  \"hasReceivedCodeUsages\": true,\n  \"hasUserConfigFetch\": false,\n  \"jiraBaseUrl\": \"string\",\n  \"readonly\": true,\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"vercelEdgeConfigConnections\": [\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    },\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "097aaf27-a2f5-41f8-9e45-240c1c0dd089",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#e46\",\n        \"secondary\": \"#d4c4\"\n      },\n      \"poweredByAlignment\": \"center\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": true\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "977a6844-d118-4849-90c9-916d5c68def2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#e46\",\n        \"secondary\": \"#d4c4\"\n      },\n      \"poweredByAlignment\": \"center\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": true\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e635218d-86f4-44c5-a62d-80cba95d03a5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#e46\",\n        \"secondary\": \"#d4c4\"\n      },\n      \"poweredByAlignment\": \"center\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": true\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "659d923a-1ce2-4ce3-9cc2-80f897d90162",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": false,\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"#e46\",\n        \"secondary\": \"#d4c4\"\n      },\n      \"poweredByAlignment\": \"center\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": false,\n      \"required\": true\n    },\n    \"disablePassthroughRollouts\": true,\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"message\": {},\n  \"error\": \"Conflict\",\n  \"errorType\": \"ERR_DUPE_FEATURE_KEY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0c84dbb-fed7-4b7f-9a04-a504b0d3ac97",
+          "name": "Delete a Project",
+          "request": {
+            "name": "Delete a Project",
+            "description": {
+              "content": "Delete a Project by ID or key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6275468-045f-4613-a85b-d9bd89e62529",
+              "name": "Project deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e9d06e5-7a85-4092-b32e-a3ff61d51e27",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14b872d3-5889-4907-aa30-b31beba756ad",
+              "name": "Project not found.This can also be returned if the current token does not have permission to view the project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ade1818-94fa-4fbf-81aa-e025c83ca327",
+              "name": "Cannot delete the last project in an organization. Please contact support to delete the organization.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 405,\n  \"message\": {},\n  \"error\": \"Method Not Allowed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb6caa41-1ba5-4bcd-bd4b-f3a7c928e6a2",
+          "name": "Update Publisher Restricted Settings for a Project",
+          "request": {
+            "name": "Update Publisher Restricted Settings for a Project",
+            "description": {
+              "content": "Update a subset of settings for a Project that only requires publisher permissions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":key",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": \"<boolean>\"\n    },\n    \"optIn\": {\n      \"enabled\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"imageURL\": \"<string>\",\n      \"colors\": {\n        \"primary\": \"<string>\",\n        \"secondary\": \"<string>\"\n      },\n      \"poweredByAlignment\": \"<object>\"\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": \"<boolean>\"\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": \"<boolean>\"\n    },\n    \"obfuscation\": {\n      \"enabled\": \"<boolean>\",\n      \"required\": \"<boolean>\"\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": \"<boolean>\",\n      \"allowPublisherBypass\": \"<boolean>\",\n      \"defaultReviewers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"disablePassthroughRollouts\": \"<boolean>\",\n    \"staleness\": {\n      \"enabled\": \"<boolean>\",\n      \"released\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"unused\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"email\": {\n        \"enabled\": \"<boolean>\",\n        \"frequency\": \"<string>\",\n        \"users\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"lastNotification\": \"<dateTime>\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": \"<boolean>\",\n      \"environmentMap\": \"<object>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc8167c4-8621-4a8b-aa02-f3a4e3753fdc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"enabled\": false,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": true\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": false,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2011-10-06T10:38:34.768Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_organization\": \"string\",\n  \"_createdBy\": \"string\",\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"enabled\": true,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": true,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2015-05-05T07:14:39.873Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  },\n  \"createdAt\": \"1985-06-21T08:12:04.458Z\",\n  \"updatedAt\": \"1982-02-13T09:02:42.313Z\",\n  \"hasJiraIntegration\": true,\n  \"hasReceivedCodeUsages\": true,\n  \"hasUserConfigFetch\": false,\n  \"jiraBaseUrl\": \"string\",\n  \"readonly\": true,\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"vercelEdgeConfigConnections\": [\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    },\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b564204-510e-497c-9c50-f66bfb348da2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"enabled\": false,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": true\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": false,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2011-10-06T10:38:34.768Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "190d56d5-c99f-45c3-b36c-1673c94a84df",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"enabled\": false,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": true\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": false,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2011-10-06T10:38:34.768Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "610e6712-34ec-49f6-9438-e9539c5ae4cb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"enabled\": false,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": true\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": false,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2011-10-06T10:38:34.768Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "440cf853-d44a-4718-846d-e1f0bf415c99",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": false\n    },\n    \"optIn\": {\n      \"enabled\": false,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": true\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": true\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": false,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2011-10-06T10:38:34.768Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"message\": {},\n  \"error\": \"Conflict\",\n  \"errorType\": \"ERR_DUPE_FEATURE_KEY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2aced29f-b691-403c-8146-f504a8b5d80f",
+          "name": "Update Protected Settings for a Project",
+          "request": {
+            "name": "Update Protected Settings for a Project",
+            "description": {
+              "content": "Update the Protect Settings for a Project by ID or key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":key",
+                "settings",
+                "protected"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settings\": {\n    \"featureApprovalWorkflow\": {\n      \"enabled\": \"<boolean>\",\n      \"allowPublisherBypass\": \"<boolean>\",\n      \"defaultReviewers\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"staleness\": {\n      \"enabled\": \"<boolean>\",\n      \"released\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"unused\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"email\": {\n        \"enabled\": \"<boolean>\",\n        \"users\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"frequency\": \"<string>\"\n      }\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9d995a72-b6a4-4d83-a14d-3320f4a71a4e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings",
+                    "protected"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": false,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"staleness\": {\n      \"enabled\": false,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": false\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": true\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"frequency\": \"weekly\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_organization\": \"string\",\n  \"_createdBy\": \"string\",\n  \"name\": \"Delivery App\",\n  \"key\": \"delivery-app\",\n  \"settings\": {\n    \"edgeDB\": {\n      \"enabled\": true\n    },\n    \"optIn\": {\n      \"enabled\": true,\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"imageURL\": \"string\",\n      \"colors\": {\n        \"primary\": \"string\",\n        \"secondary\": \"string\"\n      },\n      \"poweredByAlignment\": {}\n    },\n    \"sdkTypeVisibility\": {\n      \"enabledInFeatureSettings\": false\n    },\n    \"lifeCycle\": {\n      \"disableCodeRefChecks\": true\n    },\n    \"obfuscation\": {\n      \"enabled\": true,\n      \"required\": false\n    },\n    \"featureApprovalWorkflow\": {\n      \"enabled\": true,\n      \"allowPublisherBypass\": true,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"disablePassthroughRollouts\": false,\n    \"staleness\": {\n      \"enabled\": true,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": true\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": false\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"frequency\": \"weekly\",\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"lastNotification\": \"2015-05-05T07:14:39.873Z\"\n      }\n    },\n    \"dynatrace\": {\n      \"enabled\": false,\n      \"environmentMap\": {}\n    }\n  },\n  \"createdAt\": \"1985-06-21T08:12:04.458Z\",\n  \"updatedAt\": \"1982-02-13T09:02:42.313Z\",\n  \"hasJiraIntegration\": true,\n  \"hasReceivedCodeUsages\": true,\n  \"hasUserConfigFetch\": false,\n  \"jiraBaseUrl\": \"string\",\n  \"readonly\": true,\n  \"description\": \"A web app to manage outbound deliveries\",\n  \"color\": \"#4073FF\",\n  \"vercelEdgeConfigConnections\": [\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    },\n    {\n      \"edgeConfigName\": \"string\",\n      \"configurationId\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cbd5607-1bce-441a-9e3e-ec55e02dccca",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings",
+                    "protected"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": false,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"staleness\": {\n      \"enabled\": false,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": false\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": true\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"frequency\": \"weekly\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcfe936b-1309-4825-86d3-e2fdade484dd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings",
+                    "protected"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": false,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"staleness\": {\n      \"enabled\": false,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": false\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": true\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"frequency\": \"weekly\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9ca3042f-c8f1-491a-93cc-f656d7372de5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings",
+                    "protected"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": false,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"staleness\": {\n      \"enabled\": false,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": false\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": true\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"frequency\": \"weekly\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4052fbd9-7888-474f-bf2d-3acfecec114a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "settings",
+                    "protected"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"featureApprovalWorkflow\": {\n      \"enabled\": false,\n      \"allowPublisherBypass\": false,\n      \"defaultReviewers\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"staleness\": {\n      \"enabled\": false,\n      \"released\": {\n        \"enabled\": false\n      },\n      \"unmodifiedLong\": {\n        \"enabled\": false\n      },\n      \"unmodifiedShort\": {\n        \"enabled\": true\n      },\n      \"unused\": {\n        \"enabled\": true\n      },\n      \"email\": {\n        \"enabled\": true,\n        \"users\": [\n          \"string\",\n          \"string\"\n        ],\n        \"frequency\": \"weekly\"\n      }\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"message\": {},\n  \"error\": \"Conflict\",\n  \"errorType\": \"ERR_DUPE_FEATURE_KEY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "072faf4b-4c97-4667-b27e-9cfb91082830",
+          "name": "Get all stale Features for a Project",
+          "request": {
+            "name": "Get all stale Features for a Project",
+            "description": {
+              "content": "Get all stale Features for a Project",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":key",
+                "staleness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "perPage",
+                  "value": "100"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "createdAt"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdBy",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeSilenced",
+                  "value": "false"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "28375c8f-13b4-4125-aff4-c99fdd5531f7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "staleness"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeSilenced",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"_feature\": \"string\",\n    \"stale\": true,\n    \"disabled\": true,\n    \"updatedAt\": \"1987-11-14T06:17:45.209Z\",\n    \"snoozedUntil\": \"2005-09-03T08:26:06.996Z\",\n    \"reason\": \"unmodifiedLong\",\n    \"metaData\": {}\n  },\n  {\n    \"key\": \"string\",\n    \"name\": \"string\",\n    \"_feature\": \"string\",\n    \"stale\": true,\n    \"disabled\": true,\n    \"updatedAt\": \"1999-11-13T09:23:32.519Z\",\n    \"snoozedUntil\": \"2021-06-29T10:38:55.873Z\",\n    \"reason\": \"unmodifiedShort\",\n    \"metaData\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63aff922-6dda-4635-b364-3741566b074f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "staleness"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeSilenced",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eae8c7cc-72c7-4f32-af3c-b014593d8acd",
+              "name": "Project not found. This can also be returned if the current token does not have permission to view the project.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":key",
+                    "staleness"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "perPage",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "createdAt"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeSilenced",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bucketing-api.devcycle.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b4fd76fd-f856-4027-bbe8-25fe9ed04c7a",
+    "name": "DevCycle Bucketing Audiences Projects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+      "type": "text/plain"
+    }
+  }
+}

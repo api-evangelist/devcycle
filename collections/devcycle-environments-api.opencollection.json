@@ -1,0 +1,229 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences Environments API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Environments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/environments",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "createdBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "List all environments for a project. If a token does not have permission to view protected environments the environments will be filtered to only show non-protected environments SDK Keys for security."
+        },
+        {
+          "info": {
+            "name": "Create Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/environments",
+            "params": [
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new environment for a project. The environment key must be unique within the project. Multiple environments can share a type.\nCreating an environment will auto-generate a set of SDK Keys for the various types of SDKs.\nWhen permissions are enabled for the organization, the token must have Publisher permissions for the environment to be created."
+        },
+        {
+          "info": {
+            "name": "Get an Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/environments/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Environment key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Returns the environment; if the token does not have permission to view protected environments, the environment will be filtered to only show non-protected SDK Keys for security."
+        },
+        {
+          "info": {
+            "name": "Update an Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/environments/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Environment key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an environment by ID or key. The environment key (if edited) must be unique within the project. If permissions are enabled, changing a protected environment type requires Publisher permissions"
+        },
+        {
+          "info": {
+            "name": "Delete an Environment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/environments/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Environment key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Delete an Environment by ID or key"
+        },
+        {
+          "info": {
+            "name": "Generate SDK Keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/environments/:environment/sdk-keys",
+            "params": [
+              {
+                "name": "environment",
+                "value": "",
+                "type": "path",
+                "description": "An Environment key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate new SDK keys for an environment, for any or all of the SDK types. This is the expected and recommended way to rotate SDK keys. Adding a new SDK key will not invalidate existing SDK keys.\nGenerating new keys is restricted for protected environments to those with Publisher permissions"
+        },
+        {
+          "info": {
+            "name": "Invalidate an SDK key",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:project/environments/:environment/sdk-keys/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "An SDK key"
+              },
+              {
+                "name": "environment",
+                "value": "",
+                "type": "path",
+                "description": "An Environment key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "This will invalidate all configs associated with a given key. This is an instantaneous change and all SDKs using this key will stop working immediately. This is the expected and recommended way to rotate SDK keys."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

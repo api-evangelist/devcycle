@@ -1,0 +1,237 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences Projects API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Projects that the current API Token has permission to view",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "createdBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists all projects that the current API Token has permission to view."
+        },
+        {
+          "info": {
+            "name": "Create project in the current organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bucketing-api.devcycle.com/v1/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new project within the authed organization.\nThe project key must be unique within the organization.\nIf this is called in an Organization that has permissions controlled via an external IdP (https://docs.devcycle.com/platform/security-and-guardrails/permissions#full-role-based-access-control-project-level-roles--enterprise-only) - then no users will have permission to access this project."
+        },
+        {
+          "info": {
+            "name": "Get a Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Get a Project by ID or key."
+        },
+        {
+          "info": {
+            "name": "Update a Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a Project by ID or key. Certain facets of the project settings require additional permissions to update."
+        },
+        {
+          "info": {
+            "name": "Delete a Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ]
+          },
+          "docs": "Delete a Project by ID or key"
+        },
+        {
+          "info": {
+            "name": "Update Publisher Restricted Settings for a Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:key/settings",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a subset of settings for a Project that only requires publisher permissions"
+        },
+        {
+          "info": {
+            "name": "Update Protected Settings for a Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:key/settings/protected",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the Protect Settings for a Project by ID or key"
+        },
+        {
+          "info": {
+            "name": "Get all stale Features for a Project",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/projects/:key/staleness",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "perPage",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "createdBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "includeSilenced",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all stale Features for a Project"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

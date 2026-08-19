@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences [Beta] Semantic Patch API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "[Beta] Semantic Patch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "[Beta] Semantic Patch Update an Audience",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://bucketing-api.devcycle.com/v1/semantic/projects/:project/audiences/:key",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "path",
+                "description": "A Audience key or ID"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "path",
+                "description": "A Project key or ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Semantic Patch Update an Audience by ID or key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

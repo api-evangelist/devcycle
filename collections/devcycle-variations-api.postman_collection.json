@@ -1,0 +1,1448 @@
+{
+  "item": [
+    {
+      "id": "1c5d0fe8-4a20-425f-a18f-3ec1685962f0",
+      "name": "Variations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4723023e-718b-46d4-a8f7-7a34b5c27042",
+          "name": "Create a Feature Variation",
+          "request": {
+            "name": "Create a Feature Variation",
+            "description": {
+              "content": "Create a new variation within a Feature",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "features",
+                ":feature",
+                "variations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature",
+                  "description": "(Required) A Feature key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6707c18-3ccb-4009-a01f-3571c2d139fd",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_project\": \"string\",\n  \"source\": \"slack\",\n  \"status\": \"active\",\n  \"name\": \"New Dashboard\",\n  \"key\": \"new-dash\",\n  \"createdAt\": \"2025-11-11T23:35:50.692Z\",\n  \"updatedAt\": \"1949-08-26T06:24:32.445Z\",\n  \"controlVariation\": \"string\",\n  \"readonly\": false,\n  \"configurations\": [\n    {\n      \"_feature\": \"61450f3daec96f5cf4a49946\",\n      \"_environment\": \"61450f3daec96f5cf4a49946\",\n      \"status\": \"inactive\",\n      \"updatedAt\": \"2000-09-20T13:31:23.642Z\",\n      \"targets\": [\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"audience\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"distribution\": [\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"Feature Enabled\",\n          \"rollout\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startPercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"bucketingKey\": \"'organization_id\"\n        },\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"audience\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"distribution\": [\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"Feature Enabled\",\n          \"rollout\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startPercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"bucketingKey\": \"'organization_id\"\n        }\n      ],\n      \"readonly\": true,\n      \"hasStaticConfig\": false,\n      \"_createdBy\": \"string\",\n      \"startedAt\": \"1996-10-08T02:42:55.588Z\"\n    },\n    {\n      \"_feature\": \"61450f3daec96f5cf4a49946\",\n      \"_environment\": \"61450f3daec96f5cf4a49946\",\n      \"status\": \"inactive\",\n      \"updatedAt\": \"2019-07-11T03:50:40.556Z\",\n      \"targets\": [\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"audience\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"distribution\": [\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"Feature Enabled\",\n          \"rollout\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startPercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"bucketingKey\": \"'organization_id\"\n        },\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"audience\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"distribution\": [\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"Feature Enabled\",\n          \"rollout\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startPercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"bucketingKey\": \"'organization_id\"\n        }\n      ],\n      \"readonly\": false,\n      \"hasStaticConfig\": false,\n      \"_createdBy\": \"string\",\n      \"startedAt\": \"1951-06-11T01:16:54.663Z\"\n    }\n  ],\n  \"summary\": {\n    \"maintainers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"links\": [\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"markdown\": \"string\"\n  },\n  \"type\": \"permission\",\n  \"description\": \"New client-facing dashboard.\",\n  \"_createdBy\": \"string\",\n  \"prodTargetingUpdatedAt\": \"2012-12-21T00:21:51.953Z\",\n  \"variations\": [\n    {\n      \"key\": \"variation-1\",\n      \"name\": \"User's with dashboard access\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"variables\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"key\": \"variation-1\",\n      \"name\": \"User's with dashboard access\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"variables\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  ],\n  \"staticVariation\": \"string\",\n  \"variables\": [\n    {\n      \"key\": \"show-new-dashboard\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"_project\": \"string\",\n      \"type\": \"Boolean\",\n      \"status\": \"active\",\n      \"source\": \"api\",\n      \"createdAt\": \"1977-01-12T07:43:23.387Z\",\n      \"updatedAt\": \"1977-03-15T20:37:06.757Z\",\n      \"name\": \"Show New Dashboard\",\n      \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n      \"_feature\": \"61450f3daec96f5cf4a49947\",\n      \"_createdBy\": \"string\",\n      \"validationSchema\": {\n        \"schemaType\": {},\n        \"description\": \"string\",\n        \"exampleValue\": {},\n        \"enumValues\": {},\n        \"regexPattern\": \"string\",\n        \"jsonSchema\": \"string\"\n      },\n      \"persistent\": true,\n      \"tags\": [\n        \"Dashboard\",\n        \"QA\"\n      ]\n    },\n    {\n      \"key\": \"show-new-dashboard\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"_project\": \"string\",\n      \"type\": \"Boolean\",\n      \"status\": \"active\",\n      \"source\": \"api\",\n      \"createdAt\": \"2015-12-02T07:25:27.259Z\",\n      \"updatedAt\": \"1995-02-11T01:57:22.647Z\",\n      \"name\": \"Show New Dashboard\",\n      \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n      \"_feature\": \"61450f3daec96f5cf4a49947\",\n      \"_createdBy\": \"string\",\n      \"validationSchema\": {\n        \"schemaType\": {},\n        \"description\": \"string\",\n        \"exampleValue\": {},\n        \"enumValues\": {},\n        \"regexPattern\": \"string\",\n        \"jsonSchema\": \"string\"\n      },\n      \"persistent\": true,\n      \"tags\": [\n        \"Dashboard\",\n        \"QA\"\n      ]\n    }\n  ],\n  \"tags\": [\n    \"Dashboard\",\n    \"QA\"\n  ],\n  \"ldLink\": \"string\",\n  \"settings\": {\n    \"publicName\": \"string\",\n    \"publicDescription\": \"string\",\n    \"optInEnabled\": false\n  },\n  \"sdkVisibility\": {\n    \"mobile\": false,\n    \"client\": true,\n    \"server\": true\n  },\n  \"latestUpdate\": {\n    \"date\": \"1980-10-21T18:22:41.695Z\",\n    \"a0_user\": \"string\",\n    \"changes\": []\n  },\n  \"staleness\": {},\n  \"customStatus\": {\n    \"_status\": \"string\",\n    \"updatedAt\": \"1984-12-03T13:21:01.143Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b82d20f-6c65-4513-b177-9f4641c385d3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cae72e16-aa30-4c94-97d3-43b6211b85a5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d719f7b9-7312-470f-b028-b6d22107a632",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6afc2f28-6daf-4c66-863f-11dff16dae5e",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e50bdab1-f4a1-451b-9ebc-d59c1b60a633",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"message\": {},\n  \"error\": \"Conflict\",\n  \"errorType\": \"ERR_DUPE_FEATURE_KEY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1686679f-4659-4ce2-84b5-30f6b4f7ac6f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Precondition Failed",
+              "code": 412,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 412,\n  \"message\": {},\n  \"error\": \"Precondition Failed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65afeca6-4692-41d3-8684-a696ff2fd06c",
+          "name": "List Feature Variations",
+          "request": {
+            "name": "List Feature Variations",
+            "description": {
+              "content": "Get a list of variations for a feature",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "features",
+                ":feature",
+                "variations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature",
+                  "description": "(Required) A Feature key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "308e9257-a243-4b33-ab4a-b94fbabc93f6",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"key\": \"variation-1\",\n    \"name\": \"User's with dashboard access\",\n    \"_id\": \"61450f3daec96f5cf4a49946\",\n    \"variables\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  },\n  {\n    \"key\": \"variation-1\",\n    \"name\": \"User's with dashboard access\",\n    \"_id\": \"61450f3daec96f5cf4a49946\",\n    \"variables\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2e9e744-4cde-490f-99eb-3808cf4cafaf",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e16e1dd-144d-4dac-84f3-ecd53b7b78e5",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d6f0514-1910-4443-a00e-0437e169eb79",
+          "name": "Get a Feature Variation",
+          "request": {
+            "name": "Get a Feature Variation",
+            "description": {
+              "content": "Get a variation by ID or key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "features",
+                ":feature",
+                "variations",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Variation key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature",
+                  "description": "(Required) A Feature key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1783c55a-ebbd-4576-bda0-41830ed5652d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Variation key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"variables\": {\n    \"key_0\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "070e74f3-a908-4e2a-8d75-6c26acc5939d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Variation key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8a1a3f4-727b-45de-a5c4-0f429783417a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Variation key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a748133a-a83c-4a6d-9445-9414cc5d921c",
+          "name": "Update a Feature Variation",
+          "request": {
+            "name": "Update a Feature Variation",
+            "description": {
+              "content": "Update a variation by ID or key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "features",
+                ":feature",
+                "variations",
+                ":key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "key",
+                  "description": "(Required) A Feature key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature",
+                  "description": "(Required) A Feature key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key\": \"<string>\",\n  \"name\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4dcc6a4e-7b9b-4957-8782-d20928de1e81",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_id\": \"61450f3daec96f5cf4a49946\",\n  \"_project\": \"string\",\n  \"source\": \"slack\",\n  \"status\": \"active\",\n  \"name\": \"New Dashboard\",\n  \"key\": \"new-dash\",\n  \"createdAt\": \"2025-11-11T23:35:50.692Z\",\n  \"updatedAt\": \"1949-08-26T06:24:32.445Z\",\n  \"controlVariation\": \"string\",\n  \"readonly\": false,\n  \"configurations\": [\n    {\n      \"_feature\": \"61450f3daec96f5cf4a49946\",\n      \"_environment\": \"61450f3daec96f5cf4a49946\",\n      \"status\": \"inactive\",\n      \"updatedAt\": \"2000-09-20T13:31:23.642Z\",\n      \"targets\": [\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"audience\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"distribution\": [\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"Feature Enabled\",\n          \"rollout\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startPercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"bucketingKey\": \"'organization_id\"\n        },\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"audience\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"distribution\": [\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"Feature Enabled\",\n          \"rollout\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startPercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"bucketingKey\": \"'organization_id\"\n        }\n      ],\n      \"readonly\": true,\n      \"hasStaticConfig\": false,\n      \"_createdBy\": \"string\",\n      \"startedAt\": \"1996-10-08T02:42:55.588Z\"\n    },\n    {\n      \"_feature\": \"61450f3daec96f5cf4a49946\",\n      \"_environment\": \"61450f3daec96f5cf4a49946\",\n      \"status\": \"inactive\",\n      \"updatedAt\": \"2019-07-11T03:50:40.556Z\",\n      \"targets\": [\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"audience\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"distribution\": [\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"Feature Enabled\",\n          \"rollout\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startPercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"bucketingKey\": \"'organization_id\"\n        },\n        {\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"audience\": {\n            \"filters\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"distribution\": [\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"percentage\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"_variation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"name\": \"Feature Enabled\",\n          \"rollout\": {\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startDate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"startPercentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"stages\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"bucketingKey\": \"'organization_id\"\n        }\n      ],\n      \"readonly\": false,\n      \"hasStaticConfig\": false,\n      \"_createdBy\": \"string\",\n      \"startedAt\": \"1951-06-11T01:16:54.663Z\"\n    }\n  ],\n  \"summary\": {\n    \"maintainers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"links\": [\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"url\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"markdown\": \"string\"\n  },\n  \"type\": \"permission\",\n  \"description\": \"New client-facing dashboard.\",\n  \"_createdBy\": \"string\",\n  \"prodTargetingUpdatedAt\": \"2012-12-21T00:21:51.953Z\",\n  \"variations\": [\n    {\n      \"key\": \"variation-1\",\n      \"name\": \"User's with dashboard access\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"variables\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"key\": \"variation-1\",\n      \"name\": \"User's with dashboard access\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"variables\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      }\n    }\n  ],\n  \"staticVariation\": \"string\",\n  \"variables\": [\n    {\n      \"key\": \"show-new-dashboard\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"_project\": \"string\",\n      \"type\": \"Boolean\",\n      \"status\": \"active\",\n      \"source\": \"api\",\n      \"createdAt\": \"1977-01-12T07:43:23.387Z\",\n      \"updatedAt\": \"1977-03-15T20:37:06.757Z\",\n      \"name\": \"Show New Dashboard\",\n      \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n      \"_feature\": \"61450f3daec96f5cf4a49947\",\n      \"_createdBy\": \"string\",\n      \"validationSchema\": {\n        \"schemaType\": {},\n        \"description\": \"string\",\n        \"exampleValue\": {},\n        \"enumValues\": {},\n        \"regexPattern\": \"string\",\n        \"jsonSchema\": \"string\"\n      },\n      \"persistent\": true,\n      \"tags\": [\n        \"Dashboard\",\n        \"QA\"\n      ]\n    },\n    {\n      \"key\": \"show-new-dashboard\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"_project\": \"string\",\n      \"type\": \"Boolean\",\n      \"status\": \"active\",\n      \"source\": \"api\",\n      \"createdAt\": \"2015-12-02T07:25:27.259Z\",\n      \"updatedAt\": \"1995-02-11T01:57:22.647Z\",\n      \"name\": \"Show New Dashboard\",\n      \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n      \"_feature\": \"61450f3daec96f5cf4a49947\",\n      \"_createdBy\": \"string\",\n      \"validationSchema\": {\n        \"schemaType\": {},\n        \"description\": \"string\",\n        \"exampleValue\": {},\n        \"enumValues\": {},\n        \"regexPattern\": \"string\",\n        \"jsonSchema\": \"string\"\n      },\n      \"persistent\": true,\n      \"tags\": [\n        \"Dashboard\",\n        \"QA\"\n      ]\n    }\n  ],\n  \"tags\": [\n    \"Dashboard\",\n    \"QA\"\n  ],\n  \"ldLink\": \"string\",\n  \"settings\": {\n    \"publicName\": \"string\",\n    \"publicDescription\": \"string\",\n    \"optInEnabled\": false\n  },\n  \"sdkVisibility\": {\n    \"mobile\": false,\n    \"client\": true,\n    \"server\": true\n  },\n  \"latestUpdate\": {\n    \"date\": \"1980-10-21T18:22:41.695Z\",\n    \"a0_user\": \"string\",\n    \"changes\": []\n  },\n  \"staleness\": {},\n  \"customStatus\": {\n    \"_status\": \"string\",\n    \"updatedAt\": \"1984-12-03T13:21:01.143Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6ad6b1ef-6d9e-4894-8f25-48d8e0ac17d7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e165b63d-c297-40b9-aad0-5716f9b6942c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "24440d57-115c-41ba-bb33-1cdeedb11925",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "010e5d81-88c3-4f6e-810b-4cc3cb7966d3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fe579b9-ceac-4e7c-aded-fc5e51aa8ad7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "variations",
+                    ":key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "key",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"variation-1\",\n  \"name\": \"User's with dashboard access\",\n  \"variables\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 409,\n  \"message\": {},\n  \"error\": \"Conflict\",\n  \"errorType\": \"ERR_DUPE_FEATURE_KEY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bucketing-api.devcycle.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6d4a7974-e0e7-4b13-965f-dec87e8c1503",
+    "name": "DevCycle Bucketing Audiences Variations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+      "type": "text/plain"
+    }
+  }
+}

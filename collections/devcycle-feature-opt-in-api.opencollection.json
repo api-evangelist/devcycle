@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DevCycle Bucketing Audiences Feature Opt-in API",
+    "version": "1.3.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Feature Opt-in",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch opt-in config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://bucketing-api.devcycle.com/v1/optInConfig",
+            "params": [
+              {
+                "name": "sdkKey",
+                "value": "",
+                "type": "query",
+                "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set."
+              },
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id to identify the user"
+              }
+            ]
+          },
+          "docs": "Fetch a project config to display features available for Opt-in"
+        },
+        {
+          "info": {
+            "name": "Update opt-in preferences for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://bucketing-api.devcycle.com/v1/optIns/:user_id",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "Unique user_id to identify the user"
+              },
+              {
+                "name": "sdkKey",
+                "value": "",
+                "type": "query",
+                "description": "SDK Key as defined in the dashboard for your DevCycle environment. One of the Authorization header or \"sdkKey\" query parameter is required to be set."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update opt-in preferences for a user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

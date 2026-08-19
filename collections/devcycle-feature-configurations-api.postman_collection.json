@@ -1,0 +1,649 @@
+{
+  "item": [
+    {
+      "id": "09451784-4097-41ab-8b7e-cdbbf68acc2b",
+      "name": "Feature Configurations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f140838-3053-4979-93a1-800213c1c7aa",
+          "name": "List Feature configurations",
+          "request": {
+            "name": "List Feature configurations",
+            "description": {
+              "content": "List Feature configurations for all environments or by environment key or ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "features",
+                ":feature",
+                "configurations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "environment",
+                  "value": "<string>",
+                  "description": "A Environment key or ID"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature",
+                  "description": "(Required) A Feature key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "142cf5b4-cf89-42d9-a3ad-cdd9a434374a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_feature\": \"61450f3daec96f5cf4a49946\",\n    \"_environment\": \"61450f3daec96f5cf4a49946\",\n    \"status\": \"inactive\",\n    \"updatedAt\": \"1950-06-03T06:49:33.726Z\",\n    \"targets\": [\n      {\n        \"_id\": \"61450f3daec96f5cf4a49946\",\n        \"audience\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"Android Users\"\n        },\n        \"distribution\": [\n          {\n            \"percentage\": 0.0005,\n            \"_variation\": \"variation-1\"\n          },\n          {\n            \"percentage\": 0.0005,\n            \"_variation\": \"variation-1\"\n          }\n        ],\n        \"name\": \"Feature Enabled\",\n        \"rollout\": {\n          \"type\": \"gradual\",\n          \"startDate\": \"1964-07-23T09:02:43.568Z\",\n          \"startPercentage\": 0.6155596994298993,\n          \"stages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"bucketingKey\": \"'organization_id\"\n      },\n      {\n        \"_id\": \"61450f3daec96f5cf4a49946\",\n        \"audience\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"Android Users\"\n        },\n        \"distribution\": [\n          {\n            \"percentage\": 0.0005,\n            \"_variation\": \"variation-1\"\n          },\n          {\n            \"percentage\": 0.0005,\n            \"_variation\": \"variation-1\"\n          }\n        ],\n        \"name\": \"Feature Enabled\",\n        \"rollout\": {\n          \"type\": \"stepped\",\n          \"startDate\": \"1977-11-03T11:15:54.197Z\",\n          \"startPercentage\": 0.6173185342815416,\n          \"stages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"bucketingKey\": \"'organization_id\"\n      }\n    ],\n    \"readonly\": false,\n    \"hasStaticConfig\": true,\n    \"_createdBy\": \"string\",\n    \"startedAt\": \"1951-06-15T19:37:35.813Z\"\n  },\n  {\n    \"_feature\": \"61450f3daec96f5cf4a49946\",\n    \"_environment\": \"61450f3daec96f5cf4a49946\",\n    \"status\": \"active\",\n    \"updatedAt\": \"2022-09-25T10:11:26.028Z\",\n    \"targets\": [\n      {\n        \"_id\": \"61450f3daec96f5cf4a49946\",\n        \"audience\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"Android Users\"\n        },\n        \"distribution\": [\n          {\n            \"percentage\": 0.0005,\n            \"_variation\": \"variation-1\"\n          },\n          {\n            \"percentage\": 0.0005,\n            \"_variation\": \"variation-1\"\n          }\n        ],\n        \"name\": \"Feature Enabled\",\n        \"rollout\": {\n          \"type\": \"stepped\",\n          \"startDate\": \"1969-04-28T21:24:20.471Z\",\n          \"startPercentage\": 0.9074739219332512,\n          \"stages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"bucketingKey\": \"'organization_id\"\n      },\n      {\n        \"_id\": \"61450f3daec96f5cf4a49946\",\n        \"audience\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"name\": \"Android Users\"\n        },\n        \"distribution\": [\n          {\n            \"percentage\": 0.0005,\n            \"_variation\": \"variation-1\"\n          },\n          {\n            \"percentage\": 0.0005,\n            \"_variation\": \"variation-1\"\n          }\n        ],\n        \"name\": \"Feature Enabled\",\n        \"rollout\": {\n          \"type\": \"gradual\",\n          \"startDate\": \"1985-01-15T17:45:31.104Z\",\n          \"startPercentage\": 0.7162225455114803,\n          \"stages\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"bucketingKey\": \"'organization_id\"\n      }\n    ],\n    \"readonly\": false,\n    \"hasStaticConfig\": false,\n    \"_createdBy\": \"string\",\n    \"startedAt\": \"2008-05-20T21:44:56.241Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63727d7f-87c2-45e6-a222-3548f41cfb13",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "41b8281b-078d-483f-bbbe-94b43236eea3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a973b2f3-8a1b-4166-a945-06abe92fb6a1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2de20fb7-6767-4bef-8e81-870088176243",
+          "name": "Update a Feature configuration",
+          "request": {
+            "name": "Update a Feature configuration",
+            "description": {
+              "content": "Update a Feature configuration by environment key or ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "features",
+                ":feature",
+                "configurations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "environment",
+                  "value": "<string>",
+                  "description": "(Required) A Environment key or ID"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "feature",
+                  "description": "(Required) A Feature key or ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"<string>\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        },\n        {\n          \"percentage\": \"<number>\",\n          \"_variation\": \"<string>\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"<string>\"\n      },\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"rollout\": {\n        \"type\": \"<string>\",\n        \"startDate\": \"<dateTime>\",\n        \"startPercentage\": \"<number>\",\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "061453cf-c640-49e9-a622-a8d0bf6104d3",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"gradual\",\n        \"startDate\": \"1986-08-25T05:22:11.400Z\",\n        \"startPercentage\": 0.5855422959003586,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"2015-04-29T10:49:30.614Z\",\n        \"startPercentage\": 0.06139434774574104,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_feature\": \"61450f3daec96f5cf4a49946\",\n  \"_environment\": \"61450f3daec96f5cf4a49946\",\n  \"status\": \"active\",\n  \"updatedAt\": \"1981-05-03T14:59:18.354Z\",\n  \"targets\": [\n    {\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"1982-06-12T10:56:15.194Z\",\n        \"startPercentage\": 0.21849679195891247,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"bucketingKey\": \"'organization_id\"\n    },\n    {\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"stepped\",\n        \"startDate\": \"2021-06-24T01:49:37.129Z\",\n        \"startPercentage\": 0.023257450968464433,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"bucketingKey\": \"'organization_id\"\n    }\n  ],\n  \"readonly\": true,\n  \"hasStaticConfig\": false,\n  \"_createdBy\": \"string\",\n  \"startedAt\": \"1953-09-23T22:17:25.892Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03254af4-8470-4de0-bbca-fd0aad5d6dd7",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"gradual\",\n        \"startDate\": \"1986-08-25T05:22:11.400Z\",\n        \"startPercentage\": 0.5855422959003586,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"2015-04-29T10:49:30.614Z\",\n        \"startPercentage\": 0.06139434774574104,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "70a32aa2-87a4-479a-af69-650f03ea73fc",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"gradual\",\n        \"startDate\": \"1986-08-25T05:22:11.400Z\",\n        \"startPercentage\": 0.5855422959003586,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"2015-04-29T10:49:30.614Z\",\n        \"startPercentage\": 0.06139434774574104,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "75cc73df-4ef8-4ca7-8d00-b2bbca64f17b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "features",
+                    ":feature",
+                    "configurations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "environment",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "feature",
+                      "description": "(Required) A Feature key or ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\",\n  \"targets\": [\n    {\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"gradual\",\n        \"startDate\": \"1986-08-25T05:22:11.400Z\",\n        \"startPercentage\": 0.5855422959003586,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    {\n      \"distribution\": [\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        },\n        {\n          \"percentage\": 0.0005,\n          \"_variation\": \"variation-1\"\n        }\n      ],\n      \"audience\": {\n        \"filters\": {\n          \"filters\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"operator\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"name\": \"Android Users\"\n      },\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"name\": \"Feature Enabled\",\n      \"rollout\": {\n        \"type\": \"schedule\",\n        \"startDate\": \"2015-04-29T10:49:30.614Z\",\n        \"startPercentage\": 0.06139434774574104,\n        \"stages\": [\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"percentage\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"date\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 404,\n  \"message\": {},\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bucketing-api.devcycle.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "66b1fc47-dc13-4296-8ffe-878bc991a816",
+    "name": "DevCycle Bucketing Audiences Feature Configurations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+      "type": "text/plain"
+    }
+  }
+}

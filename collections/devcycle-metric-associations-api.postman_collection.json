@@ -1,0 +1,830 @@
+{
+  "item": [
+    {
+      "id": "ae4de0ce-e385-4807-bf64-2f03affe8a68",
+      "name": "Metric Associations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aa19ac94-1e1d-4100-82b3-8b8d802ba54d",
+          "name": "Get Metric Associations",
+          "request": {
+            "name": "Get Metric Associations",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "metric-associations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "metric",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "feature",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf86c984-84f0-4681-8277-647e7fe8deff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"_project\": \"string\",\n    \"feature\": {\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"_project\": \"string\",\n      \"source\": \"slack\",\n      \"status\": \"complete\",\n      \"name\": \"New Dashboard\",\n      \"key\": \"new-dash\",\n      \"createdAt\": \"1984-10-05T12:18:12.516Z\",\n      \"updatedAt\": \"1974-08-09T04:52:37.159Z\",\n      \"controlVariation\": \"string\",\n      \"readonly\": true,\n      \"configurations\": [\n        {\n          \"_feature\": \"61450f3daec96f5cf4a49946\",\n          \"_environment\": \"61450f3daec96f5cf4a49946\",\n          \"status\": \"active\",\n          \"updatedAt\": \"1994-09-04T18:14:12.122Z\",\n          \"targets\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"readonly\": true,\n          \"hasStaticConfig\": true,\n          \"_createdBy\": \"string\",\n          \"startedAt\": \"1968-08-14T13:00:14.138Z\"\n        },\n        {\n          \"_feature\": \"61450f3daec96f5cf4a49946\",\n          \"_environment\": \"61450f3daec96f5cf4a49946\",\n          \"status\": \"active\",\n          \"updatedAt\": \"1985-07-30T01:00:55.453Z\",\n          \"targets\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"readonly\": false,\n          \"hasStaticConfig\": true,\n          \"_createdBy\": \"string\",\n          \"startedAt\": \"2011-02-27T06:29:35.243Z\"\n        }\n      ],\n      \"summary\": {\n        \"maintainers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"markdown\": \"string\"\n      },\n      \"type\": \"release\",\n      \"description\": \"New client-facing dashboard.\",\n      \"_createdBy\": \"string\",\n      \"prodTargetingUpdatedAt\": \"1946-10-04T15:30:47.778Z\",\n      \"variations\": [\n        {\n          \"key\": \"variation-1\",\n          \"name\": \"User's with dashboard access\",\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"variables\": {\n            \"show-new-dashboard\": true,\n            \"string-var\": \"hello world\",\n            \"bool-var\": true,\n            \"num-var\": 99,\n            \"json-var\": {\n              \"foo\": \"bar\"\n            }\n          }\n        },\n        {\n          \"key\": \"variation-1\",\n          \"name\": \"User's with dashboard access\",\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"variables\": {\n            \"show-new-dashboard\": true,\n            \"string-var\": \"hello world\",\n            \"bool-var\": true,\n            \"num-var\": 99,\n            \"json-var\": {\n              \"foo\": \"bar\"\n            }\n          }\n        }\n      ],\n      \"staticVariation\": \"string\",\n      \"variables\": [\n        {\n          \"key\": \"show-new-dashboard\",\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"_project\": \"string\",\n          \"type\": \"Boolean\",\n          \"status\": \"active\",\n          \"source\": \"api\",\n          \"createdAt\": \"2004-04-29T07:25:20.741Z\",\n          \"updatedAt\": \"2025-05-05T13:47:45.731Z\",\n          \"name\": \"Show New Dashboard\",\n          \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n          \"_feature\": \"61450f3daec96f5cf4a49947\",\n          \"_createdBy\": \"string\",\n          \"validationSchema\": {\n            \"description\": \"Validation schema for variable values\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"persistent\": true,\n          \"tags\": [\n            \"Dashboard\",\n            \"QA\"\n          ]\n        },\n        {\n          \"key\": \"show-new-dashboard\",\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"_project\": \"string\",\n          \"type\": \"Boolean\",\n          \"status\": \"active\",\n          \"source\": \"api\",\n          \"createdAt\": \"1975-08-31T17:20:22.494Z\",\n          \"updatedAt\": \"2010-08-24T19:26:07.009Z\",\n          \"name\": \"Show New Dashboard\",\n          \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n          \"_feature\": \"61450f3daec96f5cf4a49947\",\n          \"_createdBy\": \"string\",\n          \"validationSchema\": {\n            \"description\": \"Validation schema for variable values\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"persistent\": false,\n          \"tags\": [\n            \"Dashboard\",\n            \"QA\"\n          ]\n        }\n      ],\n      \"tags\": [\n        \"Dashboard\",\n        \"QA\"\n      ],\n      \"ldLink\": \"string\",\n      \"settings\": {\n        \"publicName\": \"string\",\n        \"publicDescription\": \"string\",\n        \"optInEnabled\": false\n      },\n      \"sdkVisibility\": {\n        \"mobile\": false,\n        \"client\": false,\n        \"server\": false\n      },\n      \"latestUpdate\": {\n        \"date\": \"2010-11-30T08:25:37.370Z\",\n        \"a0_user\": \"string\",\n        \"changes\": []\n      },\n      \"staleness\": {},\n      \"customStatus\": {\n        \"_status\": \"string\",\n        \"updatedAt\": \"2009-01-31T02:43:43.190Z\"\n      }\n    },\n    \"metric\": {\n      \"name\": \"New Signups\",\n      \"key\": \"new-signups\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"_project\": \"string\",\n      \"event\": \"Sign Ups\",\n      \"dimension\": \"COUNT_PER_UNIQUE_USER\",\n      \"optimize\": \"increase\",\n      \"createdAt\": \"1961-08-01T13:22:23.807Z\",\n      \"updatedAt\": \"1982-08-09T22:09:05.950Z\",\n      \"description\": \"New signups on the dashboard\",\n      \"source\": \"mcp\"\n    },\n    \"createdAt\": \"1969-12-01T06:16:15.793Z\"\n  },\n  {\n    \"_project\": \"string\",\n    \"feature\": {\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"_project\": \"string\",\n      \"source\": \"api\",\n      \"status\": \"complete\",\n      \"name\": \"New Dashboard\",\n      \"key\": \"new-dash\",\n      \"createdAt\": \"2009-03-17T00:12:22.159Z\",\n      \"updatedAt\": \"1964-08-13T01:03:34.290Z\",\n      \"controlVariation\": \"string\",\n      \"readonly\": false,\n      \"configurations\": [\n        {\n          \"_feature\": \"61450f3daec96f5cf4a49946\",\n          \"_environment\": \"61450f3daec96f5cf4a49946\",\n          \"status\": \"inactive\",\n          \"updatedAt\": \"1987-02-25T19:42:59.607Z\",\n          \"targets\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"readonly\": false,\n          \"hasStaticConfig\": false,\n          \"_createdBy\": \"string\",\n          \"startedAt\": \"1965-04-05T23:15:37.984Z\"\n        },\n        {\n          \"_feature\": \"61450f3daec96f5cf4a49946\",\n          \"_environment\": \"61450f3daec96f5cf4a49946\",\n          \"status\": \"active\",\n          \"updatedAt\": \"2012-04-20T02:08:17.768Z\",\n          \"targets\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"readonly\": true,\n          \"hasStaticConfig\": true,\n          \"_createdBy\": \"string\",\n          \"startedAt\": \"2011-02-20T02:53:34.048Z\"\n        }\n      ],\n      \"summary\": {\n        \"maintainers\": [\n          \"string\",\n          \"string\"\n        ],\n        \"links\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"markdown\": \"string\"\n      },\n      \"type\": \"release\",\n      \"description\": \"New client-facing dashboard.\",\n      \"_createdBy\": \"string\",\n      \"prodTargetingUpdatedAt\": \"1967-05-07T23:23:31.405Z\",\n      \"variations\": [\n        {\n          \"key\": \"variation-1\",\n          \"name\": \"User's with dashboard access\",\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"variables\": {\n            \"show-new-dashboard\": true,\n            \"string-var\": \"hello world\",\n            \"bool-var\": true,\n            \"num-var\": 99,\n            \"json-var\": {\n              \"foo\": \"bar\"\n            }\n          }\n        },\n        {\n          \"key\": \"variation-1\",\n          \"name\": \"User's with dashboard access\",\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"variables\": {\n            \"show-new-dashboard\": true,\n            \"string-var\": \"hello world\",\n            \"bool-var\": true,\n            \"num-var\": 99,\n            \"json-var\": {\n              \"foo\": \"bar\"\n            }\n          }\n        }\n      ],\n      \"staticVariation\": \"string\",\n      \"variables\": [\n        {\n          \"key\": \"show-new-dashboard\",\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"_project\": \"string\",\n          \"type\": \"Boolean\",\n          \"status\": \"active\",\n          \"source\": \"api\",\n          \"createdAt\": \"1983-04-09T08:07:16.810Z\",\n          \"updatedAt\": \"1965-05-12T18:59:40.926Z\",\n          \"name\": \"Show New Dashboard\",\n          \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n          \"_feature\": \"61450f3daec96f5cf4a49947\",\n          \"_createdBy\": \"string\",\n          \"validationSchema\": {\n            \"description\": \"Validation schema for variable values\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"persistent\": false,\n          \"tags\": [\n            \"Dashboard\",\n            \"QA\"\n          ]\n        },\n        {\n          \"key\": \"show-new-dashboard\",\n          \"_id\": \"61450f3daec96f5cf4a49946\",\n          \"_project\": \"string\",\n          \"type\": \"Boolean\",\n          \"status\": \"active\",\n          \"source\": \"api\",\n          \"createdAt\": \"1979-06-13T19:41:43.395Z\",\n          \"updatedAt\": \"1974-01-08T17:38:59.458Z\",\n          \"name\": \"Show New Dashboard\",\n          \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n          \"_feature\": \"61450f3daec96f5cf4a49947\",\n          \"_createdBy\": \"string\",\n          \"validationSchema\": {\n            \"description\": \"Validation schema for variable values\",\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"persistent\": false,\n          \"tags\": [\n            \"Dashboard\",\n            \"QA\"\n          ]\n        }\n      ],\n      \"tags\": [\n        \"Dashboard\",\n        \"QA\"\n      ],\n      \"ldLink\": \"string\",\n      \"settings\": {\n        \"publicName\": \"string\",\n        \"publicDescription\": \"string\",\n        \"optInEnabled\": true\n      },\n      \"sdkVisibility\": {\n        \"mobile\": false,\n        \"client\": true,\n        \"server\": false\n      },\n      \"latestUpdate\": {\n        \"date\": \"1964-09-07T13:33:12.289Z\",\n        \"a0_user\": \"string\",\n        \"changes\": []\n      },\n      \"staleness\": {},\n      \"customStatus\": {\n        \"_status\": \"string\",\n        \"updatedAt\": \"1991-03-07T13:16:29.296Z\"\n      }\n    },\n    \"metric\": {\n      \"name\": \"New Signups\",\n      \"key\": \"new-signups\",\n      \"_id\": \"61450f3daec96f5cf4a49946\",\n      \"_project\": \"string\",\n      \"event\": \"Sign Ups\",\n      \"dimension\": \"COUNT_PER_UNIQUE_USER\",\n      \"optimize\": \"increase\",\n      \"createdAt\": \"1968-11-29T04:55:44.054Z\",\n      \"updatedAt\": \"2025-01-14T07:22:45.266Z\",\n      \"description\": \"New signups on the dashboard\",\n      \"source\": \"terraform\"\n    },\n    \"createdAt\": \"1998-06-24T16:14:31.402Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9fda91a0-d3ef-4092-93c5-7e3604e13339",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"statusCode\": 400,\n  \"message\": {},\n  \"error\": \"Bad Request\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a3df3f1-4d0e-41ed-bc61-6a69ab57b79a",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2013d2ad-d37b-4cc8-911b-f2b359fb7014",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "006a048e-f1ba-4fa8-845f-cefd3555ea06",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40e3a08d-a344-4c42-906b-7bd5959877cb",
+          "name": "Associate a Metric with a Feature",
+          "request": {
+            "name": "Associate a Metric with a Feature",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "metric-associations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7973a42e-d2ec-4cef-b551-a9123753d392",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"_project\": \"string\",\n  \"feature\": {\n    \"_id\": \"61450f3daec96f5cf4a49946\",\n    \"_project\": \"string\",\n    \"source\": \"gitlab.code_usages\",\n    \"status\": \"complete\",\n    \"name\": \"New Dashboard\",\n    \"key\": \"new-dash\",\n    \"createdAt\": \"1969-10-24T02:46:48.154Z\",\n    \"updatedAt\": \"2014-01-12T02:31:40.935Z\",\n    \"controlVariation\": \"string\",\n    \"readonly\": false,\n    \"configurations\": [\n      {\n        \"_feature\": \"61450f3daec96f5cf4a49946\",\n        \"_environment\": \"61450f3daec96f5cf4a49946\",\n        \"status\": \"active\",\n        \"updatedAt\": \"1990-03-14T12:48:32.044Z\",\n        \"targets\": [\n          {\n            \"_id\": \"61450f3daec96f5cf4a49946\",\n            \"audience\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"distribution\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"Feature Enabled\",\n            \"rollout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucketingKey\": \"'organization_id\"\n          },\n          {\n            \"_id\": \"61450f3daec96f5cf4a49946\",\n            \"audience\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"distribution\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"Feature Enabled\",\n            \"rollout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucketingKey\": \"'organization_id\"\n          }\n        ],\n        \"readonly\": true,\n        \"hasStaticConfig\": true,\n        \"_createdBy\": \"string\",\n        \"startedAt\": \"1960-06-15T15:20:02.987Z\"\n      },\n      {\n        \"_feature\": \"61450f3daec96f5cf4a49946\",\n        \"_environment\": \"61450f3daec96f5cf4a49946\",\n        \"status\": \"inactive\",\n        \"updatedAt\": \"2018-12-31T06:34:45.492Z\",\n        \"targets\": [\n          {\n            \"_id\": \"61450f3daec96f5cf4a49946\",\n            \"audience\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"distribution\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"Feature Enabled\",\n            \"rollout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucketingKey\": \"'organization_id\"\n          },\n          {\n            \"_id\": \"61450f3daec96f5cf4a49946\",\n            \"audience\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"distribution\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"name\": \"Feature Enabled\",\n            \"rollout\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"bucketingKey\": \"'organization_id\"\n          }\n        ],\n        \"readonly\": false,\n        \"hasStaticConfig\": false,\n        \"_createdBy\": \"string\",\n        \"startedAt\": \"2000-06-07T12:54:12.400Z\"\n      }\n    ],\n    \"summary\": {\n      \"maintainers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"links\": [\n        {\n          \"url\": \"string\",\n          \"title\": \"string\"\n        },\n        {\n          \"url\": \"string\",\n          \"title\": \"string\"\n        }\n      ],\n      \"markdown\": \"string\"\n    },\n    \"type\": \"experiment\",\n    \"description\": \"New client-facing dashboard.\",\n    \"_createdBy\": \"string\",\n    \"prodTargetingUpdatedAt\": \"2003-11-28T23:43:21.367Z\",\n    \"variations\": [\n      {\n        \"key\": \"variation-1\",\n        \"name\": \"User's with dashboard access\",\n        \"_id\": \"61450f3daec96f5cf4a49946\",\n        \"variables\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      },\n      {\n        \"key\": \"variation-1\",\n        \"name\": \"User's with dashboard access\",\n        \"_id\": \"61450f3daec96f5cf4a49946\",\n        \"variables\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        }\n      }\n    ],\n    \"staticVariation\": \"string\",\n    \"variables\": [\n      {\n        \"key\": \"show-new-dashboard\",\n        \"_id\": \"61450f3daec96f5cf4a49946\",\n        \"_project\": \"string\",\n        \"type\": \"Boolean\",\n        \"status\": \"active\",\n        \"source\": \"api\",\n        \"createdAt\": \"1962-04-10T02:28:02.398Z\",\n        \"updatedAt\": \"1995-06-17T08:36:14.742Z\",\n        \"name\": \"Show New Dashboard\",\n        \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n        \"_feature\": \"61450f3daec96f5cf4a49947\",\n        \"_createdBy\": \"string\",\n        \"validationSchema\": {\n          \"schemaType\": {},\n          \"description\": \"string\",\n          \"exampleValue\": {},\n          \"enumValues\": {},\n          \"regexPattern\": \"string\",\n          \"jsonSchema\": \"string\"\n        },\n        \"persistent\": false,\n        \"tags\": [\n          \"Dashboard\",\n          \"QA\"\n        ]\n      },\n      {\n        \"key\": \"show-new-dashboard\",\n        \"_id\": \"61450f3daec96f5cf4a49946\",\n        \"_project\": \"string\",\n        \"type\": \"Boolean\",\n        \"status\": \"active\",\n        \"source\": \"api\",\n        \"createdAt\": \"1978-07-05T22:01:10.072Z\",\n        \"updatedAt\": \"2011-10-18T08:19:54.650Z\",\n        \"name\": \"Show New Dashboard\",\n        \"description\": \"A boolean variable that will toggle the new dashboard feature\",\n        \"_feature\": \"61450f3daec96f5cf4a49947\",\n        \"_createdBy\": \"string\",\n        \"validationSchema\": {\n          \"schemaType\": {},\n          \"description\": \"string\",\n          \"exampleValue\": {},\n          \"enumValues\": {},\n          \"regexPattern\": \"string\",\n          \"jsonSchema\": \"string\"\n        },\n        \"persistent\": false,\n        \"tags\": [\n          \"Dashboard\",\n          \"QA\"\n        ]\n      }\n    ],\n    \"tags\": [\n      \"Dashboard\",\n      \"QA\"\n    ],\n    \"ldLink\": \"string\",\n    \"settings\": {\n      \"publicName\": \"string\",\n      \"publicDescription\": \"string\",\n      \"optInEnabled\": false\n    },\n    \"sdkVisibility\": {\n      \"mobile\": false,\n      \"client\": true,\n      \"server\": false\n    },\n    \"latestUpdate\": {\n      \"date\": \"1979-06-06T10:40:54.175Z\",\n      \"a0_user\": \"string\",\n      \"changes\": []\n    },\n    \"staleness\": {},\n    \"customStatus\": {\n      \"_status\": \"string\",\n      \"updatedAt\": \"1978-05-08T10:08:12.736Z\"\n    }\n  },\n  \"metric\": {\n    \"name\": \"New Signups\",\n    \"key\": \"new-signups\",\n    \"_id\": \"61450f3daec96f5cf4a49946\",\n    \"_project\": \"string\",\n    \"event\": \"Sign Ups\",\n    \"dimension\": \"COUNT_PER_UNIQUE_USER\",\n    \"optimize\": \"increase\",\n    \"createdAt\": \"1961-02-11T22:43:33.462Z\",\n    \"updatedAt\": \"1991-08-03T16:49:03.902Z\",\n    \"description\": \"New signups on the dashboard\",\n    \"source\": \"slack\"\n  },\n  \"createdAt\": \"1954-11-16T19:03:08.173Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de415774-22a4-47f9-a83a-f9b20c1a1702",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b3b4e4ef-1048-4ecd-a545-2f928205043b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe2ae104-059e-4580-b0a7-f1e23350ea21",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metric\": \"<string>\",\n  \"feature\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "984dcd2c-f416-41ef-bb87-0f3d91e0409b",
+          "name": "Delete an Association of a Metric and a Feature",
+          "request": {
+            "name": "Delete an Association of a Metric and a Feature",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "projects",
+                ":project",
+                "metric-associations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "metric",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "feature",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project",
+                  "description": "(Required) A Project key or ID"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "debc8e10-5dae-44c8-a3e2-496a9228e6d2",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "427bbd1c-615d-4bad-9aee-ad02a463752f",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7087f997-6a73-4fe2-b35e-2192a9eb8366",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2d32735d-3a4f-41ff-8bb9-c290afb92fbb",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "projects",
+                    ":project",
+                    "metric-associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "metric",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project",
+                      "description": "(Required) A Project key or ID"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bucketing-api.devcycle.com/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7dfac156-ec7d-44c5-9d3d-1392f291df99",
+    "name": "DevCycle Bucketing Audiences Metric Associations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.",
+      "type": "text/plain"
+    }
+  }
+}
