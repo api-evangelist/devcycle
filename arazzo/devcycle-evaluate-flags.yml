@@ -4,8 +4,8 @@ info:
   version: 1.0.0
   summary: Fetch all variables and features for a user context and report an event.
 sourceDescriptions:
-- name: bucketing
-  url: ../openapi/devcycle-bucketing-openapi.yaml
+- name: bucketingApiApi
+  url: ../openapi/devcycle-bucketing-api-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: evaluateForUser

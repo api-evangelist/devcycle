@@ -4,8 +4,17 @@ info:
   version: 1.0.0
   summary: Create a feature flag, a variable, and a variation via the DevCycle Management API.
 sourceDescriptions:
-- name: management
-  url: ../openapi/devcycle-management-openapi.json
+- name: featuresV2Api
+  url: ../openapi/devcycle-features-v2-api-openapi.yml
+  type: openapi
+- name: projectsApi
+  url: ../openapi/devcycle-projects-api-openapi.yml
+  type: openapi
+- name: variablesApi
+  url: ../openapi/devcycle-variables-api-openapi.yml
+  type: openapi
+- name: variationsApi
+  url: ../openapi/devcycle-variations-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: createFeatureWithVariable
