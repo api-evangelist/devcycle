@@ -1,13 +1,11 @@
 aid: devcycle
 name: DevCycle
-description: >-
-  DevCycle is an OpenFeature-native feature flag and feature management platform (a
-  Dynatrace company) for creating, targeting, rolling out, and cleaning up feature
-  flags without disrupting developer workflow. It exposes a Management API for
-  administering projects, environments, features, variables, variations, and
-  audiences, and a Bucketing API for server-side flag evaluation, backed by client
-  and server SDKs across every major language, OpenFeature providers, a `dvc` CLI,
-  a Terraform provider, and an official hosted MCP server for AI coding agents.
+description: DevCycle is an OpenFeature-native feature flag and feature management platform (a Dynatrace
+  company) for creating, targeting, rolling out, and cleaning up feature flags without disrupting developer
+  workflow. It exposes a Management API for administering projects, environments, features, variables,
+  variations, and audiences, and a Bucketing API for server-side flag evaluation, backed by client and
+  server SDKs across every major language, OpenFeature providers, a `dvc` CLI, a Terraform provider, and
+  an official hosted MCP server for AI coding agents.
 url: https://raw.githubusercontent.com/api-evangelist/devcycle/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -39,7 +37,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-09-16'
 image: https://devcycle.com/social-default.png
 tags:
 - Company
@@ -100,7 +98,7 @@ apis:
   - type: Documentation
     url: https://docs.devcycle.com/bucketing-api/
 - aid: devcycle:devcycle-bucketing-api-api
-  name: DevCycle Bucketing API API
+  name: DevCycle Bucketing API
   description: The Bucketing API API from DevCycle — 4 operation(s) for bucketing api.
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
@@ -129,8 +127,8 @@ apis:
     url: https://docs.devcycle.com/bucketing-api/
 - aid: devcycle:devcycle-deprecated-features-v1-api
   name: DevCycle [Deprecated] Features v1 API
-  description: >-
-    The [Deprecated] Features v1 API from DevCycle — 7 operation(s) for [deprecated] features v1.
+  description: The [Deprecated] Features v1 API from DevCycle — 7 operation(s) for [deprecated] features
+    v1.
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
   tags:
@@ -172,8 +170,7 @@ apis:
     url: https://docs.devcycle.com/bucketing-api/
 - aid: devcycle:devcycle-feature-change-requests-api
   name: DevCycle Feature Change Requests API
-  description: >-
-    The Feature Change Requests API from DevCycle — 7 operation(s) for feature change requests.
+  description: The Feature Change Requests API from DevCycle — 7 operation(s) for feature change requests.
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
   tags:
@@ -187,8 +184,7 @@ apis:
     url: https://docs.devcycle.com/bucketing-api/
 - aid: devcycle:devcycle-feature-configurations-api
   name: DevCycle Feature Configurations API
-  description: >-
-    The Feature Configurations API from DevCycle — 1 operation(s) for feature configurations.
+  description: The Feature Configurations API from DevCycle — 1 operation(s) for feature configurations.
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
   tags:
@@ -230,8 +226,7 @@ apis:
     url: https://docs.devcycle.com/bucketing-api/
 - aid: devcycle:devcycle-integrations-dynatrace-api
   name: 'DevCycle Integrations: Dynatrace API'
-  description: >-
-    The Integrations: Dynatrace API from DevCycle — 2 operation(s) for integrations: dynatrace.
+  description: 'The Integrations: Dynatrace API from DevCycle — 2 operation(s) for integrations: dynatrace.'
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
   tags:
@@ -287,8 +282,7 @@ apis:
     url: https://docs.devcycle.com/bucketing-api/
 - aid: devcycle:devcycle-openfeature-remote-evaluation-api-ofrep-api
   name: DevCycle OpenFeature Remote Evaluation API (OFREP) API
-  description: >-
-    See the OpenFeature documentation for more information: https://github.com/open-feature/protocol
+  description: 'See the OpenFeature documentation for more information: https://github.com/open-feature/protocol'
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
   tags:
@@ -316,8 +310,7 @@ apis:
     url: https://docs.devcycle.com/bucketing-api/
 - aid: devcycle:devcycle-project-change-requests-api
   name: DevCycle Project Change Requests API
-  description: >-
-    The Project Change Requests API from DevCycle — 1 operation(s) for project change requests.
+  description: The Project Change Requests API from DevCycle — 1 operation(s) for project change requests.
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
   tags:
