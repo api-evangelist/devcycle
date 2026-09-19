@@ -75,6 +75,8 @@ apis:
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
   tags:
+  - Audit Logs
+  tags_raw:
   - Audit Log
   properties:
   - type: OpenAPI
@@ -160,6 +162,8 @@ apis:
   humanURL: https://docs.devcycle.com/management-api/
   baseURL: https://api.devcycle.com/v1
   tags:
+  - Environment
+  tags_raw:
   - Environments
   properties:
   - type: OpenAPI
