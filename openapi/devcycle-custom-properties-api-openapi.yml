@@ -1,10 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DevCycle Bucketing Audiences Custom Properties API
-  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
-  version: 1.3.0
+  title: DevCycle Management Custom Properties API
+  description: An API for managing features and variables on the DevCycle platform.
+  version: 1.0.0
+  contact: {}
 servers:
-- url: https://bucketing-api.devcycle.com/
+- url: https://api.devcycle.com
 tags:
 - name: Custom Properties
 paths:
@@ -56,7 +57,6 @@ paths:
     get:
       operationId: CustomPropertiesController_findAll
       summary: List Custom Properties
-      description: List Custom Properties
       parameters:
       - name: page
         required: false
@@ -252,6 +252,39 @@ paths:
       - Custom Properties
 components:
   schemas:
+    UpdateCustomPropertyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Display name for Custom Property.
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        propertyKey:
+          type: string
+          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
+          example: Delivery App Secret Agent Code
+        type:
+          type: string
+          description: 'Type of the Custom Propety. Must be one of: "Boolean", "Number" or "String"'
+          enum:
+          - String
+          - Boolean
+          - Number
+        schema:
+          description: Schema definition for the custom property.
+          allOf:
+          - $ref: '#/components/schemas/PropertySchema'
     EnumSchema:
       type: object
       properties:
@@ -264,6 +297,75 @@ components:
       required:
       - allowedValues
       - allowAdditionalValues
+    CreateCustomPropertyDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Display name for Custom Property.
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        type:
+          description: 'Type of the Custom Propety. Must be one of: "Boolean", "Number" or "String"'
+          example: String
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+        propertyKey:
+          type: string
+          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
+          example: Delivery App Secret Agent Code
+        schema:
+          description: Schema definition for the custom property.
+          allOf:
+          - $ref: '#/components/schemas/PropertySchema'
+      required:
+      - name
+      - key
+      - type
+      - propertyKey
+    AllowedValue:
+      type: object
+      properties:
+        label:
+          type: string
+        value:
+          type: object
+      required:
+      - label
+      - value
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
     CustomProperty:
       type: object
       properties:
@@ -330,98 +432,6 @@ components:
       - type
       - createdAt
       - updatedAt
-    UpdateCustomPropertyDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Display name for Custom Property.
-          example: Delivery App
-          maxLength: 100
-          minLength: 1
-        key:
-          type: string
-          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: delivery-app
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        propertyKey:
-          type: string
-          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
-          example: Delivery App Secret Agent Code
-        type:
-          type: string
-          description: 'Type of the Custom Propety. Must be one of: "Boolean", "Number" or "String"'
-          enum:
-          - String
-          - Boolean
-          - Number
-        schema:
-          description: Schema definition for the custom property.
-          allOf:
-          - $ref: '#/components/schemas/PropertySchema'
-    CreateCustomPropertyDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Display name for Custom Property.
-          example: Delivery App
-          maxLength: 100
-          minLength: 1
-        key:
-          type: string
-          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: delivery-app
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        type:
-          description: 'Type of the Custom Propety. Must be one of: "Boolean", "Number" or "String"'
-          example: String
-          enum:
-          - String
-          - Boolean
-          - Number
-          type: string
-        propertyKey:
-          type: string
-          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
-          example: Delivery App Secret Agent Code
-        schema:
-          description: Schema definition for the custom property.
-          allOf:
-          - $ref: '#/components/schemas/PropertySchema'
-      required:
-      - name
-      - key
-      - type
-      - propertyKey
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
     ConflictErrorResponse:
       type: object
       properties:
@@ -445,16 +455,6 @@ components:
       - message
       - error
       - errorType
-    AllowedValue:
-      type: object
-      properties:
-        label:
-          type: string
-        value:
-          type: object
-      required:
-      - label
-      - value
     PropertySchema:
       type: object
       properties:
@@ -466,9 +466,3 @@ components:
           type: boolean
         enumSchema:
           $ref: '#/components/schemas/EnumSchema'
-  securitySchemes:
-    bearerAuth:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Enter your DevCycle SDK token

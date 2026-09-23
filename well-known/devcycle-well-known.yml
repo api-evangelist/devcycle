@@ -1,4 +1,4 @@
-generated: '2026-07-18'
+generated: '2026-09-19'
 method: searched
 hosts:
 - host: https://api.devcycle.com
@@ -32,9 +32,34 @@ hosts:
   documents:
   - path: /.well-known/security.txt
     status: 200
-notes: >-
-  The Auth0 tenant at auth.devcycle.com exposes full OIDC discovery
-  (openid-configuration + RFC 8414 oauth-authorization-server). A legacy
-  /.well-known/ai-plugin.json on the docs host advertises the two DevCycle APIs
-  (bucketing-api unauthenticated, management-api OAuth). RFC 9116 security.txt is
-  served across the api/www/docs hosts.
+- host: https://mcp.devcycle.com
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: devcycle-mcp-oauth-protected-resource.json
+    bytes: 130
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: devcycle-mcp-oauth-authorization-server.json
+    bytes: 614
+  path_echo_control: passed
+notes: The Auth0 tenant at auth.devcycle.com exposes full OIDC discovery (openid-configuration + RFC 8414
+  oauth-authorization-server). A legacy /.well-known/ai-plugin.json on the docs host advertises the two
+  DevCycle APIs (bucketing-api unauthenticated, management-api OAuth). RFC 9116 security.txt is served
+  across the api/www/docs hosts.
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://mcp.devcycle.com
+    path: /.well-known/oauth-protected-resource
+    file: devcycle-mcp-oauth-protected-resource.json
+  - host: https://mcp.devcycle.com
+    path: /.well-known/oauth-authorization-server
+    file: devcycle-mcp-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'

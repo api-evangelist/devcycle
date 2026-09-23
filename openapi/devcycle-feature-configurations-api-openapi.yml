@@ -1,10 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DevCycle Bucketing Audiences Feature Configurations API
-  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
-  version: 1.3.0
+  title: DevCycle Management Feature Configurations API
+  description: An API for managing features and variables on the DevCycle platform.
+  version: 1.0.0
+  contact: {}
 servers:
-- url: https://bucketing-api.devcycle.com/
+- url: https://api.devcycle.com
 tags:
 - name: Feature Configurations
 paths:
@@ -103,6 +104,69 @@ paths:
       - Feature Configurations
 components:
   schemas:
+    UserCountryFilter:
+      type: object
+      properties:
+        subType:
+          description: Sub type of this filter
+          example: country
+          enum:
+          - country
+          type: string
+          default: country
+        comparator:
+          description: Comparator to use
+          example: '!='
+          enum:
+          - '='
+          - '!='
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - CA
+          - US
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+      required:
+      - subType
+      - comparator
+      - type
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
     AudienceOperatorWithAudienceMatchFilter:
       type: object
       properties:
@@ -127,32 +191,6 @@ components:
       required:
       - filters
       - operator
-    TargetAudience:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Audience display name, must be set for project-level audiences.
-          example: Android Users
-          maxLength: 100
-          minLength: 1
-        filters:
-          description: Audience filters, describing logic for segmenting users
-          allOf:
-          - $ref: '#/components/schemas/AudienceOperatorWithAudienceMatchFilter'
-      required:
-      - filters
-    AllFilter:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Filter type of this audience
-          default: all
-          enum:
-          - all
-      required:
-      - type
     UserFilter:
       type: object
       properties:
@@ -198,50 +236,174 @@ components:
       - subType
       - comparator
       - type
-    UserCountryFilter:
+    AllFilter:
       type: object
       properties:
-        subType:
-          description: Sub type of this filter
-          example: country
-          enum:
-          - country
-          type: string
-          default: country
-        comparator:
-          description: Comparator to use
-          example: '!='
-          enum:
-          - '='
-          - '!='
-          - exist
-          - '!exist'
-          - contain
-          - '!contain'
-          - startWith
-          - '!startWith'
-          - endWith
-          - '!endWith'
-          type: string
-        values:
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-          example:
-          - CA
-          - US
-          type: array
-          items:
-            type: string
         type:
           type: string
           description: Filter type of this audience
-          example: user
-          default: user
+          default: all
           enum:
-          - user
+          - all
       required:
-      - subType
-      - comparator
       - type
+    Target:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Target ID
+          example: 61450f3daec96f5cf4a49946
+        name:
+          type: string
+          description: Target name
+          example: Feature Enabled
+        audience:
+          description: Audience model describing target segmentation.
+          allOf:
+          - $ref: '#/components/schemas/TargetAudience'
+        rollout:
+          description: Rollout sub-document describing how a Target's audience is rolled out
+          allOf:
+          - $ref: '#/components/schemas/Rollout'
+        distribution:
+          description: Specifies variation distribution percentages for features
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetDistribution'
+        bucketingKey:
+          type: string
+          description: String to bucket users into a specific variation
+          example: '''organization_id'
+      required:
+      - _id
+      - audience
+      - distribution
+    UpdateTargetDto:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Target ID
+          example: 61450f3daec96f5cf4a49946
+        name:
+          type: string
+          description: Target name
+          example: Feature Enabled
+        rollout:
+          description: Rollout sub-document describing how a Target's audience is rolled out
+          allOf:
+          - $ref: '#/components/schemas/Rollout'
+        distribution:
+          description: Specifies variation distribution percentages for features
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetDistribution'
+        audience:
+          description: Audience model describing target segmentation.
+          allOf:
+          - $ref: '#/components/schemas/TargetAudience'
+      required:
+      - distribution
+      - audience
+    FeatureConfig:
+      type: object
+      properties:
+        _feature:
+          type: string
+          description: ID of the Feature owning the Configuration
+          example: 61450f3daec96f5cf4a49946
+        _environment:
+          type: string
+          description: ID of the Environment owning the Configuration
+          example: 61450f3daec96f5cf4a49946
+        _createdBy:
+          type: string
+          description: User who created the Feature Configuration
+        status:
+          description: Status of the Feature Configuration
+          enum:
+          - active
+          - inactive
+          type: string
+        startedAt:
+          format: date-time
+          type: string
+          description: Date the Feature Configuration was started
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Feature Configuration was last updated
+        targets:
+          description: The targets to evaluate what variation a user should be delivered
+          type: array
+          items:
+            $ref: '#/components/schemas/Target'
+        readonly:
+          type: boolean
+          description: Controls whether the feature configuration is editable for a given user
+        hasStaticConfig:
+          type: boolean
+          description: 'Flag to indicate if the Feature owning the configuration has been marked as complete.
+
+            If true, the user targeting rules are ignored and the static variation is always used.'
+      required:
+      - _feature
+      - _environment
+      - status
+      - updatedAt
+      - targets
+      - readonly
+      - hasStaticConfig
+    UpdateFeatureConfigDto:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the Feature Configuration
+          enum:
+          - active
+          - inactive
+        targets:
+          description: The targets to evaluate what variation a user should be delivered
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateTargetDto'
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    TargetAudience:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Audience display name, must be set for project-level audiences.
+          example: Android Users
+          maxLength: 100
+          minLength: 1
+        filters:
+          description: Audience filters, describing logic for segmenting users
+          allOf:
+          - $ref: '#/components/schemas/AudienceOperatorWithAudienceMatchFilter'
+      required:
+      - filters
     Rollout:
       type: object
       properties:
@@ -310,52 +472,47 @@ components:
       - comparator
       - type
       - subType
-    Target:
+    AudienceMatchFilter:
       type: object
       properties:
-        _id:
+        type:
           type: string
-          description: A unique Target ID
-          example: 61450f3daec96f5cf4a49946
-        name:
-          type: string
-          description: Target name
-          example: Feature Enabled
-        audience:
-          description: Audience model describing target segmentation.
-          allOf:
-          - $ref: '#/components/schemas/TargetAudience'
-        rollout:
-          description: Rollout sub-document describing how a Target's audience is rolled out
-          allOf:
-          - $ref: '#/components/schemas/Rollout'
-        distribution:
-          description: Specifies variation distribution percentages for features
-          type: array
-          items:
-            $ref: '#/components/schemas/TargetDistribution'
-        bucketingKey:
-          type: string
-          description: String to bucket users into a specific variation
-          example: '''organization_id'
-      required:
-      - _id
-      - audience
-      - distribution
-    UpdateFeatureConfigDto:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Status of the Feature Configuration
+          default: audienceMatch
           enum:
-          - active
-          - inactive
-        targets:
-          description: The targets to evaluate what variation a user should be delivered
+          - audienceMatch
+        comparator:
+          enum:
+          - '='
+          - '!='
+          type: string
+        _audiences:
           type: array
           items:
-            $ref: '#/components/schemas/UpdateTargetDto'
+            type: string
+      required:
+      - type
+    RolloutStage:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Target percentage to reach by the step date
+          minimum: 0
+          maximum: 1
+        type:
+          type: string
+          description: Defines the transition into this percentage level
+          enum:
+          - linear
+          - discrete
+        date:
+          format: date-time
+          type: string
+          description: Date the target percentage should be fully applied
+      required:
+      - percentage
+      - type
+      - date
     UserCustomFilter:
       type: object
       properties:
@@ -416,55 +573,6 @@ components:
       - dataKeyType
       - type
       - subType
-    FeatureConfig:
-      type: object
-      properties:
-        _feature:
-          type: string
-          description: ID of the Feature owning the Configuration
-          example: 61450f3daec96f5cf4a49946
-        _environment:
-          type: string
-          description: ID of the Environment owning the Configuration
-          example: 61450f3daec96f5cf4a49946
-        _createdBy:
-          type: string
-          description: User who created the Feature Configuration
-        status:
-          description: Status of the Feature Configuration
-          enum:
-          - active
-          - inactive
-          type: string
-        startedAt:
-          format: date-time
-          type: string
-          description: Date the Feature Configuration was started
-        updatedAt:
-          format: date-time
-          type: string
-          description: The date the Feature Configuration was last updated
-        targets:
-          description: The targets to evaluate what variation a user should be delivered
-          type: array
-          items:
-            $ref: '#/components/schemas/Target'
-        readonly:
-          type: boolean
-          description: Controls whether the feature configuration is editable for a given user
-        hasStaticConfig:
-          type: boolean
-          description: 'Flag to indicate if the Feature owning the configuration has been marked as complete.
-
-            If true, the user targeting rules are ignored and the static variation is always used.'
-      required:
-      - _feature
-      - _environment
-      - status
-      - updatedAt
-      - targets
-      - readonly
-      - hasStaticConfig
     UserPlatformVersionFilter:
       type: object
       properties:
@@ -522,116 +630,3 @@ components:
       required:
       - percentage
       - _variation
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
-    AudienceMatchFilter:
-      type: object
-      properties:
-        type:
-          type: string
-          default: audienceMatch
-          enum:
-          - audienceMatch
-        comparator:
-          enum:
-          - '='
-          - '!='
-          type: string
-        _audiences:
-          type: array
-          items:
-            type: string
-      required:
-      - type
-    RolloutStage:
-      type: object
-      properties:
-        percentage:
-          type: number
-          description: Target percentage to reach by the step date
-          minimum: 0
-          maximum: 1
-        type:
-          type: string
-          description: Defines the transition into this percentage level
-          enum:
-          - linear
-          - discrete
-        date:
-          format: date-time
-          type: string
-          description: Date the target percentage should be fully applied
-      required:
-      - percentage
-      - type
-      - date
-    UpdateTargetDto:
-      type: object
-      properties:
-        _id:
-          type: string
-          description: A unique Target ID
-          example: 61450f3daec96f5cf4a49946
-        name:
-          type: string
-          description: Target name
-          example: Feature Enabled
-        rollout:
-          description: Rollout sub-document describing how a Target's audience is rolled out
-          allOf:
-          - $ref: '#/components/schemas/Rollout'
-        distribution:
-          description: Specifies variation distribution percentages for features
-          type: array
-          items:
-            $ref: '#/components/schemas/TargetDistribution'
-        audience:
-          description: Audience model describing target segmentation.
-          allOf:
-          - $ref: '#/components/schemas/TargetAudience'
-      required:
-      - distribution
-      - audience
-  securitySchemes:
-    bearerAuth:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Enter your DevCycle SDK token

@@ -1,10 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DevCycle Bucketing Audiences Feature Change Requests API
-  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
-  version: 1.3.0
+  title: DevCycle Management Feature Change Requests API
+  description: An API for managing features and variables on the DevCycle platform.
+  version: 1.0.0
+  contact: {}
 servers:
-- url: https://bucketing-api.devcycle.com/
+- url: https://api.devcycle.com
 tags:
 - name: Feature Change Requests
 paths:
@@ -357,38 +358,19 @@ components:
       - path
       - method
       - body
-    Reviewers:
-      type: object
-      properties: {}
-    SubmitFeatureChangeRequestDto:
+    ApplyFeatureChangeRequestDto:
       type: object
       properties:
         description:
           type: string
           maxLength: 1000
-        reviewers:
-          type: array
-          items:
-            type: string
-      required:
-      - description
-      - reviewers
-    ReviewReason:
-      type: object
-      properties: {}
-    ReviewFeatureChangeRequestDto:
-      type: object
-      properties:
         action:
           type: string
           enum:
-          - approved
-          - rejected
-        comment:
-          type: string
+          - applied
       required:
+      - description
       - action
-      - comment
     NotFoundErrorResponse:
       type: object
       properties:
@@ -484,22 +466,35 @@ components:
       - reviewers
       - reviews
       - _createdBy
-    ApplyFeatureChangeRequestDto:
+    ReviewFeatureChangeRequestDto:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - approved
+          - rejected
+        comment:
+          type: string
+      required:
+      - action
+      - comment
+    SubmitFeatureChangeRequestDto:
       type: object
       properties:
         description:
           type: string
           maxLength: 1000
-        action:
-          type: string
-          enum:
-          - applied
+        reviewers:
+          type: array
+          items:
+            type: string
       required:
       - description
-      - action
-  securitySchemes:
-    bearerAuth:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Enter your DevCycle SDK token
+      - reviewers
+    ReviewReason:
+      type: object
+      properties: {}
+    Reviewers:
+      type: object
+      properties: {}

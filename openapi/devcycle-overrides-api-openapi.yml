@@ -1,10 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DevCycle Bucketing Audiences Overrides API
-  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
-  version: 1.3.0
+  title: DevCycle Management Overrides API
+  description: An API for managing features and variables on the DevCycle platform.
+  version: 1.0.0
+  contact: {}
 servers:
-- url: https://bucketing-api.devcycle.com/
+- url: https://api.devcycle.com
 tags:
 - name: Overrides
 paths:
@@ -208,68 +209,6 @@ paths:
       - Overrides
 components:
   schemas:
-    UserOverride:
-      type: object
-      properties:
-        _feature:
-          type: string
-        featureName:
-          type: string
-        _environment:
-          type: string
-        environmentName:
-          type: string
-        _variation:
-          type: string
-        variationName:
-          type: string
-      required:
-      - _feature
-      - featureName
-      - _environment
-      - environmentName
-      - _variation
-      - variationName
-    FeatureOverride:
-      type: object
-      properties:
-        _environment:
-          type: string
-        _variation:
-          type: string
-      required:
-      - _environment
-      - _variation
-    UpdateOverrideDto:
-      type: object
-      properties:
-        environment:
-          type: string
-        variation:
-          type: string
-      required:
-      - environment
-      - variation
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
     FeatureOverrides:
       type: object
       properties:
@@ -293,6 +232,68 @@ components:
             $ref: '#/components/schemas/FeatureOverride'
       required:
       - overrides
+    FeatureOverride:
+      type: object
+      properties:
+        _environment:
+          type: string
+        _variation:
+          type: string
+      required:
+      - _environment
+      - _variation
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    UserOverride:
+      type: object
+      properties:
+        _feature:
+          type: string
+        featureName:
+          type: string
+        _environment:
+          type: string
+        environmentName:
+          type: string
+        _variation:
+          type: string
+        variationName:
+          type: string
+      required:
+      - _feature
+      - featureName
+      - _environment
+      - environmentName
+      - _variation
+      - variationName
+    UpdateOverrideDto:
+      type: object
+      properties:
+        environment:
+          type: string
+        variation:
+          type: string
+      required:
+      - environment
+      - variation
     Override:
       type: object
       properties:
@@ -320,9 +321,3 @@ components:
       - dvcUserId
       - createdAt
       - updatedAt
-  securitySchemes:
-    bearerAuth:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Enter your DevCycle SDK token

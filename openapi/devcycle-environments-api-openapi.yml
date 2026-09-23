@@ -1,10 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DevCycle Bucketing Audiences Environments API
-  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
-  version: 1.3.0
+  title: DevCycle Management Environments API
+  description: An API for managing features and variables on the DevCycle platform.
+  version: 1.0.0
+  contact: {}
 servers:
-- url: https://bucketing-api.devcycle.com/
+- url: https://api.devcycle.com
 tags:
 - name: Environments
 paths:
@@ -367,6 +368,80 @@ paths:
                 $ref: '#/components/schemas/CannotDeleteLastItemErrorResponse'
 components:
   schemas:
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    CreateEnvironmentDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: A unique display name
+          example: Staging Upcoming
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Unique Environment identifier, can be used in the SDK / API to reference by key rather than ID.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: staging-upcoming
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Environment description.
+          example: Pre-production changes
+          maxLength: 1000
+        color:
+          type: string
+          description: 'Environment display color, used to highlight different environments on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+        type:
+          type: string
+          description: The environment type
+          example: staging
+          enum:
+          - development
+          - staging
+          - production
+          - disaster_recovery
+        settings:
+          description: Environment based settings
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentSettings'
+      required:
+      - name
+      - key
+      - type
+    EnvironmentSettings:
+      type: object
+      properties:
+        appIconURI:
+          type: string
+          description: A unique App Icon URI for a given environment
+          maxLength: 2048
     CannotDeleteLastItemErrorResponse:
       type: object
       properties:
@@ -386,15 +461,29 @@ components:
       - statusCode
       - message
       - error
-    GenerateSdkTokensDto:
+    BadRequestErrorResponse:
       type: object
       properties:
-        client:
-          type: boolean
-        server:
-          type: boolean
-        mobile:
-          type: boolean
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    APIKey:
+      type: object
+      properties: {}
     Environment:
       type: object
       properties:
@@ -476,55 +565,15 @@ components:
       - createdAt
       - updatedAt
       - readonly
-    APIKey:
-      type: object
-      properties: {}
-    EnvironmentSettings:
+    GenerateSdkTokensDto:
       type: object
       properties:
-        appIconURI:
-          type: string
-          description: A unique App Icon URI for a given environment
-          maxLength: 2048
-    SDKKeys:
-      type: object
-      properties:
-        mobile:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
         client:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
+          type: boolean
         server:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-      required:
-      - mobile
-      - client
-      - server
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
+          type: boolean
+        mobile:
+          type: boolean
     ConflictErrorResponse:
       type: object
       properties:
@@ -548,73 +597,25 @@ components:
       - message
       - error
       - errorType
-    NotFoundErrorResponse:
+    SDKKeys:
       type: object
       properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
+        mobile:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        client:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        server:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
       required:
-      - statusCode
-      - message
-      - error
-    CreateEnvironmentDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: A unique display name
-          example: Staging Upcoming
-          maxLength: 100
-          minLength: 1
-        key:
-          type: string
-          description: 'Unique Environment identifier, can be used in the SDK / API to reference by key rather than ID.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: staging-upcoming
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        description:
-          type: string
-          description: Environment description.
-          example: Pre-production changes
-          maxLength: 1000
-        color:
-          type: string
-          description: 'Environment display color, used to highlight different environments on the dashboard.
-
-            Must use Hex color code.'
-          example: '#4073FF'
-          maxLength: 9
-          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
-        type:
-          type: string
-          description: The environment type
-          example: staging
-          enum:
-          - development
-          - staging
-          - production
-          - disaster_recovery
-        settings:
-          description: Environment based settings
-          allOf:
-          - $ref: '#/components/schemas/EnvironmentSettings'
-      required:
-      - name
-      - key
-      - type
+      - mobile
+      - client
+      - server
     UpdateEnvironmentDto:
       type: object
       properties:
@@ -659,9 +660,3 @@ components:
           description: Environment based settings
           allOf:
           - $ref: '#/components/schemas/EnvironmentSettings'
-  securitySchemes:
-    bearerAuth:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Enter your DevCycle SDK token

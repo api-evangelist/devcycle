@@ -1,10 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DevCycle Bucketing Audiences Results API
-  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
-  version: 1.3.0
+  title: DevCycle Management Results API
+  description: An API for managing features and variables on the DevCycle platform.
+  version: 1.0.0
+  contact: {}
 servers:
-- url: https://bucketing-api.devcycle.com/
+- url: https://api.devcycle.com
 tags:
 - name: Results
 paths:
@@ -215,28 +216,6 @@ paths:
       - Results
 components:
   schemas:
-    ResultWithFeatureData:
-      type: object
-      properties:
-        evaluations:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureDataPoint'
-      required:
-      - evaluations
-    FeatureDataPoint:
-      type: object
-      properties:
-        values:
-          type: object
-          description: Mapping of evaluation variation (variation1, variation2 etc.) to number of evaluations in that variation
-        date:
-          format: date-time
-          type: string
-          description: Date of this data point
-      required:
-      - values
-      - date
     ProjectDataPoint:
       type: object
       properties:
@@ -250,11 +229,11 @@ components:
       required:
       - date
       - value
-    ResultProjectEvaluationsByHourDto:
+    ResultEvaluationsByHourDto:
       type: object
       properties:
         result:
-          $ref: '#/components/schemas/ResultsWithProjectData'
+          $ref: '#/components/schemas/ResultWithFeatureData'
         cached:
           type: boolean
           description: Whether this result came from a cache or a live result
@@ -266,11 +245,11 @@ components:
       - result
       - cached
       - updatedAt
-    ResultEvaluationsByHourDto:
+    ResultProjectEvaluationsByHourDto:
       type: object
       properties:
         result:
-          $ref: '#/components/schemas/ResultWithFeatureData'
+          $ref: '#/components/schemas/ResultsWithProjectData'
         cached:
           type: boolean
           description: Whether this result came from a cache or a live result
@@ -291,9 +270,25 @@ components:
             $ref: '#/components/schemas/ProjectDataPoint'
       required:
       - evaluations
-  securitySchemes:
-    bearerAuth:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Enter your DevCycle SDK token
+    FeatureDataPoint:
+      type: object
+      properties:
+        values:
+          type: object
+          description: Mapping of evaluation variation (variation1, variation2 etc.) to number of evaluations in that variation
+        date:
+          format: date-time
+          type: string
+          description: Date of this data point
+      required:
+      - values
+      - date
+    ResultWithFeatureData:
+      type: object
+      properties:
+        evaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureDataPoint'
+      required:
+      - evaluations

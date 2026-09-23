@@ -1,10 +1,11 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: DevCycle Bucketing Audiences Audit Log API
-  description: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and for Server SDKs configured to use Cloud Bucketing.
-  version: 1.3.0
+  title: DevCycle Management Audit Log API
+  description: An API for managing features and variables on the DevCycle platform.
+  version: 1.0.0
+  contact: {}
 servers:
-- url: https://bucketing-api.devcycle.com/
+- url: https://api.devcycle.com
 tags:
 - name: Audit Log
 paths:
@@ -12,7 +13,6 @@ paths:
     get:
       operationId: AuditLogController_findAll
       summary: Get Audit Log For Feature
-      description: Get Audit Log For Feature
       parameters:
       - name: page
         required: false
@@ -119,9 +119,3 @@ components:
       - date
       - a0_user
       - changes
-  securitySchemes:
-    bearerAuth:
-      type: apiKey
-      in: header
-      name: Authorization
-      description: Enter your DevCycle SDK token
