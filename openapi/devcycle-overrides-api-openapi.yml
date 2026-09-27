@@ -209,20 +209,16 @@ paths:
       - Overrides
 components:
   schemas:
-    FeatureOverrides:
+    UpdateOverrideDto:
       type: object
       properties:
-        overrides:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/Override'
-        uniqueTeamMembers:
-          type: number
+        environment:
+          type: string
+        variation:
+          type: string
       required:
-      - overrides
-      - uniqueTeamMembers
+      - environment
+      - variation
     OverrideResponse:
       type: object
       properties:
@@ -232,16 +228,33 @@ components:
             $ref: '#/components/schemas/FeatureOverride'
       required:
       - overrides
-    FeatureOverride:
+    Override:
       type: object
       properties:
+        _project:
+          type: string
         _environment:
+          type: string
+        _feature:
           type: string
         _variation:
           type: string
+        dvcUserId:
+          type: string
+        createdAt:
+          type: number
+        updatedAt:
+          type: number
+        a0_user:
+          type: string
       required:
+      - _project
       - _environment
+      - _feature
       - _variation
+      - dvcUserId
+      - createdAt
+      - updatedAt
     BadRequestErrorResponse:
       type: object
       properties:
@@ -284,40 +297,27 @@ components:
       - environmentName
       - _variation
       - variationName
-    UpdateOverrideDto:
+    FeatureOverride:
       type: object
       properties:
-        environment:
-          type: string
-        variation:
-          type: string
-      required:
-      - environment
-      - variation
-    Override:
-      type: object
-      properties:
-        _project:
-          type: string
         _environment:
-          type: string
-        _feature:
           type: string
         _variation:
           type: string
-        dvcUserId:
-          type: string
-        createdAt:
-          type: number
-        updatedAt:
-          type: number
-        a0_user:
-          type: string
       required:
-      - _project
       - _environment
-      - _feature
       - _variation
-      - dvcUserId
-      - createdAt
-      - updatedAt
+    FeatureOverrides:
+      type: object
+      properties:
+        overrides:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/Override'
+        uniqueTeamMembers:
+          type: number
+      required:
+      - overrides
+      - uniqueTeamMembers

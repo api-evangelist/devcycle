@@ -229,22 +229,28 @@ components:
       required:
       - date
       - value
-    ResultEvaluationsByHourDto:
+    ResultWithFeatureData:
       type: object
       properties:
-        result:
-          $ref: '#/components/schemas/ResultWithFeatureData'
-        cached:
-          type: boolean
-          description: Whether this result came from a cache or a live result
-        updatedAt:
+        evaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureDataPoint'
+      required:
+      - evaluations
+    FeatureDataPoint:
+      type: object
+      properties:
+        values:
+          type: object
+          description: Mapping of evaluation variation (variation1, variation2 etc.) to number of evaluations in that variation
+        date:
           format: date-time
           type: string
-          description: Date which these results are up-to-date with
+          description: Date of this data point
       required:
-      - result
-      - cached
-      - updatedAt
+      - values
+      - date
     ResultProjectEvaluationsByHourDto:
       type: object
       properties:
@@ -270,25 +276,19 @@ components:
             $ref: '#/components/schemas/ProjectDataPoint'
       required:
       - evaluations
-    FeatureDataPoint:
+    ResultEvaluationsByHourDto:
       type: object
       properties:
-        values:
-          type: object
-          description: Mapping of evaluation variation (variation1, variation2 etc.) to number of evaluations in that variation
-        date:
+        result:
+          $ref: '#/components/schemas/ResultWithFeatureData'
+        cached:
+          type: boolean
+          description: Whether this result came from a cache or a live result
+        updatedAt:
           format: date-time
           type: string
-          description: Date of this data point
+          description: Date which these results are up-to-date with
       required:
-      - values
-      - date
-    ResultWithFeatureData:
-      type: object
-      properties:
-        evaluations:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureDataPoint'
-      required:
-      - evaluations
+      - result
+      - cached
+      - updatedAt

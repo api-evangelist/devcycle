@@ -104,6 +104,198 @@ paths:
       - Feature Configurations
 components:
   schemas:
+    UpdateFeatureConfigDto:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the Feature Configuration
+          enum:
+          - active
+          - inactive
+        targets:
+          description: The targets to evaluate what variation a user should be delivered
+          type: array
+          items:
+            $ref: '#/components/schemas/UpdateTargetDto'
+    TargetDistribution:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Distribution percentage for the variation
+          example: 0.0005
+          minimum: 0
+          maximum: 1
+        _variation:
+          type: string
+          description: Variation ID or key from `feature.variations`
+          example: variation-1
+      required:
+      - percentage
+      - _variation
+    UserCustomFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>='
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        dataKey:
+          type: string
+          description: Data Key used for custom data
+          example: my_custom_prop
+          minLength: 1
+        dataKeyType:
+          description: Data Key Type used for custom data
+          example: Number
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+        values:
+          type: object
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 0
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: customData
+          default: customData
+          enum:
+          - customData
+      required:
+      - comparator
+      - dataKey
+      - dataKeyType
+      - type
+      - subType
+    UserAppVersionFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>'
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 1.0.2
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: appVersion
+          default: appVersion
+          enum:
+          - appVersion
+      required:
+      - comparator
+      - type
+      - subType
+    UserPlatformVersionFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>'
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 1.0.2
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: appVersion
+          default: appVersion
+          enum:
+          - appVersion
+      required:
+      - comparator
+      - type
+      - subType
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
     UserCountryFilter:
       type: object
       properties:
@@ -167,30 +359,52 @@ components:
       - statusCode
       - message
       - error
-    AudienceOperatorWithAudienceMatchFilter:
+    AudienceMatchFilter:
       type: object
       properties:
-        filters:
-          type: array
-          description: Filters to apply using the "operator" operation
-          items:
-            anyOf:
-            - $ref: '#/components/schemas/AllFilter'
-            - $ref: '#/components/schemas/UserFilter'
-            - $ref: '#/components/schemas/UserCountryFilter'
-            - $ref: '#/components/schemas/UserAppVersionFilter'
-            - $ref: '#/components/schemas/UserPlatformVersionFilter'
-            - $ref: '#/components/schemas/UserCustomFilter'
-            - $ref: '#/components/schemas/AudienceMatchFilter'
-        operator:
-          description: Operator type if this object represents an operator, and not a filter
-          enum:
-          - and
-          - or
+        type:
           type: string
+          default: audienceMatch
+          enum:
+          - audienceMatch
+        comparator:
+          enum:
+          - '='
+          - '!='
+          type: string
+        _audiences:
+          type: array
+          items:
+            type: string
       required:
-      - filters
-      - operator
+      - type
+    UpdateTargetDto:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Target ID
+          example: 61450f3daec96f5cf4a49946
+        name:
+          type: string
+          description: Target name
+          example: Feature Enabled
+        rollout:
+          description: Rollout sub-document describing how a Target's audience is rolled out
+          allOf:
+          - $ref: '#/components/schemas/Rollout'
+        distribution:
+          description: Specifies variation distribution percentages for features
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetDistribution'
+        audience:
+          description: Audience model describing target segmentation.
+          allOf:
+          - $ref: '#/components/schemas/TargetAudience'
+      required:
+      - distribution
+      - audience
     UserFilter:
       type: object
       properties:
@@ -236,76 +450,33 @@ components:
       - subType
       - comparator
       - type
-    AllFilter:
+    Rollout:
       type: object
       properties:
+        startPercentage:
+          type: number
+          description: Rollout start percentage
+          minimum: 0
+          maximum: 1
         type:
           type: string
-          description: Filter type of this audience
-          default: all
+          description: Type of rollout
           enum:
-          - all
+          - schedule
+          - gradual
+          - stepped
+        startDate:
+          format: date-time
+          type: string
+          description: Date to start rollout
+        stages:
+          description: Stages of rollout
+          type: array
+          items:
+            $ref: '#/components/schemas/RolloutStage'
       required:
       - type
-    Target:
-      type: object
-      properties:
-        _id:
-          type: string
-          description: A unique Target ID
-          example: 61450f3daec96f5cf4a49946
-        name:
-          type: string
-          description: Target name
-          example: Feature Enabled
-        audience:
-          description: Audience model describing target segmentation.
-          allOf:
-          - $ref: '#/components/schemas/TargetAudience'
-        rollout:
-          description: Rollout sub-document describing how a Target's audience is rolled out
-          allOf:
-          - $ref: '#/components/schemas/Rollout'
-        distribution:
-          description: Specifies variation distribution percentages for features
-          type: array
-          items:
-            $ref: '#/components/schemas/TargetDistribution'
-        bucketingKey:
-          type: string
-          description: String to bucket users into a specific variation
-          example: '''organization_id'
-      required:
-      - _id
-      - audience
-      - distribution
-    UpdateTargetDto:
-      type: object
-      properties:
-        _id:
-          type: string
-          description: A unique Target ID
-          example: 61450f3daec96f5cf4a49946
-        name:
-          type: string
-          description: Target name
-          example: Feature Enabled
-        rollout:
-          description: Rollout sub-document describing how a Target's audience is rolled out
-          allOf:
-          - $ref: '#/components/schemas/Rollout'
-        distribution:
-          description: Specifies variation distribution percentages for features
-          type: array
-          items:
-            $ref: '#/components/schemas/TargetDistribution'
-        audience:
-          description: Audience model describing target segmentation.
-          allOf:
-          - $ref: '#/components/schemas/TargetAudience'
-      required:
-      - distribution
-      - audience
+      - startDate
     FeatureConfig:
       type: object
       properties:
@@ -355,40 +526,6 @@ components:
       - targets
       - readonly
       - hasStaticConfig
-    UpdateFeatureConfigDto:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Status of the Feature Configuration
-          enum:
-          - active
-          - inactive
-        targets:
-          description: The targets to evaluate what variation a user should be delivered
-          type: array
-          items:
-            $ref: '#/components/schemas/UpdateTargetDto'
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
     TargetAudience:
       type: object
       properties:
@@ -404,93 +541,6 @@ components:
           - $ref: '#/components/schemas/AudienceOperatorWithAudienceMatchFilter'
       required:
       - filters
-    Rollout:
-      type: object
-      properties:
-        startPercentage:
-          type: number
-          description: Rollout start percentage
-          minimum: 0
-          maximum: 1
-        type:
-          type: string
-          description: Type of rollout
-          enum:
-          - schedule
-          - gradual
-          - stepped
-        startDate:
-          format: date-time
-          type: string
-          description: Date to start rollout
-        stages:
-          description: Stages of rollout
-          type: array
-          items:
-            $ref: '#/components/schemas/RolloutStage'
-      required:
-      - type
-      - startDate
-    UserAppVersionFilter:
-      type: object
-      properties:
-        comparator:
-          description: Comparator to use
-          example: '>'
-          enum:
-          - '='
-          - '!='
-          - '>'
-          - '>='
-          - <
-          - <=
-          - exist
-          - '!exist'
-          type: string
-        values:
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-          example:
-          - 1.0.2
-          type: array
-          items:
-            type: string
-        type:
-          type: string
-          description: Filter type of this audience
-          example: user
-          default: user
-          enum:
-          - user
-        subType:
-          type: string
-          description: Sub type of this filter
-          example: appVersion
-          default: appVersion
-          enum:
-          - appVersion
-      required:
-      - comparator
-      - type
-      - subType
-    AudienceMatchFilter:
-      type: object
-      properties:
-        type:
-          type: string
-          default: audienceMatch
-          enum:
-          - audienceMatch
-        comparator:
-          enum:
-          - '='
-          - '!='
-          type: string
-        _audiences:
-          type: array
-          items:
-            type: string
-      required:
-      - type
     RolloutStage:
       type: object
       properties:
@@ -513,120 +563,70 @@ components:
       - percentage
       - type
       - date
-    UserCustomFilter:
+    Target:
       type: object
       properties:
-        comparator:
-          description: Comparator to use
-          example: '>='
-          enum:
-          - '='
-          - '!='
-          - '>'
-          - '>='
-          - <
-          - <=
-          - exist
-          - '!exist'
-          - contain
-          - '!contain'
-          - startWith
-          - '!startWith'
-          - endWith
-          - '!endWith'
+        _id:
           type: string
-        dataKey:
+          description: A unique Target ID
+          example: 61450f3daec96f5cf4a49946
+        name:
           type: string
-          description: Data Key used for custom data
-          example: my_custom_prop
-          minLength: 1
-        dataKeyType:
-          description: Data Key Type used for custom data
-          example: Number
-          enum:
-          - String
-          - Boolean
-          - Number
-          type: string
-        values:
-          type: object
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-          example:
-          - 0
-        type:
-          type: string
-          description: Filter type of this audience
-          example: user
-          default: user
-          enum:
-          - user
-        subType:
-          type: string
-          description: Sub type of this filter
-          example: customData
-          default: customData
-          enum:
-          - customData
-      required:
-      - comparator
-      - dataKey
-      - dataKeyType
-      - type
-      - subType
-    UserPlatformVersionFilter:
-      type: object
-      properties:
-        comparator:
-          description: Comparator to use
-          example: '>'
-          enum:
-          - '='
-          - '!='
-          - '>'
-          - '>='
-          - <
-          - <=
-          - exist
-          - '!exist'
-          type: string
-        values:
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-          example:
-          - 1.0.2
+          description: Target name
+          example: Feature Enabled
+        audience:
+          description: Audience model describing target segmentation.
+          allOf:
+          - $ref: '#/components/schemas/TargetAudience'
+        rollout:
+          description: Rollout sub-document describing how a Target's audience is rolled out
+          allOf:
+          - $ref: '#/components/schemas/Rollout'
+        distribution:
+          description: Specifies variation distribution percentages for features
           type: array
           items:
-            type: string
+            $ref: '#/components/schemas/TargetDistribution'
+        bucketingKey:
+          type: string
+          description: String to bucket users into a specific variation
+          example: '''organization_id'
+      required:
+      - _id
+      - audience
+      - distribution
+    AudienceOperatorWithAudienceMatchFilter:
+      type: object
+      properties:
+        filters:
+          type: array
+          description: Filters to apply using the "operator" operation
+          items:
+            anyOf:
+            - $ref: '#/components/schemas/AllFilter'
+            - $ref: '#/components/schemas/UserFilter'
+            - $ref: '#/components/schemas/UserCountryFilter'
+            - $ref: '#/components/schemas/UserAppVersionFilter'
+            - $ref: '#/components/schemas/UserPlatformVersionFilter'
+            - $ref: '#/components/schemas/UserCustomFilter'
+            - $ref: '#/components/schemas/AudienceMatchFilter'
+        operator:
+          description: Operator type if this object represents an operator, and not a filter
+          enum:
+          - and
+          - or
+          type: string
+      required:
+      - filters
+      - operator
+    AllFilter:
+      type: object
+      properties:
         type:
           type: string
           description: Filter type of this audience
-          example: user
-          default: user
+          default: all
           enum:
-          - user
-        subType:
-          type: string
-          description: Sub type of this filter
-          example: appVersion
-          default: appVersion
-          enum:
-          - appVersion
+          - all
       required:
-      - comparator
       - type
-      - subType
-    TargetDistribution:
-      type: object
-      properties:
-        percentage:
-          type: number
-          description: Distribution percentage for the variation
-          example: 0.0005
-          minimum: 0
-          maximum: 1
-        _variation:
-          type: string
-          description: Variation ID or key from `feature.variations`
-          example: variation-1
-      required:
-      - percentage
-      - _variation

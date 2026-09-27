@@ -130,48 +130,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ofrep-bulkEvaluationFailure:
-      description: Bulk evaluation failure response
-      properties:
-        errorCode:
-          type: string
-          description: An appropriate  code specific to the bulk evaluation error. See https://openfeature.dev/specification/types#error-code
-        errorDetails:
-          type: string
-          description: Optional error details description for logging or other needs
-      required:
-      - errorCode
-    ofrep-bulkEvaluationSuccess:
-      description: Success response for the bulk evaluation request
-      type: object
-      properties:
-        flags:
-          type: array
-          items:
-            oneOf:
-            - $ref: '#/components/schemas/ofrep-evaluationSuccess'
-            - $ref: '#/components/schemas/ofrep-evaluationFailure'
-    ofrep-key:
-      type: string
-      pattern: ^[a-z0-9-_.]+$
-      description: Feature flag key
-      examples:
-      - my-flag
-    ofrep-evaluationRequest:
-      description: Flag evaluation request
-      properties:
-        context:
-          $ref: '#/components/schemas/ofrep-context'
-    ofrep-generalErrorResponse:
-      description: A general error response from the service
-      properties:
-        errorDetails:
-          $ref: '#/components/schemas/ofrep-errorDetails'
-    ofrep-bulkEvaluationRequest:
-      description: Evaluate multiple flags in one request
-      properties:
-        context:
-          $ref: '#/components/schemas/ofrep-context'
     ofrep-evaluationFailure:
       description: Flag evaluation failure response
       properties:
@@ -190,6 +148,50 @@ components:
       required:
       - key
       - errorCode
+    ofrep-evaluationRequest:
+      description: Flag evaluation request
+      properties:
+        context:
+          $ref: '#/components/schemas/ofrep-context'
+    ofrep-stringFlag:
+      description: A string typed flag value
+      properties:
+        value:
+          type: string
+          description: Flag evaluation result
+          examples:
+          - my-flag-value
+      required:
+      - value
+    ofrep-booleanFlag:
+      description: A boolean typed flag value
+      properties:
+        value:
+          type: boolean
+          description: Flag evaluation result
+      required:
+      - value
+    ofrep-bulkEvaluationRequest:
+      description: Evaluate multiple flags in one request
+      properties:
+        context:
+          $ref: '#/components/schemas/ofrep-context'
+    ofrep-context:
+      type: object
+      description: Context information for flag evaluation
+    ofrep-bulkEvaluationSuccess:
+      description: Success response for the bulk evaluation request
+      type: object
+      properties:
+        flags:
+          type: array
+          items:
+            oneOf:
+            - $ref: '#/components/schemas/ofrep-evaluationSuccess'
+            - $ref: '#/components/schemas/ofrep-evaluationFailure'
+    ofrep-errorDetails:
+      type: string
+      description: An error description for logging or other needs
     ofrep-evaluationSuccess:
       description: Flag evaluation success response.
       allOf:
@@ -217,6 +219,50 @@ components:
         - $ref: '#/components/schemas/ofrep-integerFlag'
         - $ref: '#/components/schemas/ofrep-floatFlag'
         - $ref: '#/components/schemas/ofrep-objectFlag'
+    ofrep-generalErrorResponse:
+      description: A general error response from the service
+      properties:
+        errorDetails:
+          $ref: '#/components/schemas/ofrep-errorDetails'
+    ofrep-bulkEvaluationFailure:
+      description: Bulk evaluation failure response
+      properties:
+        errorCode:
+          type: string
+          description: An appropriate  code specific to the bulk evaluation error. See https://openfeature.dev/specification/types#error-code
+        errorDetails:
+          type: string
+          description: Optional error details description for logging or other needs
+      required:
+      - errorCode
+    ofrep-objectFlag:
+      description: An object typed flag value
+      properties:
+        value:
+          type: object
+          description: Flag evaluation result
+      required:
+      - value
+    ofrep-key:
+      type: string
+      pattern: ^[a-z0-9-_.]+$
+      description: Feature flag key
+      examples:
+      - my-flag
+    ofrep-flagNotFound:
+      description: Flag not found response
+      properties:
+        key:
+          $ref: '#/components/schemas/ofrep-key'
+        errorCode:
+          type: string
+          enum:
+          - FLAG_NOT_FOUND
+        errorDetails:
+          $ref: '#/components/schemas/ofrep-errorDetails'
+      required:
+      - key
+      - errorCode
     ofrep-floatFlag:
       description: A float typed flag value
       properties:
@@ -237,52 +283,6 @@ components:
           - 3
       required:
       - value
-    ofrep-errorDetails:
-      type: string
-      description: An error description for logging or other needs
-    ofrep-stringFlag:
-      description: A string typed flag value
-      properties:
-        value:
-          type: string
-          description: Flag evaluation result
-          examples:
-          - my-flag-value
-      required:
-      - value
-    ofrep-booleanFlag:
-      description: A boolean typed flag value
-      properties:
-        value:
-          type: boolean
-          description: Flag evaluation result
-      required:
-      - value
-    ofrep-objectFlag:
-      description: An object typed flag value
-      properties:
-        value:
-          type: object
-          description: Flag evaluation result
-      required:
-      - value
-    ofrep-flagNotFound:
-      description: Flag not found response
-      properties:
-        key:
-          $ref: '#/components/schemas/ofrep-key'
-        errorCode:
-          type: string
-          enum:
-          - FLAG_NOT_FOUND
-        errorDetails:
-          $ref: '#/components/schemas/ofrep-errorDetails'
-      required:
-      - key
-      - errorCode
-    ofrep-context:
-      type: object
-      description: Context information for flag evaluation
   securitySchemes:
     bearerAuth:
       type: apiKey

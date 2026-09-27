@@ -71,69 +71,32 @@ paths:
       - 'Integrations: Dynatrace'
 components:
   schemas:
-    StalenessSettings:
+    VercelEdgeConfigConnection:
+      type: object
+      properties:
+        edgeConfigName:
+          type: string
+        configurationId:
+          type: string
+      required:
+      - edgeConfigName
+      - configurationId
+    UnmodifiedShortStalenessSettings:
       type: object
       properties:
         enabled:
           type: boolean
-        released:
-          $ref: '#/components/schemas/ReleasedStalenessSettings'
-        unmodifiedLong:
-          $ref: '#/components/schemas/UnmodifiedLongStalenessSettings'
-        unmodifiedShort:
-          $ref: '#/components/schemas/UnmodifiedShortStalenessSettings'
-        unused:
-          $ref: '#/components/schemas/UnusedStalenessSettings'
-        email:
-          $ref: '#/components/schemas/StalenessEmailSettings'
       required:
       - enabled
-      - released
-      - unmodifiedLong
-      - unmodifiedShort
-      - unused
-      - email
-    DynatraceEnvironment:
+    DynatraceIntegration:
       type: object
       properties:
-        dynatraceEnvironmentId:
-          type: string
-        accessToken:
-          type: string
-        environmentUrl:
-          type: string
-        projects:
+        environments:
           type: array
           items:
-            $ref: '#/components/schemas/Project'
+            $ref: '#/components/schemas/DynatraceEnvironment'
       required:
-      - dynatraceEnvironmentId
-      - accessToken
-      - environmentUrl
-      - projects
-    StalenessEmailSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        frequency:
-          type: string
-          enum:
-          - weekly
-          - biweekly
-          - monthly
-        users:
-          type: array
-          items:
-            type: string
-        lastNotification:
-          format: date-time
-          type: string
-      required:
-      - enabled
-      - frequency
-      - users
-      - lastNotification
+      - environments
     Project:
       type: object
       properties:
@@ -209,40 +172,6 @@ components:
       - hasUserConfigFetch
       - jiraBaseUrl
       - readonly
-    VercelEdgeConfigConnection:
-      type: object
-      properties:
-        edgeConfigName:
-          type: string
-        configurationId:
-          type: string
-      required:
-      - edgeConfigName
-      - configurationId
-    ReleasedStalenessSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    DynatraceProjectSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        environmentMap:
-          type: object
-      required:
-      - enabled
-      - environmentMap
-    LifeCycleSettings:
-      type: object
-      properties:
-        disableCodeRefChecks:
-          type: boolean
-      required:
-      - disableCodeRefChecks
     FeatureApprovalWorkflowSettings:
       type: object
       properties:
@@ -258,6 +187,26 @@ components:
       - enabled
       - allowPublisherBypass
       - defaultReviewers
+    EdgeDBSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    CreateDynatraceIntegrationDto:
+      type: object
+      properties:
+        dynatraceEnvironmentId:
+          type: string
+        accessToken:
+          type: string
+        environmentUrl:
+          type: string
+      required:
+      - dynatraceEnvironmentId
+      - accessToken
+      - environmentUrl
     ProjectSettings:
       type: object
       properties:
@@ -289,50 +238,42 @@ components:
       - disablePassthroughRollouts
       - staleness
       - dynatrace
-    ColorSettings:
-      type: object
-      properties:
-        primary:
-          type: string
-        secondary:
-          type: string
-      required:
-      - primary
-      - secondary
-    EdgeDBSettings:
+    ReleasedStalenessSettings:
       type: object
       properties:
         enabled:
           type: boolean
       required:
       - enabled
-    CreateDynatraceIntegrationDto:
-      type: object
-      properties:
-        dynatraceEnvironmentId:
-          type: string
-        accessToken:
-          type: string
-        environmentUrl:
-          type: string
-      required:
-      - dynatraceEnvironmentId
-      - accessToken
-      - environmentUrl
-    UnusedStalenessSettings:
+    StalenessSettings:
       type: object
       properties:
         enabled:
           type: boolean
+        released:
+          $ref: '#/components/schemas/ReleasedStalenessSettings'
+        unmodifiedLong:
+          $ref: '#/components/schemas/UnmodifiedLongStalenessSettings'
+        unmodifiedShort:
+          $ref: '#/components/schemas/UnmodifiedShortStalenessSettings'
+        unused:
+          $ref: '#/components/schemas/UnusedStalenessSettings'
+        email:
+          $ref: '#/components/schemas/StalenessEmailSettings'
       required:
       - enabled
-    UnmodifiedShortStalenessSettings:
+      - released
+      - unmodifiedLong
+      - unmodifiedShort
+      - unused
+      - email
+    LifeCycleSettings:
       type: object
       properties:
-        enabled:
+        disableCodeRefChecks:
           type: boolean
       required:
-      - enabled
+      - disableCodeRefChecks
     OptInSettings:
       type: object
       properties:
@@ -355,13 +296,6 @@ components:
       - imageURL
       - colors
       - poweredByAlignment
-    UnmodifiedLongStalenessSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
     SDKTypeVisibilitySettings:
       type: object
       properties:
@@ -369,15 +303,6 @@ components:
           type: boolean
       required:
       - enabledInFeatureSettings
-    DynatraceIntegration:
-      type: object
-      properties:
-        environments:
-          type: array
-          items:
-            $ref: '#/components/schemas/DynatraceEnvironment'
-      required:
-      - environments
     ObfuscationSettings:
       type: object
       properties:
@@ -388,3 +313,78 @@ components:
       required:
       - enabled
       - required
+    DynatraceEnvironment:
+      type: object
+      properties:
+        dynatraceEnvironmentId:
+          type: string
+        accessToken:
+          type: string
+        environmentUrl:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+      required:
+      - dynatraceEnvironmentId
+      - accessToken
+      - environmentUrl
+      - projects
+    StalenessEmailSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        frequency:
+          type: string
+          enum:
+          - weekly
+          - biweekly
+          - monthly
+        users:
+          type: array
+          items:
+            type: string
+        lastNotification:
+          format: date-time
+          type: string
+      required:
+      - enabled
+      - frequency
+      - users
+      - lastNotification
+    UnmodifiedLongStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    UnusedStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    DynatraceProjectSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        environmentMap:
+          type: object
+      required:
+      - enabled
+      - environmentMap
+    ColorSettings:
+      type: object
+      properties:
+        primary:
+          type: string
+        secondary:
+          type: string
+      required:
+      - primary
+      - secondary

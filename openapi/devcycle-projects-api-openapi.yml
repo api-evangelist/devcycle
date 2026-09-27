@@ -403,115 +403,59 @@ paths:
       - Projects
 components:
   schemas:
-    ColorSettingsDTO:
-      type: object
-      properties:
-        primary:
-          type: string
-          maxLength: 9
-          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
-        secondary:
-          type: string
-          maxLength: 9
-          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
-      required:
-      - primary
-      - secondary
-    FeatureStalenessEntity:
-      type: object
-      properties:
-        key:
-          type: string
-          description: Feature key
-        name:
-          type: string
-          description: Feature name
-        _feature:
-          type: string
-          description: Feature ID
-        stale:
-          type: boolean
-          description: Staleness status
-        updatedAt:
-          format: date-time
-          type: string
-          description: Last updated at
-        disabled:
-          type: boolean
-          description: If the Feature's staleness is disabled
-        snoozedUntil:
-          format: date-time
-          type: string
-          description: Snooze staleness until date specified
-        reason:
-          description: Reason for staleness
-          enum:
-          - released
-          - unused
-          - unmodifiedShort
-          - unmodifiedLong
-          type: string
-        metaData:
-          type: object
-          description: Miscellaneous metadata
-      required:
-      - key
-      - name
-      - _feature
-      - stale
-      - disabled
-    StalenessSettings:
+    EdgeDBSettingsDTO:
       type: object
       properties:
         enabled:
           type: boolean
-        released:
-          $ref: '#/components/schemas/ReleasedStalenessSettings'
-        unmodifiedLong:
-          $ref: '#/components/schemas/UnmodifiedLongStalenessSettings'
-        unmodifiedShort:
-          $ref: '#/components/schemas/UnmodifiedShortStalenessSettings'
-        unused:
-          $ref: '#/components/schemas/UnusedStalenessSettings'
-        email:
-          $ref: '#/components/schemas/StalenessEmailSettings'
       required:
       - enabled
-      - released
-      - unmodifiedLong
-      - unmodifiedShort
-      - unused
-      - email
-    StalenessEmailSettings:
+    UpdateProtectedProjectSettingsDto:
+      type: object
+      properties:
+        settings:
+          $ref: '#/components/schemas/ProtectedProjectSettingsDto'
+      required:
+      - settings
+    VercelEdgeConfigConnection:
+      type: object
+      properties:
+        edgeConfigName:
+          type: string
+        configurationId:
+          type: string
+      required:
+      - edgeConfigName
+      - configurationId
+    DynatraceProjectSettingsDTO:
       type: object
       properties:
         enabled:
           type: boolean
-        frequency:
-          type: string
-          enum:
-          - weekly
-          - biweekly
-          - monthly
-        users:
+        environmentMap:
+          type: object
+    UnmodifiedShortStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    FeatureApprovalWorkflowDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        allowPublisherBypass:
+          type: boolean
+        defaultReviewers:
           type: array
           items:
             type: string
-        lastNotification:
-          format: date-time
-          type: string
       required:
       - enabled
-      - frequency
-      - users
-      - lastNotification
-    ReleasedStalenessDTO:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
+      - allowPublisherBypass
+      - defaultReviewers
     Project:
       type: object
       properties:
@@ -587,6 +531,54 @@ components:
       - hasUserConfigFetch
       - jiraBaseUrl
       - readonly
+    FeatureApprovalWorkflowSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        allowPublisherBypass:
+          type: boolean
+        defaultReviewers:
+          type: array
+          items:
+            type: string
+      required:
+      - enabled
+      - allowPublisherBypass
+      - defaultReviewers
+    EdgeDBSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    EmailSettingsDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        users:
+          type: array
+          items:
+            type: string
+        frequency:
+          type: string
+          enum:
+          - weekly
+          - biweekly
+          - monthly
+      required:
+      - enabled
+      - users
+      - frequency
+    SDKTypeVisibilitySettingsDTO:
+      type: object
+      properties:
+        enabledInFeatureSettings:
+          type: boolean
+      required:
+      - enabledInFeatureSettings
     BadRequestErrorResponse:
       type: object
       properties:
@@ -607,161 +599,6 @@ components:
       - statusCode
       - message
       - error
-    VercelEdgeConfigConnection:
-      type: object
-      properties:
-        edgeConfigName:
-          type: string
-        configurationId:
-          type: string
-      required:
-      - edgeConfigName
-      - configurationId
-    ReleasedStalenessSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    EdgeDBSettingsDTO:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    ConflictErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 409
-        message:
-          type: object
-          description: Error details
-          example: Duplicate key 'key-123'
-        error:
-          type: string
-          description: Error type
-          example: Conflict
-        errorType:
-          type: string
-          example: ERR_DUPE_FEATURE_KEY
-      required:
-      - statusCode
-      - message
-      - error
-      - errorType
-    EmailSettingsDTO:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        users:
-          type: array
-          items:
-            type: string
-        frequency:
-          type: string
-          enum:
-          - weekly
-          - biweekly
-          - monthly
-      required:
-      - enabled
-      - users
-      - frequency
-    DynatraceProjectSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        environmentMap:
-          type: object
-      required:
-      - enabled
-      - environmentMap
-    ProtectedProjectSettingsDto:
-      type: object
-      properties:
-        featureApprovalWorkflow:
-          $ref: '#/components/schemas/FeatureApprovalWorkflowDTO'
-        staleness:
-          $ref: '#/components/schemas/StalenessSettingsDTO'
-      required:
-      - featureApprovalWorkflow
-      - staleness
-    UnmodifiedLongStalenessDTO:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    LifeCycleSettings:
-      type: object
-      properties:
-        disableCodeRefChecks:
-          type: boolean
-      required:
-      - disableCodeRefChecks
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    DynatraceProjectSettingsDTO:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        environmentMap:
-          type: object
-    FeatureApprovalWorkflowSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        allowPublisherBypass:
-          type: boolean
-        defaultReviewers:
-          type: array
-          items:
-            type: string
-      required:
-      - enabled
-      - allowPublisherBypass
-      - defaultReviewers
-    SDKTypeVisibilitySettingsDTO:
-      type: object
-      properties:
-        enabledInFeatureSettings:
-          type: boolean
-      required:
-      - enabledInFeatureSettings
-    UnusedStalenessDTO:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
     ProjectSettings:
       type: object
       properties:
@@ -793,31 +630,295 @@ components:
       - disablePassthroughRollouts
       - staleness
       - dynatrace
-    FeatureApprovalWorkflowDTO:
+    ReleasedStalenessSettings:
       type: object
       properties:
         enabled:
           type: boolean
-        allowPublisherBypass:
+      required:
+      - enabled
+    ProtectedProjectSettingsDto:
+      type: object
+      properties:
+        featureApprovalWorkflow:
+          $ref: '#/components/schemas/FeatureApprovalWorkflowDTO'
+        staleness:
+          $ref: '#/components/schemas/StalenessSettingsDTO'
+      required:
+      - featureApprovalWorkflow
+      - staleness
+    UnmodifiedShortStalenessDTO:
+      type: object
+      properties:
+        enabled:
           type: boolean
-        defaultReviewers:
+      required:
+      - enabled
+    StalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        released:
+          $ref: '#/components/schemas/ReleasedStalenessSettings'
+        unmodifiedLong:
+          $ref: '#/components/schemas/UnmodifiedLongStalenessSettings'
+        unmodifiedShort:
+          $ref: '#/components/schemas/UnmodifiedShortStalenessSettings'
+        unused:
+          $ref: '#/components/schemas/UnusedStalenessSettings'
+        email:
+          $ref: '#/components/schemas/StalenessEmailSettings'
+      required:
+      - enabled
+      - released
+      - unmodifiedLong
+      - unmodifiedShort
+      - unused
+      - email
+    LifeCycleSettings:
+      type: object
+      properties:
+        disableCodeRefChecks:
+          type: boolean
+      required:
+      - disableCodeRefChecks
+    UnmodifiedLongStalenessDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    UpdateProjectDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Project name
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: A unique key to identify the Project
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: A description of the Project
+          example: A web app to manage outbound deliveries
+          maxLength: 1000
+        color:
+          type: string
+          description: 'Project display color, used to highlight different projects on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+        settings:
+          $ref: '#/components/schemas/ProjectSettingsDTO'
+    OptInSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        title:
+          type: string
+        description:
+          type: string
+        imageURL:
+          type: string
+        colors:
+          $ref: '#/components/schemas/ColorSettings'
+        poweredByAlignment:
+          type: object
+      required:
+      - enabled
+      - title
+      - description
+      - imageURL
+      - colors
+      - poweredByAlignment
+    SDKTypeVisibilitySettings:
+      type: object
+      properties:
+        enabledInFeatureSettings:
+          type: boolean
+      required:
+      - enabledInFeatureSettings
+    ObfuscationSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        required:
+          type: boolean
+      required:
+      - enabled
+      - required
+    FeatureStalenessEntity:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Feature key
+        name:
+          type: string
+          description: Feature name
+        _feature:
+          type: string
+          description: Feature ID
+        stale:
+          type: boolean
+          description: Staleness status
+        updatedAt:
+          format: date-time
+          type: string
+          description: Last updated at
+        disabled:
+          type: boolean
+          description: If the Feature's staleness is disabled
+        snoozedUntil:
+          format: date-time
+          type: string
+          description: Snooze staleness until date specified
+        reason:
+          description: Reason for staleness
+          enum:
+          - released
+          - unused
+          - unmodifiedShort
+          - unmodifiedLong
+          type: string
+        metaData:
+          type: object
+          description: Miscellaneous metadata
+      required:
+      - key
+      - name
+      - _feature
+      - stale
+      - disabled
+    UnusedStalenessDTO:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    OptInSettingsDTO:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          maxLength: 1000
+        enabled:
+          type: boolean
+        imageURL:
+          type: string
+        colors:
+          $ref: '#/components/schemas/ColorSettingsDTO'
+        poweredByAlignment:
+          type: string
+          enum:
+          - center
+          - left
+          - right
+          - hidden
+      required:
+      - title
+      - description
+      - enabled
+      - imageURL
+      - colors
+      - poweredByAlignment
+    CannotDeleteLastItemErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 405
+        message:
+          type: object
+          description: Error details
+          example: Cannot DELETE last item
+        error:
+          type: string
+          description: Error type
+          example: Method Not Allowed
+      required:
+      - statusCode
+      - message
+      - error
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType
+    UpdateProjectSettingsDto:
+      type: object
+      properties:
+        settings:
+          $ref: '#/components/schemas/ProjectSettings'
+      required:
+      - settings
+    StalenessEmailSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        frequency:
+          type: string
+          enum:
+          - weekly
+          - biweekly
+          - monthly
+        users:
           type: array
           items:
             type: string
+        lastNotification:
+          format: date-time
+          type: string
       required:
       - enabled
-      - allowPublisherBypass
-      - defaultReviewers
-    ColorSettings:
+      - frequency
+      - users
+      - lastNotification
+    ReleasedStalenessDTO:
       type: object
       properties:
-        primary:
-          type: string
-        secondary:
-          type: string
+        enabled:
+          type: boolean
       required:
-      - primary
-      - secondary
+      - enabled
     ObfuscationSettingsDTO:
       type: object
       properties:
@@ -835,6 +936,50 @@ components:
           type: boolean
       required:
       - disableCodeRefChecks
+    ProjectSettingsDTO:
+      type: object
+      properties:
+        edgeDB:
+          $ref: '#/components/schemas/EdgeDBSettingsDTO'
+        optIn:
+          $ref: '#/components/schemas/OptInSettingsDTO'
+        sdkTypeVisibility:
+          $ref: '#/components/schemas/SDKTypeVisibilitySettingsDTO'
+        lifeCycle:
+          $ref: '#/components/schemas/LifeCycleSettingsDTO'
+        obfuscation:
+          $ref: '#/components/schemas/ObfuscationSettingsDTO'
+        disablePassthroughRollouts:
+          type: boolean
+        dynatrace:
+          $ref: '#/components/schemas/DynatraceProjectSettingsDTO'
+      required:
+      - edgeDB
+      - optIn
+      - sdkTypeVisibility
+      - lifeCycle
+      - obfuscation
+      - disablePassthroughRollouts
+      - dynatrace
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
     StalenessSettingsDTO:
       type: object
       properties:
@@ -857,20 +1002,13 @@ components:
       - unmodifiedShort
       - unused
       - email
-    EdgeDBSettings:
+    UnmodifiedLongStalenessSettings:
       type: object
       properties:
         enabled:
           type: boolean
       required:
       - enabled
-    UpdateProtectedProjectSettingsDto:
-      type: object
-      properties:
-        settings:
-          $ref: '#/components/schemas/ProtectedProjectSettingsDto'
-      required:
-      - settings
     CreateProjectDto:
       type: object
       properties:
@@ -905,13 +1043,6 @@ components:
       required:
       - name
       - key
-    UpdateProjectSettingsDto:
-      type: object
-      properties:
-        settings:
-          $ref: '#/components/schemas/ProjectSettings'
-      required:
-      - settings
     UnusedStalenessSettings:
       type: object
       properties:
@@ -919,168 +1050,37 @@ components:
           type: boolean
       required:
       - enabled
-    UnmodifiedShortStalenessSettings:
+    DynatraceProjectSettings:
       type: object
       properties:
         enabled:
           type: boolean
-      required:
-      - enabled
-    OptInSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        title:
-          type: string
-        description:
-          type: string
-        imageURL:
-          type: string
-        colors:
-          $ref: '#/components/schemas/ColorSettings'
-        poweredByAlignment:
+        environmentMap:
           type: object
       required:
       - enabled
-      - title
-      - description
-      - imageURL
-      - colors
-      - poweredByAlignment
-    UnmodifiedLongStalenessSettings:
+      - environmentMap
+    ColorSettings:
       type: object
       properties:
-        enabled:
-          type: boolean
+        primary:
+          type: string
+        secondary:
+          type: string
       required:
-      - enabled
-    UnmodifiedShortStalenessDTO:
+      - primary
+      - secondary
+    ColorSettingsDTO:
       type: object
       properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    CannotDeleteLastItemErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 405
-        message:
-          type: object
-          description: Error details
-          example: Cannot DELETE last item
-        error:
+        primary:
           type: string
-          description: Error type
-          example: Method Not Allowed
-      required:
-      - statusCode
-      - message
-      - error
-    SDKTypeVisibilitySettings:
-      type: object
-      properties:
-        enabledInFeatureSettings:
-          type: boolean
-      required:
-      - enabledInFeatureSettings
-    OptInSettingsDTO:
-      type: object
-      properties:
-        title:
-          type: string
-          maxLength: 100
-          minLength: 1
-        description:
-          type: string
-          maxLength: 1000
-        enabled:
-          type: boolean
-        imageURL:
-          type: string
-        colors:
-          $ref: '#/components/schemas/ColorSettingsDTO'
-        poweredByAlignment:
-          type: string
-          enum:
-          - center
-          - left
-          - right
-          - hidden
-      required:
-      - title
-      - description
-      - enabled
-      - imageURL
-      - colors
-      - poweredByAlignment
-    ProjectSettingsDTO:
-      type: object
-      properties:
-        edgeDB:
-          $ref: '#/components/schemas/EdgeDBSettingsDTO'
-        optIn:
-          $ref: '#/components/schemas/OptInSettingsDTO'
-        sdkTypeVisibility:
-          $ref: '#/components/schemas/SDKTypeVisibilitySettingsDTO'
-        lifeCycle:
-          $ref: '#/components/schemas/LifeCycleSettingsDTO'
-        obfuscation:
-          $ref: '#/components/schemas/ObfuscationSettingsDTO'
-        disablePassthroughRollouts:
-          type: boolean
-        dynatrace:
-          $ref: '#/components/schemas/DynatraceProjectSettingsDTO'
-      required:
-      - edgeDB
-      - optIn
-      - sdkTypeVisibility
-      - lifeCycle
-      - obfuscation
-      - disablePassthroughRollouts
-      - dynatrace
-    UpdateProjectDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Project name
-          example: Delivery App
-          maxLength: 100
-          minLength: 1
-        key:
-          type: string
-          description: A unique key to identify the Project
-          example: delivery-app
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        description:
-          type: string
-          description: A description of the Project
-          example: A web app to manage outbound deliveries
-          maxLength: 1000
-        color:
-          type: string
-          description: 'Project display color, used to highlight different projects on the dashboard.
-
-            Must use Hex color code.'
-          example: '#4073FF'
           maxLength: 9
           pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
-        settings:
-          $ref: '#/components/schemas/ProjectSettingsDTO'
-    ObfuscationSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        required:
-          type: boolean
+        secondary:
+          type: string
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
       required:
-      - enabled
-      - required
+      - primary
+      - secondary

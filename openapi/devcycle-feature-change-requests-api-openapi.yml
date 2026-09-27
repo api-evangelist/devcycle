@@ -343,34 +343,6 @@ paths:
       - Feature Change Requests
 components:
   schemas:
-    CreateFeatureChangeRequestDto:
-      type: object
-      properties:
-        path:
-          type: string
-        method:
-          type: string
-          enum:
-          - PATCH
-        body:
-          type: object
-      required:
-      - path
-      - method
-      - body
-    ApplyFeatureChangeRequestDto:
-      type: object
-      properties:
-        description:
-          type: string
-          maxLength: 1000
-        action:
-          type: string
-          enum:
-          - applied
-      required:
-      - description
-      - action
     NotFoundErrorResponse:
       type: object
       properties:
@@ -390,6 +362,66 @@ components:
       - statusCode
       - message
       - error
+    ApplyFeatureChangeRequestDto:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 1000
+        action:
+          type: string
+          enum:
+          - applied
+      required:
+      - description
+      - action
+    ReviewFeatureChangeRequestDto:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - approved
+          - rejected
+        comment:
+          type: string
+      required:
+      - action
+      - comment
+    SubmitFeatureChangeRequestDto:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 1000
+        reviewers:
+          type: array
+          items:
+            type: string
+      required:
+      - description
+      - reviewers
+    Reviewers:
+      type: object
+      properties: {}
+    CreateFeatureChangeRequestDto:
+      type: object
+      properties:
+        path:
+          type: string
+        method:
+          type: string
+          enum:
+          - PATCH
+        body:
+          type: object
+      required:
+      - path
+      - method
+      - body
+    ReviewReason:
+      type: object
+      properties: {}
     FeatureChangeRequest:
       type: object
       properties:
@@ -466,35 +498,3 @@ components:
       - reviewers
       - reviews
       - _createdBy
-    ReviewFeatureChangeRequestDto:
-      type: object
-      properties:
-        action:
-          type: string
-          enum:
-          - approved
-          - rejected
-        comment:
-          type: string
-      required:
-      - action
-      - comment
-    SubmitFeatureChangeRequestDto:
-      type: object
-      properties:
-        description:
-          type: string
-          maxLength: 1000
-        reviewers:
-          type: array
-          items:
-            type: string
-      required:
-      - description
-      - reviewers
-    ReviewReason:
-      type: object
-      properties: {}
-    Reviewers:
-      type: object
-      properties: {}

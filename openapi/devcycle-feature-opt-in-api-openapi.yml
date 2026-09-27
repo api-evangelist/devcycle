@@ -115,8 +115,8 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    UnauthorizedError:
-      description: Missing 'sdkKey' query parameter or 'Authorization' header
+    InternalServerError:
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -127,8 +127,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    InternalServerError:
-      description: Internal Server Error
+    UnauthorizedError:
+      description: Missing 'sdkKey' query parameter or 'Authorization' header
       content:
         application/json:
           schema:
@@ -144,6 +144,20 @@ components:
       type: object
       additionalProperties:
         type: boolean
+    ErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Error response status code
+        message:
+          type: string
+          description: Error message
+        data:
+          type: object
+          description: Additional error information detailing the error reasoning
+      required:
+      - message
     OptInConfigResponse:
       type: object
       properties:
@@ -207,20 +221,6 @@ components:
       required:
       - settings
       - features
-    ErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Error response status code
-        message:
-          type: string
-          description: Error message
-        data:
-          type: object
-          description: Additional error information detailing the error reasoning
-      required:
-      - message
   securitySchemes:
     bearerAuth:
       type: apiKey

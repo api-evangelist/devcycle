@@ -400,100 +400,6 @@ paths:
       - Metrics
 components:
   schemas:
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    MetricResult:
-      type: object
-      properties:
-        result:
-          $ref: '#/components/schemas/Result'
-        cached:
-          type: boolean
-          description: Whether this result came from a cache or a live result
-        updatedAt:
-          format: date-time
-          type: string
-          description: Date which these results are up-to-date with
-      required:
-      - result
-      - cached
-      - updatedAt
-    DataPoint:
-      type: object
-      properties:
-        date:
-          format: date-time
-          type: string
-          description: Date of this data point
-        values:
-          description: Mapping of variation (variation1, variation2 etc.) to result value in that variation
-          allOf:
-          - $ref: '#/components/schemas/VariationValues'
-      required:
-      - date
-      - values
-    UpdateMetricDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the Metric
-          example: New Signups
-          maxLength: 100
-          minLength: 1
-        key:
-          type: string
-          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: new-signups
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        description:
-          type: string
-          description: Metric description.
-          example: New signups on the dashboard
-          maxLength: 1000
-        event:
-          type: string
-          description: Event associated with metric
-          example: Sign Ups
-        dimension:
-          type: string
-          description: Metric dimension
-          example: COUNT_PER_UNIQUE_USER
-          enum:
-          - COUNT_PER_UNIQUE_USER
-          - COUNT_PER_VARIABLE_EVALUATION
-          - SUM_PER_UNIQUE_USER
-          - AVERAGE_PER_UNIQUE_USER
-          - TOTAL_AVERAGE
-          - TOTAL_SUM
-        optimize:
-          type: string
-          description: Indicates whether the metric is optimized for increase or decreasae
-          example: increase
-          enum:
-          - increase
-          - decrease
     BadRequestErrorResponse:
       type: object
       properties:
@@ -514,9 +420,6 @@ components:
       - statusCode
       - message
       - error
-    VariationValues:
-      type: object
-      properties: {}
     VariationResult:
       type: object
       properties:
@@ -552,29 +455,6 @@ components:
       - rate
       - percentDifference
       - chanceToBeatControl
-    ConflictErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 409
-        message:
-          type: object
-          description: Error details
-          example: Duplicate key 'key-123'
-        error:
-          type: string
-          description: Error type
-          example: Conflict
-        errorType:
-          type: string
-          example: ERR_DUPE_FEATURE_KEY
-      required:
-      - statusCode
-      - message
-      - error
-      - errorType
     Result:
       type: object
       properties:
@@ -589,6 +469,25 @@ components:
       required:
       - dataSeries
       - variations
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
     CreateMetricDto:
       type: object
       properties:
@@ -640,6 +539,20 @@ components:
       - event
       - dimension
       - optimize
+    DataPoint:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+          description: Date of this data point
+        values:
+          description: Mapping of variation (variation1, variation2 etc.) to result value in that variation
+          allOf:
+          - $ref: '#/components/schemas/VariationValues'
+      required:
+      - date
+      - values
     Metric:
       type: object
       properties:
@@ -727,3 +640,90 @@ components:
       - optimize
       - createdAt
       - updatedAt
+    UpdateMetricDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the Metric
+          example: New Signups
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Unique key by Project, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: new-signups
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Metric description.
+          example: New signups on the dashboard
+          maxLength: 1000
+        event:
+          type: string
+          description: Event associated with metric
+          example: Sign Ups
+        dimension:
+          type: string
+          description: Metric dimension
+          example: COUNT_PER_UNIQUE_USER
+          enum:
+          - COUNT_PER_UNIQUE_USER
+          - COUNT_PER_VARIABLE_EVALUATION
+          - SUM_PER_UNIQUE_USER
+          - AVERAGE_PER_UNIQUE_USER
+          - TOTAL_AVERAGE
+          - TOTAL_SUM
+        optimize:
+          type: string
+          description: Indicates whether the metric is optimized for increase or decreasae
+          example: increase
+          enum:
+          - increase
+          - decrease
+    MetricResult:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/Result'
+        cached:
+          type: boolean
+          description: Whether this result came from a cache or a live result
+        updatedAt:
+          format: date-time
+          type: string
+          description: Date which these results are up-to-date with
+      required:
+      - result
+      - cached
+      - updatedAt
+    VariationValues:
+      type: object
+      properties: {}
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType

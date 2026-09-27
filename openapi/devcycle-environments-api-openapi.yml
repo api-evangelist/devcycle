@@ -368,26 +368,26 @@ paths:
                 $ref: '#/components/schemas/CannotDeleteLastItemErrorResponse'
 components:
   schemas:
-    NotFoundErrorResponse:
+    SDKKeys:
       type: object
       properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
+        mobile:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        client:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        server:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
       required:
-      - statusCode
-      - message
-      - error
-    CreateEnvironmentDto:
+      - mobile
+      - client
+      - server
+    UpdateEnvironmentDto:
       type: object
       properties:
         name:
@@ -419,7 +419,6 @@ components:
           maxLength: 9
           pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
         type:
-          type: string
           description: The environment type
           example: staging
           enum:
@@ -427,63 +426,11 @@ components:
           - staging
           - production
           - disaster_recovery
+          type: string
         settings:
           description: Environment based settings
           allOf:
           - $ref: '#/components/schemas/EnvironmentSettings'
-      required:
-      - name
-      - key
-      - type
-    EnvironmentSettings:
-      type: object
-      properties:
-        appIconURI:
-          type: string
-          description: A unique App Icon URI for a given environment
-          maxLength: 2048
-    CannotDeleteLastItemErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 405
-        message:
-          type: object
-          description: Error details
-          example: Cannot DELETE last item
-        error:
-          type: string
-          description: Error type
-          example: Method Not Allowed
-      required:
-      - statusCode
-      - message
-      - error
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
-    APIKey:
-      type: object
-      properties: {}
     Environment:
       type: object
       properties:
@@ -565,15 +512,74 @@ components:
       - createdAt
       - updatedAt
       - readonly
-    GenerateSdkTokensDto:
+    NotFoundErrorResponse:
       type: object
       properties:
-        client:
-          type: boolean
-        server:
-          type: boolean
-        mobile:
-          type: boolean
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    APIKey:
+      type: object
+      properties: {}
+    EnvironmentSettings:
+      type: object
+      properties:
+        appIconURI:
+          type: string
+          description: A unique App Icon URI for a given environment
+          maxLength: 2048
+    CannotDeleteLastItemErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 405
+        message:
+          type: object
+          description: Error details
+          example: Cannot DELETE last item
+        error:
+          type: string
+          description: Error type
+          example: Method Not Allowed
+      required:
+      - statusCode
+      - message
+      - error
     ConflictErrorResponse:
       type: object
       properties:
@@ -597,26 +603,7 @@ components:
       - message
       - error
       - errorType
-    SDKKeys:
-      type: object
-      properties:
-        mobile:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-        client:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-        server:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-      required:
-      - mobile
-      - client
-      - server
-    UpdateEnvironmentDto:
+    CreateEnvironmentDto:
       type: object
       properties:
         name:
@@ -648,6 +635,7 @@ components:
           maxLength: 9
           pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
         type:
+          type: string
           description: The environment type
           example: staging
           enum:
@@ -655,8 +643,20 @@ components:
           - staging
           - production
           - disaster_recovery
-          type: string
         settings:
           description: Environment based settings
           allOf:
           - $ref: '#/components/schemas/EnvironmentSettings'
+      required:
+      - name
+      - key
+      - type
+    GenerateSdkTokensDto:
+      type: object
+      properties:
+        client:
+          type: boolean
+        server:
+          type: boolean
+        mobile:
+          type: boolean

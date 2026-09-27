@@ -105,46 +105,6 @@ paths:
       - Project Change Requests
 components:
   schemas:
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    FeatureDetails:
-      type: object
-      properties:
-        key:
-          type: string
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        name:
-          type: string
-          maxLength: 100
-          minLength: 1
-        id:
-          type: string
-      required:
-      - key
-      - name
-      - id
-    ReviewReason:
-      type: object
-      properties: {}
     FeatureChangeRequestSummary:
       type: object
       properties:
@@ -216,6 +176,46 @@ components:
       - reviews
       - _createdBy
       - feature
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    FeatureDetails:
+      type: object
+      properties:
+        key:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          maxLength: 100
+          minLength: 1
+        id:
+          type: string
+      required:
+      - key
+      - name
+      - id
     Reviewers:
+      type: object
+      properties: {}
+    ReviewReason:
       type: object
       properties: {}
