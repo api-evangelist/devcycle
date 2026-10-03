@@ -50,26 +50,6 @@ paths:
       - '[Beta] Semantic Patch'
 components:
   schemas:
-    AudiencePatchAction:
-      type: object
-      properties:
-        values:
-          type: object
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-        filterIndex:
-          type: string
-      required:
-      - values
-      - filterIndex
-    AudiencePatchDto:
-      type: object
-      properties:
-        instructions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AudiencePatchInstructionsDto'
-      required:
-      - instructions
     AudiencePatchInstructionsDto:
       type: object
       properties:
@@ -83,6 +63,26 @@ components:
       required:
       - op
       - action
+    AudiencePatchDto:
+      type: object
+      properties:
+        instructions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AudiencePatchInstructionsDto'
+      required:
+      - instructions
+    AudiencePatchAction:
+      type: object
+      properties:
+        values:
+          type: object
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+        filterIndex:
+          type: string
+      required:
+      - values
+      - filterIndex
     BadRequestErrorResponse:
       type: object
       properties:

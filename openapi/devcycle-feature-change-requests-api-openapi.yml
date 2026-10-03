@@ -343,85 +343,6 @@ paths:
       - Feature Change Requests
 components:
   schemas:
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    ApplyFeatureChangeRequestDto:
-      type: object
-      properties:
-        description:
-          type: string
-          maxLength: 1000
-        action:
-          type: string
-          enum:
-          - applied
-      required:
-      - description
-      - action
-    ReviewFeatureChangeRequestDto:
-      type: object
-      properties:
-        action:
-          type: string
-          enum:
-          - approved
-          - rejected
-        comment:
-          type: string
-      required:
-      - action
-      - comment
-    SubmitFeatureChangeRequestDto:
-      type: object
-      properties:
-        description:
-          type: string
-          maxLength: 1000
-        reviewers:
-          type: array
-          items:
-            type: string
-      required:
-      - description
-      - reviewers
-    Reviewers:
-      type: object
-      properties: {}
-    CreateFeatureChangeRequestDto:
-      type: object
-      properties:
-        path:
-          type: string
-        method:
-          type: string
-          enum:
-          - PATCH
-        body:
-          type: object
-      required:
-      - path
-      - method
-      - body
-    ReviewReason:
-      type: object
-      properties: {}
     FeatureChangeRequest:
       type: object
       properties:
@@ -498,3 +419,82 @@ components:
       - reviewers
       - reviews
       - _createdBy
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    SubmitFeatureChangeRequestDto:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 1000
+        reviewers:
+          type: array
+          items:
+            type: string
+      required:
+      - description
+      - reviewers
+    ReviewFeatureChangeRequestDto:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - approved
+          - rejected
+        comment:
+          type: string
+      required:
+      - action
+      - comment
+    Reviewers:
+      type: object
+      properties: {}
+    ReviewReason:
+      type: object
+      properties: {}
+    ApplyFeatureChangeRequestDto:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 1000
+        action:
+          type: string
+          enum:
+          - applied
+      required:
+      - description
+      - action
+    CreateFeatureChangeRequestDto:
+      type: object
+      properties:
+        path:
+          type: string
+        method:
+          type: string
+          enum:
+          - PATCH
+        body:
+          type: object
+      required:
+      - path
+      - method
+      - body

@@ -400,95 +400,46 @@ paths:
       - Metrics
 components:
   schemas:
-    BadRequestErrorResponse:
+    ConflictErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
           description: Response status code
-          example: 400
+          example: 409
         message:
           type: object
           description: Error details
-          example:
-          - key should not be empty
+          example: Duplicate key 'key-123'
         error:
           type: string
           description: Error type
-          example: Bad Request
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
       required:
       - statusCode
       - message
       - error
-    VariationResult:
+      - errorType
+    MetricResult:
       type: object
       properties:
-        key:
+        result:
+          $ref: '#/components/schemas/Result'
+        cached:
+          type: boolean
+          description: Whether this result came from a cache or a live result
+        updatedAt:
+          format: date-time
           type: string
-        name:
-          type: string
-        numerator:
-          type: number
-        denominator:
-          type: number
-        rate:
-          type: number
-        avgValue:
-          type: number
-        totalValue:
-          type: number
-        stdev:
-          type: number
-        percentDifference:
-          type:
-          - number
-          - 'null'
-        chanceToBeatControl:
-          type:
-          - number
-          - 'null'
+          description: Date which these results are up-to-date with
       required:
-      - key
-      - name
-      - numerator
-      - denominator
-      - rate
-      - percentDifference
-      - chanceToBeatControl
-    Result:
-      type: object
-      properties:
-        dataSeries:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataPoint'
-        variations:
-          type: array
-          items:
-            $ref: '#/components/schemas/VariationResult'
-      required:
-      - dataSeries
-      - variations
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    CreateMetricDto:
+      - result
+      - cached
+      - updatedAt
+    UpdateMetricDto:
       type: object
       properties:
         name:
@@ -533,26 +484,59 @@ components:
           enum:
           - increase
           - decrease
-      required:
-      - name
-      - key
-      - event
-      - dimension
-      - optimize
-    DataPoint:
+    BadRequestErrorResponse:
       type: object
       properties:
-        date:
-          format: date-time
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
           type: string
-          description: Date of this data point
-        values:
-          description: Mapping of variation (variation1, variation2 etc.) to result value in that variation
-          allOf:
-          - $ref: '#/components/schemas/VariationValues'
+          description: Error type
+          example: Bad Request
       required:
-      - date
-      - values
+      - statusCode
+      - message
+      - error
+    Result:
+      type: object
+      properties:
+        dataSeries:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataPoint'
+        variations:
+          type: array
+          items:
+            $ref: '#/components/schemas/VariationResult'
+      required:
+      - dataSeries
+      - variations
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
     Metric:
       type: object
       properties:
@@ -640,7 +624,59 @@ components:
       - optimize
       - createdAt
       - updatedAt
-    UpdateMetricDto:
+    VariationValues:
+      type: object
+      properties: {}
+    DataPoint:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+          description: Date of this data point
+        values:
+          description: Mapping of variation (variation1, variation2 etc.) to result value in that variation
+          allOf:
+          - $ref: '#/components/schemas/VariationValues'
+      required:
+      - date
+      - values
+    VariationResult:
+      type: object
+      properties:
+        key:
+          type: string
+        name:
+          type: string
+        numerator:
+          type: number
+        denominator:
+          type: number
+        rate:
+          type: number
+        avgValue:
+          type: number
+        totalValue:
+          type: number
+        stdev:
+          type: number
+        percentDifference:
+          type:
+          - number
+          - 'null'
+        chanceToBeatControl:
+          type:
+          - number
+          - 'null'
+      required:
+      - key
+      - name
+      - numerator
+      - denominator
+      - rate
+      - percentDifference
+      - chanceToBeatControl
+    CreateMetricDto:
       type: object
       properties:
         name:
@@ -685,45 +721,9 @@ components:
           enum:
           - increase
           - decrease
-    MetricResult:
-      type: object
-      properties:
-        result:
-          $ref: '#/components/schemas/Result'
-        cached:
-          type: boolean
-          description: Whether this result came from a cache or a live result
-        updatedAt:
-          format: date-time
-          type: string
-          description: Date which these results are up-to-date with
       required:
-      - result
-      - cached
-      - updatedAt
-    VariationValues:
-      type: object
-      properties: {}
-    ConflictErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 409
-        message:
-          type: object
-          description: Error details
-          example: Duplicate key 'key-123'
-        error:
-          type: string
-          description: Error type
-          example: Conflict
-        errorType:
-          type: string
-          example: ERR_DUPE_FEATURE_KEY
-      required:
-      - statusCode
-      - message
-      - error
-      - errorType
+      - name
+      - key
+      - event
+      - dimension
+      - optimize

@@ -252,57 +252,29 @@ paths:
       - Custom Properties
 components:
   schemas:
-    EnumSchema:
+    ConflictErrorResponse:
       type: object
       properties:
-        allowedValues:
-          type: array
-          items:
-            $ref: '#/components/schemas/AllowedValue'
-        allowAdditionalValues:
-          type: boolean
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
       required:
-      - allowedValues
-      - allowAdditionalValues
-    CreateCustomPropertyDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Display name for Custom Property.
-          example: Delivery App
-          maxLength: 100
-          minLength: 1
-        key:
-          type: string
-          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: delivery-app
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        type:
-          description: 'Type of the Custom Propety. Must be one of: "Boolean", "Number" or "String"'
-          example: String
-          enum:
-          - String
-          - Boolean
-          - Number
-          type: string
-        propertyKey:
-          type: string
-          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
-          example: Delivery App Secret Agent Code
-        schema:
-          description: Schema definition for the custom property.
-          allOf:
-          - $ref: '#/components/schemas/PropertySchema'
-      required:
-      - name
-      - key
-      - type
-      - propertyKey
+      - statusCode
+      - message
+      - error
+      - errorType
     BadRequestErrorResponse:
       type: object
       properties:
@@ -323,6 +295,17 @@ components:
       - statusCode
       - message
       - error
+    PropertySchema:
+      type: object
+      properties:
+        schemaType:
+          type: string
+          enum:
+          - enum
+        required:
+          type: boolean
+        enumSchema:
+          $ref: '#/components/schemas/EnumSchema'
     CustomProperty:
       type: object
       properties:
@@ -389,17 +372,6 @@ components:
       - type
       - createdAt
       - updatedAt
-    PropertySchema:
-      type: object
-      properties:
-        schemaType:
-          type: string
-          enum:
-          - enum
-        required:
-          type: boolean
-        enumSchema:
-          $ref: '#/components/schemas/EnumSchema'
     AllowedValue:
       type: object
       properties:
@@ -443,26 +415,54 @@ components:
           description: Schema definition for the custom property.
           allOf:
           - $ref: '#/components/schemas/PropertySchema'
-    ConflictErrorResponse:
+    CreateCustomPropertyDto:
       type: object
       properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 409
-        message:
-          type: object
-          description: Error details
-          example: Duplicate key 'key-123'
-        error:
+        name:
           type: string
-          description: Error type
-          example: Conflict
-        errorType:
+          description: Display name for Custom Property.
+          example: Delivery App
+          maxLength: 100
+          minLength: 1
+        key:
           type: string
-          example: ERR_DUPE_FEATURE_KEY
+          description: 'Auto generated key to be used by the API to reference by ''key'' rather then _id for CRUD operations.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: delivery-app
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        type:
+          description: 'Type of the Custom Propety. Must be one of: "Boolean", "Number" or "String"'
+          example: String
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+        propertyKey:
+          type: string
+          description: Custom Property key, must be unique by Project. Only to be used by the SDKs to reference the Custom Property..
+          example: Delivery App Secret Agent Code
+        schema:
+          description: Schema definition for the custom property.
+          allOf:
+          - $ref: '#/components/schemas/PropertySchema'
       required:
-      - statusCode
-      - message
-      - error
-      - errorType
+      - name
+      - key
+      - type
+      - propertyKey
+    EnumSchema:
+      type: object
+      properties:
+        allowedValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/AllowedValue'
+        allowAdditionalValues:
+          type: boolean
+      required:
+      - allowedValues
+      - allowAdditionalValues

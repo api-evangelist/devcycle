@@ -216,28 +216,6 @@ paths:
       - Results
 components:
   schemas:
-    ProjectDataPoint:
-      type: object
-      properties:
-        date:
-          format: date-time
-          type: string
-          description: Date of this datapoint
-        value:
-          type: number
-          description: Number of variable evaluations across the whole project for this data point, grouped by user
-      required:
-      - date
-      - value
-    ResultWithFeatureData:
-      type: object
-      properties:
-        evaluations:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureDataPoint'
-      required:
-      - evaluations
     FeatureDataPoint:
       type: object
       properties:
@@ -251,11 +229,24 @@ components:
       required:
       - values
       - date
-    ResultProjectEvaluationsByHourDto:
+    ProjectDataPoint:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+          description: Date of this datapoint
+        value:
+          type: number
+          description: Number of variable evaluations across the whole project for this data point, grouped by user
+      required:
+      - date
+      - value
+    ResultEvaluationsByHourDto:
       type: object
       properties:
         result:
-          $ref: '#/components/schemas/ResultsWithProjectData'
+          $ref: '#/components/schemas/ResultWithFeatureData'
         cached:
           type: boolean
           description: Whether this result came from a cache or a live result
@@ -276,11 +267,11 @@ components:
             $ref: '#/components/schemas/ProjectDataPoint'
       required:
       - evaluations
-    ResultEvaluationsByHourDto:
+    ResultProjectEvaluationsByHourDto:
       type: object
       properties:
         result:
-          $ref: '#/components/schemas/ResultWithFeatureData'
+          $ref: '#/components/schemas/ResultsWithProjectData'
         cached:
           type: boolean
           description: Whether this result came from a cache or a live result
@@ -292,3 +283,12 @@ components:
       - result
       - cached
       - updatedAt
+    ResultWithFeatureData:
+      type: object
+      properties:
+        evaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureDataPoint'
+      required:
+      - evaluations

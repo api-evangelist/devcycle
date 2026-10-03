@@ -368,25 +368,90 @@ paths:
                 $ref: '#/components/schemas/CannotDeleteLastItemErrorResponse'
 components:
   schemas:
-    SDKKeys:
+    ConflictErrorResponse:
       type: object
       properties:
-        mobile:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-        client:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-        server:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
       required:
-      - mobile
-      - client
-      - server
+      - statusCode
+      - message
+      - error
+      - errorType
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    APIKey:
+      type: object
+      properties: {}
+    CannotDeleteLastItemErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 405
+        message:
+          type: object
+          description: Error details
+          example: Cannot DELETE last item
+        error:
+          type: string
+          description: Error type
+          example: Method Not Allowed
+      required:
+      - statusCode
+      - message
+      - error
     UpdateEnvironmentDto:
       type: object
       properties:
@@ -431,6 +496,13 @@ components:
           description: Environment based settings
           allOf:
           - $ref: '#/components/schemas/EnvironmentSettings'
+    EnvironmentSettings:
+      type: object
+      properties:
+        appIconURI:
+          type: string
+          description: A unique App Icon URI for a given environment
+          maxLength: 2048
     Environment:
       type: object
       properties:
@@ -512,97 +584,34 @@ components:
       - createdAt
       - updatedAt
       - readonly
-    NotFoundErrorResponse:
+    GenerateSdkTokensDto:
       type: object
       properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
+        client:
+          type: boolean
+        server:
+          type: boolean
+        mobile:
+          type: boolean
+    SDKKeys:
+      type: object
+      properties:
+        mobile:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        client:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        server:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
       required:
-      - statusCode
-      - message
-      - error
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
-    APIKey:
-      type: object
-      properties: {}
-    EnvironmentSettings:
-      type: object
-      properties:
-        appIconURI:
-          type: string
-          description: A unique App Icon URI for a given environment
-          maxLength: 2048
-    CannotDeleteLastItemErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 405
-        message:
-          type: object
-          description: Error details
-          example: Cannot DELETE last item
-        error:
-          type: string
-          description: Error type
-          example: Method Not Allowed
-      required:
-      - statusCode
-      - message
-      - error
-    ConflictErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 409
-        message:
-          type: object
-          description: Error details
-          example: Duplicate key 'key-123'
-        error:
-          type: string
-          description: Error type
-          example: Conflict
-        errorType:
-          type: string
-          example: ERR_DUPE_FEATURE_KEY
-      required:
-      - statusCode
-      - message
-      - error
-      - errorType
+      - mobile
+      - client
+      - server
     CreateEnvironmentDto:
       type: object
       properties:
@@ -651,12 +660,3 @@ components:
       - name
       - key
       - type
-    GenerateSdkTokensDto:
-      type: object
-      properties:
-        client:
-          type: boolean
-        server:
-          type: boolean
-        mobile:
-          type: boolean

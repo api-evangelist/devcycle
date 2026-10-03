@@ -154,6 +154,20 @@ paths:
           $ref: '#/components/responses/InternalServerError'
 components:
   requestBodies:
+    UserRequestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserData'
+          example:
+            user_id: user_123456
+            email: user@example.com
+            name: John Doe
+            country: US
+            customData:
+              plan: premium
+              signupDate: '2024-01-01'
     TrackRequestBody:
       required: true
       content:
@@ -174,21 +188,64 @@ components:
                 currency: USD
             - type: feature_click
               target: new-dashboard-button
-    UserRequestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserData'
-          example:
-            user_id: user_123456
-            email: user@example.com
-            name: John Doe
-            country: US
-            customData:
-              plan: premium
-              signupDate: '2024-01-01'
   schemas:
+    UserDataAndEventsBody:
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+        user:
+          $ref: '#/components/schemas/UserData'
+    Feature:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: unique database id
+        key:
+          type: string
+          pattern: ^[a-z0-9-_.]+$
+          description: Unique key by Project, can be used in the SDK / API to reference by 'key' rather than _id.
+        type:
+          type: string
+          description: Feature type
+          enum:
+          - release
+          - experiment
+          - permission
+          - ops
+        _variation:
+          type: string
+          description: Bucketed feature variation ID
+        variationName:
+          type: string
+          description: Bucketed feature variation Name
+        variationKey:
+          type: string
+          description: Bucketed feature variation Key
+        eval:
+          $ref: '#/components/schemas/EvalReason'
+      required:
+      - _id
+      - key
+      - type
+      - _variation
+    ErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Error response status code
+        message:
+          type: string
+          description: Error message
+        data:
+          type: object
+          description: Additional error information detailing the error reasoning
+      required:
+      - message
     EvalReason:
       type: object
       description: The reason the User was Served this particular value
@@ -243,15 +300,26 @@ components:
       - key
       - type
       - value
-    UserDataAndEventsBody:
+    Event:
       type: object
       properties:
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-        user:
-          $ref: '#/components/schemas/UserData'
+        type:
+          type: string
+          description: Custom event type
+        target:
+          type: string
+          description: Custom event target / subject of event. Contextual to event type
+        date:
+          type: number
+          description: Unix epoch time the event occurred according to client
+        value:
+          type: number
+          description: Value for numerical events. Contextual to event type
+        metaData:
+          type: object
+          description: Extra JSON metadata for event. Contextual to event type
+      required:
+      - type
     UserData:
       type: object
       properties:
@@ -312,74 +380,6 @@ components:
           description: DevCycle SDK Version
       required:
       - user_id
-    Feature:
-      type: object
-      properties:
-        _id:
-          type: string
-          description: unique database id
-        key:
-          type: string
-          pattern: ^[a-z0-9-_.]+$
-          description: Unique key by Project, can be used in the SDK / API to reference by 'key' rather than _id.
-        type:
-          type: string
-          description: Feature type
-          enum:
-          - release
-          - experiment
-          - permission
-          - ops
-        _variation:
-          type: string
-          description: Bucketed feature variation ID
-        variationName:
-          type: string
-          description: Bucketed feature variation Name
-        variationKey:
-          type: string
-          description: Bucketed feature variation Key
-        eval:
-          $ref: '#/components/schemas/EvalReason'
-      required:
-      - _id
-      - key
-      - type
-      - _variation
-    ErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Error response status code
-        message:
-          type: string
-          description: Error message
-        data:
-          type: object
-          description: Additional error information detailing the error reasoning
-      required:
-      - message
-    Event:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Custom event type
-        target:
-          type: string
-          description: Custom event target / subject of event. Contextual to event type
-        date:
-          type: number
-          description: Unix epoch time the event occurred according to client
-        value:
-          type: number
-          description: Value for numerical events. Contextual to event type
-        metaData:
-          type: object
-          description: Extra JSON metadata for event. Contextual to event type
-      required:
-      - type
   responses:
     NotFound:
       description: Not Found
@@ -393,14 +393,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    UnauthorizedError:
+      description: Missing 'sdkKey' query parameter or 'Authorization' header
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    UnauthorizedError:
-      description: Missing 'sdkKey' query parameter or 'Authorization' header
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:

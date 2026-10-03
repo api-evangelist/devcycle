@@ -209,25 +209,6 @@ paths:
       - Overrides
 components:
   schemas:
-    UpdateOverrideDto:
-      type: object
-      properties:
-        environment:
-          type: string
-        variation:
-          type: string
-      required:
-      - environment
-      - variation
-    OverrideResponse:
-      type: object
-      properties:
-        overrides:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureOverride'
-      required:
-      - overrides
     Override:
       type: object
       properties:
@@ -255,6 +236,16 @@ components:
       - dvcUserId
       - createdAt
       - updatedAt
+    UpdateOverrideDto:
+      type: object
+      properties:
+        environment:
+          type: string
+        variation:
+          type: string
+      required:
+      - environment
+      - variation
     BadRequestErrorResponse:
       type: object
       properties:
@@ -307,6 +298,15 @@ components:
       required:
       - _environment
       - _variation
+    OverrideResponse:
+      type: object
+      properties:
+        overrides:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureOverride'
+      required:
+      - overrides
     FeatureOverrides:
       type: object
       properties:

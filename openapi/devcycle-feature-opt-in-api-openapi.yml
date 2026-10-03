@@ -115,14 +115,14 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    InternalServerError:
-      description: Internal Server Error
+    ForbiddenError:
+      description: Forbidden - Feature not enabled or insufficient permissions
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    InternalServerError:
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -133,31 +133,13 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    ForbiddenError:
-      description: Forbidden - Feature not enabled or insufficient permissions
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
   schemas:
-    UserOptInData:
-      type: object
-      additionalProperties:
-        type: boolean
-    ErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Error response status code
-        message:
-          type: string
-          description: Error message
-        data:
-          type: object
-          description: Additional error information detailing the error reasoning
-      required:
-      - message
     OptInConfigResponse:
       type: object
       properties:
@@ -221,6 +203,24 @@ components:
       required:
       - settings
       - features
+    UserOptInData:
+      type: object
+      additionalProperties:
+        type: boolean
+    ErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Error response status code
+        message:
+          type: string
+          description: Error message
+        data:
+          type: object
+          description: Additional error information detailing the error reasoning
+      required:
+      - message
   securitySchemes:
     bearerAuth:
       type: apiKey
