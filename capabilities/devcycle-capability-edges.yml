@@ -1,0 +1,114 @@
+slug: devcycle
+provider: DevCycle
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 10
+edges:
+- tag: Feature Configurations
+  spec_file: devcycle-feature-configurations-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.9
+  evidence: PATCH /v1/projects/{project}/features/{feature}/configurations  Update a Feature configuration;
+    schemas Rollout, TargetAudience, RolloutStage, TargetDistribution
+  reason: Directly configures flag targeting rules, audiences and rollout stages — the runtime control
+    and targeting of feature flags to cohorts.
+- tag: Features v2
+  spec_file: devcycle-features-v2-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.9
+  evidence: POST /v2/projects/{project}/features  Create Feature; PATCH .../staleness  Update a Feature's
+    Staleness; schemas Variation, Rollout, FeatureCustomStatus
+  reason: Full lifecycle CRUD over feature flags including status, variations, rollout and staleness (flag
+    cleanup) — canonical feature flag management.
+- tag: Overrides
+  spec_file: devcycle-overrides-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.9
+  evidence: PUT /v1/projects/{project}/features/{feature}/overrides/current — "Update Overrides for the
+    Current User"; schemas FeatureOverride, UserOverride
+  reason: Per-user overrides of feature flag variations on a feature flag platform — runtime control/targeting
+    of feature flags, i.e. Feature Flag Management.
+- tag: '[Deprecated] Features v1'
+  spec_file: devcycle-deprecated-features-v1-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.9
+  evidence: POST /v1/projects/{project}/features — "Create Feature"; PATCH .../features/{feature}/status
+    — "Update a Feature's status"; schemas Rollout, Target, Variation, FeatureStaleness
+  reason: Full CRUD and status lifecycle over feature flags with rollout/targeting configuration — the
+    core feature flag management capability.
+- tag: Audiences
+  spec_file: devcycle-audiences-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.85
+  evidence: 'POST /v1/projects/{project}/audiences  Create Audience ... schemas: AudienceFeature, UserCountryFilter,
+    UserAppVersionFilter, AudienceEnvironments'
+  reason: DevCycle is a feature flag platform; Audiences define reusable user-targeting filter sets applied
+    to feature flags across environments, which is feature flag targeting lifecycle management.
+- tag: Bucketing API
+  spec_file: devcycle-bucketing-api-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.85
+  evidence: Documents the DevCycle Bucketing API which provides an API interface to User Bucketing and
+    for Server SDKs configured to use Cloud Bucketing ... POST /v1/variables/{key}  Get variable by key
+    for user data
+  reason: Runtime evaluation of feature flag variables and features for a given user — the runtime control/targeting
+    side of feature flag management.
+- tag: OpenFeature Remote Evaluation API (OFREP)
+  spec_file: devcycle-openfeature-remote-evaluation-api-ofrep-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.85
+  evidence: POST /ofrep/v1/evaluate/flags  OFREP Bulk Evaluation Request; schemas ofrep-booleanFlag, ofrep-context
+  reason: Runtime remote evaluation of feature flags against an evaluation context — the runtime control
+    half of feature flag management.
+- tag: Variables
+  spec_file: devcycle-variables-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.85
+  evidence: POST /v1/projects/{project}/variables — "Create a Variable"; PATCH .../variables/{key}/status
+    — "Update a Variable status to archived or active"
+  reason: Variables are the flag values evaluated by DevCycle SDKs; CRUD plus archive/active lifecycle
+    is feature flag lifecycle management.
+- tag: Variations
+  spec_file: devcycle-variations-api-openapi.yml
+  capability_id: BC-4210.50
+  capability_id_l1: BC-4210
+  capability_name: Feature Flag Management
+  confidence: 0.85
+  evidence: POST /v1/projects/{project}/features/{feature}/variations — "Create a Feature Variation";
+    schemas Rollout, RolloutStage, TargetAudience, TargetDistribution
+  reason: Variations define the alternative flag values with targeting/rollout distribution — core feature
+    flag configuration and targeting.
+- tag: Webhooks
+  spec_file: devcycle-webhooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.8
+  evidence: POST /v1/projects/{project}/webhooks — "Create Webhook"; schemas Webhook, CreateWebhookDto
+  reason: Lifecycle CRUD of outbound webhook subscriptions, which the frame explicitly covers as Webhook
+    & Event Subscription Management.

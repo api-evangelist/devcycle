@@ -418,6 +418,9 @@ apis:
   - type: Documentation
     url: https://docs.devcycle.com/bucketing-api/
 common:
+- type: CapabilityMap
+  url: capabilities/devcycle-capability-edges.yml
+  name: DevCycle Business Capability Map
 - type: Overlay
   url: overlays/devcycle-bucketing-overlay.yaml
 - type: PostmanWorkspace
