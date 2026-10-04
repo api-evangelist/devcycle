@@ -51,32 +51,29 @@ paths:
       operationId: patchV1EdgedbByUserId
       x-operation-id-source: derived
 components:
-  responses:
-    NotFound:
-      description: Not Found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    InternalServerError:
-      description: Internal Server Error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    UnauthorizedError:
-      description: Missing 'sdkKey' query parameter or 'Authorization' header
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ErrorResponse'
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Error response status code
+        message:
+          type: string
+          description: Error message
+        data:
+          type: object
+          description: Additional error information detailing the error reasoning
+      required:
+      - message
+    EdgeDBApiResponse:
+      type: object
+      properties:
+        message:
+          description: Response message of the request
+          type: string
+      required:
+      - message
     UserDataEdgeDB:
       type: object
       properties:
@@ -107,28 +104,31 @@ components:
           type: number
       required:
       - user_id
-    ErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Error response status code
-        message:
-          type: string
-          description: Error message
-        data:
-          type: object
-          description: Additional error information detailing the error reasoning
-      required:
-      - message
-    EdgeDBApiResponse:
-      type: object
-      properties:
-        message:
-          description: Response message of the request
-          type: string
-      required:
-      - message
+  responses:
+    BadRequest:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServerError:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    UnauthorizedError:
+      description: Missing 'sdkKey' query parameter or 'Authorization' header
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
   securitySchemes:
     bearerAuth:
       type: apiKey

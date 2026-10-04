@@ -329,6 +329,122 @@ paths:
       - Variables
 components:
   schemas:
+    UpdateVariableStatusDto:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status field indicating whether a variable is actively being used, or is archived.
+          enum:
+          - active
+          - archived
+      required:
+      - status
+    VariableValidationEntity:
+      type: object
+      properties:
+        schemaType:
+          type: object
+        enumValues:
+          type: object
+        regexPattern:
+          type: string
+        jsonSchema:
+          type: string
+        description:
+          type: string
+        exampleValue:
+          type: object
+      required:
+      - schemaType
+      - description
+      - exampleValue
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    UpdateVariableDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Variable name
+          example: Show New Dashboard
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          description: A description of the Variable
+          example: A boolean variable that will toggle the new dashboard feature
+          maxLength: 1000
+        key:
+          type: string
+          description: 'Unique Variable identifier, can be used in the SDK / API to reference by key rather then ID.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: show-new-dashboard
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        type:
+          description: The type of Variable. Must be one of [String | Boolean | Number | JSON]
+          example: Boolean
+          enum:
+          - String
+          - Boolean
+          - Number
+          - JSON
+          type: string
+        validationSchema:
+          description: Validation schema for variable values
+          allOf:
+          - $ref: '#/components/schemas/VariableValidationEntity'
+        persistent:
+          type: boolean
+          description: Boolean indicating if the variable is intended to be long-lived within a feature
+        tags:
+          description: Tags to organize Variables on the dashboard
+          example:
+          - Dashboard
+          - QA
+          type: array
+          items:
+            type: string
     ConflictErrorResponse:
       type: object
       properties:
@@ -403,41 +519,21 @@ components:
       required:
       - key
       - type
-    NotFoundErrorResponse:
+    PreconditionFailedErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
           description: Response status code
-          example: 404
+          example: 412
         message:
           type: object
           description: Error details
-          example: Item with key 'key-123' not found
+          example: Variable does not belong to Feature
         error:
           type: string
           description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
+          example: Precondition Failed
       required:
       - statusCode
       - message
@@ -545,99 +641,3 @@ components:
       - source
       - createdAt
       - updatedAt
-    UpdateVariableStatusDto:
-      type: object
-      properties:
-        status:
-          type: string
-          description: Status field indicating whether a variable is actively being used, or is archived.
-          enum:
-          - active
-          - archived
-      required:
-      - status
-    UpdateVariableDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Variable name
-          example: Show New Dashboard
-          maxLength: 100
-          minLength: 1
-        description:
-          type: string
-          description: A description of the Variable
-          example: A boolean variable that will toggle the new dashboard feature
-          maxLength: 1000
-        key:
-          type: string
-          description: 'Unique Variable identifier, can be used in the SDK / API to reference by key rather then ID.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: show-new-dashboard
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        type:
-          description: The type of Variable. Must be one of [String | Boolean | Number | JSON]
-          example: Boolean
-          enum:
-          - String
-          - Boolean
-          - Number
-          - JSON
-          type: string
-        validationSchema:
-          description: Validation schema for variable values
-          allOf:
-          - $ref: '#/components/schemas/VariableValidationEntity'
-        persistent:
-          type: boolean
-          description: Boolean indicating if the variable is intended to be long-lived within a feature
-        tags:
-          description: Tags to organize Variables on the dashboard
-          example:
-          - Dashboard
-          - QA
-          type: array
-          items:
-            type: string
-    VariableValidationEntity:
-      type: object
-      properties:
-        schemaType:
-          type: object
-        enumValues:
-          type: object
-        regexPattern:
-          type: string
-        jsonSchema:
-          type: string
-        description:
-          type: string
-        exampleValue:
-          type: object
-      required:
-      - schemaType
-      - description
-      - exampleValue
-    PreconditionFailedErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 412
-        message:
-          type: object
-          description: Error details
-          example: Variable does not belong to Feature
-        error:
-          type: string
-          description: Error type
-          example: Precondition Failed
-      required:
-      - statusCode
-      - message
-      - error

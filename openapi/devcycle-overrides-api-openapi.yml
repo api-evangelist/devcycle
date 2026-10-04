@@ -209,6 +209,81 @@ paths:
       - Overrides
 components:
   schemas:
+    OverrideResponse:
+      type: object
+      properties:
+        overrides:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureOverride'
+      required:
+      - overrides
+    FeatureOverrides:
+      type: object
+      properties:
+        overrides:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/Override'
+        uniqueTeamMembers:
+          type: number
+      required:
+      - overrides
+      - uniqueTeamMembers
+    UserOverride:
+      type: object
+      properties:
+        _feature:
+          type: string
+        featureName:
+          type: string
+        _environment:
+          type: string
+        environmentName:
+          type: string
+        _variation:
+          type: string
+        variationName:
+          type: string
+      required:
+      - _feature
+      - featureName
+      - _environment
+      - environmentName
+      - _variation
+      - variationName
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    FeatureOverride:
+      type: object
+      properties:
+        _environment:
+          type: string
+        _variation:
+          type: string
+      required:
+      - _environment
+      - _variation
     Override:
       type: object
       properties:
@@ -246,78 +321,3 @@ components:
       required:
       - environment
       - variation
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
-    UserOverride:
-      type: object
-      properties:
-        _feature:
-          type: string
-        featureName:
-          type: string
-        _environment:
-          type: string
-        environmentName:
-          type: string
-        _variation:
-          type: string
-        variationName:
-          type: string
-      required:
-      - _feature
-      - featureName
-      - _environment
-      - environmentName
-      - _variation
-      - variationName
-    FeatureOverride:
-      type: object
-      properties:
-        _environment:
-          type: string
-        _variation:
-          type: string
-      required:
-      - _environment
-      - _variation
-    OverrideResponse:
-      type: object
-      properties:
-        overrides:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureOverride'
-      required:
-      - overrides
-    FeatureOverrides:
-      type: object
-      properties:
-        overrides:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/Override'
-        uniqueTeamMembers:
-          type: number
-      required:
-      - overrides
-      - uniqueTeamMembers

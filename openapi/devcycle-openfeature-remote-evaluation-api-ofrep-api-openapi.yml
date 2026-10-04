@@ -130,28 +130,32 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ofrep-booleanFlag:
-      description: A boolean typed flag value
+    ofrep-objectFlag:
+      description: An object typed flag value
       properties:
         value:
-          type: boolean
+          type: object
           description: Flag evaluation result
       required:
       - value
-    ofrep-flagNotFound:
-      description: Flag not found response
+    ofrep-evaluationRequest:
+      description: Flag evaluation request
       properties:
-        key:
-          $ref: '#/components/schemas/ofrep-key'
-        errorCode:
-          type: string
-          enum:
-          - FLAG_NOT_FOUND
-        errorDetails:
-          $ref: '#/components/schemas/ofrep-errorDetails'
+        context:
+          $ref: '#/components/schemas/ofrep-context'
+    ofrep-errorDetails:
+      type: string
+      description: An error description for logging or other needs
+    ofrep-integerFlag:
+      description: An integer typed flag value
+      properties:
+        value:
+          type: integer
+          description: Flag evaluation result
+          examples:
+          - 3
       required:
-      - key
-      - errorCode
+      - value
     ofrep-stringFlag:
       description: A string typed flag value
       properties:
@@ -177,24 +181,35 @@ components:
       properties:
         errorDetails:
           $ref: '#/components/schemas/ofrep-errorDetails'
-    ofrep-integerFlag:
-      description: An integer typed flag value
+    ofrep-bulkEvaluationFailure:
+      description: Bulk evaluation failure response
       properties:
-        value:
-          type: integer
-          description: Flag evaluation result
-          examples:
-          - 3
+        errorCode:
+          type: string
+          description: An appropriate  code specific to the bulk evaluation error. See https://openfeature.dev/specification/types#error-code
+        errorDetails:
+          type: string
+          description: Optional error details description for logging or other needs
       required:
-      - value
-    ofrep-objectFlag:
-      description: An object typed flag value
+      - errorCode
+    ofrep-evaluationFailure:
+      description: Flag evaluation failure response
       properties:
-        value:
-          type: object
-          description: Flag evaluation result
+        key:
+          $ref: '#/components/schemas/ofrep-key'
+        errorCode:
+          type: string
+          enum:
+          - PARSE_ERROR
+          - TARGETING_KEY_MISSING
+          - INVALID_CONTEXT
+          - GENERAL
+          description: OpenFeature compatible error code. See https://openfeature.dev/specification/types#error-code
+        errorDetails:
+          $ref: '#/components/schemas/ofrep-errorDetails'
       required:
-      - value
+      - key
+      - errorCode
     ofrep-bulkEvaluationSuccess:
       description: Success response for the bulk evaluation request
       type: object
@@ -205,14 +220,14 @@ components:
             oneOf:
             - $ref: '#/components/schemas/ofrep-evaluationSuccess'
             - $ref: '#/components/schemas/ofrep-evaluationFailure'
-    ofrep-bulkEvaluationRequest:
-      description: Evaluate multiple flags in one request
+    ofrep-booleanFlag:
+      description: A boolean typed flag value
       properties:
-        context:
-          $ref: '#/components/schemas/ofrep-context'
-    ofrep-errorDetails:
-      type: string
-      description: An error description for logging or other needs
+        value:
+          type: boolean
+          description: Flag evaluation result
+      required:
+      - value
     ofrep-evaluationSuccess:
       description: Flag evaluation success response.
       allOf:
@@ -240,49 +255,34 @@ components:
         - $ref: '#/components/schemas/ofrep-integerFlag'
         - $ref: '#/components/schemas/ofrep-floatFlag'
         - $ref: '#/components/schemas/ofrep-objectFlag'
-    ofrep-context:
-      type: object
-      description: Context information for flag evaluation
-    ofrep-bulkEvaluationFailure:
-      description: Bulk evaluation failure response
-      properties:
-        errorCode:
-          type: string
-          description: An appropriate  code specific to the bulk evaluation error. See https://openfeature.dev/specification/types#error-code
-        errorDetails:
-          type: string
-          description: Optional error details description for logging or other needs
-      required:
-      - errorCode
-    ofrep-evaluationRequest:
-      description: Flag evaluation request
-      properties:
-        context:
-          $ref: '#/components/schemas/ofrep-context'
-    ofrep-evaluationFailure:
-      description: Flag evaluation failure response
-      properties:
-        key:
-          $ref: '#/components/schemas/ofrep-key'
-        errorCode:
-          type: string
-          enum:
-          - PARSE_ERROR
-          - TARGETING_KEY_MISSING
-          - INVALID_CONTEXT
-          - GENERAL
-          description: OpenFeature compatible error code. See https://openfeature.dev/specification/types#error-code
-        errorDetails:
-          $ref: '#/components/schemas/ofrep-errorDetails'
-      required:
-      - key
-      - errorCode
     ofrep-key:
       type: string
       pattern: ^[a-z0-9-_.]+$
       description: Feature flag key
       examples:
       - my-flag
+    ofrep-context:
+      type: object
+      description: Context information for flag evaluation
+    ofrep-flagNotFound:
+      description: Flag not found response
+      properties:
+        key:
+          $ref: '#/components/schemas/ofrep-key'
+        errorCode:
+          type: string
+          enum:
+          - FLAG_NOT_FOUND
+        errorDetails:
+          $ref: '#/components/schemas/ofrep-errorDetails'
+      required:
+      - key
+      - errorCode
+    ofrep-bulkEvaluationRequest:
+      description: Evaluate multiple flags in one request
+      properties:
+        context:
+          $ref: '#/components/schemas/ofrep-context'
   securitySchemes:
     bearerAuth:
       type: apiKey

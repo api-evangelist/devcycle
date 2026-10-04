@@ -201,82 +201,7 @@ paths:
       - Variations
 components:
   schemas:
-    Rollout:
-      type: object
-      properties:
-        startPercentage:
-          type: number
-          description: Rollout start percentage
-          minimum: 0
-          maximum: 1
-        type:
-          type: string
-          description: Type of rollout
-          enum:
-          - schedule
-          - gradual
-          - stepped
-        startDate:
-          format: date-time
-          type: string
-          description: Date to start rollout
-        stages:
-          description: Stages of rollout
-          type: array
-          items:
-            $ref: '#/components/schemas/RolloutStage'
-      required:
-      - type
-      - startDate
-    NotFoundErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
-          type: string
-          description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    FeatureCustomStatus:
-      type: object
-      properties:
-        _status:
-          type: string
-          description: Custom status ID reference
-        updatedAt:
-          format: date-time
-          type: string
-          description: Timestamp when the custom status was last updated
-    VariableValidationEntity:
-      type: object
-      properties:
-        schemaType:
-          type: object
-        enumValues:
-          type: object
-        regexPattern:
-          type: string
-        jsonSchema:
-          type: string
-        description:
-          type: string
-        exampleValue:
-          type: object
-      required:
-      - schemaType
-      - description
-      - exampleValue
-    UpdateFeatureVariationDto:
+    FeatureVariationDto:
       type: object
       properties:
         key:
@@ -311,40 +236,60 @@ components:
             num-var: 99
             json-var:
               foo: bar
-        _id:
-          type: string
-    Target:
+      required:
+      - key
+      - name
+    UserAppVersionFilter:
       type: object
       properties:
-        _id:
+        comparator:
+          description: Comparator to use
+          example: '>'
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
           type: string
-          description: A unique Target ID
-          example: 61450f3daec96f5cf4a49946
-        name:
-          type: string
-          description: Target name
-          example: Feature Enabled
-        audience:
-          description: Audience model describing target segmentation.
-          allOf:
-          - $ref: '#/components/schemas/TargetAudience'
-        rollout:
-          description: Rollout sub-document describing how a Target's audience is rolled out
-          allOf:
-          - $ref: '#/components/schemas/Rollout'
-        distribution:
-          description: Specifies variation distribution percentages for features
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 1.0.2
           type: array
           items:
-            $ref: '#/components/schemas/TargetDistribution'
-        bucketingKey:
+            type: string
+        type:
           type: string
-          description: String to bucket users into a specific variation
-          example: '''organization_id'
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: appVersion
+          default: appVersion
+          enum:
+          - appVersion
       required:
-      - _id
-      - audience
-      - distribution
+      - comparator
+      - type
+      - subType
+    Link:
+      type: object
+      properties:
+        url:
+          type: string
+        title:
+          type: string
+      required:
+      - url
+      - title
     Variation:
       type: object
       properties:
@@ -388,6 +333,619 @@ components:
       - key
       - name
       - _id
+    TargetDistribution:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Distribution percentage for the variation
+          example: 0.0005
+          minimum: 0
+          maximum: 1
+        _variation:
+          type: string
+          description: Variation ID or key from `feature.variations`
+          example: variation-1
+      required:
+      - percentage
+      - _variation
+    Target:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: A unique Target ID
+          example: 61450f3daec96f5cf4a49946
+        name:
+          type: string
+          description: Target name
+          example: Feature Enabled
+        audience:
+          description: Audience model describing target segmentation.
+          allOf:
+          - $ref: '#/components/schemas/TargetAudience'
+        rollout:
+          description: Rollout sub-document describing how a Target's audience is rolled out
+          allOf:
+          - $ref: '#/components/schemas/Rollout'
+        distribution:
+          description: Specifies variation distribution percentages for features
+          type: array
+          items:
+            $ref: '#/components/schemas/TargetDistribution'
+        bucketingKey:
+          type: string
+          description: String to bucket users into a specific variation
+          example: '''organization_id'
+      required:
+      - _id
+      - audience
+      - distribution
+    AudienceOperatorWithAudienceMatchFilter:
+      type: object
+      properties:
+        filters:
+          type: array
+          description: Filters to apply using the "operator" operation
+          items:
+            anyOf:
+            - $ref: '#/components/schemas/AllFilter'
+            - $ref: '#/components/schemas/UserFilter'
+            - $ref: '#/components/schemas/UserCountryFilter'
+            - $ref: '#/components/schemas/UserAppVersionFilter'
+            - $ref: '#/components/schemas/UserPlatformVersionFilter'
+            - $ref: '#/components/schemas/UserCustomFilter'
+            - $ref: '#/components/schemas/AudienceMatchFilter'
+        operator:
+          description: Operator type if this object represents an operator, and not a filter
+          enum:
+          - and
+          - or
+          type: string
+      required:
+      - filters
+      - operator
+    FeatureSettings:
+      type: object
+      properties:
+        publicName:
+          type: string
+          maxLength: 100
+          minLength: 1
+        publicDescription:
+          type: string
+          maxLength: 1000
+        optInEnabled:
+          type: boolean
+      required:
+      - publicName
+      - publicDescription
+      - optInEnabled
+    UserFilter:
+      type: object
+      properties:
+        subType:
+          description: Sub type of this filter
+          example: email
+          enum:
+          - user_id
+          - email
+          - platform
+          - deviceModel
+          type: string
+        comparator:
+          description: Comparator to use
+          example: '!='
+          enum:
+          - '='
+          - '!='
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - baduser@email.com
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+      required:
+      - subType
+      - comparator
+      - type
+    TargetAudience:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Audience display name, must be set for project-level audiences.
+          example: Android Users
+          maxLength: 100
+          minLength: 1
+        filters:
+          description: Audience filters, describing logic for segmenting users
+          allOf:
+          - $ref: '#/components/schemas/AudienceOperatorWithAudienceMatchFilter'
+      required:
+      - filters
+    UpdateFeatureVariationDto:
+      type: object
+      properties:
+        key:
+          type: string
+          description: 'Unique key by Feature, can be used in the SDK / API to reference by ''key'' rather than _id.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: variation-1
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          description: Variation display name.
+          example: User's with dashboard access
+          maxLength: 100
+          minLength: 1
+        variables:
+          type: object
+          description: A key-value map of variables to their value for this variation
+          additionalProperties:
+            anyOf:
+            - type: string
+            - type: number
+            - type: boolean
+            - type: array
+            - type: object
+          example:
+            show-new-dashboard: true
+            string-var: hello world
+            bool-var: true
+            num-var: 99
+            json-var:
+              foo: bar
+        _id:
+          type: string
+    UserCustomFilter:
+      type: object
+      properties:
+        comparator:
+          description: Comparator to use
+          example: '>='
+          enum:
+          - '='
+          - '!='
+          - '>'
+          - '>='
+          - <
+          - <=
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        dataKey:
+          type: string
+          description: Data Key used for custom data
+          example: my_custom_prop
+          minLength: 1
+        dataKeyType:
+          description: Data Key Type used for custom data
+          example: Number
+          enum:
+          - String
+          - Boolean
+          - Number
+          type: string
+        values:
+          type: object
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - 0
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+        subType:
+          type: string
+          description: Sub type of this filter
+          example: customData
+          default: customData
+          enum:
+          - customData
+      required:
+      - comparator
+      - dataKey
+      - dataKeyType
+      - type
+      - subType
+    FeatureConfig:
+      type: object
+      properties:
+        _feature:
+          type: string
+          description: ID of the Feature owning the Configuration
+          example: 61450f3daec96f5cf4a49946
+        _environment:
+          type: string
+          description: ID of the Environment owning the Configuration
+          example: 61450f3daec96f5cf4a49946
+        _createdBy:
+          type: string
+          description: User who created the Feature Configuration
+        status:
+          description: Status of the Feature Configuration
+          enum:
+          - active
+          - inactive
+          type: string
+        startedAt:
+          format: date-time
+          type: string
+          description: Date the Feature Configuration was started
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Feature Configuration was last updated
+        targets:
+          description: The targets to evaluate what variation a user should be delivered
+          type: array
+          items:
+            $ref: '#/components/schemas/Target'
+        readonly:
+          type: boolean
+          description: Controls whether the feature configuration is editable for a given user
+        hasStaticConfig:
+          type: boolean
+          description: 'Flag to indicate if the Feature owning the configuration has been marked as complete.
+
+            If true, the user targeting rules are ignored and the static variation is always used.'
+      required:
+      - _feature
+      - _environment
+      - status
+      - updatedAt
+      - targets
+      - readonly
+      - hasStaticConfig
+    FeatureSDKVisibility:
+      type: object
+      properties:
+        mobile:
+          type: boolean
+        client:
+          type: boolean
+        server:
+          type: boolean
+      required:
+      - mobile
+      - client
+      - server
+    AudienceMatchFilter:
+      type: object
+      properties:
+        type:
+          type: string
+          default: audienceMatch
+          enum:
+          - audienceMatch
+        comparator:
+          enum:
+          - '='
+          - '!='
+          type: string
+        _audiences:
+          type: array
+          items:
+            type: string
+      required:
+      - type
+    NotFoundErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
+          type: string
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    AllFilter:
+      type: object
+      properties:
+        type:
+          type: string
+          description: Filter type of this audience
+          default: all
+          enum:
+          - all
+      required:
+      - type
+    Rollout:
+      type: object
+      properties:
+        startPercentage:
+          type: number
+          description: Rollout start percentage
+          minimum: 0
+          maximum: 1
+        type:
+          type: string
+          description: Type of rollout
+          enum:
+          - schedule
+          - gradual
+          - stepped
+        startDate:
+          format: date-time
+          type: string
+          description: Date to start rollout
+        stages:
+          description: Stages of rollout
+          type: array
+          items:
+            $ref: '#/components/schemas/RolloutStage'
+      required:
+      - type
+      - startDate
+    AuditLogEntity:
+      type: object
+      properties:
+        date:
+          format: date-time
+          type: string
+        a0_user:
+          type: string
+        changes:
+          type: array
+          items:
+            type: object
+      required:
+      - date
+      - a0_user
+      - changes
+    VariableValidationEntity:
+      type: object
+      properties:
+        schemaType:
+          type: object
+        enumValues:
+          type: object
+        regexPattern:
+          type: string
+        jsonSchema:
+          type: string
+        description:
+          type: string
+        exampleValue:
+          type: object
+      required:
+      - schemaType
+      - description
+      - exampleValue
+    FeatureStaleness:
+      type: object
+      properties: {}
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType
+    UserCountryFilter:
+      type: object
+      properties:
+        subType:
+          description: Sub type of this filter
+          example: country
+          enum:
+          - country
+          type: string
+          default: country
+        comparator:
+          description: Comparator to use
+          example: '!='
+          enum:
+          - '='
+          - '!='
+          - exist
+          - '!exist'
+          - contain
+          - '!contain'
+          - startWith
+          - '!startWith'
+          - endWith
+          - '!endWith'
+          type: string
+        values:
+          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
+          example:
+          - CA
+          - US
+          type: array
+          items:
+            type: string
+        type:
+          type: string
+          description: Filter type of this audience
+          example: user
+          default: user
+          enum:
+          - user
+      required:
+      - subType
+      - comparator
+      - type
+    RolloutStage:
+      type: object
+      properties:
+        percentage:
+          type: number
+          description: Target percentage to reach by the step date
+          minimum: 0
+          maximum: 1
+        type:
+          type: string
+          description: Defines the transition into this percentage level
+          enum:
+          - linear
+          - discrete
+        date:
+          format: date-time
+          type: string
+          description: Date the target percentage should be fully applied
+      required:
+      - percentage
+      - type
+      - date
+    Variable:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Variable name
+          example: Show New Dashboard
+          maxLength: 100
+          minLength: 1
+        description:
+          type: string
+          description: A description of the Variable
+          example: A boolean variable that will toggle the new dashboard feature
+          maxLength: 1000
+        key:
+          type: string
+          description: 'Unique Variable identifier, can be used in the SDK / API to reference by key rather then ID.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: show-new-dashboard
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        _id:
+          type: string
+          description: A unique Variable ID
+          example: 61450f3daec96f5cf4a49946
+        _project:
+          type: string
+          description: The ID of the Project this Variable belongs to
+        _feature:
+          type: string
+          description: The ID of the Feature this Variable belongs to
+          example: 61450f3daec96f5cf4a49947
+        type:
+          description: The type of Variable. Must be one of [String | Boolean | Number | JSON]
+          example: Boolean
+          enum:
+          - String
+          - Boolean
+          - Number
+          - JSON
+          type: string
+        status:
+          description: The status of a Variable. Must be one of [active | archived]
+          example: active
+          enum:
+          - active
+          - archived
+          type: string
+        source:
+          description: The system that was used for the creation of the Variable.
+          example: api
+          enum:
+          - api
+          - dashboard
+          - importer
+          - github.code_usages
+          - github.pr_insights
+          - gitlab.code_usages
+          - gitlab.pr_insights
+          - bitbucket.code_usages
+          - bitbucket.pr_insights
+          - terraform
+          - cli
+          - slack
+          - mcp
+          type: string
+        _createdBy:
+          type: string
+          description: ID of the User who created the Variable.
+        createdAt:
+          format: date-time
+          type: string
+          description: The date the Variable was created
+        updatedAt:
+          format: date-time
+          type: string
+          description: The date the Variable was last updated
+        validationSchema:
+          description: Validation schema for variable values
+          allOf:
+          - $ref: '#/components/schemas/VariableValidationEntity'
+        persistent:
+          type: boolean
+          description: Boolean indicating if the variable is intended to be long-lived within a feature
+        tags:
+          description: Tags to organize Variables on the dashboard
+          example:
+          - Dashboard
+          - QA
+          type: array
+          items:
+            type: string
+      required:
+      - key
+      - _id
+      - _project
+      - type
+      - status
+      - source
+      - createdAt
+      - updatedAt
     Feature:
       type: object
       properties:
@@ -538,277 +1096,34 @@ components:
       - readonly
       - configurations
       - summary
-    UserAppVersionFilter:
+    FeatureSummary:
       type: object
       properties:
-        comparator:
-          description: Comparator to use
-          example: '>'
-          enum:
-          - '='
-          - '!='
-          - '>'
-          - '>='
-          - <
-          - <=
-          - exist
-          - '!exist'
-          type: string
-        values:
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-          example:
-          - 1.0.2
+        maintainers:
+          description: Auth0 maintainers of this feature
           type: array
           items:
             type: string
-        type:
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        markdown:
           type: string
-          description: Filter type of this audience
-          example: user
-          default: user
-          enum:
-          - user
-        subType:
-          type: string
-          description: Sub type of this filter
-          example: appVersion
-          default: appVersion
-          enum:
-          - appVersion
       required:
-      - comparator
-      - type
-      - subType
-    Variable:
+      - maintainers
+      - links
+      - markdown
+    FeatureCustomStatus:
       type: object
       properties:
-        name:
+        _status:
           type: string
-          description: Variable name
-          example: Show New Dashboard
-          maxLength: 100
-          minLength: 1
-        description:
-          type: string
-          description: A description of the Variable
-          example: A boolean variable that will toggle the new dashboard feature
-          maxLength: 1000
-        key:
-          type: string
-          description: 'Unique Variable identifier, can be used in the SDK / API to reference by key rather then ID.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: show-new-dashboard
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        _id:
-          type: string
-          description: A unique Variable ID
-          example: 61450f3daec96f5cf4a49946
-        _project:
-          type: string
-          description: The ID of the Project this Variable belongs to
-        _feature:
-          type: string
-          description: The ID of the Feature this Variable belongs to
-          example: 61450f3daec96f5cf4a49947
-        type:
-          description: The type of Variable. Must be one of [String | Boolean | Number | JSON]
-          example: Boolean
-          enum:
-          - String
-          - Boolean
-          - Number
-          - JSON
-          type: string
-        status:
-          description: The status of a Variable. Must be one of [active | archived]
-          example: active
-          enum:
-          - active
-          - archived
-          type: string
-        source:
-          description: The system that was used for the creation of the Variable.
-          example: api
-          enum:
-          - api
-          - dashboard
-          - importer
-          - github.code_usages
-          - github.pr_insights
-          - gitlab.code_usages
-          - gitlab.pr_insights
-          - bitbucket.code_usages
-          - bitbucket.pr_insights
-          - terraform
-          - cli
-          - slack
-          - mcp
-          type: string
-        _createdBy:
-          type: string
-          description: ID of the User who created the Variable.
-        createdAt:
-          format: date-time
-          type: string
-          description: The date the Variable was created
+          description: Custom status ID reference
         updatedAt:
           format: date-time
           type: string
-          description: The date the Variable was last updated
-        validationSchema:
-          description: Validation schema for variable values
-          allOf:
-          - $ref: '#/components/schemas/VariableValidationEntity'
-        persistent:
-          type: boolean
-          description: Boolean indicating if the variable is intended to be long-lived within a feature
-        tags:
-          description: Tags to organize Variables on the dashboard
-          example:
-          - Dashboard
-          - QA
-          type: array
-          items:
-            type: string
-      required:
-      - key
-      - _id
-      - _project
-      - type
-      - status
-      - source
-      - createdAt
-      - updatedAt
-    RolloutStage:
-      type: object
-      properties:
-        percentage:
-          type: number
-          description: Target percentage to reach by the step date
-          minimum: 0
-          maximum: 1
-        type:
-          type: string
-          description: Defines the transition into this percentage level
-          enum:
-          - linear
-          - discrete
-        date:
-          format: date-time
-          type: string
-          description: Date the target percentage should be fully applied
-      required:
-      - percentage
-      - type
-      - date
-    Link:
-      type: object
-      properties:
-        url:
-          type: string
-        title:
-          type: string
-      required:
-      - url
-      - title
-    AuditLogEntity:
-      type: object
-      properties:
-        date:
-          format: date-time
-          type: string
-        a0_user:
-          type: string
-        changes:
-          type: array
-          items:
-            type: object
-      required:
-      - date
-      - a0_user
-      - changes
-    TargetAudience:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Audience display name, must be set for project-level audiences.
-          example: Android Users
-          maxLength: 100
-          minLength: 1
-        filters:
-          description: Audience filters, describing logic for segmenting users
-          allOf:
-          - $ref: '#/components/schemas/AudienceOperatorWithAudienceMatchFilter'
-      required:
-      - filters
-    FeatureStaleness:
-      type: object
-      properties: {}
-    FeatureVariationDto:
-      type: object
-      properties:
-        key:
-          type: string
-          description: 'Unique key by Feature, can be used in the SDK / API to reference by ''key'' rather than _id.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: variation-1
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        name:
-          type: string
-          description: Variation display name.
-          example: User's with dashboard access
-          maxLength: 100
-          minLength: 1
-        variables:
-          type: object
-          description: A key-value map of variables to their value for this variation
-          additionalProperties:
-            anyOf:
-            - type: string
-            - type: number
-            - type: boolean
-            - type: array
-            - type: object
-          example:
-            show-new-dashboard: true
-            string-var: hello world
-            bool-var: true
-            num-var: 99
-            json-var:
-              foo: bar
-      required:
-      - key
-      - name
-    ConflictErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 409
-        message:
-          type: object
-          description: Error details
-          example: Duplicate key 'key-123'
-        error:
-          type: string
-          description: Error type
-          example: Conflict
-        errorType:
-          type: string
-          example: ERR_DUPE_FEATURE_KEY
-      required:
-      - statusCode
-      - message
-      - error
-      - errorType
+          description: Timestamp when the custom status was last updated
     BadRequestErrorResponse:
       type: object
       properties:
@@ -829,66 +1144,6 @@ components:
       - statusCode
       - message
       - error
-    UserCountryFilter:
-      type: object
-      properties:
-        subType:
-          description: Sub type of this filter
-          example: country
-          enum:
-          - country
-          type: string
-          default: country
-        comparator:
-          description: Comparator to use
-          example: '!='
-          enum:
-          - '='
-          - '!='
-          - exist
-          - '!exist'
-          - contain
-          - '!contain'
-          - startWith
-          - '!startWith'
-          - endWith
-          - '!endWith'
-          type: string
-        values:
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-          example:
-          - CA
-          - US
-          type: array
-          items:
-            type: string
-        type:
-          type: string
-          description: Filter type of this audience
-          example: user
-          default: user
-          enum:
-          - user
-      required:
-      - subType
-      - comparator
-      - type
-    TargetDistribution:
-      type: object
-      properties:
-        percentage:
-          type: number
-          description: Distribution percentage for the variation
-          example: 0.0005
-          minimum: 0
-          maximum: 1
-        _variation:
-          type: string
-          description: Variation ID or key from `feature.variations`
-          example: variation-1
-      required:
-      - percentage
-      - _variation
     PreconditionFailedErrorResponse:
       type: object
       properties:
@@ -908,79 +1163,6 @@ components:
       - statusCode
       - message
       - error
-    AudienceOperatorWithAudienceMatchFilter:
-      type: object
-      properties:
-        filters:
-          type: array
-          description: Filters to apply using the "operator" operation
-          items:
-            anyOf:
-            - $ref: '#/components/schemas/AllFilter'
-            - $ref: '#/components/schemas/UserFilter'
-            - $ref: '#/components/schemas/UserCountryFilter'
-            - $ref: '#/components/schemas/UserAppVersionFilter'
-            - $ref: '#/components/schemas/UserPlatformVersionFilter'
-            - $ref: '#/components/schemas/UserCustomFilter'
-            - $ref: '#/components/schemas/AudienceMatchFilter'
-        operator:
-          description: Operator type if this object represents an operator, and not a filter
-          enum:
-          - and
-          - or
-          type: string
-      required:
-      - filters
-      - operator
-    FeatureConfig:
-      type: object
-      properties:
-        _feature:
-          type: string
-          description: ID of the Feature owning the Configuration
-          example: 61450f3daec96f5cf4a49946
-        _environment:
-          type: string
-          description: ID of the Environment owning the Configuration
-          example: 61450f3daec96f5cf4a49946
-        _createdBy:
-          type: string
-          description: User who created the Feature Configuration
-        status:
-          description: Status of the Feature Configuration
-          enum:
-          - active
-          - inactive
-          type: string
-        startedAt:
-          format: date-time
-          type: string
-          description: Date the Feature Configuration was started
-        updatedAt:
-          format: date-time
-          type: string
-          description: The date the Feature Configuration was last updated
-        targets:
-          description: The targets to evaluate what variation a user should be delivered
-          type: array
-          items:
-            $ref: '#/components/schemas/Target'
-        readonly:
-          type: boolean
-          description: Controls whether the feature configuration is editable for a given user
-        hasStaticConfig:
-          type: boolean
-          description: 'Flag to indicate if the Feature owning the configuration has been marked as complete.
-
-            If true, the user targeting rules are ignored and the static variation is always used.'
-      required:
-      - _feature
-      - _environment
-      - status
-      - updatedAt
-      - targets
-      - readonly
-      - hasStaticConfig
     UserPlatformVersionFilter:
       type: object
       properties:
@@ -1022,185 +1204,3 @@ components:
       - comparator
       - type
       - subType
-    UserFilter:
-      type: object
-      properties:
-        subType:
-          description: Sub type of this filter
-          example: email
-          enum:
-          - user_id
-          - email
-          - platform
-          - deviceModel
-          type: string
-        comparator:
-          description: Comparator to use
-          example: '!='
-          enum:
-          - '='
-          - '!='
-          - exist
-          - '!exist'
-          - contain
-          - '!contain'
-          - startWith
-          - '!startWith'
-          - endWith
-          - '!endWith'
-          type: string
-        values:
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-          example:
-          - baduser@email.com
-          type: array
-          items:
-            type: string
-        type:
-          type: string
-          description: Filter type of this audience
-          example: user
-          default: user
-          enum:
-          - user
-      required:
-      - subType
-      - comparator
-      - type
-    FeatureSettings:
-      type: object
-      properties:
-        publicName:
-          type: string
-          maxLength: 100
-          minLength: 1
-        publicDescription:
-          type: string
-          maxLength: 1000
-        optInEnabled:
-          type: boolean
-      required:
-      - publicName
-      - publicDescription
-      - optInEnabled
-    FeatureSDKVisibility:
-      type: object
-      properties:
-        mobile:
-          type: boolean
-        client:
-          type: boolean
-        server:
-          type: boolean
-      required:
-      - mobile
-      - client
-      - server
-    UserCustomFilter:
-      type: object
-      properties:
-        comparator:
-          description: Comparator to use
-          example: '>='
-          enum:
-          - '='
-          - '!='
-          - '>'
-          - '>='
-          - <
-          - <=
-          - exist
-          - '!exist'
-          - contain
-          - '!contain'
-          - startWith
-          - '!startWith'
-          - endWith
-          - '!endWith'
-          type: string
-        dataKey:
-          type: string
-          description: Data Key used for custom data
-          example: my_custom_prop
-          minLength: 1
-        dataKeyType:
-          description: Data Key Type used for custom data
-          example: Number
-          enum:
-          - String
-          - Boolean
-          - Number
-          type: string
-        values:
-          type: object
-          description: An array of values is required for all filters except when the comparator is 'exist' or '!exist'
-          example:
-          - 0
-        type:
-          type: string
-          description: Filter type of this audience
-          example: user
-          default: user
-          enum:
-          - user
-        subType:
-          type: string
-          description: Sub type of this filter
-          example: customData
-          default: customData
-          enum:
-          - customData
-      required:
-      - comparator
-      - dataKey
-      - dataKeyType
-      - type
-      - subType
-    AllFilter:
-      type: object
-      properties:
-        type:
-          type: string
-          description: Filter type of this audience
-          default: all
-          enum:
-          - all
-      required:
-      - type
-    FeatureSummary:
-      type: object
-      properties:
-        maintainers:
-          description: Auth0 maintainers of this feature
-          type: array
-          items:
-            type: string
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-        markdown:
-          type: string
-      required:
-      - maintainers
-      - links
-      - markdown
-    AudienceMatchFilter:
-      type: object
-      properties:
-        type:
-          type: string
-          default: audienceMatch
-          enum:
-          - audienceMatch
-        comparator:
-          enum:
-          - '='
-          - '!='
-          type: string
-        _audiences:
-          type: array
-          items:
-            type: string
-      required:
-      - type

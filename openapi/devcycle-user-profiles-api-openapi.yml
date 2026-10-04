@@ -74,6 +74,18 @@ paths:
       - User Profiles
 components:
   schemas:
+    UpdateUserProfileDto:
+      type: object
+      properties:
+        dvcUserId:
+          type:
+          - string
+          - 'null'
+          description: 'DVC User Id for User Profile.
+
+            Mirrors the SDK `user_id`, which is capped at 200 characters.'
+          example: dvc_sdk_user_id
+          maxLength: 200
     ProjectUserProfile:
       type: object
       properties:
@@ -110,15 +122,3 @@ components:
       - a0_user
       - createdAt
       - updatedAt
-    UpdateUserProfileDto:
-      type: object
-      properties:
-        dvcUserId:
-          type:
-          - string
-          - 'null'
-          description: 'DVC User Id for User Profile.
-
-            Mirrors the SDK `user_id`, which is capped at 200 characters.'
-          example: dvc_sdk_user_id
-          maxLength: 200

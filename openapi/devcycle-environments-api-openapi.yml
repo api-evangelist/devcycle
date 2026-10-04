@@ -368,71 +368,32 @@ paths:
                 $ref: '#/components/schemas/CannotDeleteLastItemErrorResponse'
 components:
   schemas:
-    ConflictErrorResponse:
+    SDKKeys:
       type: object
       properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 409
-        message:
-          type: object
-          description: Error details
-          example: Duplicate key 'key-123'
-        error:
-          type: string
-          description: Error type
-          example: Conflict
-        errorType:
-          type: string
-          example: ERR_DUPE_FEATURE_KEY
+        mobile:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        client:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        server:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
       required:
-      - statusCode
-      - message
-      - error
-      - errorType
-    NotFoundErrorResponse:
+      - mobile
+      - client
+      - server
+    EnvironmentSettings:
       type: object
       properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 404
-        message:
-          type: object
-          description: Error details
-          example: Item with key 'key-123' not found
-        error:
+        appIconURI:
           type: string
-          description: Error type
-          example: Not Found
-      required:
-      - statusCode
-      - message
-      - error
-    BadRequestErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 400
-        message:
-          type: object
-          description: Error details
-          example:
-          - key should not be empty
-        error:
-          type: string
-          description: Error type
-          example: Bad Request
-      required:
-      - statusCode
-      - message
-      - error
-    APIKey:
-      type: object
-      properties: {}
+          description: A unique App Icon URI for a given environment
+          maxLength: 2048
     CannotDeleteLastItemErrorResponse:
       type: object
       properties:
@@ -496,13 +457,125 @@ components:
           description: Environment based settings
           allOf:
           - $ref: '#/components/schemas/EnvironmentSettings'
-    EnvironmentSettings:
+    NotFoundErrorResponse:
       type: object
       properties:
-        appIconURI:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 404
+        message:
+          type: object
+          description: Error details
+          example: Item with key 'key-123' not found
+        error:
           type: string
-          description: A unique App Icon URI for a given environment
-          maxLength: 2048
+          description: Error type
+          example: Not Found
+      required:
+      - statusCode
+      - message
+      - error
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
+          type: string
+          description: Error type
+          example: Bad Request
+      required:
+      - statusCode
+      - message
+      - error
+    GenerateSdkTokensDto:
+      type: object
+      properties:
+        client:
+          type: boolean
+        server:
+          type: boolean
+        mobile:
+          type: boolean
+    ConflictErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 409
+        message:
+          type: object
+          description: Error details
+          example: Duplicate key 'key-123'
+        error:
+          type: string
+          description: Error type
+          example: Conflict
+        errorType:
+          type: string
+          example: ERR_DUPE_FEATURE_KEY
+      required:
+      - statusCode
+      - message
+      - error
+      - errorType
+    CreateEnvironmentDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: A unique display name
+          example: Staging Upcoming
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Unique Environment identifier, can be used in the SDK / API to reference by key rather than ID.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: staging-upcoming
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Environment description.
+          example: Pre-production changes
+          maxLength: 1000
+        color:
+          type: string
+          description: 'Environment display color, used to highlight different environments on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+        type:
+          type: string
+          description: The environment type
+          example: staging
+          enum:
+          - development
+          - staging
+          - production
+          - disaster_recovery
+        settings:
+          description: Environment based settings
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentSettings'
+      required:
+      - name
+      - key
+      - type
     Environment:
       type: object
       properties:
@@ -584,79 +657,6 @@ components:
       - createdAt
       - updatedAt
       - readonly
-    GenerateSdkTokensDto:
+    APIKey:
       type: object
-      properties:
-        client:
-          type: boolean
-        server:
-          type: boolean
-        mobile:
-          type: boolean
-    SDKKeys:
-      type: object
-      properties:
-        mobile:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-        client:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-        server:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-      required:
-      - mobile
-      - client
-      - server
-    CreateEnvironmentDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: A unique display name
-          example: Staging Upcoming
-          maxLength: 100
-          minLength: 1
-        key:
-          type: string
-          description: 'Unique Environment identifier, can be used in the SDK / API to reference by key rather than ID.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: staging-upcoming
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        description:
-          type: string
-          description: Environment description.
-          example: Pre-production changes
-          maxLength: 1000
-        color:
-          type: string
-          description: 'Environment display color, used to highlight different environments on the dashboard.
-
-            Must use Hex color code.'
-          example: '#4073FF'
-          maxLength: 9
-          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
-        type:
-          type: string
-          description: The environment type
-          example: staging
-          enum:
-          - development
-          - staging
-          - production
-          - disaster_recovery
-        settings:
-          description: Environment based settings
-          allOf:
-          - $ref: '#/components/schemas/EnvironmentSettings'
-      required:
-      - name
-      - key
-      - type
+      properties: {}

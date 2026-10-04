@@ -153,42 +153,21 @@ paths:
         500:
           $ref: '#/components/responses/InternalServerError'
 components:
-  requestBodies:
-    UserRequestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserData'
-          example:
-            user_id: user_123456
-            email: user@example.com
-            name: John Doe
-            country: US
-            customData:
-              plan: premium
-              signupDate: '2024-01-01'
-    TrackRequestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/UserDataAndEventsBody'
-          example:
-            user:
-              user_id: user_123456
-              email: user@example.com
-              customData:
-                plan: premium
-            events:
-            - type: purchase
-              value: 99.99
-              metaData:
-                item: subscription
-                currency: USD
-            - type: feature_click
-              target: new-dashboard-button
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Error response status code
+        message:
+          type: string
+          description: Error message
+        data:
+          type: object
+          description: Additional error information detailing the error reasoning
+      required:
+      - message
     UserDataAndEventsBody:
       type: object
       properties:
@@ -232,74 +211,6 @@ components:
       - key
       - type
       - _variation
-    ErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Error response status code
-        message:
-          type: string
-          description: Error message
-        data:
-          type: object
-          description: Additional error information detailing the error reasoning
-      required:
-      - message
-    EvalReason:
-      type: object
-      description: The reason the User was Served this particular value
-      properties:
-        reason:
-          type: string
-          description: Evaluation reason
-          enum:
-          - TARGETING_MATCH
-          - DEFAULT
-          - STATIC
-        details:
-          type: string
-          description: Detailed description of evaluation
-        target_id:
-          type: string
-          description: ID of the targeting rule that matched
-      required:
-      - reason
-    Variable:
-      type: object
-      properties:
-        _id:
-          type: string
-          description: unique database id
-        _feature:
-          type: string
-          description: Feature ID that this variable belongs to
-        key:
-          type: string
-          pattern: ^[a-z0-9-_.]+$
-          description: Unique key by Project, can be used in the SDK / API to reference by 'key' rather than _id.
-        type:
-          type: string
-          description: Variable type
-          enum:
-          - String
-          - Boolean
-          - Number
-          - JSON
-        value:
-          description: Variable value can be a string, number, boolean, or JSON
-          oneOf:
-          - type: string
-          - type: number
-          - type: boolean
-          - type: object
-        eval:
-          $ref: '#/components/schemas/EvalReason'
-      required:
-      - _id
-      - key
-      - type
-      - value
     Event:
       type: object
       properties:
@@ -380,6 +291,95 @@ components:
           description: DevCycle SDK Version
       required:
       - user_id
+    EvalReason:
+      type: object
+      description: The reason the User was Served this particular value
+      properties:
+        reason:
+          type: string
+          description: Evaluation reason
+          enum:
+          - TARGETING_MATCH
+          - DEFAULT
+          - STATIC
+        details:
+          type: string
+          description: Detailed description of evaluation
+        target_id:
+          type: string
+          description: ID of the targeting rule that matched
+      required:
+      - reason
+    Variable:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: unique database id
+        _feature:
+          type: string
+          description: Feature ID that this variable belongs to
+        key:
+          type: string
+          pattern: ^[a-z0-9-_.]+$
+          description: Unique key by Project, can be used in the SDK / API to reference by 'key' rather than _id.
+        type:
+          type: string
+          description: Variable type
+          enum:
+          - String
+          - Boolean
+          - Number
+          - JSON
+        value:
+          description: Variable value can be a string, number, boolean, or JSON
+          oneOf:
+          - type: string
+          - type: number
+          - type: boolean
+          - type: object
+        eval:
+          $ref: '#/components/schemas/EvalReason'
+      required:
+      - _id
+      - key
+      - type
+      - value
+  requestBodies:
+    UserRequestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserData'
+          example:
+            user_id: user_123456
+            email: user@example.com
+            name: John Doe
+            country: US
+            customData:
+              plan: premium
+              signupDate: '2024-01-01'
+    TrackRequestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserDataAndEventsBody'
+          example:
+            user:
+              user_id: user_123456
+              email: user@example.com
+              customData:
+                plan: premium
+            events:
+            - type: purchase
+              value: 99.99
+              metaData:
+                item: subscription
+                currency: USD
+            - type: feature_click
+              target: new-dashboard-button
   responses:
     NotFound:
       description: Not Found
@@ -393,14 +393,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    UnauthorizedError:
-      description: Missing 'sdkKey' query parameter or 'Authorization' header
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    BadRequest:
-      description: Bad Request
+    UnauthorizedError:
+      description: Missing 'sdkKey' query parameter or 'Authorization' header
       content:
         application/json:
           schema:

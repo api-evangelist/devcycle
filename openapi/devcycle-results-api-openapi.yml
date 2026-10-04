@@ -216,19 +216,6 @@ paths:
       - Results
 components:
   schemas:
-    FeatureDataPoint:
-      type: object
-      properties:
-        values:
-          type: object
-          description: Mapping of evaluation variation (variation1, variation2 etc.) to number of evaluations in that variation
-        date:
-          format: date-time
-          type: string
-          description: Date of this data point
-      required:
-      - values
-      - date
     ProjectDataPoint:
       type: object
       properties:
@@ -242,6 +229,35 @@ components:
       required:
       - date
       - value
+    ResultProjectEvaluationsByHourDto:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/ResultsWithProjectData'
+        cached:
+          type: boolean
+          description: Whether this result came from a cache or a live result
+        updatedAt:
+          format: date-time
+          type: string
+          description: Date which these results are up-to-date with
+      required:
+      - result
+      - cached
+      - updatedAt
+    FeatureDataPoint:
+      type: object
+      properties:
+        values:
+          type: object
+          description: Mapping of evaluation variation (variation1, variation2 etc.) to number of evaluations in that variation
+        date:
+          format: date-time
+          type: string
+          description: Date of this data point
+      required:
+      - values
+      - date
     ResultEvaluationsByHourDto:
       type: object
       properties:
@@ -267,22 +283,6 @@ components:
             $ref: '#/components/schemas/ProjectDataPoint'
       required:
       - evaluations
-    ResultProjectEvaluationsByHourDto:
-      type: object
-      properties:
-        result:
-          $ref: '#/components/schemas/ResultsWithProjectData'
-        cached:
-          type: boolean
-          description: Whether this result came from a cache or a live result
-        updatedAt:
-          format: date-time
-          type: string
-          description: Date which these results are up-to-date with
-      required:
-      - result
-      - cached
-      - updatedAt
     ResultWithFeatureData:
       type: object
       properties:

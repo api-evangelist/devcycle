@@ -71,119 +71,6 @@ paths:
       - 'Integrations: Dynatrace'
 components:
   schemas:
-    VercelEdgeConfigConnection:
-      type: object
-      properties:
-        edgeConfigName:
-          type: string
-        configurationId:
-          type: string
-      required:
-      - edgeConfigName
-      - configurationId
-    CreateDynatraceIntegrationDto:
-      type: object
-      properties:
-        dynatraceEnvironmentId:
-          type: string
-        accessToken:
-          type: string
-        environmentUrl:
-          type: string
-      required:
-      - dynatraceEnvironmentId
-      - accessToken
-      - environmentUrl
-    ObfuscationSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        required:
-          type: boolean
-      required:
-      - enabled
-      - required
-    DynatraceProjectSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        environmentMap:
-          type: object
-      required:
-      - enabled
-      - environmentMap
-    UnmodifiedLongStalenessSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    LifeCycleSettings:
-      type: object
-      properties:
-        disableCodeRefChecks:
-          type: boolean
-      required:
-      - disableCodeRefChecks
-    SDKTypeVisibilitySettings:
-      type: object
-      properties:
-        enabledInFeatureSettings:
-          type: boolean
-      required:
-      - enabledInFeatureSettings
-    DynatraceEnvironment:
-      type: object
-      properties:
-        dynatraceEnvironmentId:
-          type: string
-        accessToken:
-          type: string
-        environmentUrl:
-          type: string
-        projects:
-          type: array
-          items:
-            $ref: '#/components/schemas/Project'
-      required:
-      - dynatraceEnvironmentId
-      - accessToken
-      - environmentUrl
-      - projects
-    ProjectSettings:
-      type: object
-      properties:
-        edgeDB:
-          $ref: '#/components/schemas/EdgeDBSettings'
-        optIn:
-          $ref: '#/components/schemas/OptInSettings'
-        sdkTypeVisibility:
-          $ref: '#/components/schemas/SDKTypeVisibilitySettings'
-        lifeCycle:
-          $ref: '#/components/schemas/LifeCycleSettings'
-        obfuscation:
-          $ref: '#/components/schemas/ObfuscationSettings'
-        featureApprovalWorkflow:
-          $ref: '#/components/schemas/FeatureApprovalWorkflowSettings'
-        disablePassthroughRollouts:
-          type: boolean
-        staleness:
-          $ref: '#/components/schemas/StalenessSettings'
-        dynatrace:
-          $ref: '#/components/schemas/DynatraceProjectSettings'
-      required:
-      - edgeDB
-      - optIn
-      - sdkTypeVisibility
-      - lifeCycle
-      - obfuscation
-      - featureApprovalWorkflow
-      - disablePassthroughRollouts
-      - staleness
-      - dynatrace
     Project:
       type: object
       properties:
@@ -259,6 +146,13 @@ components:
       - hasUserConfigFetch
       - jiraBaseUrl
       - readonly
+    ReleasedStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
     StalenessEmailSettings:
       type: object
       properties:
@@ -282,59 +176,6 @@ components:
       - frequency
       - users
       - lastNotification
-    EdgeDBSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    ColorSettings:
-      type: object
-      properties:
-        primary:
-          type: string
-        secondary:
-          type: string
-      required:
-      - primary
-      - secondary
-    UnmodifiedShortStalenessSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    UnusedStalenessSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    ReleasedStalenessSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-      required:
-      - enabled
-    FeatureApprovalWorkflowSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        allowPublisherBypass:
-          type: boolean
-        defaultReviewers:
-          type: array
-          items:
-            type: string
-      required:
-      - enabled
-      - allowPublisherBypass
-      - defaultReviewers
     OptInSettings:
       type: object
       properties:
@@ -357,15 +198,33 @@ components:
       - imageURL
       - colors
       - poweredByAlignment
-    DynatraceIntegration:
+    UnmodifiedLongStalenessSettings:
       type: object
       properties:
-        environments:
-          type: array
-          items:
-            $ref: '#/components/schemas/DynatraceEnvironment'
+        enabled:
+          type: boolean
       required:
-      - environments
+      - enabled
+    VercelEdgeConfigConnection:
+      type: object
+      properties:
+        edgeConfigName:
+          type: string
+        configurationId:
+          type: string
+      required:
+      - edgeConfigName
+      - configurationId
+    DynatraceProjectSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        environmentMap:
+          type: object
+      required:
+      - enabled
+      - environmentMap
     StalenessSettings:
       type: object
       properties:
@@ -388,3 +247,144 @@ components:
       - unmodifiedShort
       - unused
       - email
+    CreateDynatraceIntegrationDto:
+      type: object
+      properties:
+        dynatraceEnvironmentId:
+          type: string
+        accessToken:
+          type: string
+        environmentUrl:
+          type: string
+      required:
+      - dynatraceEnvironmentId
+      - accessToken
+      - environmentUrl
+    DynatraceIntegration:
+      type: object
+      properties:
+        environments:
+          type: array
+          items:
+            $ref: '#/components/schemas/DynatraceEnvironment'
+      required:
+      - environments
+    UnusedStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    ColorSettings:
+      type: object
+      properties:
+        primary:
+          type: string
+        secondary:
+          type: string
+      required:
+      - primary
+      - secondary
+    LifeCycleSettings:
+      type: object
+      properties:
+        disableCodeRefChecks:
+          type: boolean
+      required:
+      - disableCodeRefChecks
+    DynatraceEnvironment:
+      type: object
+      properties:
+        dynatraceEnvironmentId:
+          type: string
+        accessToken:
+          type: string
+        environmentUrl:
+          type: string
+        projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/Project'
+      required:
+      - dynatraceEnvironmentId
+      - accessToken
+      - environmentUrl
+      - projects
+    ObfuscationSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        required:
+          type: boolean
+      required:
+      - enabled
+      - required
+    UnmodifiedShortStalenessSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    FeatureApprovalWorkflowSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        allowPublisherBypass:
+          type: boolean
+        defaultReviewers:
+          type: array
+          items:
+            type: string
+      required:
+      - enabled
+      - allowPublisherBypass
+      - defaultReviewers
+    EdgeDBSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+      required:
+      - enabled
+    SDKTypeVisibilitySettings:
+      type: object
+      properties:
+        enabledInFeatureSettings:
+          type: boolean
+      required:
+      - enabledInFeatureSettings
+    ProjectSettings:
+      type: object
+      properties:
+        edgeDB:
+          $ref: '#/components/schemas/EdgeDBSettings'
+        optIn:
+          $ref: '#/components/schemas/OptInSettings'
+        sdkTypeVisibility:
+          $ref: '#/components/schemas/SDKTypeVisibilitySettings'
+        lifeCycle:
+          $ref: '#/components/schemas/LifeCycleSettings'
+        obfuscation:
+          $ref: '#/components/schemas/ObfuscationSettings'
+        featureApprovalWorkflow:
+          $ref: '#/components/schemas/FeatureApprovalWorkflowSettings'
+        disablePassthroughRollouts:
+          type: boolean
+        staleness:
+          $ref: '#/components/schemas/StalenessSettings'
+        dynatrace:
+          $ref: '#/components/schemas/DynatraceProjectSettings'
+      required:
+      - edgeDB
+      - optIn
+      - sdkTypeVisibility
+      - lifeCycle
+      - obfuscation
+      - featureApprovalWorkflow
+      - disablePassthroughRollouts
+      - staleness
+      - dynatrace
