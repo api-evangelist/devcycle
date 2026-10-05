@@ -1,0 +1,12 @@
+{
+ "url": "https://bucketing-api.devcycle.com/openapi.yaml",
+ "requested_url": "https://bucketing-api.devcycle.com/openapi.yaml",
+ "status": 200,
+ "content_type": "text/yaml",
+ "bytes": 29918,
+ "sha256": "3558499a9463ca38f30cd6eed2168bba246834582f1b0ab8989a36eb68c5c99e",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
