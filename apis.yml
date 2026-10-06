@@ -37,7 +37,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-09-16'
+modified: '2026-10-06'
 image: https://devcycle.com/social-default.png
 x-docs-platform: docusaurus
 x-docs-platform-confidence: medium
@@ -418,6 +418,8 @@ apis:
   - type: Documentation
     url: https://docs.devcycle.com/bucketing-api/
 common:
+- url: https://blog.devcycle.com/rss/
+  type: BlogRSS
 - type: CapabilityMap
   url: capabilities/devcycle-capability-edges.yml
   name: DevCycle Business Capability Map
