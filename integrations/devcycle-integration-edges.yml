@@ -3,6 +3,7 @@ method: searched
 checked:
 - datadog/integrations/datadog-integration-edges.yml
 - https://github.com/marketplace?type=actions
+- https://registry.modelcontextprotocol.io/v0/servers
 marketplace_apps: []
 edges:
 - partner_name: GitHub Marketplace (actions)
@@ -23,6 +24,38 @@ edges:
   - Verified creator
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: MCP Registry
+  partner: mcp
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://registry.modelcontextprotocol.io/v0/servers?search=com.devcycle
+  contract_reference:
+    register: registry.modelcontextprotocol.io
+    spec_file: null
+    role: mcp-server-listing
+    registered_name: com.devcycle/mcp
+    register_id: com.devcycle/mcp
+    detected_by: sweep-agent-tools.py
+    detected: '2026-10-14'
+  mcp_registry:
+    servers:
+    - com.devcycle/mcp
+    hosted_remote: 1
+    local_package: 0
+    transports:
+      sse: 1
+      streamable-http: 1
+    auth_declared: 0
+    catalog_declared: true
+    namespace_domains:
+    - devcycle.com
+  matched_by:
+  - namespace-domain
+  detected_by: sweep-agent-tools.py
+  first_seen: '2026-10-14'
 - partner_name: Datadog (own)
   partner: datadog
   partner_match: mirror
