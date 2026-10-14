@@ -15,3 +15,16 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: devcycle-datadog-own
+  label: Datadog (own)
+  partner: datadog
+  partner_name: Datadog (own)
+  category: Configuration & Deployment
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/DataDog/integrations-extras/tree/master/devcycle
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

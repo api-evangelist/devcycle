@@ -1,6 +1,7 @@
 generated: '2026-10-14'
 method: searched
 checked:
+- datadog/integrations/datadog-integration-edges.yml
 - https://github.com/marketplace?type=actions
 marketplace_apps: []
 edges:
@@ -22,5 +23,22 @@ edges:
   - Verified creator
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
+- partner_name: Datadog (own)
+  partner: datadog
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/DataDog/integrations-extras/tree/master/devcycle
+  mirror_of: datadog/integrations/datadog-integration-edges.yml
+  apps:
+  - DevCycle
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Configuration & Deployment
 source:
 - https://github.com/marketplace?type=actions
