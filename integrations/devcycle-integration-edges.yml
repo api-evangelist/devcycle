@@ -1,0 +1,26 @@
+generated: '2026-10-14'
+method: searched
+checked:
+- https://github.com/marketplace?type=actions
+marketplace_apps: []
+edges:
+- partner_name: GitHub Marketplace (actions)
+  partner: github-actions
+  partner_match: aggregator
+  type: marketplace
+  marketplace: github-actions
+  channel: partner-built
+  relationship: platform-app
+  direction: third-party
+  evidence: https://github.com/marketplace/actions/devcycle-feature-flag-insights-for-pull-requests
+  listing_count: 2
+  apps:
+  - DevCycle Feature Flag Insights for Pull Requests
+  - DevCycle Feature Flag Code Usages
+  publisher_name: DevCycle
+  badges:
+  - Verified creator
+  detected_by: sweep-devtools.py
+  detected: '2026-10-14'
+source:
+- https://github.com/marketplace?type=actions
