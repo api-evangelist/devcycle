@@ -216,19 +216,24 @@ paths:
       - Results
 components:
   schemas:
-    ProjectDataPoint:
+    ResultsWithProjectData:
       type: object
       properties:
-        date:
-          format: date-time
-          type: string
-          description: Date of this datapoint
-        value:
-          type: number
-          description: Number of variable evaluations across the whole project for this data point, grouped by user
+        evaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectDataPoint'
       required:
-      - date
-      - value
+      - evaluations
+    ResultWithFeatureData:
+      type: object
+      properties:
+        evaluations:
+          type: array
+          items:
+            $ref: '#/components/schemas/FeatureDataPoint'
+      required:
+      - evaluations
     ResultProjectEvaluationsByHourDto:
       type: object
       properties:
@@ -274,21 +279,16 @@ components:
       - result
       - cached
       - updatedAt
-    ResultsWithProjectData:
+    ProjectDataPoint:
       type: object
       properties:
-        evaluations:
-          type: array
-          items:
-            $ref: '#/components/schemas/ProjectDataPoint'
+        date:
+          format: date-time
+          type: string
+          description: Date of this datapoint
+        value:
+          type: number
+          description: Number of variable evaluations across the whole project for this data point, grouped by user
       required:
-      - evaluations
-    ResultWithFeatureData:
-      type: object
-      properties:
-        evaluations:
-          type: array
-          items:
-            $ref: '#/components/schemas/FeatureDataPoint'
-      required:
-      - evaluations
+      - date
+      - value

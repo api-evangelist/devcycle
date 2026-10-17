@@ -343,47 +343,19 @@ paths:
       - Feature Change Requests
 components:
   schemas:
-    CreateFeatureChangeRequestDto:
-      type: object
-      properties:
-        path:
-          type: string
-        method:
-          type: string
-          enum:
-          - PATCH
-        body:
-          type: object
-      required:
-      - path
-      - method
-      - body
-    ReviewFeatureChangeRequestDto:
-      type: object
-      properties:
-        action:
-          type: string
-          enum:
-          - approved
-          - rejected
-        comment:
-          type: string
-      required:
-      - action
-      - comment
-    ApplyFeatureChangeRequestDto:
+    SubmitFeatureChangeRequestDto:
       type: object
       properties:
         description:
           type: string
           maxLength: 1000
-        action:
-          type: string
-          enum:
-          - applied
+        reviewers:
+          type: array
+          items:
+            type: string
       required:
       - description
-      - action
+      - reviewers
     NotFoundErrorResponse:
       type: object
       properties:
@@ -403,9 +375,25 @@ components:
       - statusCode
       - message
       - error
+    Reviewers:
+      type: object
+      properties: {}
     ReviewReason:
       type: object
       properties: {}
+    ApplyFeatureChangeRequestDto:
+      type: object
+      properties:
+        description:
+          type: string
+          maxLength: 1000
+        action:
+          type: string
+          enum:
+          - applied
+      required:
+      - description
+      - action
     FeatureChangeRequest:
       type: object
       properties:
@@ -482,19 +470,31 @@ components:
       - reviewers
       - reviews
       - _createdBy
-    Reviewers:
-      type: object
-      properties: {}
-    SubmitFeatureChangeRequestDto:
+    CreateFeatureChangeRequestDto:
       type: object
       properties:
-        description:
+        path:
           type: string
-          maxLength: 1000
-        reviewers:
-          type: array
-          items:
-            type: string
+        method:
+          type: string
+          enum:
+          - PATCH
+        body:
+          type: object
       required:
-      - description
-      - reviewers
+      - path
+      - method
+      - body
+    ReviewFeatureChangeRequestDto:
+      type: object
+      properties:
+        action:
+          type: string
+          enum:
+          - approved
+          - rejected
+        comment:
+          type: string
+      required:
+      - action
+      - comment

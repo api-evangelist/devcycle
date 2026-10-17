@@ -368,95 +368,6 @@ paths:
                 $ref: '#/components/schemas/CannotDeleteLastItemErrorResponse'
 components:
   schemas:
-    SDKKeys:
-      type: object
-      properties:
-        mobile:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-        client:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-        server:
-          type: array
-          items:
-            $ref: '#/components/schemas/APIKey'
-      required:
-      - mobile
-      - client
-      - server
-    EnvironmentSettings:
-      type: object
-      properties:
-        appIconURI:
-          type: string
-          description: A unique App Icon URI for a given environment
-          maxLength: 2048
-    CannotDeleteLastItemErrorResponse:
-      type: object
-      properties:
-        statusCode:
-          type: number
-          description: Response status code
-          example: 405
-        message:
-          type: object
-          description: Error details
-          example: Cannot DELETE last item
-        error:
-          type: string
-          description: Error type
-          example: Method Not Allowed
-      required:
-      - statusCode
-      - message
-      - error
-    UpdateEnvironmentDto:
-      type: object
-      properties:
-        name:
-          type: string
-          description: A unique display name
-          example: Staging Upcoming
-          maxLength: 100
-          minLength: 1
-        key:
-          type: string
-          description: 'Unique Environment identifier, can be used in the SDK / API to reference by key rather than ID.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: staging-upcoming
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        description:
-          type: string
-          description: Environment description.
-          example: Pre-production changes
-          maxLength: 1000
-        color:
-          type: string
-          description: 'Environment display color, used to highlight different environments on the dashboard.
-
-            Must use Hex color code.'
-          example: '#4073FF'
-          maxLength: 9
-          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
-        type:
-          description: The environment type
-          example: staging
-          enum:
-          - development
-          - staging
-          - production
-          - disaster_recovery
-          type: string
-        settings:
-          description: Environment based settings
-          allOf:
-          - $ref: '#/components/schemas/EnvironmentSettings'
     NotFoundErrorResponse:
       type: object
       properties:
@@ -476,35 +387,25 @@ components:
       - statusCode
       - message
       - error
-    BadRequestErrorResponse:
+    CannotDeleteLastItemErrorResponse:
       type: object
       properties:
         statusCode:
           type: number
           description: Response status code
-          example: 400
+          example: 405
         message:
           type: object
           description: Error details
-          example:
-          - key should not be empty
+          example: Cannot DELETE last item
         error:
           type: string
           description: Error type
-          example: Bad Request
+          example: Method Not Allowed
       required:
       - statusCode
       - message
       - error
-    GenerateSdkTokensDto:
-      type: object
-      properties:
-        client:
-          type: boolean
-        server:
-          type: boolean
-        mobile:
-          type: boolean
     ConflictErrorResponse:
       type: object
       properties:
@@ -528,54 +429,45 @@ components:
       - message
       - error
       - errorType
-    CreateEnvironmentDto:
+    APIKey:
+      type: object
+      properties: {}
+    EnvironmentSettings:
       type: object
       properties:
-        name:
+        appIconURI:
           type: string
-          description: A unique display name
-          example: Staging Upcoming
-          maxLength: 100
-          minLength: 1
-        key:
+          description: A unique App Icon URI for a given environment
+          maxLength: 2048
+    GenerateSdkTokensDto:
+      type: object
+      properties:
+        client:
+          type: boolean
+        server:
+          type: boolean
+        mobile:
+          type: boolean
+    BadRequestErrorResponse:
+      type: object
+      properties:
+        statusCode:
+          type: number
+          description: Response status code
+          example: 400
+        message:
+          type: object
+          description: Error details
+          example:
+          - key should not be empty
+        error:
           type: string
-          description: 'Unique Environment identifier, can be used in the SDK / API to reference by key rather than ID.
-
-            Must only contain lower-case characters and `_`, `-` or `.`.'
-          example: staging-upcoming
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        description:
-          type: string
-          description: Environment description.
-          example: Pre-production changes
-          maxLength: 1000
-        color:
-          type: string
-          description: 'Environment display color, used to highlight different environments on the dashboard.
-
-            Must use Hex color code.'
-          example: '#4073FF'
-          maxLength: 9
-          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
-        type:
-          type: string
-          description: The environment type
-          example: staging
-          enum:
-          - development
-          - staging
-          - production
-          - disaster_recovery
-        settings:
-          description: Environment based settings
-          allOf:
-          - $ref: '#/components/schemas/EnvironmentSettings'
+          description: Error type
+          example: Bad Request
       required:
-      - name
-      - key
-      - type
+      - statusCode
+      - message
+      - error
     Environment:
       type: object
       properties:
@@ -657,6 +549,114 @@ components:
       - createdAt
       - updatedAt
       - readonly
-    APIKey:
+    CreateEnvironmentDto:
       type: object
-      properties: {}
+      properties:
+        name:
+          type: string
+          description: A unique display name
+          example: Staging Upcoming
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Unique Environment identifier, can be used in the SDK / API to reference by key rather than ID.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: staging-upcoming
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Environment description.
+          example: Pre-production changes
+          maxLength: 1000
+        color:
+          type: string
+          description: 'Environment display color, used to highlight different environments on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+        type:
+          type: string
+          description: The environment type
+          example: staging
+          enum:
+          - development
+          - staging
+          - production
+          - disaster_recovery
+        settings:
+          description: Environment based settings
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentSettings'
+      required:
+      - name
+      - key
+      - type
+    SDKKeys:
+      type: object
+      properties:
+        mobile:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        client:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+        server:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+      required:
+      - mobile
+      - client
+      - server
+    UpdateEnvironmentDto:
+      type: object
+      properties:
+        name:
+          type: string
+          description: A unique display name
+          example: Staging Upcoming
+          maxLength: 100
+          minLength: 1
+        key:
+          type: string
+          description: 'Unique Environment identifier, can be used in the SDK / API to reference by key rather than ID.
+
+            Must only contain lower-case characters and `_`, `-` or `.`.'
+          example: staging-upcoming
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        description:
+          type: string
+          description: Environment description.
+          example: Pre-production changes
+          maxLength: 1000
+        color:
+          type: string
+          description: 'Environment display color, used to highlight different environments on the dashboard.
+
+            Must use Hex color code.'
+          example: '#4073FF'
+          maxLength: 9
+          pattern: ^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$
+        type:
+          description: The environment type
+          example: staging
+          enum:
+          - development
+          - staging
+          - production
+          - disaster_recovery
+          type: string
+        settings:
+          description: Environment based settings
+          allOf:
+          - $ref: '#/components/schemas/EnvironmentSettings'

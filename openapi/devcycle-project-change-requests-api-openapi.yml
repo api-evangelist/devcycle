@@ -105,24 +105,6 @@ paths:
       - Project Change Requests
 components:
   schemas:
-    FeatureDetails:
-      type: object
-      properties:
-        key:
-          type: string
-          minLength: 1
-          maxLength: 100
-          pattern: ^[a-z0-9-_.]+$
-        name:
-          type: string
-          maxLength: 100
-          minLength: 1
-        id:
-          type: string
-      required:
-      - key
-      - name
-      - id
     NotFoundErrorResponse:
       type: object
       properties:
@@ -142,9 +124,6 @@ components:
       - statusCode
       - message
       - error
-    ReviewReason:
-      type: object
-      properties: {}
     FeatureChangeRequestSummary:
       type: object
       properties:
@@ -219,3 +198,24 @@ components:
     Reviewers:
       type: object
       properties: {}
+    ReviewReason:
+      type: object
+      properties: {}
+    FeatureDetails:
+      type: object
+      properties:
+        key:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[a-z0-9-_.]+$
+        name:
+          type: string
+          maxLength: 100
+          minLength: 1
+        id:
+          type: string
+      required:
+      - key
+      - name
+      - id

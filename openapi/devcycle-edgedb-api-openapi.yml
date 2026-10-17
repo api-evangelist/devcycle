@@ -66,14 +66,6 @@ components:
           description: Additional error information detailing the error reasoning
       required:
       - message
-    EdgeDBApiResponse:
-      type: object
-      properties:
-        message:
-          description: Response message of the request
-          type: string
-      required:
-      - message
     UserDataEdgeDB:
       type: object
       properties:
@@ -104,9 +96,17 @@ components:
           type: number
       required:
       - user_id
+    EdgeDBApiResponse:
+      type: object
+      properties:
+        message:
+          description: Response message of the request
+          type: string
+      required:
+      - message
   responses:
-    BadRequest:
-      description: Bad Request
+    InternalServerError:
+      description: Internal Server Error
       content:
         application/json:
           schema:
@@ -117,14 +117,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    InternalServerError:
-      description: Internal Server Error
+    UnauthorizedError:
+      description: Missing 'sdkKey' query parameter or 'Authorization' header
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-    UnauthorizedError:
-      description: Missing 'sdkKey' query parameter or 'Authorization' header
+    BadRequest:
+      description: Bad Request
       content:
         application/json:
           schema:
