@@ -119,3 +119,211 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: devcycle-go-module-proxy
+  label: Go module proxy
+  partner_name: Go module proxy
+  category: official SDK (Go)
+  type: register
+  channel: package-registry
+  evidence: https://pkg.go.dev/github.com/devcyclehq/go-server-sdk/v2
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Go module proxy (public registry JSON)
+    spec_file: null
+    language: Go
+    packages:
+    - name: github.com/devcyclehq/go-server-sdk/v2
+      version: v2.25.0
+      released: '2026-10-07'
+      released_field: Time
+      lapsed: false
+      page: https://pkg.go.dev/github.com/devcyclehq/go-server-sdk/v2
+      repo_leg: github-org:devcyclehq
+      publisher_leg: org:devcyclehq
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: devcycle-maven-central
+  label: Maven Central
+  partner: maven-central
+  partner_name: Maven Central
+  category: official SDK (Java/JVM)
+  type: register
+  channel: package-registry
+  evidence: https://central.sonatype.com/artifact/com.devcycle/java-server-sdk
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.devcycle:java-server-sdk
+      version: 2.10.0
+      released: '2026-10-08'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.devcycle/java-server-sdk
+      repo_leg: domain:devcycle.com
+      publisher_leg: groupId:devcycle.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: devcycle-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/@devcycle/cli
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@devcycle/cli'
+      version: 6.6.1
+      released: '2026-10-14'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@devcycle/cli
+      repo_leg: github-org:devcyclehq
+      publisher_leg: email:devcycle.com
+      matched_by: domain
+    - name: '@devcycle/js-client-sdk'
+      version: 1.47.13
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@devcycle/js-client-sdk
+      repo_leg: domain:devcycle.com
+      publisher_leg: email:devcycle.com
+      matched_by: domain
+    - name: '@devcycle/nestjs-server-sdk'
+      version: 0.34.1
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@devcycle/nestjs-server-sdk
+      repo_leg: domain:devcycle.com
+      publisher_leg: email:devcycle.com
+      matched_by: domain
+    - name: '@devcycle/nodejs-server-sdk'
+      version: 1.56.1
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@devcycle/nodejs-server-sdk
+      repo_leg: domain:devcycle.com
+      publisher_leg: email:devcycle.com
+      matched_by: domain
+    - name: '@devcycle/openfeature-web-provider'
+      version: 1.12.13
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@devcycle/openfeature-web-provider
+      repo_leg: domain:devcycle.com
+      publisher_leg: email:devcycle.com
+      matched_by: domain
+    - name: '@devcycle/react-client-sdk'
+      version: 1.45.13
+      released: '2026-10-13'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@devcycle/react-client-sdk
+      repo_leg: domain:devcycle.com
+      publisher_leg: email:devcycle.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: devcycle-nuget-gallery
+  label: NuGet Gallery
+  partner: nuget
+  partner_name: NuGet Gallery
+  category: official SDK (.NET)
+  type: register
+  channel: package-registry
+  evidence: https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: NuGet Gallery (public registry JSON)
+    spec_file: null
+    language: .NET
+    packages:
+    - name: DevCycle.SDK.Server.Cloud
+      version: 3.10.0
+      released: '2026-10-08'
+      released_field: published
+      lapsed: false
+      page: https://www.nuget.org/packages/DevCycle.SDK.Server.Cloud
+      repo_leg: github-org:devcyclehq
+      publisher_leg: org:devcycle
+      matched_by: github-org
+    - name: DevCycle.SDK.Server.Local
+      version: 4.10.0
+      released: '2026-10-08'
+      released_field: published
+      lapsed: false
+      page: https://www.nuget.org/packages/DevCycle.SDK.Server.Local
+      repo_leg: github-org:devcyclehq
+      publisher_leg: org:devcycle
+      matched_by: github-org
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: devcycle-rubygems
+  label: RubyGems
+  partner: rubygems
+  partner_name: RubyGems
+  category: official SDK (Ruby)
+  type: register
+  channel: package-registry
+  evidence: https://rubygems.org/gems/devcycle-ruby-server-sdk
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: RubyGems (public registry JSON)
+    spec_file: null
+    language: Ruby
+    packages:
+    - name: devcycle-ruby-server-sdk
+      version: 3.9.0
+      released: '2026-10-08'
+      released_field: version_created_at
+      lapsed: false
+      page: https://rubygems.org/gems/devcycle-ruby-server-sdk
+      repo_leg: domain:devcycle.com
+      publisher_leg: email:devcycle.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
