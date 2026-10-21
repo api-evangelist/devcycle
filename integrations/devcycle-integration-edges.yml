@@ -3,13 +3,8 @@ method: searched
 checked:
 - datadog/integrations/datadog-integration-edges.yml
 - https://api.nuget.org/v3
-- https://cdn.winget.microsoft.com/cache
 - https://crates.io/api/v1
 - https://focus.finops.org/data-generators/
-- https://formulae.brew.sh/api/cask.json
-- https://formulae.brew.sh/api/formula.json
-- https://github.com/ScoopInstaller/Extras
-- https://github.com/ScoopInstaller/Main
 - https://github.com/cncf/k8s-conformance
 - https://github.com/cncf/landscape
 - https://github.com/marketplace?type=actions
@@ -21,6 +16,12 @@ checked:
 - https://rubygems.org/api/v1
 - https://zapier.com/api/v4/apps/
 - slack/integrations/slack-integration-edges.yml
+- https://cdn.winget.microsoft.com/cache
+- https://formulae.brew.sh/api/cask.json
+- https://formulae.brew.sh/api/formula.json
+- https://github.com/ScoopInstaller/Extras
+- https://github.com/ScoopInstaller/Main
+- vs-code-marketplace/integrations/vs-code-marketplace-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: GitHub Marketplace (actions)
@@ -41,23 +42,6 @@ edges:
   - Verified creator
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
-- partner_name: Datadog (own)
-  partner: datadog
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/DataDog/integrations-extras/tree/master/devcycle
-  mirror_of: datadog/integrations/datadog-integration-edges.yml
-  apps:
-  - DevCycle
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Configuration & Deployment
 - partner_name: Zapier
   partner: zapier
   partner_match: aggregator
@@ -83,23 +67,6 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
-- partner_name: Slack (own)
-  partner: slack
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://slack.com/marketplace/A03302R6LJK-devcycle
-  mirror_of: slack/integrations/slack-integration-edges.yml
-  apps:
-  - DevCycle
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Slack app
 - partner_name: Go module proxy
   partner: null
   partner_match: null
@@ -399,5 +366,59 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-official-clis.py
   first_seen: '2026-10-20'
+- partner_name: Datadog (own)
+  partner: datadog
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/DataDog/integrations-extras/tree/master/devcycle
+  mirror_of: datadog/integrations/datadog-integration-edges.yml
+  apps:
+  - DevCycle
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Configuration & Deployment
+- partner_name: Slack (own)
+  partner: slack
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://slack.com/marketplace/A03302R6LJK-devcycle
+  mirror_of: slack/integrations/slack-integration-edges.yml
+  apps:
+  - DevCycle
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Slack app
+- partner_name: VS Code Marketplace (vs-code-marketplace)
+  partner: vs-code-marketplace
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: vs-code-marketplace
+  evidence: https://marketplace.visualstudio.com/publishers/DevCycle
+  mirror_of: vs-code-marketplace/integrations/vs-code-marketplace-integration-edges.yml
+  apps:
+  - DevCycle Feature Flags
+  listing_count: 1
+  detected: '2026-10-20'
+  detected_by: mirror-platform-listings.py
+  category: IDE / developer extension marketplace listing
+  badges:
+  - Verified publisher
+  - Verified domain
 source:
 - https://github.com/marketplace?type=actions

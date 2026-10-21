@@ -15,19 +15,6 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
-- slug: devcycle-datadog-own
-  label: Datadog (own)
-  partner: datadog
-  partner_name: Datadog (own)
-  category: Configuration & Deployment
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://github.com/DataDog/integrations-extras/tree/master/devcycle
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: devcycle-zapier
   label: Zapier
   partner: zapier
@@ -51,19 +38,6 @@
     app_slug: devcycle
     beta: false
     builder: unknown (not in the directory record)
-  status: not-a-workflow
-  arazzo: null
-- slug: devcycle-slack-own
-  label: Slack (own)
-  partner: slack
-  partner_name: Slack (own)
-  category: Slack app
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://slack.com/marketplace/A03302R6LJK-devcycle
-  source: edge
-  relationship: platform-app
   status: not-a-workflow
   arazzo: null
 - slug: devcycle-go-module-proxy
@@ -325,5 +299,44 @@
       categories, tier and projects are CONTEXT, never read (breadth is not credit)'
     detected_by: sweep-cloud-native.py
     detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: devcycle-datadog-own
+  label: Datadog (own)
+  partner: datadog
+  partner_name: Datadog (own)
+  category: Configuration & Deployment
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://github.com/DataDog/integrations-extras/tree/master/devcycle
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: devcycle-slack-own
+  label: Slack (own)
+  partner: slack
+  partner_name: Slack (own)
+  category: Slack app
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://slack.com/marketplace/A03302R6LJK-devcycle
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: devcycle-vs-code-marketplace-vs-code-marketplace
+  label: VS Code Marketplace (vs-code-marketplace)
+  partner: vs-code-marketplace
+  partner_name: VS Code Marketplace (vs-code-marketplace)
+  category: IDE / developer extension marketplace listing
+  type: marketplace
+  marketplace: vs-code-marketplace
+  channel: partner-built
+  evidence: https://marketplace.visualstudio.com/publishers/DevCycle
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
