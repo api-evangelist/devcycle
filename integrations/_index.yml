@@ -416,3 +416,43 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: devcycle-cve-program-cve-numbering-authorities
+  label: CVE Program (CVE Numbering Authorities)
+  partner_name: CVE Program (CVE Numbering Authorities)
+  category: Vulnerability disclosure (CVE Numbering Authority)
+  type: register
+  channel: standard-directory
+  evidence: https://www.cve.org/PartnerInformation/ListofPartners/partner/DevCycle
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: CVE Program CNA list (github.com/CVEProject/cve-website CNAsList.json @ 239d3d9b68e0)
+    standard: CVE Program CNA Operational Rules (CVE Numbering Authority)
+    spec_file: null
+    role: cve-numbering-authority
+    registered_name: DevCycle
+    matched_domain: devcycle.com
+    matched_by: domain
+    cna_id: CNA-2024-0017
+    cna_short_name: DevCycle
+    cna_types:
+    - Vendor
+    - Hosted Service
+    - Open Source
+    cna_roles:
+    - CNA
+    scope: All DevCycle products (including end-of-life/end-of-service products) as listed on <a href='https://devcycle.com/'
+      target='_blank'>https://devcycle.com/</a>.
+    top_level_root: MITRE Corporation
+    root: n/a
+    security_advisories:
+    - https://github.com/DevCycleHQ/.github/blob/main/.github/SECURITY.md#previous-vulnerabilities-reported
+    disclosure_policy:
+    - https://github.com/DevCycleHQ/.github/blob/main/.github/SECURITY.md
+    country: Canada
+    signal_note: listing as a CVE Numbering Authority = participation (a public commitment to assign CVE IDs and
+      publish advisories for its scope); never a count of CVEs
+    detected_by: sweep-vulnerability-disclosure-cna.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null

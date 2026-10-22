@@ -32,6 +32,9 @@ checked:
 - https://github.com/partners/technology-partners
 - https://partner.github.com/
 - vercel/integrations/vercel-integration-edges.yml
+- https://api.first.org/data/v1/teams
+- https://raw.githubusercontent.com/CVEProject/cve-website/dev/src/assets/data/CNAsList.json
+- https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json
 marketplace_apps: []
 edges:
 - partner_name: GitHub Marketplace (actions)
@@ -523,5 +526,45 @@ edges:
   detected_by: mirror-platform-listings.py
   category: Analytics
   partner_tier: third-party
+- partner_name: CVE Program (CVE Numbering Authorities)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.cve.org/PartnerInformation/ListofPartners/partner/DevCycle
+  category: Vulnerability disclosure (CVE Numbering Authority)
+  contract_reference:
+    register: CVE Program CNA list (github.com/CVEProject/cve-website CNAsList.json @ 239d3d9b68e0)
+    standard: CVE Program CNA Operational Rules (CVE Numbering Authority)
+    spec_file: null
+    role: cve-numbering-authority
+    registered_name: DevCycle
+    matched_domain: devcycle.com
+    matched_by: domain
+    cna_id: CNA-2024-0017
+    cna_short_name: DevCycle
+    cna_types:
+    - Vendor
+    - Hosted Service
+    - Open Source
+    cna_roles:
+    - CNA
+    scope: All DevCycle products (including end-of-life/end-of-service products) as listed on <a href='https://devcycle.com/'
+      target='_blank'>https://devcycle.com/</a>.
+    top_level_root: MITRE Corporation
+    root: n/a
+    security_advisories:
+    - https://github.com/DevCycleHQ/.github/blob/main/.github/SECURITY.md#previous-vulnerabilities-reported
+    disclosure_policy:
+    - https://github.com/DevCycleHQ/.github/blob/main/.github/SECURITY.md
+    country: Canada
+    signal_note: listing as a CVE Numbering Authority = participation (a public commitment to assign CVE IDs and
+      publish advisories for its scope); never a count of CVEs
+    detected_by: sweep-vulnerability-disclosure-cna.py
+    detected: '2026-10-22'
+  detected_by: sweep-vulnerability-disclosure-cna.py
+  first_seen: '2026-10-22'
 source:
 - https://github.com/marketplace?type=actions
