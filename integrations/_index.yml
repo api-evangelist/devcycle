@@ -301,6 +301,43 @@
     detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
+- slug: devcycle-github-secret-scanning-partner-program
+  label: GitHub secret scanning partner program
+  partner: github
+  partner_name: GitHub secret scanning partner program
+  category: GitHub platform partnership (security)
+  type: register
+  channel: standard-directory
+  evidence: https://docs.github.com/en/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: GitHub secret scanning partner program (docs.github.com supported-secret-scanning-patterns, 'Partner'
+      column = isPublic in the page's own pattern data)
+    standard: GitHub secret scanning partner program
+    spec_file: null
+    role: secret-scanning-partner
+    registered_name: DevCycle
+    register_id: https://docs.github.com/en/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns
+    matched_domain: null
+    matched_by: register-name
+    register_name_note: register-name 'devcycle' = devcycle; no wikidata P856
+    token_types:
+    - devcycle_client_api_key
+    - devcycle_mobile_api_key
+    - devcycle_server_api_key
+    context:
+      push_protection: 3
+      validity_check: 0
+    signal_note: 'participation only: GitHub notifies the provider when its token leaks publicly (the provider runs
+      a verification endpoint for the programme); token types and counts are context, never counted'
+    detected_by: sweep-github-marketplace.py
+    detected: '2026-10-21'
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  status: not-a-workflow
+  arazzo: null
 - slug: devcycle-datadog-own
   label: Datadog (own)
   partner: datadog
@@ -366,40 +403,16 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
-- slug: devcycle-github-secret-scanning-partner-program
-  label: GitHub secret scanning partner program
-  partner: github
-  partner_name: GitHub secret scanning partner program
-  category: GitHub platform partnership (security)
-  type: register
-  channel: standard-directory
-  evidence: https://docs.github.com/en/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns
+- slug: devcycle-vercel-own
+  label: Vercel (own)
+  partner: vercel
+  partner_name: Vercel (own)
+  category: Analytics
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://vercel.com/marketplace/devcycle
   source: edge
-  relationship: standard-participant
-  contract_reference:
-    register: GitHub secret scanning partner program (docs.github.com supported-secret-scanning-patterns, 'Partner'
-      column = isPublic in the page's own pattern data)
-    standard: GitHub secret scanning partner program
-    spec_file: null
-    role: secret-scanning-partner
-    registered_name: DevCycle
-    register_id: https://docs.github.com/en/code-security/reference/secret-security/supported-secret-scanning-patterns#supported-provider-patterns
-    matched_domain: null
-    matched_by: register-name
-    register_name_note: register-name 'devcycle' = devcycle; no wikidata P856
-    token_types:
-    - devcycle_client_api_key
-    - devcycle_mobile_api_key
-    - devcycle_server_api_key
-    context:
-      push_protection: 3
-      validity_check: 0
-    signal_note: 'participation only: GitHub notifies the provider when its token leaks publicly (the provider runs
-      a verification endpoint for the programme); token types and counts are context, never counted'
-    detected_by: sweep-github-marketplace.py
-    detected: '2026-10-21'
-    identity_source: register-name
-    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
-      P856 not contradicting (Kin 2026-10-20 decision 2)
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
