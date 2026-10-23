@@ -135,3 +135,9 @@ components:
       in: header
       name: Authorization
       description: Enter your DevCycle SDK token
+x-provenance:
+  method: harvested
+  publisher: DevCycle
+  source: https://bucketing-api.devcycle.com/openapi.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

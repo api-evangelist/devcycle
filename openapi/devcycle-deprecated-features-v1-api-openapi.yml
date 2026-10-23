@@ -2110,3 +2110,9 @@ components:
           format: date-time
           type: string
           description: Timestamp when the custom status was last updated
+x-provenance:
+  method: harvested
+  publisher: DevCycle
+  source: https://api.devcycle.com/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
